@@ -1,0 +1,31 @@
+﻿namespace Rhino2Midas.Core.Attributes
+{
+    public class NodeSupportModel
+    {
+        public bool Dx { get; set; }
+
+        public bool Dy { get; set; }
+
+        public bool Dz { get; set; }
+
+        public bool Mx { get; set; }
+
+        public bool My { get; set; }
+
+        public bool Mz { get; set; }
+
+        public NodeSupportModel(bool dx, bool dy, bool dz, bool mx, bool my, bool mz)
+        {
+            Dx = dx;
+            Dy = dy;
+            Dz = dz;
+            Mx = mx;
+            My = my;
+            Mz = mz;
+        }
+
+        public NodeSupportModel()
+        {
+        }
+    }
+}

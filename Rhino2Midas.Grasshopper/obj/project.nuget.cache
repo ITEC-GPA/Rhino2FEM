@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "lau7mUvOgj0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\g.pacini\\Desktop\\Project\\Repository\\Rhino2Midas\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\g.pacini\\.nuget\\packages\\grasshopper\\7.36.23346.16351\\grasshopper.7.36.23346.16351.nupkg.sha512",
+    "C:\\Users\\g.pacini\\.nuget\\packages\\grasshopper\\8.0.23304.9001\\grasshopper.8.0.23304.9001.nupkg.sha512",
+    "C:\\Users\\g.pacini\\.nuget\\packages\\rhinocommon\\7.36.23346.16351\\rhinocommon.7.36.23346.16351.nupkg.sha512",
+    "C:\\Users\\g.pacini\\.nuget\\packages\\rhinocommon\\8.0.23304.9001\\rhinocommon.8.0.23304.9001.nupkg.sha512"
+  ],
+  "logs": []
+}
