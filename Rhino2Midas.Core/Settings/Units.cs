@@ -33,12 +33,15 @@
 
         public TemperatureUnitTypes TemperatureUnit { get; set; }
 
-        public ModelUnits(ForceUnitTypes forceUnit, LengthUnitTypes lengthUnit, HeatUnitTypes heatUnit, TemperatureUnitTypes temperatureUnit)
+        public double Tolerance { get; set; }
+
+        public ModelUnits(ForceUnitTypes forceUnit, LengthUnitTypes lengthUnit, HeatUnitTypes heatUnit, TemperatureUnitTypes temperatureUnit, double tolerance)
         {
             ForceUnit = forceUnit;
             LengthUnit = lengthUnit;
             HeatUnit = heatUnit;
             TemperatureUnit = temperatureUnit;
+            Tolerance = tolerance;
         }
 
         public ModelUnits()

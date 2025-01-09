@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Core.Loads;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.Loads
 {
     public class LoadNodalComponent : GH_Component
     {
         public LoadNodalComponent()
-            : base("Load nodal", "Load nodal", "Load nodal", "Rhino2Midas", "Load")
+            : base("Load nodal", "Load nodal", "Load nodal", Helper.Constants.Tabname, Helper.Constants.Loads)
         {
         }
 

@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino2Midas.Core.Cases;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.Cases
 {
     public class LoadFactorComponent : GH_Component
     {
         public LoadFactorComponent()
-            : base("Load factor", "Load factor", "Load factor", "Rhino2Midas", "Load")
+            : base("Load factor", "Load factor", "Load factor", Helper.Constants.Tabname, Helper.Constants.Cases)
         {
         }
 

@@ -18,8 +18,6 @@ namespace Rhino2Midas.Core.Loads
 
         public double MZ { get; set; }
 
-        public double IndexLoadCase { get; set; }
-
         public NodalLoadModel(LoadCaseModel loadCase, double fX, double fY, double fZ, double mX, double mY, double mZ)
         {
             LoadCase = loadCase;

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.Elements
 {
@@ -16,7 +13,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
     {
 
         public AreaElementComponent()
-            : base("Area element", "Area element", "Area element", "Rhino2Midas", "Model")
+            : base("Area element", "Area element", "Area element", Helper.Constants.Tabname, Helper.Constants.Elements)
         {
         }
 

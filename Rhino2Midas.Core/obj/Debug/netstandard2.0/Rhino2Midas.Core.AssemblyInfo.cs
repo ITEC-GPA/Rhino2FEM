@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Rhino2Midas.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05270669ebfb2c31b6bfba3608375b13bfcd543a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Rhino2Midas.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Rhino2Midas.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

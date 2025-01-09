@@ -230,11 +230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\g.pacini\\Desktop\\Project\\Repository\\Rhino2Midas\\Rhino2Midas\\Rhino2Midas.Core\\Rhino2Midas.Core.csproj",
+      "projectUniqueName": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Core\\Rhino2Midas.Core.csproj",
       "projectName": "Rhino2Midas.Core",
-      "projectPath": "C:\\Users\\g.pacini\\Desktop\\Project\\Repository\\Rhino2Midas\\Rhino2Midas\\Rhino2Midas.Core\\Rhino2Midas.Core.csproj",
+      "projectPath": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Core\\Rhino2Midas.Core.csproj",
       "packagesPath": "C:\\Users\\g.pacini\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\g.pacini\\Desktop\\Project\\Repository\\Rhino2Midas\\Rhino2Midas\\Rhino2Midas.Core\\obj\\",
+      "outputPath": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

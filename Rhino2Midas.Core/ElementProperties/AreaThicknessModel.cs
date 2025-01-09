@@ -1,21 +1,24 @@
-﻿namespace Rhino2Midas.Core.ElementProperties
+﻿using Rhino2Midas.Core.Base;
+
+namespace Rhino2Midas.Core.ElementProperties
 {
-    public class AreaThicknessModel
+    public class AreaThicknessModel : ModelObjectId
     {
-        public string Name { get; set; }
+        public int Number { get; set; }
 
         public double Thickness { get; set; }
 
         public double Offset { get; set; }
 
         public AreaThicknessModel(string name, double thickness, double offset = 0)
+            : base(name)
         {
-            Name = name;
             Thickness = thickness;
             Offset = offset;
         }
 
         public AreaThicknessModel()
+            :base()
         {
         }
 

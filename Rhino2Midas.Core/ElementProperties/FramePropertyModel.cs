@@ -1,8 +1,9 @@
 ﻿using Rhino.Geometry;
+using Rhino2Midas.Core.Base;
 
 namespace Rhino2Midas.Core.ElementProperties
 {
-    public class FramePropertyModel
+    public class FramePropertyModel : ModelObjectId
     {
         public enum FramePropertyTypes
         {
@@ -30,7 +31,7 @@ namespace Rhino2Midas.Core.ElementProperties
             RB,
         }
 
-        public string Name { get; set; }
+        public int Number { get; set; }
 
         public FramePropertyTypes Type { get; set; }
 
@@ -61,8 +62,8 @@ namespace Rhino2Midas.Core.ElementProperties
         public FramePropertyModel(string name, FramePropertyTypes type, OffsetTypes offset, double dimension1 = 0.0, double dimension2 = 0.0,
             double dimension3 = 0.0, double dimension4 = 0.0, double dimension5 = 0.0, double dimension6 = 0.0, double dimension7 = 0.0,
             double dimension8 = 0.0, double dimension9 = 0.0, double dimension10 = 0.0)
+            :base(name)
         {
-            Name = name;
             Type = type;
             Offset = offset;
             Dimension1 = dimension1;
@@ -78,7 +79,25 @@ namespace Rhino2Midas.Core.ElementProperties
         }
 
         public FramePropertyModel()
+            :base()
         {
+        }
+
+        public FramePropertyModel(FramePropertyModel framePropertyModel)
+            : base(framePropertyModel.Name)
+        {
+            Type = framePropertyModel.Type;
+            Offset = framePropertyModel.Offset;
+            Dimension1 = framePropertyModel.Dimension1;
+            Dimension2 = framePropertyModel.Dimension2;
+            Dimension3 = framePropertyModel.Dimension3;
+            Dimension4 = framePropertyModel.Dimension4;
+            Dimension5 = framePropertyModel.Dimension5; 
+            Dimension6 = framePropertyModel.Dimension6;
+            Dimension7 = framePropertyModel.Dimension7;
+            Dimension8 = framePropertyModel.Dimension8;
+            Dimension9 = framePropertyModel.Dimension9;
+            Dimension10 = framePropertyModel.Dimension10;
         }
     }
 }

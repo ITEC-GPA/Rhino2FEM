@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Properties;
 
-namespace Rhino2Midas.Grasshopper.Components.ElementProperties
+namespace Rhino2Midas.Grasshopper.Components.Materials
 {
     public class MaterialComponent : GH_Component
     {
         public MaterialComponent()
-            : base("Material", "Material", "Material", "Rhino2Midas", "Material")
+            : base("Material", "Material", "Material", Helper.Constants.Tabname, Helper.Constants.Materials)
         {
         }
 
@@ -54,7 +52,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
                     DA.GetData(6, ref density) && DA.GetData(7, ref mass))
                 {
                     MaterialModel material = new MaterialModel(name, (MaterialModel.MaterialTypes)type, dampingRatio, modulusElasticity, poissonRatio, thermalCoefficient, density, mass);
-                    DA.SetData(0, (object)material);
+                    DA.SetData(0, material);
                 }
             }
         }

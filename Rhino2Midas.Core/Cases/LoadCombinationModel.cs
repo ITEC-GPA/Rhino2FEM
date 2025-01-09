@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Rhino2Midas.Core.Base;
 
 namespace Rhino2Midas.Core.Cases
 {
-    public class LoadCombinationModel
+    public class LoadCombinationModel : LoadCaseBase
     {
         public enum LoadCombinationTypes
         {
@@ -10,24 +11,29 @@ namespace Rhino2Midas.Core.Cases
             Envelope,
         }
 
-        public string Name { get; set; }
-
         public List<LoadFactorModel> LoadFactorList { get; set; }
 
         public LoadCombinationTypes Type { get; set; }
 
-        public string Description { get; set; }
-
         public LoadCombinationModel(string name, List<LoadFactorModel> loadFactorList, LoadCombinationTypes type, string description)
+            : base(name, description)    
         {
-            Name = name;
             LoadFactorList = loadFactorList;
             Type = type;
             Description = description;
         }
 
         public LoadCombinationModel()
+            :base()
         {
+        }
+
+        public LoadCombinationModel(LoadCombinationModel loadCombinationModel)
+            : base(loadCombinationModel.Name, loadCombinationModel.Description)
+        {
+            LoadFactorList = new List<LoadFactorModel>();
+            for (int i = 0; i < loadCombinationModel.LoadFactorList.Count; i++)
+                LoadFactorList.Add(new LoadFactorModel(loadCombinationModel.LoadFactorList[i]));
         }
     }
 }

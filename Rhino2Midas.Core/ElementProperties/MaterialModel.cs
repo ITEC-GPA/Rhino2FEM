@@ -1,14 +1,14 @@
-﻿namespace Rhino2Midas.Core.ElementProperties
+﻿using Rhino2Midas.Core.Base;
+
+namespace Rhino2Midas.Core.ElementProperties
 {
-    public class MaterialModel
+    public class MaterialModel : ModelObjectId
     {
         public enum MaterialTypes
         {
             Steel,
             Concrete,
         }
-
-        public string Name { get; set; }
 
         public MaterialTypes Type { get; set; }
 
@@ -25,8 +25,8 @@
         public double Mass { get; set; }
 
         public MaterialModel(string name, MaterialTypes type, double dampingRatio, double modulusElasticity, double poissonRatio, double thermalCoefficient, double density, double mass)
+            : base(name)
         {
-            Name = name;
             Type = type;
             DampingRatio = dampingRatio;
             ModulusElasticity = modulusElasticity;
@@ -37,7 +37,20 @@
         }
 
         public MaterialModel()
+            : base()
         {
+        }
+
+        public MaterialModel(MaterialModel materialModel)
+            : base(materialModel.Name)
+        {
+            Type = materialModel.Type;
+            DampingRatio = materialModel.DampingRatio;
+            ModulusElasticity = materialModel.ModulusElasticity;
+            PoissonRatio = materialModel.PoissonRatio;
+            ThermalCoefficient = materialModel.ThermalCoefficient;
+            Density = materialModel.Density;
+            Mass = materialModel.Mass;
         }
     }
 }

@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 {
     public class AreaThicknessComponent : GH_Component
     {
         public AreaThicknessComponent()
-            : base("Area thickness", "Area thickness", "Area thickness", "Rhino2Midas", "Area")
+            : base("Area thickness", "Area thickness", "Area thickness", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
         {
         }
 
@@ -18,6 +16,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         {
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
             pManager.AddNumberParameter("Thickness", "Thickness", "Thickness", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -28,16 +27,20 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string name = "";
+            int number = 0;
             double thickness = 0.0;
 
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref thickness))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref thickness) && DA.GetData(2, ref number))
             {
                 AreaThicknessModel areaThickness = new AreaThicknessModel(name, thickness);
+                areaThickness.Number = number;
                 DA.SetData(0, new GH_AreaThickness(areaThickness));
             }
         }
 
         //protected override Bitmap Icon => Resources.area_thickness;
+
+        public override GH_Exposure Exposure => GH_Exposure.secondary;
 
         public override Guid ComponentGuid => new Guid("AA3699DB-E573-42A1-8627-5243977EEA40");
     }

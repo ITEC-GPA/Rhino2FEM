@@ -51,7 +51,6 @@
     <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Midas.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helper\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>

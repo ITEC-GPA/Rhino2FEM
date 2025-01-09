@@ -36,8 +36,6 @@ namespace Rhino2Midas.Core.Loads
 
         public double EndLoad { get; set; }
 
-        public double IndexLoadCase { get; set; }
-
         public FrameLoadModel(LoadCaseModel loadCase, FrameLoadTypes forceOrMoment, LoadDirections direction, bool isProjected, double startLocationRelative, double startLoad, double endLocationRelative, double endLoad)
         {
             LoadCase = loadCase;

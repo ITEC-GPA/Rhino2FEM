@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.Cases;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.Cases
 {
     public class LoadCombinationComponent : GH_Component
     {
         public LoadCombinationComponent()
-            : base("Load combination", "Load combination", "Load combination", "Rhino2Midas", "Cases")
+            : base("Load combination", "Load combination", "Load combination", Helper.Constants.Tabname, Helper.Constants.Cases)
         {
         }
 

@@ -1,18 +1,16 @@
 using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 {
     public class FramePropertyPipeComponent : GH_Component
     {
         public FramePropertyPipeComponent()
-            : base("Frame property pipe", "Frame property pipe", "Frame property pipe", "Rhino2Midas", "Frame")
+            : base("Frame property pipe", "Frame property pipe", "Frame property pipe", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
         {
         }
 
@@ -25,6 +23,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             pManager.AddNumberParameter("Diameter", "Diameter", "Diameter", GH_ParamAccess.item);
             pManager.AddNumberParameter("Thickness", "Thickness", "Thickness", GH_ParamAccess.item);
             ((GH_ParamManager)pManager)[1].Optional = true;
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -35,7 +34,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string name = "";
-            int offset = 4;
+            int offset = 4; int number = 0;
             double dimension = 0.0;
             double dimension2 = 0.0;
             double dimension3 = 0.0;
@@ -47,10 +46,11 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             double dimension9 = 0.0;
             double dimension10 = 0.0;
 
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref dimension) && DA.GetData(3, ref dimension2))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref dimension) && DA.GetData(3, ref dimension2) && DA.GetData(4, ref number))
             {
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.P, (FramePropertyModel.OffsetTypes)offset,
                     dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
+                frameProperty.Number = number;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }
         }

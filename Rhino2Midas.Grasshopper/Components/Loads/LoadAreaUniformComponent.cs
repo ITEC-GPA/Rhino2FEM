@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Core.Loads;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.Loads
 {
     public class LoadAreaUniformComponent : GH_Component
     {
         public LoadAreaUniformComponent()
-            : base("Area load uniform", "Area load uniform", "Area load uniform", "Rhino2Midas", "Load")
+            : base("Area load uniform", "Area load uniform", "Area load uniform", Helper.Constants.Tabname, Helper.Constants.Loads)
         {
         }
 

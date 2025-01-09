@@ -10,3 +10,16 @@ C:\Users\g.pacini\Desktop\Project\Repository\Rhino2Midas\Rhino2Midas\Rhino2Midas
 C:\Users\g.pacini\Desktop\Project\Repository\Rhino2Midas\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Mi.BD7A39F8.Up2Date
 C:\Users\g.pacini\Desktop\Project\Repository\Rhino2Midas\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.gha
 C:\Users\g.pacini\Desktop\Project\Repository\Rhino2Midas\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.pdb
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\bin\Debug\net48\Rhino2Midas.Grasshopper.gha
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\bin\Debug\net48\Rhino2Midas.Grasshopper.pdb
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\bin\Debug\net48\Rhino2Midas.Core.dll
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\bin\Debug\net48\Rhino2Midas.Core.pdb
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.csproj.AssemblyReference.cache
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.Properties.Rhino2Midas.Grasshopper.Properties.Resources.resources
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.csproj.GenerateResource.cache
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.csproj.CoreCompileInputs.cache
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.sourcelink.json
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Mi.BD7A39F8.Up2Date
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.gha
+C:\Users\g.pacini\Documents\Repository\Rhino2Midas\Rhino2Midas.Grasshopper\obj\Debug\net48\Rhino2Midas.Grasshopper.pdb

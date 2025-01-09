@@ -18,7 +18,7 @@
 
         public LoadFactorModel(LoadFactorModel loadFactorModel)
         {
-            LoadCase = loadFactorModel.LoadCase;
+            LoadCase = new LoadCaseModel( loadFactorModel.LoadCase);
             Factor = loadFactorModel.Factor;
         }
     }

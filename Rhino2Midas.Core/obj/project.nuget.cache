@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "31RSvtK2Bpg=",
+  "dgSpecHash": "lLnSv3ogfcA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\g.pacini\\Desktop\\Project\\Repository\\Rhino2Midas\\Rhino2Midas\\Rhino2Midas.Core\\Rhino2Midas.Core.csproj",
+  "projectFilePath": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Core\\Rhino2Midas.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\g.pacini\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\g.pacini\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

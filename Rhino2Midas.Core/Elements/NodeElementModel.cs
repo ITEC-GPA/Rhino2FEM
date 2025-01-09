@@ -3,11 +3,12 @@ using System.Drawing;
 using Rhino.Display;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.Loads;
 
 namespace Rhino2Midas.Core.Elements
 {
-    public class NodeElementModel
+    public class NodeElementModel : ElementModel
     {
         public double X { get; set; }
 
@@ -16,8 +17,6 @@ namespace Rhino2Midas.Core.Elements
         public double Z { get; set; }
 
         public List<NodalLoadModel> NodalLoadList { get; set; }
-
-        public List<ElementGroupModel> Groups { get; set; }
 
         public NodeSupportModel Support { get; set; }
 

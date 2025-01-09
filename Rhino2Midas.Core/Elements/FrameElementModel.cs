@@ -2,12 +2,13 @@
 using System.Drawing;
 using Rhino.Display;
 using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Loads;
 
 namespace Rhino2Midas.Core.Elements
 {
-    public class FrameElementModel
+    public class FrameElementModel : ElementModel
     {
         public NodeElementModel NodeStart { get; set; }
 
@@ -20,18 +21,6 @@ namespace Rhino2Midas.Core.Elements
         public List<FrameLoadModel> FrameLoadList { get; set; }
 
         public double Angle { get; set; }
-
-        public List<ElementGroupModel> Groups { get; set; }
-
-        public int IndexFrameElement { get; set; }
-
-        public int IndexFrameProperty { get; set; }
-
-        public int IndexMaterial { get; set; }
-
-        public int IndexNodeStart { get; set; }
-
-        public int IndexNodeEnd { get; set; }
 
         public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, MaterialModel material, double angle = 0, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
         {

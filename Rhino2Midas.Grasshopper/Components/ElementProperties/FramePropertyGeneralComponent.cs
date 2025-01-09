@@ -1,18 +1,16 @@
 using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 {
     public class FramePropertyGeneralComponent : GH_Component
     {
         public FramePropertyGeneralComponent()
-            : base("Frame property general", "Frame property general", "Frame property general", "Rhino2Midas", "Frame")
+            : base("Frame property general", "Frame property general", "Frame property general", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
         {
         }
 
@@ -35,17 +33,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             pManager.AddNumberParameter("Dimension 8", "Dimension 8", "Dimension 8", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Dimension 9", "Dimension 9", "Dimension 9", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Dimension 10", "Dimension 10", "Dimension 10", GH_ParamAccess.item, 0.0);
-            ((GH_ParamManager)pManager)[2].Optional = true;
-            ((GH_ParamManager)pManager)[3].Optional = true;
-            ((GH_ParamManager)pManager)[4].Optional = true;
-            ((GH_ParamManager)pManager)[5].Optional = true;
-            ((GH_ParamManager)pManager)[6].Optional = true;
-            ((GH_ParamManager)pManager)[7].Optional = true;
-            ((GH_ParamManager)pManager)[8].Optional = true;
-            ((GH_ParamManager)pManager)[9].Optional = true;
-            ((GH_ParamManager)pManager)[10].Optional = true;
-            ((GH_ParamManager)pManager)[11].Optional = true;
-            ((GH_ParamManager)pManager)[12].Optional = true;
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -56,7 +44,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string name = "";
-            int text = 0;
+            int text = 0; int number = 0;
             int offset = 0;
             double dimension = 0.0;
             double dimension2 = 0.0;
@@ -68,9 +56,10 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             double dimension8 = 0.0;
             double dimension9 = 0.0;
             double dimension10 = 0.0;
+
             if (!DA.GetData(0, ref name) || !DA.GetData(1, ref text) || !DA.GetData(2, ref offset) || !DA.GetData(3, ref dimension) || !DA.GetData(4, ref dimension2) ||
                 !DA.GetData(5, ref dimension3) || !DA.GetData(6, ref dimension4) || !DA.GetData(7, ref dimension5) || !DA.GetData(8, ref dimension6) ||
-                !DA.GetData(9, ref dimension7) || !DA.GetData(10, ref dimension8) || !DA.GetData(11, ref dimension9) || !DA.GetData(12, ref dimension10))
+                !DA.GetData(9, ref dimension7) || !DA.GetData(10, ref dimension8) || !DA.GetData(11, ref dimension9) || !DA.GetData(12, ref dimension10) && DA.GetData(13, ref number))
             {
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Input error");
                 return;
@@ -78,6 +67,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 
             FramePropertyModel frameProperty = new FramePropertyModel(name, (FramePropertyModel.FramePropertyTypes)text, (FramePropertyModel.OffsetTypes)offset,
                 dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
+            frameProperty.Number = number;
             DA.SetData(0, new GH_FrameProperty(frameProperty));
         }
 

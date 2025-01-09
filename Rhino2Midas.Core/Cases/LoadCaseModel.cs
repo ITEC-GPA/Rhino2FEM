@@ -1,27 +1,32 @@
-﻿namespace Rhino2Midas.Core.Cases
+﻿using Rhino2Midas.Core.Base;
+
+namespace Rhino2Midas.Core.Cases
 {
-    public class LoadCaseModel
+    public class LoadCaseModel : LoadCaseBase
     {
         public enum LoadCaseTypes
         {
 
         }
 
-        public string Name { get; set; }
-
         public LoadCaseTypes Type { get; set; }
 
-        public string Description { get; set; }
-
         public LoadCaseModel(string name, LoadCaseTypes type, string description)
+            : base(name, description)
         {
-            Name = name;
             Type = type;
             Description = description;
         }
 
         public LoadCaseModel()
+            : base()
         {
+        }
+
+        public LoadCaseModel(LoadCaseModel loadCaseModel)
+            : base(loadCaseModel.Name, loadCaseModel.Description)
+        {
+            Type = loadCaseModel.Type;
         }
     }
 }

@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino2Midas.Core.Attributes;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Grasshopper.Datatype;
-using Rhino2Midas.Grasshopper.Properties;
 
 namespace Rhino2Midas.Grasshopper.Components.Attributes
 {
     public class NodeSupportComponent : GH_Component
     {
         public NodeSupportComponent()
-            : base("Support", "Support", "Support", "Rhino2Midas", "Node")
+            : base("Support", "Support", "Support", Helper.Constants.Tabname, Helper.Constants.Attributes)
         {
         }
 

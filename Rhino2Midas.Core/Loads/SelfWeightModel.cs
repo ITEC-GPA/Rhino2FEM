@@ -1,4 +1,5 @@
-﻿using Rhino2Midas.Core.Cases;
+﻿using Rhino2Midas.Core.Base;
+using Rhino2Midas.Core.Cases;
 
 namespace Rhino2Midas.Core.Loads
 {
