@@ -24,5 +24,13 @@ namespace Rhino2Midas.Core.Loads
         public SelfWeightModel()
         {
         }
+
+        public SelfWeightModel(SelfWeightModel model)
+        {
+            FactorX = model.FactorX;
+            FactorY = model.FactorY;    
+            FactorZ = model.FactorZ;
+            LoadCase = new LoadCaseModel(model.LoadCase);
+        }
     }
 }

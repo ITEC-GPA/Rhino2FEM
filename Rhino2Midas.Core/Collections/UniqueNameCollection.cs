@@ -18,7 +18,10 @@ namespace Rhino2Midas.Core.Collections
 
         public void Add(T item)
         {
-            Add(item.Name, item);
+            if(ContainsKey(item.Name))
+                this[item.Name] = item;
+            else
+                Add(item.Name, item);
         }
 
         public bool AddRange(IEnumerable<T> items)

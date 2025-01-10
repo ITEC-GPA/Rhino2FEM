@@ -28,7 +28,7 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         public override string ToString()
         {
-            return "";
+            return "Units: " + Value.ForceUnit.ToString() + "; " + Value.LengthUnit.ToString() + "; " + Value.TemperatureUnit.ToString() + "; " + Value.HeatUnit.ToString() + "; " + Value.Tolerance.ToString();
         }
     }
 }

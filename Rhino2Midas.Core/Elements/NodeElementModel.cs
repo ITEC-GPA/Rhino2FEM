@@ -35,7 +35,7 @@ namespace Rhino2Midas.Core.Elements
             if (nodalLoadList != null)
                 NodalLoadList = nodalLoadList;
             else
-                nodalLoadList = new List<NodalLoadModel>();
+                NodalLoadList = new List<NodalLoadModel>();
 
             if (group != null)
                 Groups = group;

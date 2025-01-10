@@ -9,6 +9,7 @@ using Rhino2Midas.Core.Cases;
 using Rhino2Midas.Core.Collections;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Elements;
+using Rhino2Midas.Core.Loads;
 using Rhino2Midas.Core.Settings;
 
 namespace Rhino2Midas.Core.Models
@@ -25,6 +26,7 @@ namespace Rhino2Midas.Core.Models
         public UniqueIdCollection<NodeElementModel> NodeElements { get; }
         public UniqueIdCollection<FrameElementModel> FrameElements { get; }
         public UniqueIdCollection<AreaElementModel> AreaElements { get; }
+        public SelfWeightModel SelfWeight { get; set; }
 
         public ModelModel()
         {
@@ -79,7 +81,7 @@ namespace Rhino2Midas.Core.Models
                 AreaElements.Add(new AreaElementModel(model.AreaElements.Values.ElementAt(i)));
         }
 
-        public void BuildModel(List<NodeElementModel> nodes, List<FrameElementModel> frames, List<AreaElementModel> areas, List<LoadCombinationModel> combos)
+        public void BuildModel(List<NodeElementModel> inputNodes = null, List<FrameElementModel> inputFrames = null, List<AreaElementModel> inputAreas = null, List<LoadCombinationModel> inputcombos = null, SelfWeightModel inputSelfWeight = null)
         {
             #region Check Element IDs
 
@@ -87,11 +89,37 @@ namespace Rhino2Midas.Core.Models
             Dictionary<int, FrameElementModel> frameDictionary = new Dictionary<int, FrameElementModel>();
             Dictionary<int, AreaElementModel> areaDictionary = new Dictionary<int, AreaElementModel>();
 
+            if(inputNodes == null)
+                inputNodes = new List<NodeElementModel>();
+            if(inputFrames == null) 
+                inputFrames = new List<FrameElementModel>();
+            if(inputAreas == null)
+                inputAreas = new List<AreaElementModel>();
+            if(inputcombos == null)
+                inputcombos = new List<LoadCombinationModel>();
+            SelfWeightModel selfWeight = null;
+            if(inputSelfWeight != null)
+                selfWeight = new SelfWeightModel(inputSelfWeight);
+
             int idNode = 1;
-            List<int> usedNodeIds = nodes.Select(x => x.Id).ToList();
-            List<int> usedFrameIds = frames.Select(x => x.Id).ToList();
-            List<int> usedAreaIds = areas.Select(x => x.Id).ToList();
-            
+            List<int> usedNodeIds = inputNodes.Select(x => x.Id).ToList();
+            List<int> usedFrameIds = inputFrames.Select(x => x.Id).ToList();
+            List<int> usedAreaIds = inputAreas.Select(x => x.Id).ToList();
+
+            List<NodeElementModel> nodes = new List<NodeElementModel>();
+            List<FrameElementModel> frames = new List<FrameElementModel>();
+            List<AreaElementModel> areas = new List<AreaElementModel>();
+            List<LoadCombinationModel> combos = new List<LoadCombinationModel>();
+
+            for (int i = 0; i < inputNodes.Count; i++)
+                nodes.Add(new NodeElementModel(inputNodes[i]));
+            for (int i = 0; i < inputFrames.Count; i++)
+                frames.Add(new FrameElementModel(inputFrames[i]));
+            for (int i = 0; i < inputAreas.Count; i++)
+                areas.Add(new AreaElementModel(inputAreas[i]));
+            for (int i = 0; i < inputcombos.Count; i++)
+                combos.Add(new LoadCombinationModel(inputcombos[i]));
+
             for (int i = 0; i < nodes.Count; i++)
             {
                 if (nodeDictionary.ContainsKey(nodes[i].Id) && nodes[i].Id != ElementModel.UNASSIGNED)
@@ -178,8 +206,8 @@ namespace Rhino2Midas.Core.Models
                     {
                         NodeElementModel newNode = new NodeElementModel(pt);
                         idNode = NewId(usedNodeIds, idNode);
-
-                        nodeDictionary.Add(nodeId, newNode);
+                        usedNodeIds.Add(idNode);
+                        nodeDictionary.Add(idNode, newNode);
                         nodesBuffer.Add(newNode);
                         rTree.Insert(pt, rTree.Count);
                     }
@@ -198,8 +226,8 @@ namespace Rhino2Midas.Core.Models
                     {
                         NodeElementModel newNode = new NodeElementModel(pt);
                         idNode = NewId(usedNodeIds, idNode);
-
-                        nodeDictionary.Add(nodeId, newNode);
+                        usedNodeIds.Add(idNode);
+                        nodeDictionary.Add(idNode, newNode);
                         nodesBuffer.Add(newNode);
                         rTree.Insert(pt, rTree.Count);
                     }
@@ -381,7 +409,17 @@ namespace Rhino2Midas.Core.Models
                 LoadCombinations.Add(newCombo);
             }
 
+            if (selfWeight != null)
+            {
+                LoadCases.Add(selfWeight.LoadCase);
+                SelfWeight = selfWeight;
+            }
+
             #endregion            
+
+            NodeElements.AddRange(nodesBuffer);
+            FrameElements.AddRange(framesBuffer);
+            AreaElements.AddRange(areasBuffer);
         }
 
         private int NewId(List<int> usedNodeIds, int previousId)

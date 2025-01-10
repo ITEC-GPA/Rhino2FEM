@@ -33,7 +33,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Model Units", "Model Units", "Model Units", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Model Units", "Model Units", "Model Units", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -46,7 +46,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
 
             if (DA.GetData(0, ref l) && DA.GetData(1, ref f) && DA.GetData(2, ref t) && DA.GetData(3, ref h) && DA.GetData(4, ref tol))
             {
-                ModelUnits modelUnits = new ModelUnits((ModelUnits.ForceUnitTypes)l, (ModelUnits.LengthUnitTypes)f, (ModelUnits.HeatUnitTypes)t, (ModelUnits.TemperatureUnitTypes)h, tol);
+                ModelUnits modelUnits = new ModelUnits((ModelUnits.ForceUnitTypes)f, (ModelUnits.LengthUnitTypes)l, (ModelUnits.HeatUnitTypes)t, (ModelUnits.TemperatureUnitTypes)h, tol);
                 DA.SetData(0, new GH_Units(modelUnits));
             }
         }
