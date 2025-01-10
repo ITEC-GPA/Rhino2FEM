@@ -1,2 +1,5 @@
-/.vs/
 /.git/
+/.vs/
+*/bin/
+*/obj/
+*/package/
