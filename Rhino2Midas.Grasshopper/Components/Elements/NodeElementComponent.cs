@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Grasshopper.Datatype;
 
@@ -18,8 +19,9 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddPointParameter("Node point", "Node point", "Node point", GH_ParamAccess.item);
-            pManager.AddTextParameter("Group", "Group", "Group", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Group", "Group", "Group", GH_ParamAccess.list);
             ((GH_ParamManager)pManager)[1].Optional = true;
+            pManager.AddIntegerParameter("Node ID", "Node ID", "Node ID", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -31,10 +33,12 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
         {
             Point3d val = Point3d.Unset;
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
+            int id = 0;
 
             if (!DA.GetData(0, ref val))
                 return;
             DA.GetDataList(1, groups);
+            DA.GetData(2, ref id);
 
             NodeElementModel node = new NodeElementModel(val);
 
@@ -45,6 +49,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
                     elementGroupModels.Add(groups[i].Value);
 
                 node.Groups = elementGroupModels;
+                node.Id = id;
             }
             DA.SetData(0, new GH_NodeElement(node));
         }

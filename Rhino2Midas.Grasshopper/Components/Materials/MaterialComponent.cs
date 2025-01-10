@@ -3,6 +3,7 @@ using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
+using Rhino2Midas.Grasshopper.Datatype;
 
 namespace Rhino2Midas.Grasshopper.Components.Materials
 {
@@ -52,7 +53,7 @@ namespace Rhino2Midas.Grasshopper.Components.Materials
                     DA.GetData(6, ref density) && DA.GetData(7, ref mass))
                 {
                     MaterialModel material = new MaterialModel(name, (MaterialModel.MaterialTypes)type, dampingRatio, modulusElasticity, poissonRatio, thermalCoefficient, density, mass);
-                    DA.SetData(0, material);
+                    DA.SetData(0, new GH_Material(material));
                 }
             }
         }

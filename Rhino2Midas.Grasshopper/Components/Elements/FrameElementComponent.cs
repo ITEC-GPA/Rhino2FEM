@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Grasshopper.Datatype;
 
@@ -23,6 +24,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
             pManager.AddAngleParameter("Angle (deg)", "Angle (deg)", "Angle (deg)", GH_ParamAccess.item, 0.0);
             pManager.AddGenericParameter("Groups", "Groups", "Groups", GH_ParamAccess.list);
             ((GH_ParamManager)pManager)[4].Optional = true;
+            pManager.AddIntegerParameter("Frame ID", "Frame ID", "Frame ID", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -37,11 +39,13 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
             Datatype.GH_Material gH_Material = null;
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
             double angle = 0;
+            int id = 0;
 
-            if (!DA.GetData(0, ref val) || !DA.GetData(1, ref gH_FrameProperty) || !DA.GetData(2, ref gH_FrameProperty))
+            if (!DA.GetData(0, ref val) || !DA.GetData(1, ref gH_FrameProperty) || !DA.GetData(2, ref gH_Material))
                 return;
             DA.GetData(3, ref angle);
             DA.GetDataList(4, groups);
+            DA.GetData(5, ref id);
 
             NodeElementModel startNode = new NodeElementModel(val.PointAtStart.X, val.PointAtStart.Y, val.PointAtStart.Z, null, null, null);
             NodeElementModel endNode = new NodeElementModel(val.PointAtEnd.X, val.PointAtEnd.Y, val.PointAtEnd.Z, null, null, null);
@@ -54,6 +58,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
                     elementGroupModels.Add(groups[i].Value);
 
                 frameElement.Groups = elementGroupModels;
+                frameElement.Id = id;
             }
             DA.SetData(0, new GH_FrameElement(frameElement));
         }

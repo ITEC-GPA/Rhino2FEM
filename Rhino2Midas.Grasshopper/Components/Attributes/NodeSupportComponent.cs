@@ -39,7 +39,7 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
             bool my = false;
             bool mz = false;
 
-            if (DA.GetData(0, ref node))
+            if (!DA.GetData(0, ref node))
                 return;
 
             if (DA.GetData(1, ref dx) && DA.GetData(2, ref dy) && DA.GetData(3, ref dz) && DA.GetData(4, ref mx) && DA.GetData(5, ref my) && DA.GetData(6, ref mz))
@@ -47,7 +47,7 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
                 NodeSupportModel support = new NodeSupportModel(dx, dy, dz, mx, my, mz);
                 NodeElementModel newNode = new NodeElementModel(node.Value);
                 newNode.Support = support;
-                DA.SetData(0, newNode);
+                DA.SetData(0, new GH_NodeElement(newNode));
             }
         }
 

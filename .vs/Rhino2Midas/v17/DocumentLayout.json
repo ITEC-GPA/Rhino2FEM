@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\components\\models\\modelunitscomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\components\\models\\modelunitscomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\components\\elements\\areaelementcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\components\\elements\\areaelementcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\components\\models\\buildmodelcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\components\\models\\buildmodelcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\components\\elements\\frameelementcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\components\\elements\\frameelementcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\helper\\helpermethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\helper\\helpermethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\helper\\modelbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\helper\\modelbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\datatype\\gh_units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\datatype\\gh_units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\components\\loads\\loadareauniformcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\components\\loads\\loadareauniformcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\datatype\\gh_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\datatype\\gh_model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|c:\\users\\g.pacini\\documents\\repository\\rhino2midas\\rhino2midas.grasshopper\\components\\elements\\nodeelementcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A408F067-D644-4E5E-90C5-461471B61899}|Rhino2Midas.Grasshopper\\Rhino2Midas.Grasshopper.csproj|solutionrelative:rhino2midas.grasshopper\\components\\elements\\nodeelementcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,88 +30,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ModelBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Helper\\ModelBuilder.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Helper\\ModelBuilder.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Helper\\ModelBuilder.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Helper\\ModelBuilder.cs",
-              "ViewState": "AgIAAOcAAAAAAAAAAAAgwPkBAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T16:07:20.794Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HelperMethod.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Helper\\HelperMethod.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Helper\\HelperMethod.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Helper\\HelperMethod.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Helper\\HelperMethod.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAcwCUAAAATAAAAAAAAAA==",
+              "Title": "NodeElementComponent.cs",
+              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Elements\\NodeElementComponent.cs",
+              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Components\\Elements\\NodeElementComponent.cs",
+              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Elements\\NodeElementComponent.cs",
+              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Components\\Elements\\NodeElementComponent.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwDMAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T16:06:53.814Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GH_Units.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Datatype\\GH_Units.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Datatype\\GH_Units.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Datatype\\GH_Units.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Datatype\\GH_Units.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:58:35.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LoadAreaUniformComponent.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Loads\\LoadAreaUniformComponent.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Components\\Loads\\LoadAreaUniformComponent.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Loads\\LoadAreaUniformComponent.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Components\\Loads\\LoadAreaUniformComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:52:30.619Z"
+              "WhenOpened": "2025-01-10T08:40:59.36Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ModelUnitsComponent.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Models\\ModelUnitsComponent.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Components\\Models\\ModelUnitsComponent.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Models\\ModelUnitsComponent.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Components\\Models\\ModelUnitsComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Title": "AreaElementComponent.cs",
+              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Elements\\AreaElementComponent.cs",
+              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Components\\Elements\\AreaElementComponent.cs",
+              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Elements\\AreaElementComponent.cs",
+              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Components\\Elements\\AreaElementComponent.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABoAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:51:43.353Z",
+              "WhenOpened": "2025-01-10T08:36:45.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BuildModelComponent.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Models\\BuildModelComponent.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Components\\Models\\BuildModelComponent.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Models\\BuildModelComponent.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Components\\Models\\BuildModelComponent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
+              "Title": "FrameElementComponent.cs",
+              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Elements\\FrameElementComponent.cs",
+              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Components\\Elements\\FrameElementComponent.cs",
+              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Components\\Elements\\FrameElementComponent.cs",
+              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Components\\Elements\\FrameElementComponent.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAADwvzwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:46:40.769Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GH_Model.cs",
-              "DocumentMoniker": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Datatype\\GH_Model.cs",
-              "RelativeDocumentMoniker": "Rhino2Midas.Grasshopper\\Datatype\\GH_Model.cs",
-              "ToolTip": "C:\\Users\\g.pacini\\Documents\\Repository\\Rhino2Midas\\Rhino2Midas.Grasshopper\\Datatype\\GH_Model.cs",
-              "RelativeToolTip": "Rhino2Midas.Grasshopper\\Datatype\\GH_Model.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T15:13:24.21Z"
+              "WhenOpened": "2025-01-09T15:11:22.291Z",
+              "EditorCaption": ""
             }
           ]
         }
