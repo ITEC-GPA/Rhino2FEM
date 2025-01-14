@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
 using Rhino2Midas.Core.Base;
@@ -90,16 +88,16 @@ namespace Rhino2Midas.Core.Models
             Dictionary<int, FrameElementModel> frameDictionary = new Dictionary<int, FrameElementModel>();
             Dictionary<int, AreaElementModel> areaDictionary = new Dictionary<int, AreaElementModel>();
 
-            if(inputNodes == null)
+            if (inputNodes == null)
                 inputNodes = new List<NodeElementModel>();
-            if(inputFrames == null) 
+            if (inputFrames == null)
                 inputFrames = new List<FrameElementModel>();
-            if(inputAreas == null)
+            if (inputAreas == null)
                 inputAreas = new List<AreaElementModel>();
-            if(inputcombos == null)
+            if (inputcombos == null)
                 inputcombos = new List<LoadCombinationModel>();
             SelfWeightModel selfWeight = null;
-            if(inputSelfWeight != null)
+            if (inputSelfWeight != null)
                 selfWeight = new SelfWeightModel(inputSelfWeight);
 
             int idNode = 1;
@@ -240,18 +238,18 @@ namespace Rhino2Midas.Core.Models
             #region Groups
 
             int idGroup = 1;
-            for (int i = 0; i < nodesBuffer.Count; i++) 
+            for (int i = 0; i < nodesBuffer.Count; i++)
             {
                 NodeElementModel element = nodesBuffer[i];
                 if (element != null)
-                { 
-                    if(element.Groups.Count > 0)
+                {
+                    if (element.Groups.Count > 0)
                     {
                         for (int j = 0; j < element.Groups.Count; j++)
                         {
                             ElementGroupModel newGroup = element.Groups[j];
-                            newGroup.Id = idGroup;  
-                            idGroup++;  
+                            newGroup.Id = idGroup;
+                            idGroup++;
                             Groups.Add(element.Groups[j]);
                         }
                     }
@@ -311,7 +309,7 @@ namespace Rhino2Midas.Core.Models
                     mat.Id = NewId(usedMaterialIds, idMaterial);
                 Materials.Add(mat);
             }
-            
+
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var mat = new MaterialModel(areasBuffer[i].Material);
@@ -325,7 +323,7 @@ namespace Rhino2Midas.Core.Models
                 var fp = new FramePropertyModel(framesBuffer[i].FrameProperty);
                 if (fp.Id == ModelObjectId.UNASSIGNED)
                     fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
-                FrameProperties.Add(fp);            
+                FrameProperties.Add(fp);
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
@@ -395,10 +393,10 @@ namespace Rhino2Midas.Core.Models
             }
 
             int idCombo = 1;
-            for(int i = 0; i< combos.Count; i++)
+            for (int i = 0; i < combos.Count; i++)
             {
                 var newCombo = new LoadCombinationModel(combos[i]);
-                for(int j = 0; j < combos[i].LoadFactorList.Count; j++)
+                for (int j = 0; j < combos[i].LoadFactorList.Count; j++)
                 {
                     var newCase = new LoadCaseModel(combos[i].LoadFactorList[j].LoadCase);
                     newCase.Id = idCases;
@@ -427,12 +425,12 @@ namespace Rhino2Midas.Core.Models
         {
             List<string> outputStrings = new List<string>();
             WriteMgtHeader(outputStrings);
-            WriteMgtUnit(outputStrings, unit);
-            WriteMgtMaterial(outputStrings, materialList);
-            WriteMgtFrameProperty(outputStrings, list3);
-            WriteMgtAreaThickness(outputStrings, list6);
-            WriteMgtLoadCase(outputStrings, loadCaseList);
-            WriteMgtSelfWeight(outputStrings, list11);
+            WriteMgtUnit(outputStrings);
+            WriteMgtMaterial(outputStrings);
+            WriteMgtFrameProperty(outputStrings);
+            WriteMgtAreaThickness(outputStrings);
+            WriteMgtLoadCase(outputStrings);
+            WriteMgtSelfWeight(outputStrings);
             WriteMgtLoadCombination(outputStrings, list9);
             WriteMgtNode(outputStrings, list, groupList);
             WriteMgtSupport(outputStrings, list);
@@ -483,15 +481,15 @@ namespace Rhino2Midas.Core.Models
                 MaterialModel material = kvp.Value;
 
                 string materialType = "";
-                if (material.Type == MaterialModel.MaterialTypes.Concrete)                
-                    materialType = "CONC";                
-                else if (material.Type == MaterialModel.MaterialTypes.Steel)                
+                if (material.Type == MaterialModel.MaterialTypes.Concrete)
+                    materialType = "CONC";
+                else if (material.Type == MaterialModel.MaterialTypes.Steel)
                     materialType = "STEEL";
-                
+
                 string matName = material.Name;
-                if (matName.Length > 16)                
+                if (matName.Length > 16)
                     matName = matName.Substring(0, 28);
-                
+
                 textMgt.Add($"{material.Id}, {materialType}, {material.Name}, 0, 0, , C, NO, {material.DampingRatio}, 2, {material.ModulusElasticity}," +
                     $" {material.PoissonRatio}, {material.ThermalCoefficient}, {material.Density}, {material.Mass}");
             }
@@ -522,9 +520,9 @@ namespace Rhino2Midas.Core.Models
             {
                 FramePropertyModel frameProperty = kvp.Value;
                 string framePropertyName = frameProperty.Name;
-                if (framePropertyName.Length > 28)                
+                if (framePropertyName.Length > 28)
                     framePropertyName = framePropertyName.Substring(0, 28);
-                
+
                 textMgt.Add($"{frameProperty.Id}, DBUSER, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, {frameProperty.Type.ToString()}, 2, " +
                     $"{frameProperty.Dimension1}, {frameProperty.Dimension2}, {frameProperty.Dimension3}, {frameProperty.Dimension4}, {frameProperty.Dimension5}, " +
                     $"{frameProperty.Dimension6}, {frameProperty.Dimension7}, {frameProperty.Dimension8}, {frameProperty.Dimension9}, {frameProperty.Dimension10}");
@@ -552,192 +550,96 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
-        private int WriteMgtFrameElement(List<string> textMgt, List<HelperType.FrameElement> frameElementList, List<HelperType.Group> groupList)
+        private int WriteMgtFrameElement(List<string> textMgt)
         {
-            if (frameElementList.Count > 0)
+            if (FrameElements.Count > 0)
             {
                 textMgt.Add("*ELEMENT");
                 textMgt.Add("; i, BEAM, (index material), (index property), (index node start), (index node end), (angle=0), (index subtype=0)");
             }
             int num = 0;
-            foreach (HelperType.FrameElement frameElement in frameElementList)
+            foreach (var kvp in FrameElements)
             {
-                int num2 = num + 1;
-                int indexMaterial = frameElement.IndexMaterial;
-                int indexFrameProperty = frameElement.IndexFrameProperty;
-                int indexNodeStart = frameElement.IndexNodeStart;
-                int indexNodeEnd = frameElement.IndexNodeEnd;
-                double angle = frameElement.Angle;
-                textMgt.Add($"{num2}, BEAM, {indexMaterial}, {indexFrameProperty}, {indexNodeStart}, {indexNodeEnd}, {angle} , 0");
-                frameElement.IndexFrameElement = num2;
-                bool flag = false;
-                if (frameElement.Group != "")
-                {
-                    foreach (HelperType.Group group2 in groupList)
-                    {
-                        if (group2.Name == frameElement.Group)
-                        {
-                            group2.ElementIndexList.Add(num + 1);
-                            flag = true;
-                            break;
-                        }
-                    }
-                    if (!flag)
-                    {
-                        HelperType.Group group = new HelperType.Group(frameElement.Group);
-                        group.ElementIndexList.Add(num + 1);
-                        groupList.Add(group);
-                    }
-                }
-                num++;
+                FrameElementModel frameElement = kvp.Value;
+                textMgt.Add($"{frameElement.Id}, BEAM, {frameElement.Material.Id}, {frameElement.FrameProperty.Id}, {frameElement.NodeStart.Id}, {frameElement.NodeEnd.Id}, {frameElement.Angle} , 0");
             }
             return num;
         }
 
-        private void WriteMgtAreaElement(List<string> textMgt, List<HelperType.AreaElement> areaElementList, int indexElementFromFrame, List<HelperType.Group> groupList)
+        private void WriteMgtAreaElement(List<string> textMgt)
         {
-            if (areaElementList.Count > 0)
+            if (AreaElements.Count > 0)
             {
                 textMgt.Add("*ELEMENT");
                 textMgt.Add("; i, PLATE, (index material), (index property), (index joint 1), (index joint 2), (index joint 3), (index joint 4), (subtype thick=1 thin=2), (local axis)");
             }
-            int num = indexElementFromFrame;
-            foreach (HelperType.AreaElement areaElement in areaElementList)
+            foreach (var kvp in AreaElements)
             {
-                int num2 = num + 1;
-                int indexMaterial = areaElement.IndexMaterial;
-                int indexAreaThickness = areaElement.IndexAreaThickness;
-                int num3 = areaElement.IndexNodeList[0];
-                int num4 = areaElement.IndexNodeList[1];
-                int num5 = areaElement.IndexNodeList[2];
-                int num6 = 0;
-                if (areaElement.NodeList.Count == 4)
-                {
-                    num6 = areaElement.IndexNodeList[3];
-                }
-                double angle = areaElement.Angle;
-                textMgt.Add($"{num2}, PLATE, {indexMaterial}, {indexAreaThickness}, {num3}, {num4}, {num5}, {num6}, 1, {angle}");
-                areaElement.IndexAreaElement = num2;
-                bool flag = false;
-                if (areaElement.Group != "")
-                {
-                    foreach (HelperType.Group group2 in groupList)
-                    {
-                        if (group2.Name == areaElement.Group)
-                        {
-                            group2.ElementIndexList.Add(num + 1);
-                            flag = true;
-                            break;
-                        }
-                    }
-                    if (!flag)
-                    {
-                        HelperType.Group group = new HelperType.Group(areaElement.Group);
-                        group.ElementIndexList.Add(num + 1);
-                        groupList.Add(group);
-                    }
-                }
-                num++;
+                AreaElementModel areaElement = kvp.Value;
+                int id4 = areaElement.NodeList.Count == 4 ? areaElement.NodeList[4].Id : 0;
+                textMgt.Add($"{areaElement.Id}, PLATE, {areaElement.Material.Id}, {areaElement.AreaThickness.Id}, {areaElement.NodeList[0].Id}, {areaElement.NodeList[1].Id}, " +
+                    $"{areaElement.NodeList[2].Id}, {id4}, 1, {areaElement.Angle}");
             }
         }
 
-        private void WriteMgtLoadCase(List<string> textMgt, List<HelperType.LoadCase> loadCaseList)
+        private void WriteMgtLoadCase(List<string> textMgt)
         {
-            if (loadCaseList.Count > 0)
+            if (LoadCases.Count > 0)
             {
                 textMgt.Add("*STLDCASE");
                 textMgt.Add("; (name), (load type), (desc)");
             }
-            foreach (HelperType.LoadCase loadCase in loadCaseList)
+            foreach (var kvp in LoadCases)
             {
-                string name = loadCase.Name;
-                string type = loadCase.Type;
-                string description = loadCase.Description;
-                textMgt.Add(name + ", " + type + ", " + description);
+                var loadCase = kvp.Value;
+                textMgt.Add($"{loadCase.Name}, {loadCase.Type.ToString()}, {loadCase.Description}");
             }
         }
 
-        private void WriteMgtFrameLoad(List<string> textMgt, List<HelperType.FrameElement> frameElementList)
+        private void WriteMgtFrameLoad(List<string> textMgt)
         {
             bool flag = false;
-            foreach (HelperType.FrameElement frameElement in frameElementList)
+            foreach (var kvp in FrameElements)
             {
-                int indexFrameElement = frameElement.IndexFrameElement;
-                List<HelperType.FrameLoad> frameLoadList = frameElement.FrameLoadList;
-                foreach (HelperType.FrameLoad item in frameLoadList)
+                FrameElementModel frameElement = kvp.Value;
+                foreach (var item in frameElement.FrameLoadList)
                 {
-                    HelperType.LoadCase loadCase = item.LoadCase;
-                    string direction = item.Direction;
-                    double startLocationRelative = item.StartLocationRelative;
-                    double startLoad = item.StartLoad;
-                    double endLocationRelative = item.EndLocationRelative;
-                    double endLoad = item.EndLoad;
-                    string forceOrMoment = item.ForceOrMoment;
-                    string text = "";
-                    text = ((!item.IsProjected) ? "NO" : "YES");
-                    string text2 = "";
-                    if (forceOrMoment == "Force")
-                    {
-                        text2 = "UNILOAD";
-                    }
-                    else if (forceOrMoment == "Moment")
-                    {
-                        text2 = "UNIMOMENT";
-                    }
-                    textMgt.Add("*USE-STLD, " + loadCase.Name);
+                    string forceOrMoment = item.LoadType == FrameLoadModel.FrameLoadTypes.Force ? "UNILOAD" : "UNIMOMENT";
+                    string proj = (!item.IsProjected) ? "NO" : "YES";
+                    
+                    textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
                     textMgt.Add("*BEAMLOAD");
                     if (!flag)
                     {
-                        textMgt.Add("; (index element), (load classificiation=BEAM), (loadtype), (direction), (projected), (bEccen=NO), (eccenDir=aDir[1]), (i-end=''), (j-end=''), (bj-end=''), (location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
+                        textMgt.Add("; (index element), (load classificiation=BEAM), (loadtype), (direction), (projected), (bEccen=NO), (eccenDir=aDir[1]), (i-end=''), (j-end=''), (bj-end=''), " +
+                            "(location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
                         flag = true;
                     }
-                    textMgt.Add($"{indexFrameElement}, BEAM, {text2}, {direction}, {text}, NO, aDir[1], , , , {startLocationRelative}, {startLoad}, {endLocationRelative}, {endLoad}, 0, 0, 0, 0");
+                    textMgt.Add($"{frameElement.Id}, BEAM, {forceOrMoment}, {item.Direction.ToString()}, {proj}, NO, aDir[1], , , , " +
+                        $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0");
                 }
             }
         }
 
-        private void WriteMgtNodalLoad(List<string> textMgt, List<HelperType.Node> nodeList, List<HelperType.LoadCase> loadCaseList)
+        private void WriteMgtNodalLoad(List<string> textMgt)
         {
             bool flag = false;
-            int num = 0;
-            foreach (HelperType.Node node in nodeList)
+            foreach (var node in NodeElements)
             {
-                int num2 = num + 1;
-                List<HelperType.NodalLoad> nodalLoadList = node.NodalLoadList;
-                foreach (HelperType.LoadCase loadCase2 in loadCaseList)
+                foreach (var load in node.Value.NodalLoadList)
                 {
-                    double num3 = 0.0;
-                    double num4 = 0.0;
-                    double num5 = 0.0;
-                    double num6 = 0.0;
-                    double num7 = 0.0;
-                    double num8 = 0.0;
-                    foreach (HelperType.NodalLoad item in nodalLoadList)
+                    if (load.FX != 0.0 || load.FY != 0.0 || load.FZ != 0.0 || load.MX != 0.0 || load.MY != 0.0 || load.MZ != 0.0)
                     {
-                        HelperType.LoadCase loadCase = item.LoadCase;
-                        if (loadCase2.Name == loadCase.Name)
-                        {
-                            num3 += item.FX;
-                            num4 += item.FY;
-                            num5 += item.FZ;
-                            num6 += item.MX;
-                            num7 += item.MY;
-                            num8 += item.MZ;
-                        }
-                    }
-                    if (num3 != 0.0 || num4 != 0.0 || num5 != 0.0 || num6 != 0.0 || num7 != 0.0 || num8 != 0.0)
-                    {
-                        textMgt.Add("*USE-STLD, " + loadCase2.Name);
+                        textMgt.Add("*USE-STLD, " + load.LoadCase.Name);
                         textMgt.Add("*CONLOAD");
                         if (!flag)
                         {
                             textMgt.Add("; (index node), (FX), (FY), (FZ), (MX), (MY), (MZ), (group='') ");
                             flag = true;
                         }
-                        textMgt.Add($"{num2}, {num3}, {num4}, {num5}, {num6}, {num7}, {num8}, ");
+                        textMgt.Add($"{node.Value.Id}, {load.FX}, {load.FY}, {load.FZ}, {load.MX}, {load.MY}, {load.MZ}, ");
                     }
                 }
-                num++;
             }
         }
 
@@ -770,60 +672,57 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
-        private void WriteMgtLoadCombination(List<string> textMgt, List<HelperType.LoadCombination> loadCombinationList)
+        private void WriteMgtLoadCombination(List<string> textMgt)
         {
-            if (loadCombinationList.Count > 0)
+            if (LoadCombinations.Count > 0)
             {
                 textMgt.Add("*LOADCOMB    ; Combinations");
                 textMgt.Add("; (NAME=name), (kind=GEN), (active=ACTIVE), (bES=0), (linear add=0, envelope=1), (desc=''), (iSERVE-TYPE=0), (nLCOMTYPE=0), (nSEISTYPE=0)");
                 textMgt.Add("; (load type=ST), (LCNAME1), (FACTOR)");
             }
-            foreach (HelperType.LoadCombination loadCombination in loadCombinationList)
+            foreach (var kvp in LoadCombinations)
             {
-                string name = loadCombination.Name;
-                string type = loadCombination.Type;
-                string description = loadCombination.Description;
-                List<HelperType.LoadFactor> loadFactorList = loadCombination.LoadFactorList;
-                int num = 0;
-                if (type == "Linear")
-                {
-                    num = 0;
-                }
-                else if (type == "Envelope")
-                {
-                    num = 1;
-                }
-                textMgt.Add($"NAME={name}, GEN, ACTIVE, 0, {num}, {description}, 0, 0, 0");
-                foreach (HelperType.LoadFactor item in loadFactorList)
-                {
-                    string name2 = item.LoadCase.Name;
-                    double factor = item.Factor;
-                    textMgt.Add($"ST, {name2}, {factor}");
-                }
+                var loadCombination = kvp.Value;
+                int type = loadCombination.Type == LoadCombinationModel.LoadCombinationTypes.Linear ? 0 : 1;
+                textMgt.Add($"NAME={loadCombination.Name}, GEN, ACTIVE, 0, {type}, {loadCombination.Description}, 0, 0, 0");
+                foreach (var  item in loadCombination.LoadFactorList)                
+                    textMgt.Add($"ST, {item.LoadCase.Name}, {item.Factor}");                
             }
         }
 
-        private void WriteMgtGroup(List<string> textMgt, List<HelperType.Group> groupList)
+        private void WriteMgtGroup(List<string> textMgt)
         {
-            if (groupList.Count > 0)
+            if (Groups.Count > 0)
             {
                 textMgt.Add("*GROUP    ; Group");
                 textMgt.Add("; (group name), (node list), (element list), (plane type = 0)");
             }
-            foreach (HelperType.Group group in groupList)
+            foreach (var kvp in Groups)
             {
-                string name = group.Name;
-                string text = "";
-                string text2 = "";
-                foreach (int nodeIndex in group.NodeIndexList)
+                var group = kvp.Value;
+                string groupName = group.Name;
+
+                string nodeList = "";
+                string elementList = "";
+                for (int i = 0; i < NodeElements.Count; i++) 
                 {
-                    text += $"{nodeIndex} ";
+                    NodeElementModel node = NodeElements.ElementAt(i).Value;
+                    for (int j = 0; j < node.Groups.Count; j++)
+                    {
+                        if(node.Groups[j].Name == groupName)
+                            nodeList += $"{node.Id} ";
+                    }
                 }
-                foreach (int elementIndex in group.ElementIndexList)
+                for (int i = 0; i < FrameElements.Count; i++)
                 {
-                    text2 += $"{elementIndex} ";
+                    FrameElementModel elem = FrameElements.ElementAt(i).Value;
+                    for (int j = 0; j < elem.Groups.Count; j++)
+                    {
+                        if (elem.Groups[j].Name == groupName)
+                            elementList += $"{elem.Id} ";
+                    }
                 }
-                textMgt.Add(name + ", " + text + ", " + text2 + ", 0");
+                textMgt.Add(groupName + ", " + nodeList + ", " + elementList + ", 0");
             }
         }
 
@@ -885,13 +784,13 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
-        private void WriteMgtSelfWeight(List<string> textMgt, List<HelperType.SelfWeight> selfWeightList)
+        private void WriteMgtSelfWeight(List<string> textMgt)
         {
-            foreach (HelperType.SelfWeight selfWeight in selfWeightList)
+            if (SelfWeight != null)
             {
-                textMgt.Add("*USE-STLD, " + selfWeight.LoadCase.Name);
+                textMgt.Add("*USE-STLD, " + SelfWeight.LoadCase.Name);
                 textMgt.Add("*SELFWEIGHT");
-                textMgt.Add($"{selfWeight.FactorX}, {selfWeight.FactorY}, {selfWeight.FactorZ}");
+                textMgt.Add($"{SelfWeight.FactorX}, {SelfWeight.FactorY}, {SelfWeight.FactorZ}");
             }
         }
 
