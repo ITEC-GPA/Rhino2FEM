@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyCircleComponent : GH_Component
     {
         public FramePropertyCircleComponent()
-            : base("Frame property solid circle", "Frame property solid circle", "Frame property solid circle", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property solid circle", "Frame property solid circle", "Frame property solid circle", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 

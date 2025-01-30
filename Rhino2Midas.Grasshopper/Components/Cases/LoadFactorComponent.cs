@@ -8,7 +8,7 @@ namespace Rhino2Midas.Grasshopper.Components.Cases
     public class LoadFactorComponent : GH_Component
     {
         public LoadFactorComponent()
-            : base("Load factor", "Load factor", "Load factor", Helper.Constants.Tabname, Helper.Constants.Cases)
+            : base("Load factor", "Load factor", "Load factor", Helper.Constants.Rhino2Midas, Helper.Constants.Cases)
         {
         }
 

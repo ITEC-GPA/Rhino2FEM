@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyChannelComponent : GH_Component
     {
         public FramePropertyChannelComponent()
-            : base("Frame property channel", "Frame property channel", "Frame property channel", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property channel", "Frame property channel", "Frame property channel", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 
@@ -38,21 +38,21 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         {
             string name = "";
             int offset = 4; int number = 0;
-            double dimension = 0.0;
-            double dimension2 = 0.0;
-            double dimension3 = 0.0;
-            double dimension4 = 0.0;
-            double dimension5 = 0.0;
-            double dimension6 = 0.0;
+            double h = 0.0;
+            double wtf = 0.0;
+            double wt = 0.0;
+            double ttf = 0.0;
+            double wbf = 0.0;
+            double tbf = 0.0;
             double dimension7 = 0.0;
             double dimension8 = 0.0;
             double dimension9 = 0.0;
             double dimension10 = 0.0;
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref dimension) && DA.GetData(3, ref dimension2) &&
-                DA.GetData(4, ref dimension3) && DA.GetData(5, ref dimension4) && DA.GetData(6, ref dimension5) && DA.GetData(7, ref dimension6) && DA.GetData(8, ref number))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref h) && DA.GetData(3, ref wtf) &&
+                DA.GetData(4, ref wt) && DA.GetData(5, ref ttf) && DA.GetData(6, ref wbf) && DA.GetData(7, ref tbf) && DA.GetData(8, ref number))
             {
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.C, (FramePropertyModel.OffsetTypes)offset,
-                    dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
+                    h, wtf, wt, ttf, wbf, tbf, dimension7, dimension8, dimension9, dimension10);
                 frameProperty.Number = number;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }

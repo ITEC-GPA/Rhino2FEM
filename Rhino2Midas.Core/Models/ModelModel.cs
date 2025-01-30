@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
 using Rhino2Midas.Core.Base;
@@ -102,8 +103,8 @@ namespace Rhino2Midas.Core.Models
 
             int idNode = 1;
             List<int> usedNodeIds = inputNodes.Select(x => x.Id).ToList();
-            List<int> usedFrameIds = inputFrames.Select(x => x.Id).ToList();
-            List<int> usedAreaIds = inputAreas.Select(x => x.Id).ToList();
+            List<int> usedElementIds = inputFrames.Select(x => x.Id).ToList();
+            usedElementIds.AddRange(inputAreas.Select(x => x.Id).ToList());
 
             List<NodeElementModel> nodes = new List<NodeElementModel>();
             List<FrameElementModel> frames = new List<FrameElementModel>();
@@ -121,57 +122,77 @@ namespace Rhino2Midas.Core.Models
 
             for (int i = 0; i < nodes.Count; i++)
             {
-                if (nodeDictionary.ContainsKey(nodes[i].Id) && nodes[i].Id != ElementModel.UNASSIGNED)
+                if (nodeDictionary.ContainsKey(nodes[i].Id) && nodes[i].Id != ModelObjectId.UNASSIGNED)
                 {
                     nodeDictionary[nodes[i].Id].Merge(nodes[i]);
                 }
                 else
                 {
                     NodeElementModel nn = new NodeElementModel(nodes[i]);
-                    idNode = NewId(usedNodeIds, idNode);
+                    if (nn.Id != ModelObjectId.UNASSIGNED)
+                    {
+                        nodeDictionary.Add(nn.Id, nn);
+                    }
+                    else
+                    {
+                        idNode = NewId(usedNodeIds, idNode);
 
-                    nn.Id = idNode;
-                    nodeDictionary.Add(nn.Id, nn);
-                    usedNodeIds.Add(idNode);
-                    idNode++;
+                        nn.Id = idNode;
+                        nodeDictionary.Add(nn.Id, nn);
+                        usedNodeIds.Add(idNode);
+                        idNode++;
+                    }
                 }
             }
 
             int idFrame = 1;
             for (int i = 0; i < frames.Count; i++)
             {
-                if (frameDictionary.ContainsKey(frames[i].Id) && frames[i].Id != ElementModel.UNASSIGNED)
+                if (frameDictionary.ContainsKey(frames[i].Id) && frames[i].Id != ModelObjectId.UNASSIGNED)
                 {
                     frameDictionary[frames[i].Id].Merge(frames[i]);
                 }
                 else
                 {
                     FrameElementModel nn = new FrameElementModel(frames[i]);
-                    idFrame = NewId(usedFrameIds, idFrame);
-
-                    nn.Id = idFrame;
-                    frameDictionary.Add(nn.Id, nn);
-                    usedFrameIds.Add(idFrame);
-                    idFrame++;
+                    if (nn.Id != ModelObjectId.UNASSIGNED)
+                    {
+                        frameDictionary.Add(nn.Id, nn);
+                    }
+                    else
+                    {
+                        idFrame = NewId(usedElementIds, idFrame);
+                        nn.Id = idFrame;
+                        frameDictionary.Add(nn.Id, nn);
+                        usedElementIds.Add(idFrame);
+                        idFrame++;
+                    }
                 }
             }
 
             int idArea = 1;
             for (int i = 0; i < areas.Count; i++)
             {
-                if (areaDictionary.ContainsKey(areas[i].Id) && areas[i].Id != ElementModel.UNASSIGNED)
+                if (areaDictionary.ContainsKey(areas[i].Id) && areas[i].Id != ModelObjectId.UNASSIGNED)
                 {
                     areaDictionary[areas[i].Id].Merge(areas[i]);
                 }
                 else
                 {
                     AreaElementModel nn = new AreaElementModel(areas[i]);
-                    idArea = NewId(usedAreaIds, idArea);
+                    if (nn.Id != ModelObjectId.UNASSIGNED)
+                    {
+                        areaDictionary.Add(nn.Id, nn);
+                    }
+                    else
+                    {
+                        idArea = NewId(usedElementIds, idArea);
 
-                    nn.Id = idArea;
-                    areaDictionary.Add(nn.Id, nn);
-                    usedAreaIds.Add(idArea);
-                    idArea++;
+                        nn.Id = idArea;
+                        areaDictionary.Add(nn.Id, nn);
+                        usedElementIds.Add(idArea);
+                        idArea++;
+                    }
                 }
             }
 
@@ -189,46 +210,79 @@ namespace Rhino2Midas.Core.Models
             for (int i = 0; i < nodesBuffer.Count; i++)
                 rTree.Insert(nodesBuffer[i].Position, nodesBuffer[i].Id);
 
-            for (int i = 0; i < frames.Count; i++)
+            for (int i = 0; i < framesBuffer.Count; i++)
             {
                 {
-                    Point3d pt = frames[i].NodeStart.Position;
+                    Point3d pt = framesBuffer[i].NodeStart.Position;
                     bool found = false;
-                    int nodeId = ElementModel.UNASSIGNED;
+                    int nodeId = ModelObjectId.UNASSIGNED;
                     rTree.Search(new Sphere(pt, tol), new EventHandler<RTreeEventArgs>((sender, e) => { found = true; nodeId = e.Id; }));
 
                     if (found)
                     {
-                        frames[i].NodeStart = nodeDictionary[nodeId];
+                        framesBuffer[i].NodeStart = nodeDictionary[nodeId];
                     }
                     else
                     {
                         NodeElementModel newNode = new NodeElementModel(pt);
                         idNode = NewId(usedNodeIds, idNode);
+                        newNode.Id = idNode;
                         usedNodeIds.Add(idNode);
                         nodeDictionary.Add(idNode, newNode);
                         nodesBuffer.Add(newNode);
-                        rTree.Insert(pt, rTree.Count);
+                        rTree.Insert(pt, idNode);
+                        framesBuffer[i].NodeStart = newNode;
                     }
                 }
                 {
-                    Point3d pt = frames[i].NodeEnd.Position;
+                    Point3d pt = framesBuffer[i].NodeEnd.Position;
                     bool found = false;
-                    int nodeId = ElementModel.UNASSIGNED;
+                    int nodeId = ModelObjectId.UNASSIGNED;
                     rTree.Search(new Sphere(pt, tol), new EventHandler<RTreeEventArgs>((sender, e) => { found = true; nodeId = e.Id; }));
 
                     if (found)
                     {
-                        frames[i].NodeEnd = nodeDictionary[nodeId];
+                        framesBuffer[i].NodeEnd = nodeDictionary[nodeId];
                     }
                     else
                     {
                         NodeElementModel newNode = new NodeElementModel(pt);
                         idNode = NewId(usedNodeIds, idNode);
+                        newNode.Id = idNode;
                         usedNodeIds.Add(idNode);
                         nodeDictionary.Add(idNode, newNode);
                         nodesBuffer.Add(newNode);
-                        rTree.Insert(pt, rTree.Count);
+                        rTree.Insert(pt, idNode);
+                        framesBuffer[i].NodeEnd = newNode;
+                    }
+                }
+            }
+
+            for(int i = 0; i < areasBuffer.Count; i++)
+            {
+                var area = areasBuffer[i];
+                for(int j = 0; j < area.NodeList.Count;j++)
+                {
+                    NodeElementModel node = area.NodeList[j];
+                    Point3d pt = node.Position;
+                    bool found = false;
+                    int nodeId = ModelObjectId.UNASSIGNED;
+                    rTree.Search(new Sphere(pt, tol), new EventHandler<RTreeEventArgs>((sender, e) => { found = true; nodeId = e.Id; }));
+
+                    if (found)
+                    {
+                        area.NodeList[j] = nodeDictionary[nodeId];
+                    }
+                    else
+                    {
+                        NodeElementModel newNode = new NodeElementModel(pt);
+                        idNode = NewId(usedNodeIds, idNode);
+                        newNode.Id = idNode;
+                        usedNodeIds.Add(idNode);
+                        nodeDictionary.Add(idNode, newNode);
+                        nodesBuffer.Add(newNode);
+                        rTree.Insert(pt, idNode);
+                        area.NodeList[j] = newNode;
                     }
                 }
             }
@@ -305,33 +359,65 @@ namespace Rhino2Midas.Core.Models
             for (int i = 0; i < framesBuffer.Count; i++)
             {
                 var mat = new MaterialModel(framesBuffer[i].Material);
-                if (mat.Id == ModelObjectId.UNASSIGNED)
-                    mat.Id = NewId(usedMaterialIds, idMaterial);
-                Materials.Add(mat);
+
+                if (Materials.ContainsKey(mat.Name))
+                    framesBuffer[i].Material = Materials[mat.Name];
+                else
+                {
+                    if (mat.Id == ModelObjectId.UNASSIGNED)
+                        mat.Id = NewId(usedMaterialIds, idMaterial);
+                    usedMaterialIds.Add(mat.Id);
+                    Materials.Add(mat);
+                    framesBuffer[i].Material = Materials[mat.Name];
+                }
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var mat = new MaterialModel(areasBuffer[i].Material);
-                if (mat.Id == ModelObjectId.UNASSIGNED)
-                    mat.Id = NewId(usedMaterialIds, idMaterial);
-                Materials.Add(mat);
+
+                if (Materials.ContainsKey(mat.Name))
+                    areasBuffer[i].Material = Materials[mat.Name];
+                else
+                {
+                    if (mat.Id == ModelObjectId.UNASSIGNED)
+                        mat.Id = NewId(usedMaterialIds, idMaterial);
+                    usedMaterialIds.Add(mat.Id);
+                    Materials.Add(mat);
+                    areasBuffer[i].Material = Materials[mat.Name];
+                }
             }
 
             for (int i = 0; i < framesBuffer.Count; i++)
             {
                 var fp = new FramePropertyModel(framesBuffer[i].FrameProperty);
-                if (fp.Id == ModelObjectId.UNASSIGNED)
-                    fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
-                FrameProperties.Add(fp);
+
+                if (FrameProperties.ContainsKey(fp.Name))
+                    framesBuffer[i].FrameProperty = FrameProperties[fp.Name];
+                else
+                {
+                    if (fp.Id == ModelObjectId.UNASSIGNED)
+                        fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
+                    usedFramePropertyIds.Add(fp.Id);
+                    FrameProperties.Add(fp);
+                    framesBuffer[i].FrameProperty = FrameProperties[fp.Name];
+                }
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var fp = new AreaThicknessModel(areasBuffer[i].AreaThickness);
-                if (fp.Id == ModelObjectId.UNASSIGNED)
-                    fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
-                AreaThicknesses.Add(fp);
+
+                if (AreaThicknesses.ContainsKey(fp.Name))
+                    areasBuffer[i].AreaThickness = AreaThicknesses[fp.Name];
+                else
+                {
+                    if (fp.Id == ModelObjectId.UNASSIGNED)
+                        fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
+                    usedAreaPropertyIds.Add(fp.Id);
+                    AreaThicknesses.Add(fp);
+                    areasBuffer[i].AreaThickness = AreaThicknesses[fp.Name];
+                }
             }
 
             #endregion
@@ -349,10 +435,13 @@ namespace Rhino2Midas.Core.Models
                     {
                         for (int j = 0; j < element.NodalLoadList.Count; j++)
                         {
-                            var newCase = new LoadCaseModel(element.NodalLoadList[j].LoadCase);
-                            newCase.Id = idCases;
-                            idCases++;
-                            LoadCases.Add(newCase);
+                            if (!LoadCases.ContainsKey(element.NodalLoadList[j].LoadCase.Name))
+                            {
+                                var newCase = new LoadCaseModel(element.NodalLoadList[j].LoadCase);
+                                newCase.Id = idCases;
+                                idCases++;
+                                LoadCases.Add(newCase);
+                            }
                         }
                     }
                 }
@@ -366,10 +455,13 @@ namespace Rhino2Midas.Core.Models
                     {
                         for (int j = 0; j < element.FrameLoadList.Count; j++)
                         {
-                            var newCase = new LoadCaseModel(element.FrameLoadList[j].LoadCase);
-                            newCase.Id = idCases;
-                            idCases++;
-                            LoadCases.Add(newCase);
+                            if (!LoadCases.ContainsKey(element.FrameLoadList[j].LoadCase.Name))
+                            {
+                                var newCase = new LoadCaseModel(element.FrameLoadList[j].LoadCase);
+                                newCase.Id = idCases;
+                                idCases++;
+                                LoadCases.Add(newCase);
+                            }
                         }
                     }
                 }
@@ -383,10 +475,13 @@ namespace Rhino2Midas.Core.Models
                     {
                         for (int j = 0; j < element.AreaLoadList.Count; j++)
                         {
-                            var newCase = new LoadCaseModel(element.AreaLoadList[j].LoadCase);
-                            newCase.Id = idCases;
-                            idCases++;
-                            LoadCases.Add(newCase);
+                            if (!LoadCases.ContainsKey(element.AreaLoadList[j].LoadCase.Name))
+                            {
+                                var newCase = new LoadCaseModel(element.AreaLoadList[j].LoadCase);
+                                newCase.Id = idCases;
+                                idCases++;
+                                LoadCases.Add(newCase);
+                            }
                         }
                     }
                 }
@@ -398,11 +493,16 @@ namespace Rhino2Midas.Core.Models
                 var newCombo = new LoadCombinationModel(combos[i]);
                 for (int j = 0; j < combos[i].LoadFactorList.Count; j++)
                 {
-                    var newCase = new LoadCaseModel(combos[i].LoadFactorList[j].LoadCase);
-                    newCase.Id = idCases;
-                    idCases++;
-                    LoadCases.Add(newCase);
-                    newCombo.LoadFactorList[j].LoadCase = newCase;
+                    if (!LoadCases.ContainsKey(combos[i].LoadFactorList[j].LoadCase.Name))
+                    {
+                        var newCase = new LoadCaseModel(combos[i].LoadFactorList[j].LoadCase);
+                        newCase.Id = idCases;
+                        idCases++;
+                        LoadCases.Add(newCase);
+                        newCombo.LoadFactorList[j].LoadCase = newCase;
+                    }
+                    else
+                        newCombo.LoadFactorList[j].LoadCase = LoadCases[combos[i].LoadFactorList[j].LoadCase.Name];
                 }
                 newCombo.Id = idCombo;
                 LoadCombinations.Add(newCombo);
@@ -410,7 +510,8 @@ namespace Rhino2Midas.Core.Models
 
             if (selfWeight != null)
             {
-                LoadCases.Add(selfWeight.LoadCase);
+                if(!LoadCases.ContainsKey(selfWeight.LoadCase.Name))
+                    LoadCases.Add(selfWeight.LoadCase);
                 SelfWeight = selfWeight;
             }
 
@@ -431,15 +532,15 @@ namespace Rhino2Midas.Core.Models
             WriteMgtAreaThickness(outputStrings);
             WriteMgtLoadCase(outputStrings);
             WriteMgtSelfWeight(outputStrings);
-            WriteMgtLoadCombination(outputStrings, list9);
-            WriteMgtNode(outputStrings, list, groupList);
-            WriteMgtSupport(outputStrings, list);
-            int indexElementFromFrame = WriteMgtFrameElement(outputStrings, list4, groupList);
-            WriteMgtAreaElement(outputStrings, list7, indexElementFromFrame, groupList);
-            WriteMgtNodalLoad(outputStrings, list, loadCaseList);
-            WriteMgtFrameLoad(outputStrings, list4);
-            WriteMgtAreaLoad(outputStrings, list7);
-            WriteMgtGroup(outputStrings, groupList);
+            WriteMgtLoadCombination(outputStrings);
+            WriteMgtNode(outputStrings);
+            WriteMgtSupport(outputStrings   );
+            WriteMgtFrameElement(outputStrings);
+            WriteMgtAreaElement(outputStrings);
+            WriteMgtNodalLoad(outputStrings);
+            WriteMgtFrameLoad(outputStrings);
+            WriteMgtAreaLoad(outputStrings);
+            WriteMgtGroup(outputStrings);
             return outputStrings;
         }
 
@@ -458,8 +559,8 @@ namespace Rhino2Midas.Core.Models
 
         private void WriteMgtHeader(List<string> textMgt)
         {
-            textMgt.Add("; This MGT file is generated using RhinoToMidas plug in for grasshopper");
-            textMgt.Add("; Created by Stefano Kusuma Ali, contact: hello@stefanokali.com");
+            textMgt.Add("; This MGT file is generated using Rhino2Midas plug in for grasshopper");
+            textMgt.Add("; Created by Gabriele Pacini, contact: gabrielepacini6293@gmail.com");
             textMgt.Add("; Disclamer: please check if MIDAS output is as intended!");
         }
 
@@ -550,20 +651,18 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
-        private int WriteMgtFrameElement(List<string> textMgt)
+        private void WriteMgtFrameElement(List<string> textMgt)
         {
             if (FrameElements.Count > 0)
             {
                 textMgt.Add("*ELEMENT");
                 textMgt.Add("; i, BEAM, (index material), (index property), (index node start), (index node end), (angle=0), (index subtype=0)");
             }
-            int num = 0;
             foreach (var kvp in FrameElements)
             {
                 FrameElementModel frameElement = kvp.Value;
                 textMgt.Add($"{frameElement.Id}, BEAM, {frameElement.Material.Id}, {frameElement.FrameProperty.Id}, {frameElement.NodeStart.Id}, {frameElement.NodeEnd.Id}, {frameElement.Angle} , 0");
             }
-            return num;
         }
 
         private void WriteMgtAreaElement(List<string> textMgt)
@@ -576,7 +675,7 @@ namespace Rhino2Midas.Core.Models
             foreach (var kvp in AreaElements)
             {
                 AreaElementModel areaElement = kvp.Value;
-                int id4 = areaElement.NodeList.Count == 4 ? areaElement.NodeList[4].Id : 0;
+                int id4 = areaElement.NodeList.Count == 4 ? areaElement.NodeList[3].Id : 0;
                 textMgt.Add($"{areaElement.Id}, PLATE, {areaElement.Material.Id}, {areaElement.AreaThickness.Id}, {areaElement.NodeList[0].Id}, {areaElement.NodeList[1].Id}, " +
                     $"{areaElement.NodeList[2].Id}, {id4}, 1, {areaElement.Angle}");
             }
@@ -643,31 +742,24 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
-        private void WriteMgtAreaLoad(List<string> textMgt, List<HelperType.AreaElement> areaElementList)
+        private void WriteMgtAreaLoad(List<string> textMgt)
         {
             bool flag = false;
-            foreach (HelperType.AreaElement areaElement in areaElementList)
+            foreach (var kvp in AreaElements)
             {
-                int indexAreaElement = areaElement.IndexAreaElement;
-                List<HelperType.AreaLoad> areaLoadList = areaElement.AreaLoadList;
-                foreach (HelperType.AreaLoad item in areaLoadList)
+                AreaElementModel areaElement = kvp.Value;
+                List<AreaLoadModel> areaLoadList = areaElement.AreaLoadList;
+                foreach (AreaLoadModel item in areaLoadList)
                 {
-                    HelperType.LoadCase loadCase = item.LoadCase;
-                    string direction = item.Direction;
-                    double p = item.P1;
-                    double p2 = item.P2;
-                    double p3 = item.P3;
-                    double p4 = item.P4;
-                    string text = "";
-                    text = ((!item.IsProjected) ? "NO" : "YES");
-                    textMgt.Add("*USE-STLD, " + loadCase.Name);
+                    string proj = ((!item.IsProjected) ? "NO" : "YES");
+                    textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
                     textMgt.Add("*PRESSURE   ;Pressure Loads");
                     if (!flag)
                     {
                         textMgt.Add("; (index element), (load classificiation=PRES), (elementtype=PLATE), (loadtype=FACE), (direction), (Vx=0), (Vy=0), (Vz=0),(projected yes/no), (load uniform), (P1=0), (P2=0), (P3=0), (P4=0), (group=''), (psltkey=0)");
                         flag = true;
                     }
-                    textMgt.Add($"{indexAreaElement}, PRES, PLATE, FACE, {direction}, 0, 0, 0, {text}, 0, {p}, {p2}, {p3}, {p4}, ,0");
+                    textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, ,0");
                 }
             }
         }
@@ -722,24 +814,27 @@ namespace Rhino2Midas.Core.Models
                             elementList += $"{elem.Id} ";
                     }
                 }
+                for (int i = 0; i < AreaElements.Count; i++)
+                {
+                    AreaElementModel elem = AreaElements.ElementAt(i).Value;
+                    for (int j = 0; j < elem.Groups.Count; j++)
+                    {
+                        if (elem.Groups[j].Name == groupName)
+                            elementList += $"{elem.Id} ";
+                    }
+                }
                 textMgt.Add(groupName + ", " + nodeList + ", " + elementList + ", 0");
             }
         }
 
-        private void WriteMgtSupport(List<string> textMgt, List<HelperType.Node> nodeList)
+        private void WriteMgtSupport(List<string> textMgt)
         {
             bool flag = false;
             int num = 0;
-            foreach (HelperType.Node node in nodeList)
+            foreach (var kvp in NodeElements)
             {
-                int num2 = num + 1;
-                bool dx = node.Support.Dx;
-                bool dy = node.Support.Dy;
-                bool dz = node.Support.Dz;
-                bool mx = node.Support.Mx;
-                bool my = node.Support.My;
-                bool mz = node.Support.Mz;
-                if (dx || dy || dz || mx || my || mz)
+                var node = kvp.Value;
+                if (node.Support.Dx || node.Support.Dy || node.Support.Dz || node.Support.Mx || node.Support.My || node.Support.Mz)
                 {
                     if (!flag)
                     {
@@ -747,38 +842,15 @@ namespace Rhino2Midas.Core.Models
                         textMgt.Add("; (index node), (resrtaint condition-i 000000 Dx,Dy,Dz,Rx,Ry,Rz), (groups='')");
                         flag = true;
                     }
-                    int num3 = 0;
-                    int num4 = 0;
-                    int num5 = 0;
-                    int num6 = 0;
-                    int num7 = 0;
-                    int num8 = 0;
-                    if (dx)
-                    {
-                        num3 = 1;
-                    }
-                    if (dy)
-                    {
-                        num4 = 1;
-                    }
-                    if (dz)
-                    {
-                        num5 = 1;
-                    }
-                    if (mx)
-                    {
-                        num6 = 1;
-                    }
-                    if (my)
-                    {
-                        num7 = 1;
-                    }
-                    if (mz)
-                    {
-                        num8 = 1;
-                    }
-                    string arg = Convert.ToString(num3) + Convert.ToString(num4) + Convert.ToString(num5) + Convert.ToString(num6) + Convert.ToString(num7) + Convert.ToString(num8);
-                    textMgt.Add($"{num2}, {arg}, ");
+                    int dx  = node.Support.Dx ? 1 : 0;
+                    int dy  = node.Support.Dy ? 1 : 0;
+                    int dz  = node.Support.Dz ? 1 : 0;
+                    int mx  = node.Support.Mx ? 1 : 0;
+                    int my  = node.Support.My ? 1 : 0;
+                    int mz = node.Support.Mz ? 1 : 0;
+
+                    string arg = dx.ToString()+ dy.ToString() + dz.ToString() + mx.ToString() + my.ToString() + mz.ToString() ;
+                    textMgt.Add($"{node.Id}, {arg}, ");
                 }
                 num++;
             }

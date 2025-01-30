@@ -14,13 +14,13 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
     {
 
         public AreaElementComponent()
-            : base("Area element", "Area element", "Area element", Helper.Constants.Tabname, Helper.Constants.Elements)
+            : base("Area element", "Area element", "Area element", Helper.Constants.Rhino2Midas, Helper.Constants.Elements)
         {
         }
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddBrepParameter("Area", "Area", "Area", GH_ParamAccess.item);
+            pManager.AddMeshParameter("Area", "Area", "Area", GH_ParamAccess.item);
             pManager.AddGenericParameter("Area thickness", "Area thickness", "Area thickness", GH_ParamAccess.item);
             pManager.AddGenericParameter("Material", "Material", "Material", GH_ParamAccess.item);
             pManager.AddAngleParameter("Angle (deg)", "Angle (deg)", "Angle (deg)", GH_ParamAccess.item, 0);
@@ -46,9 +46,9 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
 
             if (!DA.GetData(0, ref mesh) || !DA.GetData(1, ref areaThickness) || !DA.GetData(2, ref material))
                 return;
-            DA.GetData(4, ref angle);
-            DA.GetData(5, ref groups);
-            DA.GetData(6, ref id);
+            DA.GetData(3, ref angle);
+            DA.GetDataList(4, groups);
+            DA.GetData(5, ref id);
 
             int num = mesh.Vertices.Count;
             if (num < 3.0 || num > 4.0)
@@ -61,7 +61,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
             for (int i = 0; i < num; i++)
                 listBuffer.Add(new NodeElementModel(mesh.Vertices[i]));
 
-            AreaElementModel areaElement = new AreaElementModel(listBuffer, areaThickness.Value, material.Value, angle);
+            AreaElementModel areaElement = new AreaElementModel(listBuffer, areaThickness.Value, material.Value, angle) { Id = id }; 
             if (groups != null && groups.Count > 0)
             {
                 List<ElementGroupModel> elementGroupModels = new List<ElementGroupModel>();
@@ -69,7 +69,6 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
                     elementGroupModels.Add(groups[i].Value);
 
                 areaElement.Groups = elementGroupModels;
-                areaElement.Id = id;
             }
 
             DA.SetData(0, new GH_AreaElement(areaElement));

@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
     public class ModelUnitsComponent : GH_Component
     {
         public ModelUnitsComponent()
-            : base("Model Units", "Model Units", "Model Units", Helper.Constants.Tabname, Helper.Constants.Model)
+            : base("Model Units", "Model Units", "Model Units", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
         {
         }
 

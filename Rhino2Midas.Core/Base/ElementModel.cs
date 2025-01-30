@@ -19,6 +19,11 @@ namespace Rhino2Midas.Core.Base
             Id = UNASSIGNED;
         }
 
+        public ElementModel(ElementModel elementModel)
+            : base(elementModel.Id, elementModel.Name)
+        {
+        }
+
         public virtual void Merge(ElementModel other)
         {            
             Groups.AddRange(other.Groups);

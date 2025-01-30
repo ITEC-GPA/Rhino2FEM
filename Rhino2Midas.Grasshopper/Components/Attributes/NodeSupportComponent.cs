@@ -9,7 +9,7 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
     public class NodeSupportComponent : GH_Component
     {
         public NodeSupportComponent()
-            : base("Support", "Support", "Support", Helper.Constants.Tabname, Helper.Constants.Attributes)
+            : base("Support", "Support", "Support", Helper.Constants.Rhino2Midas, Helper.Constants.Attributes)
         {
         }
 

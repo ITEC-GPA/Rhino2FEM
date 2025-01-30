@@ -28,6 +28,7 @@ namespace Rhino2Midas.Core.Elements
         }
 
         public NodeElementModel(double x, double y, double z, List<ElementGroupModel> group = null, NodeSupportModel support = null, List<NodalLoadModel> nodalLoadList = null)
+            : base()
         {
             X = x;
             Y = y;
@@ -49,6 +50,7 @@ namespace Rhino2Midas.Core.Elements
         }
 
         public NodeElementModel(NodeElementModel nodeModel)
+            : base(nodeModel)
         {
             X = nodeModel.X;
             Y = nodeModel.Y;

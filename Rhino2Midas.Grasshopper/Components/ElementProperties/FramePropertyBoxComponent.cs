@@ -3,13 +3,14 @@ using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
+using Rhino2Midas.Grasshopper.Datatype;
 
 namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 {
     public class FramePropertyBoxComponent : GH_Component
     {
         public FramePropertyBoxComponent()
-            : base("Frame property box", "Frame property box", "Frame property box", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property box", "Frame property box", "Frame property box", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 
@@ -36,30 +37,25 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string name = "";
-            int offset = 4; int number = 0;
-            double dimension = 0.0;
-            double dimension2 = 0.0;
-            double num = 0.0;
-            double dimension3 = 0.0;
-            double num2 = 0.0;
-            double dimension4 = 0.0;
+            int offset = 4; int propNumber = 0;
+            double h = 0.0;
+            double w = 0.0;
+            double tw = 0.0;
+            double tft = 0.0;
+            double tfb = 0.0;
+            double ctcw = 0.0;
             double dimension5 = 0.0;
             double dimension6 = 0.0;
             double dimension7 = 0.0;
             double dimension8 = 0.0;
 
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref dimension) && DA.GetData(3, ref dimension2) &&
-                DA.GetData(4, ref num) && DA.GetData(5, ref dimension3) && DA.GetData(6, ref num2) && DA.GetData(7, ref dimension4) && DA.GetData(8, ref number))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref h) && DA.GetData(3, ref w) &&
+                DA.GetData(4, ref tw) && DA.GetData(5, ref tft) && DA.GetData(6, ref tfb) && DA.GetData(7, ref ctcw) && DA.GetData(8, ref propNumber))
             {
-                if (num2 <= num)
-                {
-                    AddRuntimeMessage((GH_RuntimeMessageLevel)20, "Center to center flange must be > thickness flange!");
-                    return;
-                }
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.B, (FramePropertyModel.OffsetTypes)offset,
-                    dimension, dimension2, num, dimension3, num2, dimension4, dimension5, dimension6, dimension7, dimension8);
-                frameProperty.Number = number;
-                DA.SetData(0, frameProperty);
+                    h, w, tw, tft, tfb, ctcw, dimension5, dimension6, dimension7, dimension8);
+                frameProperty.Number = propNumber;
+                DA.SetData(0, new GH_FrameProperty(frameProperty));
             }
         }
 

@@ -11,7 +11,7 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
     public class LoadFrameNonUniComponent : GH_Component
     {
         public LoadFrameNonUniComponent()
-            : base("Load frame non-uniform", "Load frame non-uniform", "Load frame non-uniform", Helper.Constants.Tabname, Helper.Constants.Loads)
+            : base("Load frame non-uniform", "Load frame non-uniform", "Load frame non-uniform", Helper.Constants.Rhino2Midas, Helper.Constants.Loads)
         {
         }
 

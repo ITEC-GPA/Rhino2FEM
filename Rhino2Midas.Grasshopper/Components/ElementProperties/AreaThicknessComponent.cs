@@ -8,7 +8,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class AreaThicknessComponent : GH_Component
     {
         public AreaThicknessComponent()
-            : base("Area thickness", "Area thickness", "Area thickness", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Area thickness", "Area thickness", "Area thickness", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 
@@ -16,6 +16,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         {
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
             pManager.AddNumberParameter("Thickness", "Thickness", "Thickness", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Offset", "Offset", "Offset", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
         }
 
@@ -29,11 +30,11 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             string name = "";
             int number = 0;
             double thickness = 0.0;
+            double offset = 0.0;
 
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref thickness) && DA.GetData(2, ref number))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref thickness) && DA.GetData(2, ref offset) && DA.GetData(3, ref number))
             {
-                AreaThicknessModel areaThickness = new AreaThicknessModel(name, thickness);
-                areaThickness.Number = number;
+                AreaThicknessModel areaThickness = new AreaThicknessModel(name, thickness) { Offset = offset, Number = number };                
                 DA.SetData(0, new GH_AreaThickness(areaThickness));
             }
         }

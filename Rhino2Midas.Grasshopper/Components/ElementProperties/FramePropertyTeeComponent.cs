@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyTeeComponent : GH_Component
     {
         public FramePropertyTeeComponent()
-            : base("Frame property tee", "Frame property tee", "Frame property tee", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property tee", "Frame property tee", "Frame property tee", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 

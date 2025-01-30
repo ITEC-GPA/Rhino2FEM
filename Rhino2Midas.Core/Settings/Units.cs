@@ -4,25 +4,30 @@
     {
         public enum ForceUnitTypes
         {
-            kN,
+            KN,
             N,
         }
 
         public enum LengthUnitTypes
         {
-            m,
-            cm,
-            mm,
+            M,
+            CM,
+            MM,
         }
 
         public enum HeatUnitTypes
         {
-            kJ,
+            KJ,
+            J,
+            BTU,
+            KCAL,
+            CAL,
         }
 
         public enum TemperatureUnitTypes
         {
             C,
+            F,
         }
 
         public ForceUnitTypes ForceUnit { get; set; }

@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.Materials
     public class MaterialComponent : GH_Component
     {
         public MaterialComponent()
-            : base("Material", "Material", "Material", Helper.Constants.Tabname, Helper.Constants.Materials)
+            : base("Material", "Material", "Material", Helper.Constants.Rhino2Midas, Helper.Constants.Materials)
         {
         }
 

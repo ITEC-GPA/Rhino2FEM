@@ -8,7 +8,7 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
     public class ElementGroupComponent : GH_Component
     {
         public ElementGroupComponent()
-            : base("Element Group", "Element Group", "Element Group", Helper.Constants.Tabname, Helper.Constants.Attributes)
+            : base("Element Group", "Element Group", "Element Group", Helper.Constants.Rhino2Midas, Helper.Constants.Attributes)
         {
         }
 

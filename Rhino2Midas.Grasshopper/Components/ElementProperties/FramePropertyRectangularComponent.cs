@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyRectangularComponent : GH_Component
     {
         public FramePropertyRectangularComponent()
-            : base("Frame property solid rectangular", "Frame property solid rectangular", "Frame property solid rectangular", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property solid rectangular", "Frame property solid rectangular", "Frame property solid rectangular", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 

@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.Cases
     public class LoadCaseComponent : GH_Component
     {
         public LoadCaseComponent()
-            : base("Load case", "Load case", "Load case", Helper.Constants.Tabname, Helper.Constants.Cases)
+            : base("Load case", "Load case", "Load case", Helper.Constants.Rhino2Midas, Helper.Constants.Cases)
         {
         }
 

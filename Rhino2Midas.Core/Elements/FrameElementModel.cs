@@ -23,6 +23,7 @@ namespace Rhino2Midas.Core.Elements
         public double Angle { get; set; }
 
         public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, MaterialModel material, double angle = 0, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+            : base()
         {
             NodeStart = startNode;
             NodeEnd = endNode;
@@ -40,10 +41,12 @@ namespace Rhino2Midas.Core.Elements
         }
 
         public FrameElementModel()
+            : base()
         {
         }
 
         public FrameElementModel(FrameElementModel frameElementModel)
+            : base(frameElementModel)
         {
             NodeStart = frameElementModel.NodeStart;
             NodeEnd = frameElementModel.NodeEnd;

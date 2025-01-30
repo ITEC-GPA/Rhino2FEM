@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyGeneralComponent : GH_Component
     {
         public FramePropertyGeneralComponent()
-            : base("Frame property general", "Frame property general", "Frame property general", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property general", "Frame property general", "Frame property general", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 

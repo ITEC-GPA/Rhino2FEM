@@ -9,7 +9,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
     public class DecomposeModelComponent : GH_Component
     {
         public DecomposeModelComponent()
-            : base("Decompose Model", "Decompose Model", "Decompose Model", Helper.Constants.Tabname, Helper.Constants.Model)
+            : base("Decompose Model", "Decompose Model", "Decompose Model", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
         {
         }
 

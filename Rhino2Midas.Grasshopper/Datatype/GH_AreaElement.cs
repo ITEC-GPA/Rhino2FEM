@@ -66,7 +66,7 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         void IGH_PreviewData.DrawViewportMeshes(GH_PreviewMeshArgs args)
         {
-            throw new NotImplementedException();
+            Value.DrawWireframe(args.Pipeline, args.Viewport, args.Material.Diffuse);
         }
 
         public override IGH_GeometricGoo DuplicateGeometry()

@@ -9,7 +9,7 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
     public class LoadNodalComponent : GH_Component
     {
         public LoadNodalComponent()
-            : base("Load nodal", "Load nodal", "Load nodal", Helper.Constants.Tabname, Helper.Constants.Loads)
+            : base("Load nodal", "Load nodal", "Load nodal", Helper.Constants.Rhino2Midas, Helper.Constants.Loads)
         {
         }
 

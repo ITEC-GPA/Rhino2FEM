@@ -11,7 +11,7 @@ namespace Rhino2Midas.Grasshopper.Components.Cases
     public class LoadCombinationComponent : GH_Component
     {
         public LoadCombinationComponent()
-            : base("Load combination", "Load combination", "Load combination", Helper.Constants.Tabname, Helper.Constants.Cases)
+            : base("Load combination", "Load combination", "Load combination", Helper.Constants.Rhino2Midas, Helper.Constants.Cases)
         {
         }
 

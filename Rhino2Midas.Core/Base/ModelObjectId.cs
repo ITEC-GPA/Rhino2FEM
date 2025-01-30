@@ -20,6 +20,13 @@ namespace Rhino2Midas.Core.Base
         public ModelObjectId(string name)
         {
             Name = name;
+            Id = UNASSIGNED;
+        }
+
+        public ModelObjectId(int id, string name)
+        {
+            Name = name;
+            Id = id;
         }
 
         public override bool Equals(object obj)

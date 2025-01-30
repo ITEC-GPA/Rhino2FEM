@@ -11,7 +11,7 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
     public class LoadFrameUniformComponent : GH_Component
     {
         public LoadFrameUniformComponent()
-            : base("Load frame uniform", "Load frame uniform", "Load frame uniform", Helper.Constants.Tabname, Helper.Constants.Loads)
+            : base("Load frame uniform", "Load frame uniform", "Load frame uniform", Helper.Constants.Rhino2Midas, Helper.Constants.Loads)
         {
         }
 

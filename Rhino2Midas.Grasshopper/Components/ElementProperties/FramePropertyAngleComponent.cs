@@ -10,7 +10,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyAngleComponent : GH_Component
     {
         public FramePropertyAngleComponent()
-            : base("Frame property angle", "Frame property angle", "Frame property angle", Helper.Constants.Tabname, Helper.Constants.ElementProperties)
+            : base("Frame property angle", "Frame property angle", "Frame property angle", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 
@@ -36,10 +36,10 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         {
             string name = "";
             int offset = 4; int number = 0;
-            double dimension = 0.0;
-            double dimension2 = 0.0;
-            double dimension3 = 0.0;
-            double dimension4 = 0.0;
+            double h = 0.0;
+            double w = 0.0;
+            double tw = 0.0;
+            double tf = 0.0;
             double dimension5 = 0.0;
             double dimension6 = 0.0;
             double dimension7 = 0.0;
@@ -48,21 +48,21 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             double dimension10 = 0.0;
 
             int count = 0;
-            if (DA.GetData(count++, ref name))
+            if (!DA.GetData(count++, ref name))
                 return;
-            if (DA.GetData(count++, ref offset))
+            if (!DA.GetData(count++, ref offset))
                 return;
-            if (DA.GetData(count++, ref dimension))
+            if (!DA.GetData(count++, ref h))
                 return;
-            if (DA.GetData(count++, ref dimension2))
+            if (!DA.GetData(count++, ref w))
                 return;
-            if (DA.GetData(count++, ref dimension3))
+            if (!DA.GetData(count++, ref tw))
                 return;
-            if (DA.GetData(count++, ref dimension4))
+            if (!DA.GetData(count++, ref tf))
                 return;
 
-            FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.L, (FramePropertyModel.OffsetTypes)offset, dimension, dimension2,
-                dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
+            FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.L, (FramePropertyModel.OffsetTypes)offset, h, w,
+                tw, tf, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
             frameProperty.Number = number;
             DA.SetData(0, new GH_FrameProperty(frameProperty));
         }

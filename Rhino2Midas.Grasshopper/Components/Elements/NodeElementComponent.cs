@@ -12,7 +12,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
     public class NodeElementComponent : GH_Component
     {
         public NodeElementComponent()
-            : base("Node Element", "Node Element", "Node Element", Helper.Constants.Tabname, Helper.Constants.Elements)
+            : base("Node Element", "Node Element", "Node Element", Helper.Constants.Rhino2Midas, Helper.Constants.Elements)
         {
         }
 
@@ -40,7 +40,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
             DA.GetDataList(1, groups);
             DA.GetData(2, ref id);
 
-            NodeElementModel node = new NodeElementModel(val);
+            NodeElementModel node = new NodeElementModel(val) { Id = id };
 
             if (groups != null && groups.Count > 0)
             {
@@ -49,7 +49,6 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
                     elementGroupModels.Add(groups[i].Value);
 
                 node.Groups = elementGroupModels;
-                node.Id = id;
             }
             DA.SetData(0, new GH_NodeElement(node));
         }

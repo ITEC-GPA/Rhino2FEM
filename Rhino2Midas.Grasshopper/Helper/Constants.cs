@@ -2,7 +2,7 @@
 {
     internal static class Constants
     {
-        internal static string Tabname => "Rhino2Midas";
+        internal static string Rhino2Midas => "Rhino2Midas";
         internal static string Materials => "01-Materials";
         internal static string ElementProperties => "02-Properties";
         internal static string Elements => "03-Elements";

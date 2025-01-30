@@ -9,7 +9,7 @@ namespace Rhino2Midas.Grasshopper.Components.Cases
     public class SelfWeightComponent : GH_Component
     {
         public SelfWeightComponent()
-            : base("Selfweight", "Selfweight", "Selfweight", Helper.Constants.Tabname, Helper.Constants.Cases)
+            : base("Selfweight", "Selfweight", "Selfweight", Helper.Constants.Rhino2Midas, Helper.Constants.Cases)
         {
         }
 

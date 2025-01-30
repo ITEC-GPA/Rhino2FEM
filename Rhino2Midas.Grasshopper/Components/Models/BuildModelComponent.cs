@@ -12,7 +12,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
     public class BuildModelComponent : GH_Component
     {
         public BuildModelComponent()
-            : base("Build Model", "Build Model", "Build Model", Helper.Constants.Tabname, Helper.Constants.Model)
+            : base("Build Model", "Build Model", "Build Model", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
         {
         }
 

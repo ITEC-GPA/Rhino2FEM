@@ -12,7 +12,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
     public class FrameElementComponent : GH_Component
     {
         public FrameElementComponent()
-            : base("Frame element", "Frame element", "Frame element", Helper.Constants.Tabname, Helper.Constants.Elements)
+            : base("Frame element", "Frame element", "Frame element", Helper.Constants.Rhino2Midas, Helper.Constants.Elements)
         {
         }
 
@@ -49,7 +49,8 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
 
             NodeElementModel startNode = new NodeElementModel(val.PointAtStart.X, val.PointAtStart.Y, val.PointAtStart.Z, null, null, null);
             NodeElementModel endNode = new NodeElementModel(val.PointAtEnd.X, val.PointAtEnd.Y, val.PointAtEnd.Z, null, null, null);
-            FrameElementModel frameElement = new FrameElementModel(startNode, endNode, gH_FrameProperty.Value, gH_Material.Value, Rhino.RhinoMath.ToRadians(angle));
+            FrameElementModel frameElement = new FrameElementModel(startNode, endNode, gH_FrameProperty.Value, gH_Material.Value, Rhino.RhinoMath.ToRadians(angle))
+            { Id = id };
 
             if (groups != null && groups.Count > 0)
             {
@@ -58,7 +59,6 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
                     elementGroupModels.Add(groups[i].Value);
 
                 frameElement.Groups = elementGroupModels;
-                frameElement.Id = id;
             }
             DA.SetData(0, new GH_FrameElement(frameElement));
         }
