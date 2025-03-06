@@ -14,6 +14,8 @@
 
         public bool Mz { get; set; }
 
+        public BoundaryGroupModel BoundaryGroup { get; set; }
+
         public NodeSupportModel(bool dx, bool dy, bool dz, bool mx, bool my, bool mz)
         {
             Dx = dx;
@@ -26,6 +28,18 @@
 
         public NodeSupportModel()
         {
+        }
+
+
+        public NodeSupportModel(NodeSupportModel nodeSupportModel)
+        {
+            Dx = nodeSupportModel.Dx;
+            Dy = nodeSupportModel.Dy;
+            Dz = nodeSupportModel.Dz;
+            Mx = nodeSupportModel.Mx;
+            My = nodeSupportModel.My;
+            Mz = nodeSupportModel.Mz;
+            BoundaryGroup = nodeSupportModel.BoundaryGroup;
         }
     }
 }

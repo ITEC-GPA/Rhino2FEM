@@ -1,6 +1,7 @@
 using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Grasshopper.Datatype;
@@ -26,7 +27,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             pManager.AddNumberParameter("Thickness top flange", "Thickness top flange", "Thickness top flange", GH_ParamAccess.item);
             pManager.AddNumberParameter("Width bottom flange", "Width bottom flange", "Width bottom flange", GH_ParamAccess.item);
             pManager.AddNumberParameter("Thickness bottom flange", "Thickness", "Thickness", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -53,7 +54,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             {
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.C, (FramePropertyModel.OffsetTypes)offset,
                     h, wtf, wt, ttf, wbf, tbf, dimension7, dimension8, dimension9, dimension10);
-                frameProperty.Number = number;
+                frameProperty.Id = number;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }
         }

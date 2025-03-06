@@ -1,6 +1,7 @@
 using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Grasshopper.Datatype;
@@ -23,7 +24,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             pManager.AddNumberParameter("Height", "Height", "Height", GH_ParamAccess.item);
             pManager.AddNumberParameter("Width", "Width", "Width", GH_ParamAccess.item);
             ((GH_ParamManager)pManager)[1].Optional = true;
-            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -48,7 +49,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref dimension) && DA.GetData(3, ref dimension2) && DA.GetData(4, ref number))
             {
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.SB, (FramePropertyModel.OffsetTypes)offset, dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
-                frameProperty.Number = number;
+                frameProperty.Id = number;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }
         }

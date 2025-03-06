@@ -23,6 +23,8 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
             pManager.AddNumberParameter("Mx", "Mx", "Mx", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("My", "My", "My", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Mz", "Mz", "Mz", GH_ParamAccess.item, 0.0);
+            pManager.AddGenericParameter("Load Group", "Load Group", "Load Group", GH_ParamAccess.item);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -40,12 +42,17 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
             double mX = 0.0;
             double mY = 0.0;
             double mZ = 0.0;
+            GH_LoadGroup loadGroup = null;
 
             if (DA.GetData(0, ref gH_Node) && DA.GetData(1, ref gH_LoadCase) && DA.GetData(2, ref fX) && DA.GetData(3, ref fY) && DA.GetData(4, ref fZ) &&
                 DA.GetData(5, ref mX) && DA.GetData(6, ref mY) && DA.GetData(7, ref mZ))
             {
+                DA.GetData(8, ref loadGroup);
+
                 NodalLoadModel nodalLoad = new NodalLoadModel(gH_LoadCase.Value, fX, fY, fZ, mX, mY, mZ);
                 NodeElementModel newnode = new NodeElementModel(gH_Node.Value);
+                if (loadGroup != null)
+                    nodalLoad.LoadGroup = loadGroup.Value;
                 newnode.NodalLoadList.Add(nodalLoad);
                 DA.SetData(0, new GH_NodeElement(newnode));
             }

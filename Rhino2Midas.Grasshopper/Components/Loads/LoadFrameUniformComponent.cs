@@ -27,6 +27,8 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddBooleanParameter("Projected?", "Projected?", "Bool", GH_ParamAccess.item, false);
             pManager.AddNumberParameter("Load", "Load", "Load", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Load Group", "Load Group", "Load Group", GH_ParamAccess.item);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -42,13 +44,18 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
             int direction = 0;
             bool isProjected = false;
             double num = 0.0;
+            GH_LoadGroup loadGroup = null;
 
             if (DA.GetData(0, ref gH_FrameElement) && DA.GetData(1, ref loadCase) && DA.GetData(2, ref type) &&
                 DA.GetData(3, ref direction) && DA.GetData(4, ref isProjected) && DA.GetData(5, ref num))
             {
+                DA.GetData(6, ref loadGroup);
+
                 FrameLoadModel frameLoad = new FrameLoadModel(loadCase.Value, (FrameLoadModel.FrameLoadTypes)type, (FrameLoadModel.LoadDirections)direction,
                     isProjected, 0.0, num, 1.0, num);
                 FrameElementModel frameElementModel = new FrameElementModel(gH_FrameElement.Value);
+                if (loadGroup != null)
+                    frameLoad.LoadGroup = loadGroup.Value;
                 frameElementModel.FrameLoadList.Add(frameLoad);
                 DA.SetData(0, new GH_FrameElement(frameElementModel));
             }

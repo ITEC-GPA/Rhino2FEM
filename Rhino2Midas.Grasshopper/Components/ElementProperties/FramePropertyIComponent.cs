@@ -1,6 +1,7 @@
 using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Grasshopper.Datatype;
@@ -28,7 +29,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             pManager.AddNumberParameter("Thickness web", "Thickness web", "Thickness web", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Radius inner", "Radius inner", "Radius inner", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Radius outer", "Radius outer", "Radius outer", GH_ParamAccess.item, 0.0);
-            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -55,7 +56,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
                 DA.GetData(5, ref b2) && DA.GetData(6, ref tf2) && DA.GetData(7, ref tw) && DA.GetData(8, ref r1) && DA.GetData(9, ref r2) && DA.GetData(10, ref number))
             {
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.H, (FramePropertyModel.OffsetTypes)offset, h, b1, tw, tf1, b2, tf2, r1, r2, dimension9, dimension10);
-                frameProperty.Number = number;
+                frameProperty.Id = number;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino2Midas.Core.Elements;
@@ -30,6 +31,8 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
             pManager.AddNumberParameter("Load at end", "Load at end", "Load at end", GH_ParamAccess.item);
             pManager.AddNumberParameter("Location relative start", "Location relative start", "Location relative start", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Location relative end", "Location relative end", "Location relative end", GH_ParamAccess.item, 1.0);
+            pManager.AddGenericParameter("Load Group", "Load Group", "Load Group", GH_ParamAccess.item);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -48,6 +51,7 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
             double endLoad = 0.0;
             double num = 0.0;
             double num2 = 0.0;
+            GH_LoadGroup loadGroup = null;
 
             if (DA.GetData(0, ref gH_FrameElement) && DA.GetData(1, ref loadCase) && DA.GetData(2, ref type) &&
                 DA.GetData(3, ref direction) && DA.GetData(4, ref isProjected) && DA.GetData(5, ref startLoad) &&
@@ -63,9 +67,13 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
                     AddRuntimeMessage((GH_RuntimeMessageLevel)20, "Location start and end must be >= 0!");
                     return;
                 }
+                DA.GetData(9, ref loadGroup);
+
+                FrameElementModel frameElementModel = new FrameElementModel(gH_FrameElement.Value);
                 FrameLoadModel frameLoad = new FrameLoadModel(loadCase.Value, (FrameLoadModel.FrameLoadTypes)type, (FrameLoadModel.LoadDirections)direction,
                     isProjected, num, startLoad, num2, endLoad);
-                FrameElementModel frameElementModel = new FrameElementModel(gH_FrameElement.Value);
+                if (loadGroup != null)
+                    frameLoad.LoadGroup = loadGroup.Value;
                 frameElementModel.FrameLoadList.Add(frameLoad);
                 DA.SetData(0, new GH_FrameElement(frameElementModel));
             }

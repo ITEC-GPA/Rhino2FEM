@@ -1,5 +1,6 @@
 ﻿using System;
 using Grasshopper.Kernel;
+using Rhino2Midas.Core.Base;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Grasshopper.Datatype;
 
@@ -16,8 +17,8 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
         {
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
             pManager.AddNumberParameter("Thickness", "Thickness", "Thickness", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Offset", "Offset", "Offset", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, 0);
+            pManager.AddNumberParameter("Offset", "Offset", "Offset", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Property Number", "Property Number", "Property Number", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)

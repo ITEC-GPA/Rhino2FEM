@@ -1,4 +1,5 @@
-﻿using Rhino2Midas.Core.Cases;
+﻿using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Cases;
 
 namespace Rhino2Midas.Core.Loads
 {
@@ -18,6 +19,8 @@ namespace Rhino2Midas.Core.Loads
 
         public double MZ { get; set; }
 
+        public LoadGroupModel LoadGroup { get; set; }
+
         public NodalLoadModel(LoadCaseModel loadCase, double fX, double fY, double fZ, double mX, double mY, double mZ)
         {
             LoadCase = loadCase;
@@ -31,6 +34,18 @@ namespace Rhino2Midas.Core.Loads
 
         public NodalLoadModel()
         {
+        }
+
+        public NodalLoadModel(NodalLoadModel nodalLoadModel)
+        {
+            LoadCase = nodalLoadModel.LoadCase;
+            FX = nodalLoadModel.FX;
+            FY = nodalLoadModel.FY;
+            FZ = nodalLoadModel.FZ;
+            MX = nodalLoadModel.MX;
+            MY = nodalLoadModel.MY;
+            MZ = nodalLoadModel.MZ;
+            LoadGroup = nodalLoadModel.LoadGroup;
         }
     }
 }

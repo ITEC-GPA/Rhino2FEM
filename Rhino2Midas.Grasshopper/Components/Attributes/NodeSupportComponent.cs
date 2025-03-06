@@ -22,6 +22,8 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
             pManager.AddBooleanParameter("Mx", "Mx", "Mx", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("My", "My", "My", GH_ParamAccess.item, false);
             pManager.AddBooleanParameter("Mz", "Mz", "Mz", GH_ParamAccess.item, false);
+            pManager.AddGenericParameter("Boundary Group", "Boundary Group", "Boundary Group", GH_ParamAccess.item);
+            pManager[pManager.ParamCount-1].Optional = true;
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -38,14 +40,19 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
             bool mx = false;
             bool my = false;
             bool mz = false;
+            GH_BoundaryGroup boundary = null;
 
             if (!DA.GetData(0, ref node))
                 return;
 
             if (DA.GetData(1, ref dx) && DA.GetData(2, ref dy) && DA.GetData(3, ref dz) && DA.GetData(4, ref mx) && DA.GetData(5, ref my) && DA.GetData(6, ref mz))
             {
+                DA.GetData(7, ref boundary);
+
                 NodeSupportModel support = new NodeSupportModel(dx, dy, dz, mx, my, mz);
                 NodeElementModel newNode = new NodeElementModel(node.Value);
+                if (boundary != null)
+                    support.BoundaryGroup = boundary.Value;
                 newNode.Support = support;
                 DA.SetData(0, new GH_NodeElement(newNode));
             }

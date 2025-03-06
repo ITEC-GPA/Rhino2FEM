@@ -24,6 +24,8 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddBooleanParameter("Projected?", "Projected?", "Bool", GH_ParamAccess.item, false);
             pManager.AddNumberParameter("Load", "Load", "Load", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Load Group", "Load Group", "Load Group", GH_ParamAccess.item);
+            pManager[pManager.ParamCount - 1].Optional = true;
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -35,14 +37,18 @@ namespace Rhino2Midas.Grasshopper.Components.Loads
         {
             GH_AreaElement gH_AreaElement = null;
             GH_LoadCase loadCase = null;
+            GH_LoadGroup loadGroup = null;
             int direction = 0;
             bool isProjected = false;
             double num = 0.0;
 
             if (DA.GetData(0, ref gH_AreaElement) && DA.GetData(1, ref loadCase) && DA.GetData(2, ref direction) && DA.GetData(3, ref isProjected) && DA.GetData(4, ref num))
             {
+                DA.GetData(5, ref loadGroup);
                 AreaLoadModel areaLoad = new AreaLoadModel(loadCase.Value, (AreaLoadModel.LoadDirections)direction, isProjected, num, num, num, num);
                 AreaElementModel areaElementModel = new AreaElementModel(gH_AreaElement.Value);
+                if (loadGroup != null)
+                    areaLoad.LoadGroup = loadGroup.Value;
                 areaElementModel.AreaLoadList.Add(areaLoad);
                 DA.SetData(0, new GH_AreaElement(areaElementModel));
             }

@@ -1,4 +1,5 @@
-﻿using Rhino2Midas.Core.Cases;
+﻿using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Cases;
 
 namespace Rhino2Midas.Core.Loads
 {
@@ -36,6 +37,8 @@ namespace Rhino2Midas.Core.Loads
 
         public double EndLoad { get; set; }
 
+        public LoadGroupModel LoadGroup { get; set; }
+
         public FrameLoadModel(LoadCaseModel loadCase, FrameLoadTypes forceOrMoment, LoadDirections direction, bool isProjected, double startLocationRelative, double startLoad, double endLocationRelative, double endLoad)
         {
             LoadCase = loadCase;
@@ -62,6 +65,7 @@ namespace Rhino2Midas.Core.Loads
             StartLoad = frameLoadModel.StartLoad;
             EndLocationRelative= frameLoadModel.EndLocationRelative;
             EndLoad = frameLoadModel.EndLoad;
+            LoadGroup = frameLoadModel.LoadGroup;
         }
     }
 }
