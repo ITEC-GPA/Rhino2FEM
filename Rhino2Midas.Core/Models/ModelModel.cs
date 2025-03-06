@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Rhino.Geometry;
@@ -539,6 +539,7 @@ namespace Rhino2Midas.Core.Models
             WriteMgtSupport(outputStrings);
             WriteMgtFrameElement(outputStrings);
             WriteMgtAreaElement(outputStrings);
+            WriteMgtGroup(outputStrings);
             WriteMgtNodalLoad(outputStrings);
             WriteMgtFrameLoad(outputStrings);
             WriteMgtAreaLoad(outputStrings);
