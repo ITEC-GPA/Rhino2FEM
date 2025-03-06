@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml.Linq;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
 using Rhino2Midas.Core.Base;
@@ -258,10 +257,10 @@ namespace Rhino2Midas.Core.Models
                 }
             }
 
-            for(int i = 0; i < areasBuffer.Count; i++)
+            for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var area = areasBuffer[i];
-                for(int j = 0; j < area.NodeList.Count;j++)
+                for (int j = 0; j < area.NodeList.Count; j++)
                 {
                     NodeElementModel node = area.NodeList[j];
                     Point3d pt = node.Position;
@@ -510,7 +509,7 @@ namespace Rhino2Midas.Core.Models
 
             if (selfWeight != null)
             {
-                if(!LoadCases.ContainsKey(selfWeight.LoadCase.Name))
+                if (!LoadCases.ContainsKey(selfWeight.LoadCase.Name))
                     LoadCases.Add(selfWeight.LoadCase);
                 SelfWeight = selfWeight;
             }
@@ -527,6 +526,9 @@ namespace Rhino2Midas.Core.Models
             List<string> outputStrings = new List<string>();
             WriteMgtHeader(outputStrings);
             WriteMgtUnit(outputStrings);
+            WriteMgtGroup(outputStrings);
+            WriteMgtLoadGroup(outputStrings);
+            WriteMgtBoundaryGroup(outputStrings);
             WriteMgtMaterial(outputStrings);
             WriteMgtFrameProperty(outputStrings);
             WriteMgtAreaThickness(outputStrings);
@@ -534,13 +536,12 @@ namespace Rhino2Midas.Core.Models
             WriteMgtSelfWeight(outputStrings);
             WriteMgtLoadCombination(outputStrings);
             WriteMgtNode(outputStrings);
-            WriteMgtSupport(outputStrings   );
+            WriteMgtSupport(outputStrings);
             WriteMgtFrameElement(outputStrings);
             WriteMgtAreaElement(outputStrings);
             WriteMgtNodalLoad(outputStrings);
             WriteMgtFrameLoad(outputStrings);
             WriteMgtAreaLoad(outputStrings);
-            WriteMgtGroup(outputStrings);
             return outputStrings;
         }
 
@@ -695,6 +696,65 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
+        private void WriteMgtLoadGroup(List<string> textMgt)
+        {
+            HashSet<string> loadGroups = new HashSet<string>();
+            foreach (var node in NodeElements)
+            {
+                for(int j = 0; j < node.Value.NodalLoadList.Count; j++)
+                {
+                    NodalLoadModel load = node.Value.NodalLoadList[j];
+                    if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
+                        loadGroups.Add(load.LoadGroup.Name);
+                }
+            }
+            foreach(var frame in FrameElements)
+            {
+                for (int j = 0; j < frame.Value.FrameLoadList.Count; j++)
+                {
+                    FrameLoadModel load = frame.Value.FrameLoadList[j];
+                    if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
+                        loadGroups.Add(load.LoadGroup.Name);
+                }
+            }
+            foreach(var area in AreaElements)
+            {
+                for (int j = 0; j < area.Value.AreaLoadList.Count; j++)
+                {
+                    AreaLoadModel load = area.Value.AreaLoadList[j];
+                    if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
+                        loadGroups.Add(load.LoadGroup.Name);
+                }
+            }
+            if (loadGroups.Count > 0)
+            {
+                textMgt.Add("*LOAD-GROUP    ; Load Group");
+                textMgt.Add("; NAME");
+
+                foreach (var name in loadGroups)
+                    textMgt.Add($"{name}");
+            }
+        }
+
+        private void WriteMgtBoundaryGroup(List<string> textMgt)
+        {
+            HashSet<string> boundaryGroups = new HashSet<string>();
+            foreach (var node in NodeElements)
+            {
+                if(node.Value.Support != null && node.Value.Support.BoundaryGroup != null)
+                    boundaryGroups.Add(node.Value.Support.BoundaryGroup.Name);
+                
+            }
+            if (boundaryGroups.Count > 0)
+            {
+                textMgt.Add("*BNDR-GROUP    ; Boundary Group");
+                textMgt.Add("; NAME, AUTOTYPE");
+
+                foreach (var name in boundaryGroups)
+                    textMgt.Add($"{name}, 9272");
+            }
+        }
+
         private void WriteMgtFrameLoad(List<string> textMgt)
         {
             bool flag = false;
@@ -705,7 +765,7 @@ namespace Rhino2Midas.Core.Models
                 {
                     string forceOrMoment = item.LoadType == FrameLoadModel.FrameLoadTypes.Force ? "UNILOAD" : "UNIMOMENT";
                     string proj = (!item.IsProjected) ? "NO" : "YES";
-                    
+
                     textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
                     textMgt.Add("*BEAMLOAD");
                     if (!flag)
@@ -714,8 +774,9 @@ namespace Rhino2Midas.Core.Models
                             "(location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
                         flag = true;
                     }
+                    string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
                     textMgt.Add($"{frameElement.Id}, BEAM, {forceOrMoment}, {item.Direction.ToString()}, {proj}, NO, aDir[1], , , , " +
-                        $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0");
+                        $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0, {loadGroup}");
                 }
             }
         }
@@ -736,7 +797,8 @@ namespace Rhino2Midas.Core.Models
                             textMgt.Add("; (index node), (FX), (FY), (FZ), (MX), (MY), (MZ), (group='') ");
                             flag = true;
                         }
-                        textMgt.Add($"{node.Value.Id}, {load.FX}, {load.FY}, {load.FZ}, {load.MX}, {load.MY}, {load.MZ}, ");
+                        string loadGroup = load.LoadGroup == null ? "" : load.LoadGroup.Name;
+                        textMgt.Add($"{node.Value.Id}, {load.FX}, {load.FY}, {load.FZ}, {load.MX}, {load.MY}, {load.MZ},{loadGroup} ");
                     }
                 }
             }
@@ -749,8 +811,9 @@ namespace Rhino2Midas.Core.Models
             {
                 AreaElementModel areaElement = kvp.Value;
                 List<AreaLoadModel> areaLoadList = areaElement.AreaLoadList;
-                foreach (AreaLoadModel item in areaLoadList)
+                for (int i = 0; i < areaLoadList.Count; i++)
                 {
+                    AreaLoadModel item = areaLoadList[i];
                     string proj = ((!item.IsProjected) ? "NO" : "YES");
                     textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
                     textMgt.Add("*PRESSURE   ;Pressure Loads");
@@ -759,7 +822,8 @@ namespace Rhino2Midas.Core.Models
                         textMgt.Add("; (index element), (load classificiation=PRES), (elementtype=PLATE), (loadtype=FACE), (direction), (Vx=0), (Vy=0), (Vz=0),(projected yes/no), (load uniform), (P1=0), (P2=0), (P3=0), (P4=0), (group=''), (psltkey=0)");
                         flag = true;
                     }
-                    textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, ,0");
+                    string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
+                    textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, {loadGroup},0");
                 }
             }
         }
@@ -777,8 +841,8 @@ namespace Rhino2Midas.Core.Models
                 var loadCombination = kvp.Value;
                 int type = loadCombination.Type == LoadCombinationModel.LoadCombinationTypes.Linear ? 0 : 1;
                 textMgt.Add($"NAME={loadCombination.Name}, GEN, ACTIVE, 0, {type}, {loadCombination.Description}, 0, 0, 0");
-                foreach (var  item in loadCombination.LoadFactorList)                
-                    textMgt.Add($"ST, {item.LoadCase.Name}, {item.Factor}");                
+                foreach (var item in loadCombination.LoadFactorList)
+                    textMgt.Add($"ST, {item.LoadCase.Name}, {item.Factor}");
             }
         }
 
@@ -796,12 +860,12 @@ namespace Rhino2Midas.Core.Models
 
                 string nodeList = "";
                 string elementList = "";
-                for (int i = 0; i < NodeElements.Count; i++) 
+                for (int i = 0; i < NodeElements.Count; i++)
                 {
                     NodeElementModel node = NodeElements.ElementAt(i).Value;
                     for (int j = 0; j < node.Groups.Count; j++)
                     {
-                        if(node.Groups[j].Name == groupName)
+                        if (node.Groups[j].Name == groupName)
                             nodeList += $"{node.Id} ";
                     }
                 }
@@ -842,15 +906,16 @@ namespace Rhino2Midas.Core.Models
                         textMgt.Add("; (index node), (resrtaint condition-i 000000 Dx,Dy,Dz,Rx,Ry,Rz), (groups='')");
                         flag = true;
                     }
-                    int dx  = node.Support.Dx ? 1 : 0;
-                    int dy  = node.Support.Dy ? 1 : 0;
-                    int dz  = node.Support.Dz ? 1 : 0;
-                    int mx  = node.Support.Mx ? 1 : 0;
-                    int my  = node.Support.My ? 1 : 0;
+                    int dx = node.Support.Dx ? 1 : 0;
+                    int dy = node.Support.Dy ? 1 : 0;
+                    int dz = node.Support.Dz ? 1 : 0;
+                    int mx = node.Support.Mx ? 1 : 0;
+                    int my = node.Support.My ? 1 : 0;
                     int mz = node.Support.Mz ? 1 : 0;
 
-                    string arg = dx.ToString()+ dy.ToString() + dz.ToString() + mx.ToString() + my.ToString() + mz.ToString() ;
-                    textMgt.Add($"{node.Id}, {arg}, ");
+                    string arg = dx.ToString() + dy.ToString() + dz.ToString() + mx.ToString() + my.ToString() + mz.ToString();
+                    string boundaryGroup = node.Support.BoundaryGroup == null ? "" : node.Support.BoundaryGroup.Name;
+                    textMgt.Add($"{node.Id}, {arg}, {boundaryGroup}");
                 }
                 num++;
             }

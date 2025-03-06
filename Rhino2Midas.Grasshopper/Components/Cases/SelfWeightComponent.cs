@@ -28,14 +28,14 @@ namespace Rhino2Midas.Grasshopper.Components.Cases
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            LoadCaseModel loadCase = null;
+            GH_LoadCase loadCase = null;
             double factorX = 0.0;
             double factorY = 0.0;
             double factorZ = 0.0;
 
             if (DA.GetData(0, ref loadCase) && DA.GetData(1, ref factorX) && DA.GetData(2, ref factorY) && DA.GetData(3, ref factorZ))
             {
-                SelfWeightModel selfWeight = new SelfWeightModel(loadCase, factorX, factorY, factorZ);
+                SelfWeightModel selfWeight = new SelfWeightModel(loadCase.Value, factorX, factorY, factorZ);
                 DA.SetData(0, new GH_SelfWeight(selfWeight));
             }
         }

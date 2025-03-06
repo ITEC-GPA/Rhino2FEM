@@ -31,8 +31,6 @@ namespace Rhino2Midas.Core.ElementProperties
             RB,
         }
 
-        public int Number { get; set; }
-
         public FramePropertyTypes Type { get; set; }
 
         public OffsetTypes Offset { get; set; }
@@ -84,10 +82,9 @@ namespace Rhino2Midas.Core.ElementProperties
         }
 
         public FramePropertyModel(FramePropertyModel framePropertyModel)
-            : base(framePropertyModel.Name)
+            : base(framePropertyModel.Id, framePropertyModel.Name)
         {
             Type = framePropertyModel.Type;
-            Number = framePropertyModel.Number;
             Offset = framePropertyModel.Offset;
             Dimension1 = framePropertyModel.Dimension1;
             Dimension2 = framePropertyModel.Dimension2;

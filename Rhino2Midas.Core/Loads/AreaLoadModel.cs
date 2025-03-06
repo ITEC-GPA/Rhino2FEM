@@ -1,4 +1,5 @@
-﻿using Rhino2Midas.Core.Cases;
+﻿using Rhino2Midas.Core.Attributes;
+using Rhino2Midas.Core.Cases;
 
 namespace Rhino2Midas.Core.Loads
 {
@@ -27,6 +28,8 @@ namespace Rhino2Midas.Core.Loads
 
         public double P4 { get; set; }
 
+        public LoadGroupModel LoadGroup { get; set; }
+
         public AreaLoadModel(LoadCaseModel loadCase, LoadDirections direction, bool isProjected = false, double p1 = 0, double p2 = 0, double p3 = 0, double p4 = 0)
         {
             LoadCase = loadCase;
@@ -51,6 +54,7 @@ namespace Rhino2Midas.Core.Loads
             P2 = areaLoadModel.P2;
             P3 = areaLoadModel.P3;
             P4 = areaLoadModel.P4;
+            LoadGroup = areaLoadModel.LoadGroup;
         }
     }
 }

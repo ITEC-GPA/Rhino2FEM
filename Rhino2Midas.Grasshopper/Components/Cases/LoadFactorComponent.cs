@@ -25,11 +25,11 @@ namespace Rhino2Midas.Grasshopper.Components.Cases
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            LoadCaseModel loadCase = null;
+            GH_LoadCase loadCase = null;
             double factor = 0.0;
             if (DA.GetData(0, ref loadCase) && DA.GetData(1, ref factor))
             {
-                LoadFactorModel loadFactor = new LoadFactorModel(loadCase, factor);
+                LoadFactorModel loadFactor = new LoadFactorModel(loadCase.Value, factor);
                 DA.SetData(0, new GH_LoadFactor(loadFactor));
             }
         }
