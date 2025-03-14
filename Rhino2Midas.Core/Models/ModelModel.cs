@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
 using Rhino2Midas.Core.Base;
@@ -10,6 +7,9 @@ using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Core.Loads;
 using Rhino2Midas.Core.Settings;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Rhino2Midas.Core.Models
 {
@@ -25,6 +25,7 @@ namespace Rhino2Midas.Core.Models
         public UniqueIdCollection<NodeElementModel> NodeElements { get; }
         public UniqueIdCollection<FrameElementModel> FrameElements { get; }
         public UniqueIdCollection<AreaElementModel> AreaElements { get; }
+        public UniqueIdCollection<LinkElementModel> LinkElements { get; }
         public SelfWeightModel SelfWeight { get; set; }
 
         public ModelModel()
@@ -38,6 +39,7 @@ namespace Rhino2Midas.Core.Models
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
             AreaElements = new UniqueIdCollection<AreaElementModel>();
+            LinkElements = new UniqueIdCollection<LinkElementModel>();
         }
 
         public ModelModel(ModelModel model)
@@ -51,42 +53,39 @@ namespace Rhino2Midas.Core.Models
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
             AreaElements = new UniqueIdCollection<AreaElementModel>();
+            LinkElements = new UniqueIdCollection<LinkElementModel>();
 
             for (int i = 0; i < model.Materials.Count; i++)
                 Materials.Add(new MaterialModel(model.Materials.Values.ElementAt(i)));
-
             for (int i = 0; i < model.LoadCases.Count; i++)
                 LoadCases.Add(new LoadCaseModel(model.LoadCases.Values.ElementAt(i)));
-
             for (int i = 0; i < model.LoadCombinations.Count; i++)
                 LoadCombinations.Add(new LoadCombinationModel(model.LoadCombinations.Values.ElementAt(i)));
-
             for (int i = 0; i < model.Groups.Count; i++)
                 Groups.Add(new ElementGroupModel(model.Groups.Values.ElementAt(i)));
-
             for (int i = 0; i < model.FrameProperties.Count; i++)
                 FrameProperties.Add(new FramePropertyModel(model.FrameProperties.Values.ElementAt(i)));
-
             for (int i = 0; i < model.AreaThicknesses.Count; i++)
                 AreaThicknesses.Add(new AreaThicknessModel(model.AreaThicknesses.Values.ElementAt(i)));
-
             for (int i = 0; i < model.NodeElements.Count; i++)
                 NodeElements.Add(new NodeElementModel(model.NodeElements.Values.ElementAt(i)));
-
             for (int i = 0; i < model.FrameElements.Count; i++)
                 FrameElements.Add(new FrameElementModel(model.FrameElements.Values.ElementAt(i)));
-
             for (int i = 0; i < model.AreaElements.Count; i++)
                 AreaElements.Add(new AreaElementModel(model.AreaElements.Values.ElementAt(i)));
+            for (int i = 0; i < model.LinkElements.Count; i++)
+                LinkElements.Add(new LinkElementModel(model.LinkElements.Values.ElementAt(i)));
         }
 
-        public void BuildModel(List<NodeElementModel> inputNodes = null, List<FrameElementModel> inputFrames = null, List<AreaElementModel> inputAreas = null, List<LoadCombinationModel> inputcombos = null, SelfWeightModel inputSelfWeight = null)
+        public void BuildModel(List<NodeElementModel> inputNodes = null, List<FrameElementModel> inputFrames = null, List<AreaElementModel> inputAreas = null,
+            List<LinkElementModel> inputLinks = null, List<LoadCombinationModel> inputcombos = null, SelfWeightModel inputSelfWeight = null)
         {
             #region Check Element IDs
 
             Dictionary<int, NodeElementModel> nodeDictionary = new Dictionary<int, NodeElementModel>();
             Dictionary<int, FrameElementModel> frameDictionary = new Dictionary<int, FrameElementModel>();
             Dictionary<int, AreaElementModel> areaDictionary = new Dictionary<int, AreaElementModel>();
+            Dictionary<int, LinkElementModel> linkDictionary = new Dictionary<int, LinkElementModel>();
 
             if (inputNodes == null)
                 inputNodes = new List<NodeElementModel>();
@@ -94,6 +93,8 @@ namespace Rhino2Midas.Core.Models
                 inputFrames = new List<FrameElementModel>();
             if (inputAreas == null)
                 inputAreas = new List<AreaElementModel>();
+            if (inputLinks == null)
+                inputLinks = new List<LinkElementModel>();
             if (inputcombos == null)
                 inputcombos = new List<LoadCombinationModel>();
             SelfWeightModel selfWeight = null;
@@ -104,10 +105,12 @@ namespace Rhino2Midas.Core.Models
             List<int> usedNodeIds = inputNodes.Select(x => x.Id).ToList();
             List<int> usedElementIds = inputFrames.Select(x => x.Id).ToList();
             usedElementIds.AddRange(inputAreas.Select(x => x.Id).ToList());
+            List<int> usedLinkIds = new List<int>();
 
             List<NodeElementModel> nodes = new List<NodeElementModel>();
             List<FrameElementModel> frames = new List<FrameElementModel>();
             List<AreaElementModel> areas = new List<AreaElementModel>();
+            List<LinkElementModel> links = new List<LinkElementModel>();
             List<LoadCombinationModel> combos = new List<LoadCombinationModel>();
 
             for (int i = 0; i < inputNodes.Count; i++)
@@ -116,6 +119,8 @@ namespace Rhino2Midas.Core.Models
                 frames.Add(new FrameElementModel(inputFrames[i]));
             for (int i = 0; i < inputAreas.Count; i++)
                 areas.Add(new AreaElementModel(inputAreas[i]));
+            for (int i = 0; i < inputLinks.Count; i++)
+                links.Add(new LinkElementModel(inputLinks[i]));
             for (int i = 0; i < inputcombos.Count; i++)
                 combos.Add(new LoadCombinationModel(inputcombos[i]));
 
@@ -195,6 +200,31 @@ namespace Rhino2Midas.Core.Models
                 }
             }
 
+            int idLink = 1;
+            for (int i = 0; i < links.Count; i++)
+            {
+                if (linkDictionary.ContainsKey(links[i].Id) && links[i].Id != ModelObjectId.UNASSIGNED)
+                {
+                    linkDictionary[links[i].Id].Merge(links[i]);
+                }
+                else
+                {
+                    LinkElementModel nn = new LinkElementModel(links[i]);
+                    if (nn.Id != ModelObjectId.UNASSIGNED)
+                    {
+                        linkDictionary.Add(nn.Id, nn);
+                    }
+                    else
+                    {
+                        idLink = NewId(usedLinkIds, idLink);
+                        nn.Id = idLink;
+                        linkDictionary.Add(nn.Id, nn);
+                        usedLinkIds.Add(idLink);
+                        idLink++;
+                    }
+                }
+            }
+
             #endregion
 
             #region Matching add nodes
@@ -204,6 +234,7 @@ namespace Rhino2Midas.Core.Models
             List<NodeElementModel> nodesBuffer = nodeDictionary.Values.ToList();
             List<FrameElementModel> framesBuffer = frameDictionary.Values.ToList();
             List<AreaElementModel> areasBuffer = areaDictionary.Values.ToList();
+            List<LinkElementModel> linkBuffer = linkDictionary.Values.ToList();
 
             RTree rTree = new RTree();
             for (int i = 0; i < nodesBuffer.Count; i++)
@@ -282,6 +313,54 @@ namespace Rhino2Midas.Core.Models
                         nodesBuffer.Add(newNode);
                         rTree.Insert(pt, idNode);
                         area.NodeList[j] = newNode;
+                    }
+                }
+            }
+
+            for (int i = 0; i < linkBuffer.Count; i++)
+            {
+                {
+                    Point3d pt = linkBuffer[i].NodeStart.Position;
+                    bool found = false;
+                    int nodeId = ModelObjectId.UNASSIGNED;
+                    rTree.Search(new Sphere(pt, tol), new EventHandler<RTreeEventArgs>((sender, e) => { found = true; nodeId = e.Id; }));
+
+                    if (found)
+                    {
+                        linkBuffer[i].NodeStart = nodeDictionary[nodeId];
+                    }
+                    else
+                    {
+                        NodeElementModel newNode = new NodeElementModel(pt);
+                        idNode = NewId(usedNodeIds, idNode);
+                        newNode.Id = idNode;
+                        usedNodeIds.Add(idNode);
+                        nodeDictionary.Add(idNode, newNode);
+                        nodesBuffer.Add(newNode);
+                        rTree.Insert(pt, idNode);
+                        linkBuffer[i].NodeStart = newNode;
+                    }
+                }
+                {
+                    Point3d pt = linkBuffer[i].NodeEnd.Position;
+                    bool found = false;
+                    int nodeId = ModelObjectId.UNASSIGNED;
+                    rTree.Search(new Sphere(pt, tol), new EventHandler<RTreeEventArgs>((sender, e) => { found = true; nodeId = e.Id; }));
+
+                    if (found)
+                    {
+                        linkBuffer[i].NodeEnd = nodeDictionary[nodeId];
+                    }
+                    else
+                    {
+                        NodeElementModel newNode = new NodeElementModel(pt);
+                        idNode = NewId(usedNodeIds, idNode);
+                        newNode.Id = idNode;
+                        usedNodeIds.Add(idNode);
+                        nodeDictionary.Add(idNode, newNode);
+                        nodesBuffer.Add(newNode);
+                        rTree.Insert(pt, idNode);
+                        linkBuffer[i].NodeEnd = newNode;
                     }
                 }
             }
@@ -519,6 +598,7 @@ namespace Rhino2Midas.Core.Models
             NodeElements.AddRange(nodesBuffer);
             FrameElements.AddRange(framesBuffer);
             AreaElements.AddRange(areasBuffer);
+            LinkElements.AddRange(linkBuffer);
         }
 
         public List<string> CreateMgtFile()
@@ -539,6 +619,7 @@ namespace Rhino2Midas.Core.Models
             WriteMgtSupport(outputStrings);
             WriteMgtFrameElement(outputStrings);
             WriteMgtAreaElement(outputStrings);
+            WriteMgtLinkElement(outputStrings);
             WriteMgtGroup(outputStrings);
             WriteMgtNodalLoad(outputStrings);
             WriteMgtFrameLoad(outputStrings);
@@ -683,6 +764,32 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
+        private void WriteMgtLinkElement(List<string> textMgt)
+        {
+            if (AreaElements.Count > 0)
+            {
+                textMgt.Add("*ELASTICLINK; Elastic Link");
+                textMgt.Add("; iNO, iNODE1, iNODE2, LINK, ANGLE, R_SDx, R_SDy, R_SDz, R_SRx, R_SRy, R_SRz, SDx, SDy, SDz, SRx, SRy, SRz... ");
+                textMgt.Add("; bSHEAR, DRy, DRz, GROUP; GEN");
+                textMgt.Add("                ; iNO, iNODE1, iNODE2, LINK, ANGLE, bSHEAR, DRy, DRz, GROUP; RIGID,SADDLE");
+                textMgt.Add("               ; iNO, iNODE1, iNODE2, LINK, ANGLE, SDx, bSHEAR, DRy, DRz, GROUP; TENS,COMP");
+                textMgt.Add("; iNO, iNODE1, iNODE2, LINK, ANGLE, DIR, FUNCTION, bSHEAR, DRENDI, GROUP; MULTI LINEAR");
+            }
+            foreach (var kvp in LinkElements)
+            {
+                LinkElementModel linkElement = kvp.Value;
+                if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.RIGID)
+                    textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, 0, " +
+                        $"{linkElement.LinkProperty.Kx}, {linkElement.LinkProperty.Ky},{linkElement.LinkProperty.Kz}," +
+                        $"{linkElement.LinkProperty.Rx},{linkElement.LinkProperty.Ry},{linkElement.LinkProperty.Rz}," +
+                        $"{linkElement.LinkProperty.BoundaryGroup.Name}" +
+                        $"NO, 0.5, 0.5, {linkElement.LinkProperty.BoundaryGroup.Name}");
+                else if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.GEN)
+                    textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, 0, " +
+                        $"NO, 0.5, 0.5, {linkElement.LinkProperty.BoundaryGroup.Name}");
+            }
+        }
+
         private void WriteMgtLoadCase(List<string> textMgt)
         {
             if (LoadCases.Count > 0)
@@ -702,14 +809,14 @@ namespace Rhino2Midas.Core.Models
             HashSet<string> loadGroups = new HashSet<string>();
             foreach (var node in NodeElements)
             {
-                for(int j = 0; j < node.Value.NodalLoadList.Count; j++)
+                for (int j = 0; j < node.Value.NodalLoadList.Count; j++)
                 {
                     NodalLoadModel load = node.Value.NodalLoadList[j];
                     if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
                         loadGroups.Add(load.LoadGroup.Name);
                 }
             }
-            foreach(var frame in FrameElements)
+            foreach (var frame in FrameElements)
             {
                 for (int j = 0; j < frame.Value.FrameLoadList.Count; j++)
                 {
@@ -718,7 +825,7 @@ namespace Rhino2Midas.Core.Models
                         loadGroups.Add(load.LoadGroup.Name);
                 }
             }
-            foreach(var area in AreaElements)
+            foreach (var area in AreaElements)
             {
                 for (int j = 0; j < area.Value.AreaLoadList.Count; j++)
                 {
@@ -742,9 +849,15 @@ namespace Rhino2Midas.Core.Models
             HashSet<string> boundaryGroups = new HashSet<string>();
             foreach (var node in NodeElements)
             {
-                if(node.Value.Support != null && node.Value.Support.BoundaryGroup != null)
+                if (node.Value.Support != null && node.Value.Support.BoundaryGroup != null)
                     boundaryGroups.Add(node.Value.Support.BoundaryGroup.Name);
-                
+
+            }
+            foreach (var link in LinkElements)
+            {
+                if (link.Value.LinkProperty != null && link.Value.LinkProperty.BoundaryGroup != null)
+                    boundaryGroups.Add(link.Value.LinkProperty.BoundaryGroup.Name);
+
             }
             if (boundaryGroups.Count > 0)
             {

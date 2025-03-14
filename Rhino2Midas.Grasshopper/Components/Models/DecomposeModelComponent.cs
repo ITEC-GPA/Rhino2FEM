@@ -20,9 +20,10 @@ namespace Rhino2Midas.Grasshopper.Components.Models
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Node element", "Node element", "Node element", GH_ParamAccess.list);
-            pManager.AddGenericParameter("Frame element", "Frame element", "Frame element", GH_ParamAccess.list);
-            pManager.AddGenericParameter("Area element", "Area element", "Area element", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Node elements", "Node elements", "Node elements", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Frame elements", "Frame elements", "Frame elements", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Area elements", "Area elements", "Area elements", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Link elements", "Link elements", "Link elements", GH_ParamAccess.list);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -35,6 +36,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
             List<GH_NodeElement> gh_Nodes = new List<GH_NodeElement>(gH_Model.Value.NodeElements.Count);
             List<GH_FrameElement> gh_Frames = new List<GH_FrameElement>(gH_Model.Value.FrameElements.Count);
             List<GH_AreaElement> gH_Areas = new List<GH_AreaElement>(gH_Model.Value.AreaElements.Count);
+            List<GH_LinkElement> gH_Links = new List<GH_LinkElement>(gH_Model.Value.LinkElements.Count);
 
             for (int i = 0; i < gH_Model.Value.NodeElements.Count; i++)
                 gh_Nodes.Add(new GH_NodeElement(gH_Model.Value.NodeElements.ElementAt(i).Value));
@@ -42,10 +44,13 @@ namespace Rhino2Midas.Grasshopper.Components.Models
                 gh_Frames.Add(new GH_FrameElement(gH_Model.Value.FrameElements.ElementAt(i).Value));
             for (int i = 0; i < gH_Model.Value.AreaElements.Count; i++)
                 gH_Areas.Add(new GH_AreaElement(gH_Model.Value.AreaElements.ElementAt(i).Value));
+            for (int i = 0; i < gH_Model.Value.LinkElements.Count; i++)
+                gH_Links.Add(new GH_LinkElement(gH_Model.Value.LinkElements.ElementAt(i).Value));
 
             DA.SetDataList(0, gh_Nodes);
             DA.SetDataList(1, gh_Frames);
             DA.SetDataList(2, gH_Areas);
+            DA.SetDataList(3, gH_Links);
         }
 
         //protected override Bitmap Icon => Resources.mgt_model_builder;
