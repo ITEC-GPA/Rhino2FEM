@@ -51,7 +51,7 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         public override string ToString()
         {
-            return $"Link element type {Value.LinkProperty} from point \r" +
+            return $"Link element type {Value.LinkProperty.Type} from point \r" +
                 $"X: {Value.NodeStart.X}, Y: {Value.NodeStart.Y}, Z: {Value.NodeStart.Z} to point" +
                 $"X: {Value.NodeEnd.X}, Y: {Value.NodeEnd.Y}, Z: {Value.NodeEnd.Z}";
         }

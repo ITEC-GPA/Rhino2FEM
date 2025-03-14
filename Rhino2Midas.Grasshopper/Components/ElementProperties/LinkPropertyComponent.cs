@@ -61,7 +61,7 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
 
         //protected override Bitmap Icon => Resources.support;
 
-        public override Guid ComponentGuid => new Guid("5d020064-def2-44e8-9eb7-971c9fb23562");
+        public override Guid ComponentGuid => new Guid("8ce029fc-b982-4b8f-877b-06d53b2a813c");
 
         public override GH_Exposure Exposure => GH_Exposure.secondary;
     }

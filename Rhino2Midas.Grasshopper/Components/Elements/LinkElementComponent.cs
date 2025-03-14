@@ -38,13 +38,13 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
                 return;
 
             NodeElementModel startNode = new NodeElementModel(pt1);
-            NodeElementModel endNode = new NodeElementModel(pt1);
+            NodeElementModel endNode = new NodeElementModel(pt2);
             LinkElementModel link = new LinkElementModel(startNode, endNode, gH_FrameProperty.Value);
             DA.SetData(0, new GH_LinkElement(link));
         }
 
         //protected override Bitmap Icon => Resources.frame_element;
 
-        public override Guid ComponentGuid => new Guid("99FE6257-8CFA-4DC2-9AEC-FB3AC0E1F8A3");
+        public override Guid ComponentGuid => new Guid("64061765-45e7-40c1-aa31-be2a95d5684c");
     }
 }

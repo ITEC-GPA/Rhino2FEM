@@ -766,7 +766,7 @@ namespace Rhino2Midas.Core.Models
 
         private void WriteMgtLinkElement(List<string> textMgt)
         {
-            if (AreaElements.Count > 0)
+            if (LinkElements.Count > 0)
             {
                 textMgt.Add("*ELASTICLINK; Elastic Link");
                 textMgt.Add("; iNO, iNODE1, iNODE2, LINK, ANGLE, R_SDx, R_SDy, R_SDz, R_SRx, R_SRy, R_SRz, SDx, SDy, SDz, SRx, SRy, SRz... ");
@@ -778,13 +778,13 @@ namespace Rhino2Midas.Core.Models
             foreach (var kvp in LinkElements)
             {
                 LinkElementModel linkElement = kvp.Value;
-                if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.RIGID)
-                    textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, 0, " +
+                if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.GEN)
+                    textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, " +
+                        $"0, NO, NO, NO, NO, NO, NO," +
                         $"{linkElement.LinkProperty.Kx}, {linkElement.LinkProperty.Ky},{linkElement.LinkProperty.Kz}," +
                         $"{linkElement.LinkProperty.Rx},{linkElement.LinkProperty.Ry},{linkElement.LinkProperty.Rz}," +
-                        $"{linkElement.LinkProperty.BoundaryGroup.Name}" +
                         $"NO, 0.5, 0.5, {linkElement.LinkProperty.BoundaryGroup.Name}");
-                else if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.GEN)
+                else if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.RIGID)
                     textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, 0, " +
                         $"NO, 0.5, 0.5, {linkElement.LinkProperty.BoundaryGroup.Name}");
             }
