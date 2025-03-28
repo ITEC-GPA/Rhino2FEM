@@ -36,5 +36,24 @@ namespace Rhino2Midas.Core.Collections
             }
             return false;
         }
+
+        public Dictionary<int, T> GetDictionary()
+        {
+            Dictionary<int, T> idAss = new Dictionary<int, T>();
+            foreach (var item in this)
+            {
+                idAss.Add(item.Value.Id, item.Value);
+            }
+            return idAss;
+        }
+
+        public T GetByID(int id) 
+        {
+            foreach (var item in this)            
+                if (item.Value.Id == id)
+                    return item.Value;
+
+            return null;            
+        }
     }
 }

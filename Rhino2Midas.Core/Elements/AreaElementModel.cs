@@ -42,22 +42,14 @@ namespace Rhino2Midas.Core.Elements
                 Groups = group;
             else
                 Groups = new List<ElementGroupModel>();
-            List<Curve> curves = new List<Curve>();
-            for (int i = 0; i < NodeList.Count; i++)
-            {
-                var start = NodeList[i];
-                var end = NodeList[(i + 1) % NodeList.Count]; // Collega l'ultimo punto al primo
-                curves.Add(new LineCurve(start.Position, end.Position));
-            }
-            Brep = Brep.CreatePlanarBreps(curves, 0.001).FirstOrDefault();
-            var plane = new Plane(NodeList[0].Position, NodeList[1].Position, NodeList[2].Position);
-            Brep.Translate(plane.Normal * Offset);
+            BuildBrep();
         }
 
         public AreaElementModel()
             : base()
         {
         }
+
 
         public AreaElementModel(AreaElementModel areaElementModel)
             : base(areaElementModel)
@@ -74,13 +66,36 @@ namespace Rhino2Midas.Core.Elements
 
         public void DrawWireframe(DisplayPipeline display, RhinoViewport viewport, Color color)
         {
-            if(Brep != null)
+            if (Brep == null)
+                BuildBrep();
+            if (Brep != null)
                 display.DrawBrepWires(Brep, color);
         }
 
         public void DrawSolid(DisplayPipeline display, RhinoViewport viewport, Color color)
         {
 
+        }
+
+        private void BuildBrep()
+        {
+            if(Brep == null)
+            {
+                if(NodeList.Count > 2)
+                {
+                    List<Curve> curves = new List<Curve>();
+                    for (int i = 0; i < NodeList.Count; i++)
+                    {
+                        var start = NodeList[i];
+                        var end = NodeList[(i + 1) % NodeList.Count]; // Collega l'ultimo punto al primo
+                        curves.Add(new LineCurve(start.Position, end.Position));
+                    }
+
+                    Brep = Brep.CreatePlanarBreps(curves, 0.001).FirstOrDefault();
+                    var plane = new Plane(NodeList[0].Position, NodeList[1].Position, NodeList[2].Position);
+                    Brep.Translate(plane.Normal * Offset);
+                }
+            }
         }
     }
 }

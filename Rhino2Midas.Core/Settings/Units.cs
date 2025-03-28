@@ -1,6 +1,6 @@
 ﻿namespace Rhino2Midas.Core.Settings
 {
-    public class ModelUnits
+    public class ModelUnitsModel
     {
         public enum ForceUnitTypes
         {
@@ -40,7 +40,7 @@
 
         public double Tolerance { get; set; }
 
-        public ModelUnits(ForceUnitTypes forceUnit, LengthUnitTypes lengthUnit, HeatUnitTypes heatUnit, TemperatureUnitTypes temperatureUnit, double tolerance)
+        public ModelUnitsModel(ForceUnitTypes forceUnit, LengthUnitTypes lengthUnit, HeatUnitTypes heatUnit, TemperatureUnitTypes temperatureUnit, double tolerance)
         {
             ForceUnit = forceUnit;
             LengthUnit = lengthUnit;
@@ -49,7 +49,7 @@
             Tolerance = tolerance;
         }
 
-        public ModelUnits()
+        public ModelUnitsModel()
         {
         }
     }

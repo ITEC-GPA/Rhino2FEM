@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Rhino.Geometry;
 using Rhino2Midas.Core.Attributes;
 using Rhino2Midas.Core.Base;
@@ -7,21 +11,18 @@ using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Elements;
 using Rhino2Midas.Core.Loads;
 using Rhino2Midas.Core.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Rhino2Midas.Core.Models
 {
     public class ModelModel : IEquatable<ModelModel>
     {
-        public ModelUnits ModelUnits { get; set; }
-        public UniqueNameCollection<MaterialModel> Materials { get; }
+        public ModelUnitsModel ModelUnits { get; set; }
+        public UniqueIdCollection<MaterialModel> Materials { get; }
         public UniqueNameCollection<LoadCaseModel> LoadCases { get; }
         public UniqueNameCollection<LoadCombinationModel> LoadCombinations { get; }
-        public UniqueNameCollection<ElementGroupModel> Groups { get; }
-        public UniqueNameCollection<FramePropertyModel> FrameProperties { get; }
-        public UniqueNameCollection<AreaThicknessModel> AreaThicknesses { get; }
+        public UniqueIdCollection<ElementGroupModel> Groups { get; }
+        public UniqueIdCollection<FramePropertyModel> FrameProperties { get; }
+        public UniqueIdCollection<AreaThicknessModel> AreaThicknesses { get; }
         public UniqueIdCollection<NodeElementModel> NodeElements { get; }
         public UniqueIdCollection<FrameElementModel> FrameElements { get; }
         public UniqueIdCollection<AreaElementModel> AreaElements { get; }
@@ -30,12 +31,12 @@ namespace Rhino2Midas.Core.Models
 
         public ModelModel()
         {
-            Materials = new UniqueNameCollection<MaterialModel>();
+            Materials = new UniqueIdCollection<MaterialModel>();
             LoadCases = new UniqueNameCollection<LoadCaseModel>();
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
-            Groups = new UniqueNameCollection<ElementGroupModel>();
-            FrameProperties = new UniqueNameCollection<FramePropertyModel>();
-            AreaThicknesses = new UniqueNameCollection<AreaThicknessModel>();
+            Groups = new UniqueIdCollection<ElementGroupModel>();
+            FrameProperties = new UniqueIdCollection<FramePropertyModel>();
+            AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
             AreaElements = new UniqueIdCollection<AreaElementModel>();
@@ -44,12 +45,12 @@ namespace Rhino2Midas.Core.Models
 
         public ModelModel(ModelModel model)
         {
-            Materials = new UniqueNameCollection<MaterialModel>();
+            Materials = new UniqueIdCollection<MaterialModel>();
             LoadCases = new UniqueNameCollection<LoadCaseModel>();
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
-            Groups = new UniqueNameCollection<ElementGroupModel>();
-            FrameProperties = new UniqueNameCollection<FramePropertyModel>();
-            AreaThicknesses = new UniqueNameCollection<AreaThicknessModel>();
+            Groups = new UniqueIdCollection<ElementGroupModel>();
+            FrameProperties = new UniqueIdCollection<FramePropertyModel>();
+            AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
             AreaElements = new UniqueIdCollection<AreaElementModel>();
@@ -438,64 +439,44 @@ namespace Rhino2Midas.Core.Models
             {
                 var mat = new MaterialModel(framesBuffer[i].Material);
 
-                if (Materials.ContainsKey(mat.Name))
-                    framesBuffer[i].Material = Materials[mat.Name];
-                else
-                {
-                    if (mat.Id == ModelObjectId.UNASSIGNED)
-                        mat.Id = NewId(usedMaterialIds, idMaterial);
-                    usedMaterialIds.Add(mat.Id);
-                    Materials.Add(mat);
-                    framesBuffer[i].Material = Materials[mat.Name];
-                }
+                if (mat.Id == ModelObjectId.UNASSIGNED)
+                    mat.Id = NewId(usedMaterialIds, idMaterial);
+                usedMaterialIds.Add(mat.Id);
+                Materials.Add(mat);
+                framesBuffer[i].Material = Materials[mat.Id];
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var mat = new MaterialModel(areasBuffer[i].Material);
 
-                if (Materials.ContainsKey(mat.Name))
-                    areasBuffer[i].Material = Materials[mat.Name];
-                else
-                {
-                    if (mat.Id == ModelObjectId.UNASSIGNED)
-                        mat.Id = NewId(usedMaterialIds, idMaterial);
-                    usedMaterialIds.Add(mat.Id);
-                    Materials.Add(mat);
-                    areasBuffer[i].Material = Materials[mat.Name];
-                }
+                if (mat.Id == ModelObjectId.UNASSIGNED)
+                    mat.Id = NewId(usedMaterialIds, idMaterial);
+                usedMaterialIds.Add(mat.Id);
+                Materials.Add(mat);
+                areasBuffer[i].Material = Materials[mat.Id];
             }
 
             for (int i = 0; i < framesBuffer.Count; i++)
             {
                 var fp = new FramePropertyModel(framesBuffer[i].FrameProperty);
 
-                if (FrameProperties.ContainsKey(fp.Name))
-                    framesBuffer[i].FrameProperty = FrameProperties[fp.Name];
-                else
-                {
-                    if (fp.Id == ModelObjectId.UNASSIGNED)
-                        fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
-                    usedFramePropertyIds.Add(fp.Id);
-                    FrameProperties.Add(fp);
-                    framesBuffer[i].FrameProperty = FrameProperties[fp.Name];
-                }
+                if (fp.Id == ModelObjectId.UNASSIGNED)
+                    fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
+                usedFramePropertyIds.Add(fp.Id);
+                FrameProperties.Add(fp);
+                framesBuffer[i].FrameProperty = FrameProperties[fp.Id];
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var fp = new AreaThicknessModel(areasBuffer[i].AreaThickness);
 
-                if (AreaThicknesses.ContainsKey(fp.Name))
-                    areasBuffer[i].AreaThickness = AreaThicknesses[fp.Name];
-                else
-                {
-                    if (fp.Id == ModelObjectId.UNASSIGNED)
-                        fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
-                    usedAreaPropertyIds.Add(fp.Id);
-                    AreaThicknesses.Add(fp);
-                    areasBuffer[i].AreaThickness = AreaThicknesses[fp.Name];
-                }
+                if (fp.Id == ModelObjectId.UNASSIGNED)
+                    fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
+                usedAreaPropertyIds.Add(fp.Id);
+                AreaThicknesses.Add(fp);
+                areasBuffer[i].AreaThickness = AreaThicknesses[fp.Id];
             }
 
             #endregion
@@ -660,7 +641,7 @@ namespace Rhino2Midas.Core.Models
                 textMgt.Add("*MATERIAL");
                 textMgt.Add("; i, CONC/STEEL, (name), (spheat=0), (heatco=0), (plast=''), (tunit=C), (bmass=no), (damp ratio), (2), (modulus elasticity), (poisson), (thermal coeff), (density), (mass)");
             }
-            foreach (KeyValuePair<string, MaterialModel> kvp in Materials)
+            foreach (KeyValuePair<int, MaterialModel> kvp in Materials)
             {
                 MaterialModel material = kvp.Value;
 
@@ -1045,6 +1026,441 @@ namespace Rhino2Midas.Core.Models
             }
         }
 
+        public void ReadMgtFile(string[] textMgt)
+        {
+            string unitsMatchTest = "*UNIT    ; Unit System";
+            string groupMatchTest = "*GROUP    ; Group";
+            string nodeCoordinateMatchTest = "*NODE    ; Nodes";
+            string elementMatchTest = "*ELEMENT    ; Elements";
+            string materialMatchTest = "*MATERIAL    ; Material";
+            string sectionMatchTest = "*SECTION    ; Section";
+            string thicknessMatchTest = "*THICKNESS    ; Thickness";
+            string elasticLinkMatchTest = "*ELASTICLINK    ; Elastic Link";
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == unitsMatchTest)
+                {
+                    Dictionary<string, ModelUnitsModel.LengthUnitTypes> kvpL = new Dictionary<string, ModelUnitsModel.LengthUnitTypes>()
+                    {
+                        { "MM", ModelUnitsModel.LengthUnitTypes.MM },
+                        { "CM", ModelUnitsModel.LengthUnitTypes.CM },
+                        { "M", ModelUnitsModel.LengthUnitTypes.M },
+                    };
+                    Dictionary<string, ModelUnitsModel.ForceUnitTypes> kvpF = new Dictionary<string, ModelUnitsModel.ForceUnitTypes>()
+                    {
+                        { "KN", ModelUnitsModel.ForceUnitTypes.KN },
+                        { "N", ModelUnitsModel.ForceUnitTypes.N },
+                    };
+                    Dictionary<string, ModelUnitsModel.HeatUnitTypes> kvpH = new Dictionary<string, ModelUnitsModel.HeatUnitTypes>()
+                    {
+                        { "KJ", ModelUnitsModel.HeatUnitTypes.KJ },
+                        { "J", ModelUnitsModel.HeatUnitTypes.J },
+                        { "BTU", ModelUnitsModel.HeatUnitTypes.BTU },
+                        { "KCAL", ModelUnitsModel.HeatUnitTypes.KCAL },
+                        { "CAL", ModelUnitsModel.HeatUnitTypes.CAL },
+                    };
+                    Dictionary<string, ModelUnitsModel.TemperatureUnitTypes> kvpT = new Dictionary<string, ModelUnitsModel.TemperatureUnitTypes>()
+                    {
+                        { "C", ModelUnitsModel.TemperatureUnitTypes.C },
+                        { "F", ModelUnitsModel.TemperatureUnitTypes.F },
+                    };
+
+                    for (int j = i + 2; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                        ModelUnitsModel modelUnits = new ModelUnitsModel()
+                        {
+                            ForceUnit = kvpF[splitlist[0].Trim()],
+                            LengthUnit = kvpL[splitlist[1].Trim()],
+                            HeatUnit = kvpH[splitlist[2].Trim()],
+                            TemperatureUnit = kvpT[splitlist[3].Trim()],
+                        };
+
+                        ModelUnits = modelUnits;
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == materialMatchTest)
+                {
+                    for (int j = i + 7; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                        MaterialModel materialModel = new MaterialModel()
+                        {
+                            Id = int.Parse(splitlist[0].Trim()),
+                            Name = splitlist[2].Trim(),
+                        };
+                        if (splitlist[1] == "CONC")
+                            materialModel.Type = MaterialModel.MaterialTypes.Concrete;
+                        else if (splitlist[1] == "STEEL")
+                            materialModel.Type = MaterialModel.MaterialTypes.Steel;
+
+                        Materials.Add(materialModel);
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == sectionMatchTest)
+                {
+                    Dictionary<string, FramePropertyModel.FramePropertyTypes> kvpType = new Dictionary<string, FramePropertyModel.FramePropertyTypes>()
+                    {
+                        {"SB", FramePropertyModel.FramePropertyTypes.SB},
+                        {"SR",  FramePropertyModel.FramePropertyTypes.SR},
+                        {"P",  FramePropertyModel.FramePropertyTypes.P},
+                        {"L",  FramePropertyModel.FramePropertyTypes.L},
+                        {"C",  FramePropertyModel.FramePropertyTypes.C},
+                        {"H",  FramePropertyModel.FramePropertyTypes.H},
+                        {"T",  FramePropertyModel.FramePropertyTypes.T},
+                        {"B",  FramePropertyModel.FramePropertyTypes.B},
+                    };
+
+                    Dictionary<string, FramePropertyModel.OffsetTypes> kvpOffset = new Dictionary<string, FramePropertyModel.OffsetTypes>()
+                    {
+                        {"LT", FramePropertyModel.OffsetTypes.LT},
+                        {"CT", FramePropertyModel.OffsetTypes.CT},
+                        {"RT", FramePropertyModel.OffsetTypes.RT},
+                        {"LC", FramePropertyModel.OffsetTypes.LC},
+                        {"CC", FramePropertyModel.OffsetTypes.CC},
+                        {"RC", FramePropertyModel.OffsetTypes.RC},
+                        {"LB", FramePropertyModel.OffsetTypes.LB},
+                        {"CB", FramePropertyModel.OffsetTypes.CB},
+                        {"RB", FramePropertyModel.OffsetTypes.RB},
+                    };
+
+                    for (int j = i + 42; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                        FramePropertyModel sectionModel = new FramePropertyModel()
+                        {
+                            Id = int.Parse(splitlist[0].Trim()),
+                            Type = kvpType[splitlist[12].Trim()],
+                            Name = splitlist[2].Trim(),
+                            Offset = kvpOffset[splitlist[3].Trim()],
+                        };
+
+                        FrameProperties.Add(sectionModel);
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == thicknessMatchTest)
+                {
+                    for (int j = i + 11; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                        AreaThicknessModel areaThicknessModel = new AreaThicknessModel()
+                        {
+                            Id = int.Parse(splitlist[0].Trim()),
+                            Name = splitlist[2].Trim(),
+                            Thickness = double.Parse(splitlist[4].Trim()),
+                            Offset = double.Parse(splitlist[8].Trim()),
+                        };
+
+                        AreaThicknesses.Add(areaThicknessModel);
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == nodeCoordinateMatchTest)
+                {
+                    for (int j = i + 2; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        NodeElementModel nodeElementModel = new NodeElementModel()
+                        {
+                            Id = int.Parse(splitlist[0].Trim()),
+                            X = double.Parse(splitlist[1].Trim()),
+                            Y = double.Parse(splitlist[2].Trim()),
+                            Z = double.Parse(splitlist[3].Trim()),
+                        };
+
+                        NodeElements.Add(nodeElementModel);
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == elementMatchTest)
+                {
+                    for (int j = i + 5; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        var elemType = splitlist[1].Trim();
+
+                        if (elemType == "BEAM")
+                        {
+                            FrameElementModel frameElementModel = new FrameElementModel()
+                            {
+                                Material = Materials[int.Parse(splitlist[2].Trim())],
+                                FrameProperty = FrameProperties[int.Parse(splitlist[3].Trim())],
+                                NodeStart = NodeElements[int.Parse(splitlist[4].Trim())],
+                                NodeEnd = NodeElements[int.Parse(splitlist[5].Trim())],
+                                Angle = double.Parse(splitlist[6].Trim()),
+                            };
+                            FrameElements.Add(frameElementModel);
+                        }
+
+                        if (elemType == "PLATE")
+                        {
+                            List<NodeElementModel> ns = new List<NodeElementModel>
+                            {
+                                NodeElements[int.Parse(splitlist[4].Trim())],
+                                NodeElements[int.Parse(splitlist[5].Trim())],
+                                NodeElements[int.Parse(splitlist[6].Trim())]
+                            };
+                            if (splitlist[7].Trim() != "0")
+                                ns.Add(NodeElements[int.Parse(splitlist[7].Trim())]);
+
+                            AreaElementModel areaElementModel = new AreaElementModel(ns, AreaThicknesses[int.Parse(splitlist[3].Trim())], Materials[int.Parse(splitlist[2].Trim())],
+                                double.Parse(splitlist[6].Trim()));
+
+                            AreaElements.Add(areaElementModel);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == groupMatchTest)
+                {
+                    List<int> ParseIds(string input)
+                    {
+                        var ids = new List<int>();
+                        if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+                        {
+                            return ids;
+                        }
+
+                        var parts = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                        foreach (var part in parts)
+                        {
+                            if (part.Contains("to"))
+                            {
+                                string[] rangeParts = part.Split(new[] { "to", "by" }, StringSplitOptions.RemoveEmptyEntries);
+
+                                if (rangeParts.Length >= 2)
+                                {
+                                    int start = int.Parse(rangeParts[0]);
+                                    int end = int.Parse(rangeParts[1]);
+                                    int step = rangeParts.Length == 3 ? int.Parse(rangeParts[2]) : 1;
+
+                                    for (int j = start; j <= end; j += step)
+                                    {
+                                        ids.Add(j);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                // Handle single numbers
+                                int number = -1;
+                                if (int.TryParse(part, out number))
+                                {
+                                    ids.Add(number);
+                                }
+                            }
+                        }
+
+                        return ids;
+                    }
+                    string NormalizeInput(string input)
+                    {
+                        // Rimuove i backslash e concatena le righe
+                        return input.Replace("\\\n", " ").Replace("\\", "").Replace("\n", " ");
+                    }
+                    /*
+                    List<int> ParseRange(string input)
+                    {
+                        var result = new List<int>();
+                        var rangePattern = new Regex(@"(\d+)(to(\d+)(by(\d+))?)?");
+                        var matches = rangePattern.Matches(input);
+
+                        foreach (Match match in matches)
+                        {
+                            int start = int.Parse(match.Groups[1].Value);
+                            int end = match.Groups[3].Success ? int.Parse(match.Groups[3].Value) : start;
+                            int step = match.Groups[5].Success ? int.Parse(match.Groups[5].Value) : 1;
+
+                            for (int j = start; j <= end; j += step)
+                            {
+                                result.Add(j);
+                            }
+                        }
+
+                        return result;
+                    }
+                    void SplitNodesAndElements(string input, out string nodes, out string elements)
+                    {
+                        // Separate nodes and elements by detecting patterns
+                        var parts = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        nodes = string.Join(" ", parts.Where(p => p.Contains("to") || p.Contains("by")));
+                        elements = string.Join(" ", parts.Where(p => !p.Contains("to") && !p.Contains("by")));
+                    }
+                    */
+                    string currentString = "";
+                    for (int j = i + 2; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+                        else
+                            currentString += textMgt[j];
+                    }
+
+                    // Split input into group sections
+                    Regex groupPattern = new Regex(@"\s*(?<name>[^,]+),\s*(?<nodes>[^,]+),\s*(?<elements>[^,]+),\s*(?<plane>[^,])");
+                    MatchCollection matches = groupPattern.Matches(currentString);
+
+                    foreach (Match match in matches)
+                    {
+                        // Extract group name
+                        var grp = new ElementGroupModel(match.Groups["name"].Value.Trim());
+                        Groups.Add(grp);
+
+                        // Parse nodes
+                        var nodesBuffer = match.Groups["nodes"].Value.Replace("\\", "").Trim();
+                        var elementsBuffer = match.Groups["elements"].Value.Replace("\\", "").Trim();
+
+                        var nodeList = ParseIds(NormalizeInput(nodesBuffer));
+                        for (int k = 0; k < nodeList.Count; k++)
+                            NodeElements[nodeList[k]].Groups.Add(grp);
+                        var elemList = ParseIds(NormalizeInput(elementsBuffer));
+                        for (int k = 0; k < elemList.Count; k++)
+                        {
+                            if (FrameElements.ContainsKey(elemList[k]))
+                                FrameElements[elemList[k]].Groups.Add(grp);
+                            if (AreaElements.ContainsKey(elemList[k]))
+                                AreaElements[elemList[k]].Groups.Add(grp);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < textMgt.Length; i++)
+            {
+                string row = textMgt[i];
+
+                if (row == elasticLinkMatchTest)
+                {
+                    for (int j = i + 6; j < textMgt.Length; j++)
+                    {
+                        if (string.IsNullOrEmpty(textMgt[j]))
+                        {
+                            i = j;
+                            break;
+                        }
+
+                        var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        var elemType = splitlist[3].Trim();
+
+                        if (elemType == "RIGID")
+                        {
+                            LinkElementModel frameElementModel = new LinkElementModel()
+                            {
+                                Id = int.Parse(splitlist[0].Trim()),
+                                NodeStart = NodeElements[int.Parse(splitlist[1].Trim())],
+                                NodeEnd = NodeElements[int.Parse(splitlist[2].Trim())],
+                                LinkProperty = new LinkPropertyModel(LinkPropertyModel.LinkPropertyTypes.RIGID) { BoundaryGroup = new BoundaryGroupModel(splitlist[8].Trim()) },
+                            };
+
+                            LinkElements.Add(frameElementModel);
+                        }
+
+                        if (elemType == "GEN")
+                        {
+                            LinkElementModel frameElementModel = new LinkElementModel()
+                            {
+                                Id = int.Parse(splitlist[0].Trim()),
+                                NodeStart = NodeElements[int.Parse(splitlist[1].Trim())],
+                                NodeEnd = NodeElements[int.Parse(splitlist[2].Trim())],
+                                LinkProperty = new LinkPropertyModel(LinkPropertyModel.LinkPropertyTypes.GEN)
+                                {
+                                    Kx = double.Parse(splitlist[11].Trim()),
+                                    Ky = double.Parse(splitlist[12].Trim()),
+                                    Kz = double.Parse(splitlist[13].Trim()),
+                                    Rx = double.Parse(splitlist[14].Trim()),
+                                    Ry = double.Parse(splitlist[15].Trim()),
+                                    Rz = double.Parse(splitlist[16].Trim()),
+                                    BoundaryGroup = new BoundaryGroupModel(splitlist[8].Trim())
+                                },
+                            };
+
+                            LinkElements.Add(frameElementModel);
+                        }
+                    }
+                }
+            }
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as ModelModel);
@@ -1053,13 +1469,13 @@ namespace Rhino2Midas.Core.Models
         public bool Equals(ModelModel other)
         {
             return !(other is null) &&
-                   EqualityComparer<ModelUnits>.Default.Equals(ModelUnits, other.ModelUnits) &&
-                   EqualityComparer<UniqueNameCollection<MaterialModel>>.Default.Equals(Materials, other.Materials) &&
+                   EqualityComparer<ModelUnitsModel>.Default.Equals(ModelUnits, other.ModelUnits) &&
+                   EqualityComparer<UniqueIdCollection<MaterialModel>>.Default.Equals(Materials, other.Materials) &&
                    EqualityComparer<UniqueNameCollection<LoadCaseModel>>.Default.Equals(LoadCases, other.LoadCases) &&
                    EqualityComparer<UniqueNameCollection<LoadCombinationModel>>.Default.Equals(LoadCombinations, other.LoadCombinations) &&
-                   EqualityComparer<UniqueNameCollection<ElementGroupModel>>.Default.Equals(Groups, other.Groups) &&
-                   EqualityComparer<UniqueNameCollection<FramePropertyModel>>.Default.Equals(FrameProperties, other.FrameProperties) &&
-                   EqualityComparer<UniqueNameCollection<AreaThicknessModel>>.Default.Equals(AreaThicknesses, other.AreaThicknesses) &&
+                   EqualityComparer<UniqueIdCollection<ElementGroupModel>>.Default.Equals(Groups, other.Groups) &&
+                   EqualityComparer<UniqueIdCollection<FramePropertyModel>>.Default.Equals(FrameProperties, other.FrameProperties) &&
+                   EqualityComparer<UniqueIdCollection<AreaThicknessModel>>.Default.Equals(AreaThicknesses, other.AreaThicknesses) &&
                    EqualityComparer<UniqueIdCollection<NodeElementModel>>.Default.Equals(NodeElements, other.NodeElements) &&
                    EqualityComparer<UniqueIdCollection<FrameElementModel>>.Default.Equals(FrameElements, other.FrameElements) &&
                    EqualityComparer<UniqueIdCollection<AreaElementModel>>.Default.Equals(AreaElements, other.AreaElements);
@@ -1068,13 +1484,13 @@ namespace Rhino2Midas.Core.Models
         public override int GetHashCode()
         {
             int hashCode = -23;
-            hashCode = hashCode * -17 + EqualityComparer<ModelUnits>.Default.GetHashCode(ModelUnits);
-            hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<MaterialModel>>.Default.GetHashCode(Materials);
+            hashCode = hashCode * -17 + EqualityComparer<ModelUnitsModel>.Default.GetHashCode(ModelUnits);
+            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<MaterialModel>>.Default.GetHashCode(Materials);
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<LoadCaseModel>>.Default.GetHashCode(LoadCases);
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<LoadCombinationModel>>.Default.GetHashCode(LoadCombinations);
-            hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<ElementGroupModel>>.Default.GetHashCode(Groups);
-            hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<FramePropertyModel>>.Default.GetHashCode(FrameProperties);
-            hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<AreaThicknessModel>>.Default.GetHashCode(AreaThicknesses);
+            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<ElementGroupModel>>.Default.GetHashCode(Groups);
+            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<FramePropertyModel>>.Default.GetHashCode(FrameProperties);
+            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<AreaThicknessModel>>.Default.GetHashCode(AreaThicknesses);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<NodeElementModel>>.Default.GetHashCode(NodeElements);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<FrameElementModel>>.Default.GetHashCode(FrameElements);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<AreaElementModel>>.Default.GetHashCode(AreaElements);

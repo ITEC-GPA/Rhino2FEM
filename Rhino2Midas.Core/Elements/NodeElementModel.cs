@@ -61,7 +61,10 @@ namespace Rhino2Midas.Core.Elements
         }
 
         public NodeElementModel()
+            :base()
         {
+            NodalLoadList = new List<NodalLoadModel>();            
+            Support = new NodeSupportModel();
         }
 
         public void DrawWireframe(DisplayPipeline display, RhinoViewport viewport, Color color)

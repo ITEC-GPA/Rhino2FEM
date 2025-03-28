@@ -6,7 +6,7 @@ using Rhino2Midas.Core.Base;
 
 namespace Rhino2Midas.Core.Collections
 {
-    public class UniqueIdCollection<T> : Dictionary<int, T>, IEquatable<UniqueIdCollection<T>> where T : ElementModel
+    public class UniqueIdCollection<T> : Dictionary<int, T>, IEquatable<UniqueIdCollection<T>> where T : ModelObjectId
     {
         #region Variables
 

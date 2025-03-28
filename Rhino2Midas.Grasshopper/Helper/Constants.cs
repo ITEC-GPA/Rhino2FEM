@@ -11,5 +11,6 @@
         internal static string Loads => "06-Loads";
         internal static string Model => "07-Model";
         internal static string Export => "08-Export";
+        internal static string Tools => "09-Tools";
     }
 }

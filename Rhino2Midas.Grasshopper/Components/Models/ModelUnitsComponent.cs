@@ -17,16 +17,16 @@ namespace Rhino2Midas.Grasshopper.Components.Models
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddIntegerParameter("Length", "Length", "Length", GH_ParamAccess.item, 2);
-            foreach (ModelUnits.LengthUnitTypes v in Enum.GetValues(typeof(ModelUnits.LengthUnitTypes)))
+            foreach (ModelUnitsModel.LengthUnitTypes v in Enum.GetValues(typeof(ModelUnitsModel.LengthUnitTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddIntegerParameter("Force", "Force", "Force", GH_ParamAccess.item, 1);
-            foreach (ModelUnits.ForceUnitTypes v in Enum.GetValues(typeof(ModelUnits.ForceUnitTypes)))
+            foreach (ModelUnitsModel.ForceUnitTypes v in Enum.GetValues(typeof(ModelUnitsModel.ForceUnitTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddIntegerParameter("Temperature", "Temperature", "Temperature", GH_ParamAccess.item, 0);
-            foreach (ModelUnits.TemperatureUnitTypes v in Enum.GetValues(typeof(ModelUnits.TemperatureUnitTypes)))
+            foreach (ModelUnitsModel.TemperatureUnitTypes v in Enum.GetValues(typeof(ModelUnitsModel.TemperatureUnitTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddIntegerParameter("Heat", "Heat", "Heat", GH_ParamAccess.item, 0);
-            foreach (ModelUnits.HeatUnitTypes v in Enum.GetValues(typeof(ModelUnits.HeatUnitTypes)))
+            foreach (ModelUnitsModel.HeatUnitTypes v in Enum.GetValues(typeof(ModelUnitsModel.HeatUnitTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddNumberParameter("Tolerance", "Tolerance", "Tolerance", GH_ParamAccess.item, 0.001);
         }
@@ -46,7 +46,7 @@ namespace Rhino2Midas.Grasshopper.Components.Models
 
             if (DA.GetData(0, ref l) && DA.GetData(1, ref f) && DA.GetData(2, ref t) && DA.GetData(3, ref h) && DA.GetData(4, ref tol))
             {
-                ModelUnits modelUnits = new ModelUnits((ModelUnits.ForceUnitTypes)f, (ModelUnits.LengthUnitTypes)l, (ModelUnits.HeatUnitTypes)t, (ModelUnits.TemperatureUnitTypes)h, tol);
+                ModelUnitsModel modelUnits = new ModelUnitsModel((ModelUnitsModel.ForceUnitTypes)f, (ModelUnitsModel.LengthUnitTypes)l, (ModelUnitsModel.HeatUnitTypes)t, (ModelUnitsModel.TemperatureUnitTypes)h, tol);
                 DA.SetData(0, new GH_Units(modelUnits));
             }
         }

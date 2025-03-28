@@ -17,6 +17,7 @@ namespace Rhino2Midas.Core.Base
             :base()
         {
             Id = UNASSIGNED;
+            Groups = new List<ElementGroupModel>();
         }
 
         public ElementModel(ElementModel elementModel)

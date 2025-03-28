@@ -3,9 +3,9 @@ using Rhino2Midas.Core.Settings;
 
 namespace Rhino2Midas.Grasshopper.Datatype
 {
-    public class GH_Units : GH_Goo<ModelUnits>
+    public class GH_Units : GH_Goo<ModelUnitsModel>
     {
-        public GH_Units(ModelUnits model)
+        public GH_Units(ModelUnitsModel model)
         {
             Value = model;
         }
