@@ -1254,6 +1254,7 @@ namespace Rhino2Midas.Core.Models
                         {
                             FrameElementModel frameElementModel = new FrameElementModel()
                             {
+                                Id = int.Parse(splitlist[0].Trim()),
                                 Material = Materials[int.Parse(splitlist[2].Trim())],
                                 FrameProperty = FrameProperties[int.Parse(splitlist[3].Trim())],
                                 NodeStart = NodeElements[int.Parse(splitlist[4].Trim())],
@@ -1276,6 +1277,7 @@ namespace Rhino2Midas.Core.Models
 
                             AreaElementModel areaElementModel = new AreaElementModel(ns, AreaThicknesses[int.Parse(splitlist[3].Trim())], Materials[int.Parse(splitlist[2].Trim())],
                                 double.Parse(splitlist[6].Trim()));
+                            areaElementModel.Id = int.Parse(splitlist[0].Trim());
 
                             AreaElements.Add(areaElementModel);
                         }
