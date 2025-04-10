@@ -34,7 +34,18 @@ namespace Rhino2Midas.Core.Base
             return Equals(obj as ModelObjectId);
         }
 
-        public bool Equals(ModelObjectId other)
+        public virtual bool Equals(ModelObjectId other)
+        {
+            return !(other is null) &&
+                   Name == other.Name;
+        }
+
+        public virtual bool EqualsWithId(object obj)
+        {
+            return EqualsWithId(obj as ModelObjectId);
+        }
+
+        public virtual bool EqualsWithId(ModelObjectId other)
         {
             return !(other is null) &&
                    Name == other.Name &&

@@ -1,11 +1,11 @@
-﻿using Rhino2Midas.Core.Base;
+﻿using System;
+using System.Collections.Generic;
+using Rhino2Midas.Core.Base;
 
 namespace Rhino2Midas.Core.ElementProperties
 {
-    public class AreaThicknessModel : ModelObjectId
+    public class AreaThicknessModel : ModelObjectId, IEquatable<AreaThicknessModel>
     {
-        public int Number { get; set; }
-
         public double Thickness { get; set; }
 
         public double Offset { get; set; }
@@ -23,10 +23,44 @@ namespace Rhino2Midas.Core.ElementProperties
         }
 
         public AreaThicknessModel(AreaThicknessModel areaThicknessModel)
+            :base(areaThicknessModel.Id, areaThicknessModel.Name)
         {
-            Name = areaThicknessModel.Name;
             Thickness = areaThicknessModel.Thickness;
             Offset = areaThicknessModel.Offset;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as AreaThicknessModel);
+        }
+
+        public bool Equals(AreaThicknessModel other)
+        {
+            return !(other is null) &&
+                   base.Equals(other) &&
+                   Name == other.Name &&
+                   Thickness == other.Thickness &&
+                   Offset == other.Offset;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 475748675;
+            hashCode = hashCode * -1521134295 + base.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + Thickness.GetHashCode();
+            hashCode = hashCode * -1521134295 + Offset.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(AreaThicknessModel left, AreaThicknessModel right)
+        {
+            return EqualityComparer<AreaThicknessModel>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(AreaThicknessModel left, AreaThicknessModel right)
+        {
+            return !(left == right);
         }
     }
 }

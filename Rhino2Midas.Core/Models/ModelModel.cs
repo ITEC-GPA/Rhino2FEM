@@ -20,7 +20,7 @@ namespace Rhino2Midas.Core.Models
         public UniqueIdCollection<MaterialModel> Materials { get; }
         public UniqueNameCollection<LoadCaseModel> LoadCases { get; }
         public UniqueNameCollection<LoadCombinationModel> LoadCombinations { get; }
-        public UniqueIdCollection<ElementGroupModel> Groups { get; }
+        public UniqueNameCollection<ElementGroupModel> Groups { get; }
         public UniqueIdCollection<FramePropertyModel> FrameProperties { get; }
         public UniqueIdCollection<AreaThicknessModel> AreaThicknesses { get; }
         public UniqueIdCollection<NodeElementModel> NodeElements { get; }
@@ -34,7 +34,7 @@ namespace Rhino2Midas.Core.Models
             Materials = new UniqueIdCollection<MaterialModel>();
             LoadCases = new UniqueNameCollection<LoadCaseModel>();
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
-            Groups = new UniqueIdCollection<ElementGroupModel>();
+            Groups = new UniqueNameCollection<ElementGroupModel>();
             FrameProperties = new UniqueIdCollection<FramePropertyModel>();
             AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
@@ -48,7 +48,7 @@ namespace Rhino2Midas.Core.Models
             Materials = new UniqueIdCollection<MaterialModel>();
             LoadCases = new UniqueNameCollection<LoadCaseModel>();
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
-            Groups = new UniqueIdCollection<ElementGroupModel>();
+            Groups = new UniqueNameCollection<ElementGroupModel>();
             FrameProperties = new UniqueIdCollection<FramePropertyModel>();
             AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
@@ -439,44 +439,92 @@ namespace Rhino2Midas.Core.Models
             {
                 var mat = new MaterialModel(framesBuffer[i].Material);
 
-                if (mat.Id == ModelObjectId.UNASSIGNED)
-                    mat.Id = NewId(usedMaterialIds, idMaterial);
-                usedMaterialIds.Add(mat.Id);
-                Materials.Add(mat);
-                framesBuffer[i].Material = Materials[mat.Id];
+                bool exist = false;
+                for(int j = 0; j < Materials.Count; j++)
+                {
+                    if (framesBuffer[i].Material == Materials.ElementAt(j).Value)
+                    {
+                        exist = true;
+                        framesBuffer[i].Material = Materials.ElementAt(j).Value;
+                    }
+                }
+                if (!exist)
+                {
+                    if (mat.Id == ModelObjectId.UNASSIGNED)
+                        mat.Id = NewId(usedMaterialIds, idMaterial);
+                    usedMaterialIds.Add(mat.Id);
+                    Materials.Add(mat);
+                    framesBuffer[i].Material = Materials[mat.Id];
+                }
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var mat = new MaterialModel(areasBuffer[i].Material);
 
-                if (mat.Id == ModelObjectId.UNASSIGNED)
-                    mat.Id = NewId(usedMaterialIds, idMaterial);
-                usedMaterialIds.Add(mat.Id);
-                Materials.Add(mat);
-                areasBuffer[i].Material = Materials[mat.Id];
+                bool exist = false;
+                for (int j = 0; j < Materials.Count; j++)
+                {
+                    if (areasBuffer[i].Material == Materials.ElementAt(j).Value)
+                    {
+                        exist = true;
+                        areasBuffer[i].Material = Materials.ElementAt(j).Value;
+                    }
+                }
+                if (!exist)
+                {
+                    if (mat.Id == ModelObjectId.UNASSIGNED)
+                        mat.Id = NewId(usedMaterialIds, idMaterial);
+                    usedMaterialIds.Add(mat.Id);
+                    Materials.Add(mat);
+                    areasBuffer[i].Material = Materials[mat.Id];
+                }
             }
 
             for (int i = 0; i < framesBuffer.Count; i++)
             {
                 var fp = new FramePropertyModel(framesBuffer[i].FrameProperty);
 
-                if (fp.Id == ModelObjectId.UNASSIGNED)
-                    fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
-                usedFramePropertyIds.Add(fp.Id);
-                FrameProperties.Add(fp);
-                framesBuffer[i].FrameProperty = FrameProperties[fp.Id];
+                bool exist = false;
+                for (int j = 0; j < FrameProperties.Count; j++)
+                {
+                    if (framesBuffer[i].FrameProperty == FrameProperties.ElementAt(j).Value)
+                    {
+                        exist = true;
+                        framesBuffer[i].FrameProperty = FrameProperties.ElementAt(j).Value;
+                    }
+                }
+                if (!exist)
+                {
+                    if (fp.Id == ModelObjectId.UNASSIGNED)
+                        fp.Id = NewId(usedFramePropertyIds, idFrameProperty);
+                    usedFramePropertyIds.Add(fp.Id);
+                    FrameProperties.Add(fp);
+                    framesBuffer[i].FrameProperty = FrameProperties[fp.Id];
+                }
             }
 
             for (int i = 0; i < areasBuffer.Count; i++)
             {
                 var fp = new AreaThicknessModel(areasBuffer[i].AreaThickness);
 
-                if (fp.Id == ModelObjectId.UNASSIGNED)
-                    fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
-                usedAreaPropertyIds.Add(fp.Id);
-                AreaThicknesses.Add(fp);
-                areasBuffer[i].AreaThickness = AreaThicknesses[fp.Id];
+                bool exist = false;
+                for (int j = 0; j < AreaThicknesses.Count; j++)
+                {
+                    if (areasBuffer[i].AreaThickness == AreaThicknesses.ElementAt(j).Value)
+                    {
+                        exist = true;
+                        areasBuffer[i].AreaThickness = AreaThicknesses.ElementAt(j).Value;
+                    }
+                }
+                if (!exist)
+                {
+                    if (fp.Id == ModelObjectId.UNASSIGNED)
+                        fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
+                    usedAreaPropertyIds.Add(fp.Id);
+                    AreaThicknesses.Add(fp);
+                    areasBuffer[i].AreaThickness = AreaThicknesses[fp.Id];
+                }
             }
 
             #endregion
@@ -1475,7 +1523,7 @@ namespace Rhino2Midas.Core.Models
                    EqualityComparer<UniqueIdCollection<MaterialModel>>.Default.Equals(Materials, other.Materials) &&
                    EqualityComparer<UniqueNameCollection<LoadCaseModel>>.Default.Equals(LoadCases, other.LoadCases) &&
                    EqualityComparer<UniqueNameCollection<LoadCombinationModel>>.Default.Equals(LoadCombinations, other.LoadCombinations) &&
-                   EqualityComparer<UniqueIdCollection<ElementGroupModel>>.Default.Equals(Groups, other.Groups) &&
+                   EqualityComparer<UniqueNameCollection<ElementGroupModel>>.Default.Equals(Groups, other.Groups) &&
                    EqualityComparer<UniqueIdCollection<FramePropertyModel>>.Default.Equals(FrameProperties, other.FrameProperties) &&
                    EqualityComparer<UniqueIdCollection<AreaThicknessModel>>.Default.Equals(AreaThicknesses, other.AreaThicknesses) &&
                    EqualityComparer<UniqueIdCollection<NodeElementModel>>.Default.Equals(NodeElements, other.NodeElements) &&
@@ -1490,7 +1538,7 @@ namespace Rhino2Midas.Core.Models
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<MaterialModel>>.Default.GetHashCode(Materials);
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<LoadCaseModel>>.Default.GetHashCode(LoadCases);
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<LoadCombinationModel>>.Default.GetHashCode(LoadCombinations);
-            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<ElementGroupModel>>.Default.GetHashCode(Groups);
+            hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<ElementGroupModel>>.Default.GetHashCode(Groups);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<FramePropertyModel>>.Default.GetHashCode(FrameProperties);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<AreaThicknessModel>>.Default.GetHashCode(AreaThicknesses);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<NodeElementModel>>.Default.GetHashCode(NodeElements);

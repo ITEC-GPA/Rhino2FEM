@@ -1,9 +1,11 @@
-﻿using Rhino.Geometry;
+﻿using System;
+using System.Collections.Generic;
+using Rhino.Geometry;
 using Rhino2Midas.Core.Base;
 
 namespace Rhino2Midas.Core.ElementProperties
 {
-    public class FramePropertyModel : ModelObjectId
+    public class FramePropertyModel : ModelObjectId, IEquatable<FramePropertyModel>
     {
         public enum FramePropertyTypes
         {
@@ -96,6 +98,60 @@ namespace Rhino2Midas.Core.ElementProperties
             Dimension8 = framePropertyModel.Dimension8;
             Dimension9 = framePropertyModel.Dimension9;
             Dimension10 = framePropertyModel.Dimension10;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as FramePropertyModel);
+        }
+
+        public bool Equals(FramePropertyModel other)
+        {
+            return !(other is null) &&
+                   base.Equals(other) &&
+                   Name == other.Name &&
+                   Type == other.Type &&
+                   Offset == other.Offset &&
+                   Dimension1 == other.Dimension1 &&
+                   Dimension2 == other.Dimension2 &&
+                   Dimension3 == other.Dimension3 &&
+                   Dimension4 == other.Dimension4 &&
+                   Dimension5 == other.Dimension5 &&
+                   Dimension6 == other.Dimension6 &&
+                   Dimension7 == other.Dimension7 &&
+                   Dimension8 == other.Dimension8 &&
+                   Dimension9 == other.Dimension9 &&
+                   Dimension10 == other.Dimension10;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = -175760121;
+            hashCode = hashCode * -1521134295 + base.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + Type.GetHashCode();
+            hashCode = hashCode * -1521134295 + Offset.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension1.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension2.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension3.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension4.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension5.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension6.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension7.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension8.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension9.GetHashCode();
+            hashCode = hashCode * -1521134295 + Dimension10.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(FramePropertyModel left, FramePropertyModel right)
+        {
+            return EqualityComparer<FramePropertyModel>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(FramePropertyModel left, FramePropertyModel right)
+        {
+            return !(left == right);
         }
     }
 }

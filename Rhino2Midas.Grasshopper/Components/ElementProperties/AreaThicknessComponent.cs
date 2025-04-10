@@ -35,7 +35,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 
             if (DA.GetData(0, ref name) && DA.GetData(1, ref thickness) && DA.GetData(2, ref offset) && DA.GetData(3, ref number))
             {
-                AreaThicknessModel areaThickness = new AreaThicknessModel(name, thickness) { Offset = offset, Number = number };                
+                AreaThicknessModel areaThickness = new AreaThicknessModel(name, thickness) { Offset = offset, Id = number };                
                 DA.SetData(0, new GH_AreaThickness(areaThickness));
             }
         }
