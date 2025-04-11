@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
@@ -61,12 +62,12 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         void IGH_PreviewData.DrawViewportWires(GH_PreviewWireArgs args)
         {
-            Value.DrawWireframe(args.Pipeline, args.Viewport, args.Color);
+            Value.DrawSolid(args.Pipeline, args.Viewport, args.Color);
         }
 
         void IGH_PreviewData.DrawViewportMeshes(GH_PreviewMeshArgs args)
         {
-            Value.DrawWireframe(args.Pipeline, args.Viewport, args.Material.Diffuse);
+            Value.DrawSolid(args.Pipeline, args.Viewport, args.Material.Diffuse);
         }
 
         public override IGH_GeometricGoo DuplicateGeometry()
@@ -76,7 +77,11 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         public override BoundingBox GetBoundingBox(Transform xform)
         {
-            throw new NotImplementedException();
+            if (Value == null)
+                return BoundingBox.Empty;
+            if (!IsValid)
+                return BoundingBox.Empty;
+            return Value.Brep.GetBoundingBox(xform);
         }
 
         public override IGH_GeometricGoo Transform(Transform xform)
@@ -88,5 +93,28 @@ namespace Rhino2Midas.Grasshopper.Datatype
         {
             throw new NotImplementedException();
         }
+
+        #region Casting methods
+
+        public override bool CastTo<Q>(out Q target)
+        {
+            if (typeof(Q) == typeof(GH_Curve))
+            {
+                PolylineCurve pline = new PolylineCurve(Value.NodeList.Select(i => i.Position));
+                pline.MakeClosed(0);
+                target = (Q)Convert.ChangeType(new GH_Curve(pline), typeof(Q));
+                return true;
+            }
+            else if (typeof(Q) == typeof(GH_Brep))
+            {
+                target = (Q)Convert.ChangeType(new GH_Brep(Value.Brep), typeof(Q));
+                return true;
+            }
+
+            target = default(Q);
+            return false;
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
@@ -58,7 +59,7 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         void IGH_PreviewData.DrawViewportWires(GH_PreviewWireArgs args)
         {
-            Value.DrawWireframe(args.Pipeline, args.Viewport, args.Color);
+            Value.DrawSolid(args.Pipeline, args.Viewport, args.Color);
         }
 
         void IGH_PreviewData.DrawViewportMeshes(GH_PreviewMeshArgs args)
@@ -73,7 +74,11 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         public override BoundingBox GetBoundingBox(Transform xform)
         {
-            throw new NotImplementedException();
+            if (Value == null)
+                return BoundingBox.Empty;
+            if (!IsValid)
+                return BoundingBox.Empty;
+            return BoundingBox.Empty;
         }
 
         public override IGH_GeometricGoo Transform(Transform xform)
@@ -85,5 +90,36 @@ namespace Rhino2Midas.Grasshopper.Datatype
         {
             throw new NotImplementedException();
         }
+
+        #region Casting methods
+
+        public override bool CastTo<Q>(out Q target)
+        {
+            if (typeof(Q) == typeof(GH_Curve))
+            {
+                LineCurve pline = new LineCurve(Value.NodeStart.Position, Value.NodeEnd.Position);
+                target = (Q)Convert.ChangeType(new GH_Curve(pline), typeof(Q));
+                return true;
+            }
+            else if (typeof(Q) == typeof(GH_Brep))
+            {
+                if (Value.Breps == null || Value.Breps.Count == 0)
+                {
+                    target = default(Q);
+                    return false;
+                }
+                if (Value.Breps.Count == 1)
+                {
+                    Brep brep = Value.Breps[0].DuplicateBrep();
+                    target = (Q)Convert.ChangeType(new GH_Brep(brep), typeof(Q));
+                    return true;
+                }
+            }
+
+            target = default(Q);
+            return false;
+        }
+
+        #endregion
     }
 }

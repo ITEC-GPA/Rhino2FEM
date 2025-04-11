@@ -23,8 +23,6 @@ namespace Rhino2Midas.Core.Elements
 
         public double Angle { get; set; }
 
-        public double Offset { get; set; }
-
         public Brep Brep { get; set; }
 
         public AreaElementModel(List<NodeElementModel> nodeList, AreaThicknessModel areaThickness, MaterialModel material, double angle = 0, List<ElementGroupModel> group = null, List<AreaLoadModel> areaLoadList = null)
@@ -55,7 +53,6 @@ namespace Rhino2Midas.Core.Elements
             : base(areaElementModel)
         {
             NodeList = areaElementModel.NodeList;
-            Offset = areaElementModel.Offset;
             AreaThickness = areaElementModel.AreaThickness;
             Material = areaElementModel.Material;
             Angle = areaElementModel.Angle;
@@ -74,7 +71,10 @@ namespace Rhino2Midas.Core.Elements
 
         public void DrawSolid(DisplayPipeline display, RhinoViewport viewport, Color color)
         {
-
+            if (Brep == null)
+                BuildBrep();
+            if (Brep != null)
+                display.DrawBrepWires(Brep, color);
         }
 
         private void BuildBrep()
@@ -91,9 +91,12 @@ namespace Rhino2Midas.Core.Elements
                         curves.Add(new LineCurve(start.Position, end.Position));
                     }
 
-                    Brep = Brep.CreatePlanarBreps(curves, 0.001).FirstOrDefault();
+                    var brepBuffer = Brep.CreatePlanarBreps(curves, 0.001).FirstOrDefault();
                     var plane = new Plane(NodeList[0].Position, NodeList[1].Position, NodeList[2].Position);
-                    Brep.Translate(plane.Normal * Offset);
+                    brepBuffer.Translate(-plane.Normal * (AreaThickness.Thickness / 2.0));
+                    LineCurve line = new LineCurve(NodeList[0].Position, NodeList[0].Position + plane.Normal * AreaThickness.Thickness);
+				    Brep = brepBuffer.Faces[0].CreateExtrusion(line, true);
+                    Brep.Translate(plane.Normal * AreaThickness.Offset);
                 }
             }
         }

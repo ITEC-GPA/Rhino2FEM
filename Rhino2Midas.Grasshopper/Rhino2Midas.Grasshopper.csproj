@@ -25,6 +25,13 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+    <Page Remove="Resources\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
 	<PackageReference Include="Grasshopper" Version="7.36.23346.16351" Condition="$(TargetFramework) == 'net48'" ExcludeAssets="runtime" />
 	<PackageReference Include="RhinoCommon" Version="7.36.23346.16351" Condition="$(TargetFramework) == 'net48'" ExcludeAssets="runtime" />
 	<PackageReference Include="Grasshopper" Version="8.0.23304.9001" Condition="!$(TargetFramework.StartsWith('net4'))" ExcludeAssets="runtime" />
@@ -51,7 +58,7 @@
     <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Midas.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Folder Include="Components\Preview\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Rhino2Midas.Grasshopper.Properties.Resources.Designer.cs">
