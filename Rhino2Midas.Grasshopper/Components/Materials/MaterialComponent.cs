@@ -52,7 +52,7 @@ namespace Rhino2Midas.Grasshopper.Components.Materials
                 if (DA.GetData(3, ref modulusElasticity) && DA.GetData(4, ref poissonRatio) && DA.GetData(5, ref thermalCoefficient) &&
                     DA.GetData(6, ref density) && DA.GetData(7, ref mass))
                 {
-                    MaterialModel material = new MaterialModel(name, (MaterialModel.MaterialTypes)type, dampingRatio, modulusElasticity, poissonRatio, thermalCoefficient, density, mass);
+                    MaterialModel material = new MaterialModel(name, (MaterialModel.MaterialTypes)type, dampingRatio, modulusElasticity, poissonRatio, thermalCoefficient, density, mass, MaterialModel.Standards.Custom);
                     DA.SetData(0, new GH_Material(material));
                 }
             }

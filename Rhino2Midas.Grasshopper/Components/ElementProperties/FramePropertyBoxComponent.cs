@@ -53,7 +53,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref h) && DA.GetData(3, ref w) &&
                 DA.GetData(4, ref tw) && DA.GetData(5, ref tft) && DA.GetData(6, ref tfb) && DA.GetData(7, ref ctcw) && DA.GetData(8, ref propNumber))
             {
-                FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.B, (FramePropertyModel.OffsetTypes)offset,
+                FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.B, FramePropertyModel.Types.DBUSER, (FramePropertyModel.OffsetTypes)offset,
                     h, w, tw, tft, tfb, ctcw, dimension5, dimension6, dimension7, dimension8);
                 frameProperty.Id = propNumber;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));

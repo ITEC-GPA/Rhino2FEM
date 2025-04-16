@@ -11,7 +11,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
     public class FramePropertyGeneralComponent : GH_Component
     {
         public FramePropertyGeneralComponent()
-            : base("Frame property general", "Frame property general", "Frame property general", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
+            : base("Frame property DBUser", "Frame property DBUser", "Frame property DBUser", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
         {
         }
 
@@ -66,7 +66,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
                 return;
             }
 
-            FramePropertyModel frameProperty = new FramePropertyModel(name, (FramePropertyModel.FramePropertyTypes)text, (FramePropertyModel.OffsetTypes)offset,
+            FramePropertyModel frameProperty = new FramePropertyModel(name, (FramePropertyModel.FramePropertyTypes)text, FramePropertyModel.Types.DBUSER, (FramePropertyModel.OffsetTypes)offset,
                 dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
             frameProperty.Id = number;
             DA.SetData(0, new GH_FrameProperty(frameProperty));

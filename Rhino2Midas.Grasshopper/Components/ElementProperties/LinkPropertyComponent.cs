@@ -63,6 +63,6 @@ namespace Rhino2Midas.Grasshopper.Components.Attributes
 
         public override Guid ComponentGuid => new Guid("8ce029fc-b982-4b8f-877b-06d53b2a813c");
 
-        public override GH_Exposure Exposure => GH_Exposure.secondary;
+        public override GH_Exposure Exposure => GH_Exposure.quarternary ;
     }
 }

@@ -29,7 +29,7 @@ namespace Rhino2Midas.Grasshopper.Datatype
         public override string ToString()
         {
             return "Name: " + Value.Name + ", \r" +
-                "Type: " + Value.Type;
+                "Type: " + Value.PropertyType;
         }
     }
 }

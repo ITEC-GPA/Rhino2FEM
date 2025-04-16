@@ -9,6 +9,7 @@ using Rhino2Midas.Core.Cases;
 using Rhino2Midas.Core.Collections;
 using Rhino2Midas.Core.ElementProperties;
 using Rhino2Midas.Core.Elements;
+using Rhino2Midas.Core.Helper;
 using Rhino2Midas.Core.Loads;
 using Rhino2Midas.Core.Settings;
 
@@ -440,7 +441,7 @@ namespace Rhino2Midas.Core.Models
                 var mat = new MaterialModel(framesBuffer[i].Material);
 
                 bool exist = false;
-                for(int j = 0; j < Materials.Count; j++)
+                for (int j = 0; j < Materials.Count; j++)
                 {
                     if (framesBuffer[i].Material == Materials.ElementAt(j).Value)
                     {
@@ -687,24 +688,30 @@ namespace Rhino2Midas.Core.Models
             if (Materials.Count > 0)
             {
                 textMgt.Add("*MATERIAL");
-                textMgt.Add("; i, CONC/STEEL, (name), (spheat=0), (heatco=0), (plast=''), (tunit=C), (bmass=no), (damp ratio), (2), (modulus elasticity), (poisson), (thermal coeff), (density), (mass)");
+                textMgt.Add("; iMAT, TYPE, MNAME, SPHEAT, HEATCO, PLAST, TUNIT, bMASS, DAMPRATIO, [DATA1]           ; STEEL, CONC, USER \n\r" +
+                    "; iMAT, TYPE, MNAME, SPHEAT, HEATCO, PLAST, TUNIT, bMASS, DAMPRATIO, [DATA2], [DATA2]                      ; SRC\n\r" +
+                    "; [DATA1] : 1, STANDARD, CODE/PRODUCT, DB, USEELAST, ELAST\n\r" +
+                    "; [DATA1] : 2, ELAST, POISN, THERMAL, DEN, MASS\n\r" +
+                    "; [DATA1] : 3, Ex, Ey, Ez, Tx, Ty, Tz, Sxy, Sxz, Syz, Pxy, Pxz, Pyz, DEN, MASS         ; Orthotropic\n\r" +
+                    "; [DATA2] : 1, STANDARD, CODE/PRODUCT, DB, USEELAST, ELAST or 2, ELAST, POISN, THERMAL, DEN, MASS");
             }
             foreach (KeyValuePair<int, MaterialModel> kvp in Materials)
             {
                 MaterialModel material = kvp.Value;
 
-                string materialType = "";
-                if (material.Type == MaterialModel.MaterialTypes.Concrete)
-                    materialType = "CONC";
-                else if (material.Type == MaterialModel.MaterialTypes.Steel)
-                    materialType = "STEEL";
-
                 string matName = material.Name;
                 if (matName.Length > 16)
                     matName = matName.Substring(0, 28);
-
-                textMgt.Add($"{material.Id}, {materialType}, {material.Name}, 0, 0, , C, NO, {material.DampingRatio}, 2, {material.ModulusElasticity}," +
-                    $" {material.PoissonRatio}, {material.ThermalCoefficient}, {material.Density}, {material.Mass}");
+                if (material.Standard == MaterialModel.Standards.Custom)
+                {
+                    textMgt.Add($"{material.Id}, {material.Type.GetDescription()}, {material.Name}, 0, 0, , C, NO, {material.DampingRatio}, 2, {material.ModulusElasticity}," +
+                        $" {material.PoissonRatio}, {material.ThermalCoefficient}, {material.Density}, {material.Mass}");
+                }
+                else
+                {
+                    textMgt.Add($"{material.Id}, {material.Type.GetDescription()}, {material.Name}, 0, 0, , C, NO, {material.DampingRatio}, 1, {material.Standard.GetDescription()}, " +
+                        $",{material.Name}, NO, {material.ModulusElasticity}");
+                }
             }
         }
 
@@ -736,9 +743,19 @@ namespace Rhino2Midas.Core.Models
                 if (framePropertyName.Length > 28)
                     framePropertyName = framePropertyName.Substring(0, 28);
 
-                textMgt.Add($"{frameProperty.Id}, DBUSER, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, {frameProperty.Type.ToString()}, 2, " +
-                    $"{frameProperty.Dimension1}, {frameProperty.Dimension2}, {frameProperty.Dimension3}, {frameProperty.Dimension4}, {frameProperty.Dimension5}, " +
-                    $"{frameProperty.Dimension6}, {frameProperty.Dimension7}, {frameProperty.Dimension8}, {frameProperty.Dimension9}, {frameProperty.Dimension10}");
+                if (frameProperty.Type == FramePropertyModel.Types.DBUSER)
+                    textMgt.Add($"{frameProperty.Id}, {frameProperty.Type}, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, {frameProperty.PropertyType.ToString()}, 2, " +
+                        $"{frameProperty.Dimension1}, {frameProperty.Dimension2}, {frameProperty.Dimension3}, {frameProperty.Dimension4}, {frameProperty.Dimension5}, " +
+                        $"{frameProperty.Dimension6}, {frameProperty.Dimension7}, {frameProperty.Dimension8}, {frameProperty.Dimension9}, {frameProperty.Dimension10}");
+                else if (frameProperty.Type == FramePropertyModel.Types.COMPOSITE_I)
+                    textMgt.Add($"{frameProperty.Id}, {frameProperty.Type}, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, NO, I, " +
+                        $"{frameProperty.Dimension1}, {frameProperty.Dimension2}, {frameProperty.Dimension3}, {frameProperty.Dimension4}, {frameProperty.Dimension5}, {frameProperty.Dimension6}, " +
+                        "0, 0, 0, 0, 0, 0, 0\r\n       " +
+                        "0\r\n       " +
+                        "0\r\n       " +
+                        "0\r\\n      " +
+                        $"{frameProperty.Dimension7}, 1, {frameProperty.Dimension7}, {frameProperty.Dimension7}, {frameProperty.Dimension8}, {frameProperty.Dimension9}" +
+                        $", {frameProperty.CompositeData1}, {frameProperty.CompositeData2}, {frameProperty.CompositeData3}, {frameProperty.CompositeData4}, {frameProperty.CompositeData5}");
             }
         }
 
@@ -1214,7 +1231,7 @@ namespace Rhino2Midas.Core.Models
                         FramePropertyModel sectionModel = new FramePropertyModel()
                         {
                             Id = int.Parse(splitlist[0].Trim()),
-                            Type = kvpType[splitlist[12].Trim()],
+                            PropertyType = kvpType[splitlist[12].Trim()],
                             Name = splitlist[2].Trim(),
                             Offset = kvpOffset[splitlist[3].Trim()],
                         };
