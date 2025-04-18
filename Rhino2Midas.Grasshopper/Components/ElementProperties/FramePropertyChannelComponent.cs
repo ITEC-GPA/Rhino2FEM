@@ -40,20 +40,20 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             string name = "";
             int offset = 4; int number = 0;
             double h = 0.0;
-            double wtf = 0.0;
-            double wt = 0.0;
-            double ttf = 0.0;
-            double wbf = 0.0;
-            double tbf = 0.0;
+            double topFlangeWidth = 0.0;
+            double webThick = 0.0;
+            double topFlangeThick = 0.0;
+            double bottomFlangeWidth = 0.0;
+            double bottomFlangeThick = 0.0;
             double dimension7 = 0.0;
             double dimension8 = 0.0;
             double dimension9 = 0.0;
             double dimension10 = 0.0;
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref h) && DA.GetData(3, ref wtf) &&
-                DA.GetData(4, ref wt) && DA.GetData(5, ref ttf) && DA.GetData(6, ref wbf) && DA.GetData(7, ref tbf) && DA.GetData(8, ref number))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref h) && DA.GetData(3, ref topFlangeWidth) &&
+                DA.GetData(4, ref webThick) && DA.GetData(5, ref topFlangeThick) && DA.GetData(6, ref bottomFlangeWidth) && DA.GetData(7, ref bottomFlangeThick) && DA.GetData(8, ref number))
             {
                 FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.C, FramePropertyModel.Types.DBUSER, (FramePropertyModel.OffsetTypes)offset,
-                    h, wtf, wt, ttf, wbf, tbf, dimension7, dimension8, dimension9, dimension10);
+                    h, topFlangeWidth, webThick, topFlangeThick, bottomFlangeWidth, bottomFlangeThick, dimension7, dimension8, dimension9, dimension10);
                 frameProperty.Id = number;
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }

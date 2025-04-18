@@ -292,6 +292,44 @@ namespace Rhino2Midas.Core.ElementProperties
                                     main_surfaces.Add(breps[0]);
                             }
                             break;
+                        case FramePropertyTypes.C:
+                            {
+                                List<Point3d> pts = new List<Point3d>
+                                {
+                                    new Point3d(0, 0, 0),
+                                    new Point3d(Dimension5, 0, 0),
+                                    new Point3d(Dimension5, Dimension6, 0),
+                                    new Point3d(Dimension3, Dimension6, 0),
+                                    new Point3d(Dimension3, Dimension1 - Dimension4, 0),
+                                    new Point3d(Dimension2, Dimension1 - Dimension4, 0),
+                                    new Point3d(Dimension2, Dimension1, 0),
+                                    new Point3d(0, Dimension1, 0),                                    
+                                    new Point3d(0, 0, 0),
+                                };
+                                PolylineCurve border = new PolylineCurve(pts);
+                                Brep[] breps = Brep.CreatePlanarBreps(border, tol);
+                                if (breps != null)
+                                    main_surfaces.Add(breps[0]);
+                            }
+                            break;
+                        case FramePropertyTypes.L:
+                            {
+                                List<Point3d> pts = new List<Point3d>
+                                {
+                                    new Point3d(0, 0, 0),
+                                    new Point3d(Dimension2, 0, 0),
+                                    new Point3d(Dimension2, Dimension4, 0),
+                                    new Point3d(Dimension3, Dimension4, 0),
+                                    new Point3d(Dimension3, Dimension1, 0),
+                                    new Point3d(0, Dimension1, 0),
+                                    new Point3d(0, 0, 0),
+                                };
+                                PolylineCurve border = new PolylineCurve(pts);
+                                Brep[] breps = Brep.CreatePlanarBreps(border, tol);
+                                if (breps != null)
+                                    main_surfaces.Add(breps[0]);
+                            }
+                            break;
                             /*
                         case SectionModel.SectionTypes.T:
                             {
@@ -413,14 +451,14 @@ namespace Rhino2Midas.Core.ElementProperties
                             new Point3d(-Dimension5 / 2, 0, 0),
                             new Point3d(Dimension5 / 2, 0, 0),
                             new Point3d(Dimension5 / 2, Dimension6, 0),
-                            new Point3d(Dimension3 / 2, Dimension6, 0),
-                            new Point3d(Dimension3 / 2, Dimension1 - Dimension4, 0),
+                            new Point3d(Dimension2 / 2, Dimension6, 0),
                             new Point3d(Dimension2 / 2, Dimension1 - Dimension4, 0),
-                            new Point3d(Dimension2 / 2, Dimension1, 0),
-                            new Point3d(-Dimension2 / 2, Dimension1, 0),
-                            new Point3d(-Dimension2 / 2, Dimension1 - Dimension4, 0),
+                            new Point3d(Dimension3 / 2, Dimension1 - Dimension4, 0),
+                            new Point3d(Dimension3 / 2, Dimension1, 0),
+                            new Point3d(-Dimension3 / 2, Dimension1, 0),
                             new Point3d(-Dimension3 / 2, Dimension1 - Dimension4, 0),
-                            new Point3d(-Dimension3 / 2, Dimension6, 0),
+                            new Point3d(-Dimension2 / 2, Dimension1 - Dimension4, 0),
+                            new Point3d(-Dimension2 / 2, Dimension6, 0),
                             new Point3d(-Dimension5 / 2, Dimension6, 0),
                             new Point3d(-Dimension5 / 2, 0, 0)
                         };
@@ -428,7 +466,6 @@ namespace Rhino2Midas.Core.ElementProperties
                         Brep[] breps = Brep.CreatePlanarBreps(border, tol);
                         if (breps != null)
                             main_surfaces.Add(breps[0]);
-
 
                         List<Point3d> ptsRect = new List<Point3d>
                         {
@@ -461,6 +498,8 @@ namespace Rhino2Midas.Core.ElementProperties
                         case FramePropertyTypes.P:
                         case FramePropertyTypes.SB:
                         case FramePropertyTypes.B:
+                        case FramePropertyTypes.L:
+                        case FramePropertyTypes.C:
                         case FramePropertyTypes.H:
                             {
                                 if (main_surfaces.Count > 0)
@@ -494,37 +533,42 @@ namespace Rhino2Midas.Core.ElementProperties
                     {
                         if (main_surfaces.Count > 0)
                         {
-                            Brep steel = main_surfaces[0];
+                            Brep steel = main_surfaces[0].DuplicateBrep();
 
                             AreaMassProperties propSteel = AreaMassProperties.Compute(steel, true, true, true, true);
                             propSteel.CentroidCoordinatesPrincipalMomentsOfInertia(out double x, out Vector3d xv, out double y, out Vector3d yv, out double z, out Vector3d zv);
 
-                            Brep concrete = main_surfaces[1];
+                            Brep concrete = main_surfaces[1].DuplicateBrep();
                             Point3d concrCentr = concrete.GetBoundingBox(true).Center;
 
                             var concreteScaled = concrete.DuplicateBrep();
-                            concreteScaled.Scale(1 / CompositeData1);
+                            //concreteScaled.Scale(1 / CompositeData1);
                             concreteScaled.Translate(concrCentr - concreteScaled.GetBoundingBox(true).Center);
 
                             AreaMassProperties propConcre = AreaMassProperties.Compute(concrete, true, true, true, true);
                             propConcre.CentroidCoordinatesPrincipalMomentsOfInertia(out double xC, out Vector3d xvC, out double yC, out Vector3d yvC, out double zC, out Vector3d zvC);
 
                             SectionArea = propSteel.Area + propConcre.Area / CompositeData1;
-                            Centroid = new Point2d(propSteel.Centroid.X, propSteel.Centroid.Y);
-                            Ixx = propSteel.CentroidCoordinatesMomentsOfInertia.X;
-                            Iyy = propSteel.CentroidCoordinatesMomentsOfInertia.Y;
-                            I11 = propSteel.CentroidCoordinatesMomentsOfInertia.X;
-                            I22 = propSteel.CentroidCoordinatesMomentsOfInertia.Y;
-                            Ixy = propSteel.CentroidCoordinatesMomentsOfInertia.Z;
-                            Angle = Vector3d.VectorAngle(xv, Vector3d.XAxis);
-                            if (Angle >= Math.PI)
-                                Angle -= Math.PI;
-                            if (Angle < 0)
-                                Angle += Math.PI;
+
+                            double xCentroid = (propSteel.Area * propSteel.Centroid.X + propConcre.Area * propConcre.Centroid.X / CompositeData1) /
+                                (SectionArea);
+                            double yCentroid = (propSteel.Area * propSteel.Centroid.Y + propConcre.Area * propConcre.Centroid.Y / CompositeData1) /
+                                (SectionArea);
+
+                            Centroid = new Point2d(xCentroid, yCentroid);
+
+                            double Jxx = (propSteel.Area * propSteel.CentroidCoordinatesMomentsOfInertia.X + propConcre.Area * propConcre.CentroidCoordinatesMomentsOfInertia.X / CompositeData1) /
+                                (propSteel.Area + propConcre.Area);
+                            double Jyy = (propSteel.Area * propSteel.CentroidCoordinatesMomentsOfInertia.Y + propConcre.Area * propConcre.CentroidCoordinatesMomentsOfInertia.Y / CompositeData1) /
+                                (propSteel.Area + propConcre.Area);
+
+                            Angle = 0;
+                            //var vsteel = new Vector3d(propSteel.Centroid.X - Centroid.X, propSteel.Centroid.Y - Centroid.Y, 0);
+                            //var vConcrete = new Vector3d(propConcre.Centroid.X - Centroid.X, propConcre.Centroid.Y - Centroid.Y, 0);
                             steel.Translate(-Centroid.X, -Centroid.Y, 0);
+                            concrete.Translate(-Centroid.X, -Centroid.Y, 0);
 
                             Breps = new List<Brep> { steel, concrete };
-                            //TODO: 
                         }
                     }
                     break;

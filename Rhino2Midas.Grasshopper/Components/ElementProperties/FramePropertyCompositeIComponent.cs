@@ -29,7 +29,7 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
             pManager.AddNumberParameter("Thickness web", "Thickness web", "Thickness web", GH_ParamAccess.item);
             pManager.AddNumberParameter("Slab Width", "Slab Width", "Slab Width", GH_ParamAccess.item);
             pManager.AddNumberParameter("Slab Thickness", "Slab Thickness", "Slab Thickness", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Slab Offset", "Slab Offset", "Slab Offset", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Slab Offset", "Slab Offset", "Slab Offset", GH_ParamAccess.item, 0);
             pManager.AddNumberParameter("Es/Ec", "Es/Ec", "Es/Ec", GH_ParamAccess.item);
             pManager.AddNumberParameter("Ds/Dc", "Ds/Dc", "Ds/Dc", GH_ParamAccess.item);
             pManager.AddNumberParameter("Ps", "Ps", "Ps", GH_ParamAccess.item, 0.3);
@@ -78,6 +78,6 @@ namespace Rhino2Midas.Grasshopper.Components.ElementProperties
 
         public override GH_Exposure Exposure => GH_Exposure.secondary;
 
-        public override Guid ComponentGuid => new Guid("2249ca75-767d-40fb-8693-301e3d5b0795");
+        public override Guid ComponentGuid => new Guid("304d11e0-05d4-4d7c-ae66-0e58e13c0e3e");
     }
 }

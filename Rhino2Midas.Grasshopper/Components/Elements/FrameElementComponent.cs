@@ -36,7 +36,7 @@ namespace Rhino2Midas.Grasshopper.Components.Elements
         {
             Curve val = null;
             GH_FrameProperty gH_FrameProperty = null;
-            Datatype.GH_Material gH_Material = null;
+            GH_Material gH_Material = null;
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
             double angle = 0;
             int id = 0;
