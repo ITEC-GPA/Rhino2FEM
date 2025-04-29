@@ -790,7 +790,7 @@ namespace Rhino2Midas.Core.Models
             foreach (var kvp in FrameElements)
             {
                 FrameElementModel frameElement = kvp.Value;
-                textMgt.Add($"{frameElement.Id}, BEAM, {frameElement.Material.Id}, {frameElement.FrameProperty.Id}, {frameElement.NodeStart.Id}, {frameElement.NodeEnd.Id}, {frameElement.Angle} , 0");
+                textMgt.Add($"{frameElement.Id}, BEAM, {frameElement.Material.Id}, {frameElement.FrameProperty.Id}, {frameElement.NodeStart.Id}, {frameElement.NodeEnd.Id}, {Rhino.RhinoMath.ToDegrees(frameElement.Angle)} , 0");
             }
         }
 
