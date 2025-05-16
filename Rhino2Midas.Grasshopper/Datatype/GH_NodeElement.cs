@@ -61,7 +61,7 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         void IGH_PreviewData.DrawViewportMeshes(GH_PreviewMeshArgs args)
         {
-            //throw new NotImplementedException();
+            Value.DrawWireframe(args.Pipeline, args.Viewport, args.Material.Diffuse);
         }
 
         public override IGH_GeometricGoo DuplicateGeometry()
@@ -82,6 +82,19 @@ namespace Rhino2Midas.Grasshopper.Datatype
         public override IGH_GeometricGoo Morph(SpaceMorph xmorph)
         {
             throw new NotImplementedException();
+        }
+
+        public override bool CastTo<Q>(out Q target)
+        {
+            if (typeof(Q) == typeof(GH_Point))
+            {
+                Point3d p = new Point3d(Value.Position);
+                target = (Q)Convert.ChangeType(new GH_Point(p), typeof(Q));
+                return true;
+            }
+
+            target = default(Q);
+            return false;
         }
     }
 }

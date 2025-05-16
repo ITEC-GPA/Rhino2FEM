@@ -1225,6 +1225,10 @@ namespace Rhino2Midas.Core.Models
                             i = j;
                             break;
                         }
+                        if (textMgt[j].StartsWith(";"))
+                        {
+                            continue;
+                        }
 
                         var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
 

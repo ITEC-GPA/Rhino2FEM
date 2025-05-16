@@ -59,12 +59,12 @@ namespace Rhino2Midas.Grasshopper.Datatype
 
         void IGH_PreviewData.DrawViewportWires(GH_PreviewWireArgs args)
         {
-            Value.DrawSolid(args.Pipeline, args.Viewport, args.Color);
+            Value.DrawWireframe(args.Pipeline, args.Viewport, args.Color);
         }
 
         void IGH_PreviewData.DrawViewportMeshes(GH_PreviewMeshArgs args)
         {
-            //throw new NotImplementedException();
+            Value.DrawSolid(args.Pipeline, args.Viewport, args.Material.Diffuse);
         }
 
         public override IGH_GeometricGoo DuplicateGeometry()
