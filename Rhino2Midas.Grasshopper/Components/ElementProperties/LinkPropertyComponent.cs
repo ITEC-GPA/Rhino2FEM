@@ -1,16 +1,16 @@
 ﻿using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Grasshopper.Datatype;
 using System;
 
-namespace Rhino2Midas.Grasshopper.Components.Attributes
+namespace Rhino2Fem.Grasshopper.Components.Attributes
 {
     public class LinkPropertyComponent : GH_Component
     {
         public LinkPropertyComponent()
-            : base("Link Type", "Link Type", "Link Type", Helper.Constants.Rhino2Midas, Helper.Constants.Attributes)
+            : base("Link Type", "Link Type", "Link Type", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Attributes)
         {
         }
 

@@ -2,17 +2,17 @@
 using System.Security.Cryptography;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.Elements;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Core.Loads;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Elements;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Core.Loads;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Loads
+namespace Rhino2Fem.Grasshopper.Components.Loads
 {
     public class LoadFrameNonUniComponent : GH_Component
     {
         public LoadFrameNonUniComponent()
-            : base("Load frame non-uniform", "Load frame non-uniform", "Load frame non-uniform", Helper.Constants.Rhino2Midas, Helper.Constants.Loads)
+            : base("Load frame non-uniform", "Load frame non-uniform", "Load frame non-uniform", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Loads)
         {
         }
 

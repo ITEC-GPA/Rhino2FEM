@@ -1,15 +1,15 @@
 ﻿using System;
 using System.IO;
 using Grasshopper.Kernel;
-using Rhino2Midas.Core.Models;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Models;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Models
+namespace Rhino2Fem.Grasshopper.Components.Models
 {
-    public class ReadMGTComponent : GH_Component
+    public class MGTPath2RhinoComponent : GH_Component
     {
-        public ReadMGTComponent()
-            : base("Read MGT", "Read MGT", "Read MGT", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
+        public MGTPath2RhinoComponent()
+            : base("MGT2Rhino", "MGT2Rhino", "MGT2Rhino", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
         {
         }
 

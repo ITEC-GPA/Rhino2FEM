@@ -1,16 +1,16 @@
 ﻿using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Core.Settings;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Core.Settings;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Models
+namespace Rhino2Fem.Grasshopper.Components.Models
 {
     public class ModelUnitsComponent : GH_Component
     {
         public ModelUnitsComponent()
-            : base("Model Units", "Model Units", "Model Units", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
+            : base("Model Units", "Model Units", "Model Units", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
         {
         }
 

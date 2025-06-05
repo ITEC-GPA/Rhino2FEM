@@ -1,17 +1,17 @@
 using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.ElementProperties
+namespace Rhino2Fem.Grasshopper.Components.ElementProperties
 {
     public class FramePropertyChannelComponent : GH_Component
     {
         public FramePropertyChannelComponent()
-            : base("Frame property channel", "Frame property channel", "Frame property channel", Helper.Constants.Rhino2Midas, Helper.Constants.ElementProperties)
+            : base("Frame property channel", "Frame property channel", "Frame property channel", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_ElementProperties)
         {
         }
 

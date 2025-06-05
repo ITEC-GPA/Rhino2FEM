@@ -1,16 +1,16 @@
 ﻿using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Materials
+namespace Rhino2Fem.Grasshopper.Components.Materials
 {
     public class MaterialComponent : GH_Component
     {
         public MaterialComponent()
-            : base("Material", "Material", "Material", Helper.Constants.Rhino2Midas, Helper.Constants.Materials)
+            : base("Material", "Material", "Material", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Materials)
         {
         }
 

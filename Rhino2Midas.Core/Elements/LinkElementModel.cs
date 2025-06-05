@@ -1,9 +1,9 @@
 ﻿using Rhino.Display;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.ElementProperties;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.ElementProperties;
 using System.Drawing;
 
-namespace Rhino2Midas.Core.Elements
+namespace Rhino2Fem.Core.Elements
 {
     public class LinkElementModel : ElementModel
     {

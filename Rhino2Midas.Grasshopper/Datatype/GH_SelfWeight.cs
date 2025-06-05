@@ -1,7 +1,7 @@
 ﻿using Grasshopper.Kernel.Types;
-using Rhino2Midas.Core.Loads;
+using Rhino2Fem.Core.Loads;
 
-namespace Rhino2Midas.Grasshopper.Datatype
+namespace Rhino2Fem.Grasshopper.Datatype
 {
     public class GH_SelfWeight : GH_Goo<SelfWeightModel>
     {

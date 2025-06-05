@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Rhino2Midas.Core.Base;
+using Rhino2Fem.Core.Base;
 
-namespace Rhino2Midas.Core.Cases
+namespace Rhino2Fem.Core.Cases
 {
     public class LoadCombinationModel : LoadCaseBase
     {

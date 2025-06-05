@@ -1,7 +1,7 @@
 ﻿using Grasshopper.Kernel.Types;
-using Rhino2Midas.Core.Cases;
+using Rhino2Fem.Core.Cases;
 
-namespace Rhino2Midas.Grasshopper.Datatype
+namespace Rhino2Fem.Grasshopper.Datatype
 {
     public class GH_LoadFactor : GH_Goo<LoadFactorModel>
     {

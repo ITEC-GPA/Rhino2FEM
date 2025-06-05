@@ -4,12 +4,12 @@ using System.Drawing;
 using System.Linq;
 using Rhino.Display;
 using Rhino.Geometry;
-using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Loads;
+using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Loads;
 
-namespace Rhino2Midas.Core.Elements
+namespace Rhino2Fem.Core.Elements
 {
     public class AreaElementModel : ElementModel
     {
@@ -91,12 +91,16 @@ namespace Rhino2Midas.Core.Elements
                         curves.Add(new LineCurve(start.Position, end.Position));
                     }
 
-                    var brepBuffer = Brep.CreatePlanarBreps(curves, 0.001).FirstOrDefault();
-                    var plane = new Plane(NodeList[0].Position, NodeList[1].Position, NodeList[2].Position);
-                    brepBuffer.Translate(-plane.Normal * (AreaThickness.Thickness / 2.0));
-                    LineCurve line = new LineCurve(NodeList[0].Position, NodeList[0].Position + plane.Normal * AreaThickness.Thickness);
-				    Brep = brepBuffer.Faces[0].CreateExtrusion(line, true);
-                    Brep.Translate(plane.Normal * AreaThickness.Offset);
+                    var brepBuffers = Brep.CreatePlanarBreps(curves, 0.001) != null ? Brep.CreatePlanarBreps(curves, 0.001) : Brep.CreatePlanarBreps(curves, 0.1);
+                    if (brepBuffers != null)
+                    {
+                        var brepBuffer = brepBuffers.FirstOrDefault();
+                        var plane = new Plane(NodeList[0].Position, NodeList[1].Position, NodeList[2].Position);
+                        brepBuffer.Translate(-plane.Normal * (AreaThickness.Thickness / 2.0));
+                        LineCurve line = new LineCurve(NodeList[0].Position, NodeList[0].Position + plane.Normal * AreaThickness.Thickness);
+                        Brep = brepBuffer.Faces[0].CreateExtrusion(line, true);
+                        Brep.Translate(plane.Normal * AreaThickness.Offset);
+                    }
                 }
             }
         }

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using Grasshopper.Kernel;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Models
+namespace Rhino2Fem.Grasshopper.Components.Models
 {
     public class DecomposeModelComponent : GH_Component
     {
         public DecomposeModelComponent()
-            : base("Decompose Model", "Decompose Model", "Decompose Model", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
+            : base("Decompose Model", "Decompose Model", "Decompose Model", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
         {
         }
 

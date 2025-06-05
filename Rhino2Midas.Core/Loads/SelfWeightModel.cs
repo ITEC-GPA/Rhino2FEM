@@ -1,7 +1,7 @@
-﻿using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.Cases;
+﻿using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.Cases;
 
-namespace Rhino2Midas.Core.Loads
+namespace Rhino2Fem.Core.Loads
 {
     public class SelfWeightModel
     {

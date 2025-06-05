@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.Elements;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.Elements;
 
-namespace Rhino2Midas.Core.Attributes
+namespace Rhino2Fem.Core.Attributes
 {
     public class ElementGroupModel : ModelObjectId
     {

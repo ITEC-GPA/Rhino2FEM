@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
-using Rhino2Midas.Core.Base;
+using Rhino2Fem.Core.Base;
 
-namespace Rhino2Midas.Core.Collections
+namespace Rhino2Fem.Core.Collections
 {
     public class UniqueNameCollection<T> : Dictionary<string, T> where T : ModelObjectId
     {

@@ -1,4 +1,4 @@
-﻿namespace Rhino2Midas.Core.Settings
+﻿namespace Rhino2Fem.Core.Settings
 {
     public class ModelUnitsModel
     {

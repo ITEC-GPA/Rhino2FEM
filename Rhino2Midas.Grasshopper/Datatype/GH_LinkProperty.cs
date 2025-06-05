@@ -1,7 +1,7 @@
 ﻿using Grasshopper.Kernel.Types;
-using Rhino2Midas.Core.ElementProperties;
+using Rhino2Fem.Core.ElementProperties;
 
-namespace Rhino2Midas.Grasshopper.Datatype
+namespace Rhino2Fem.Grasshopper.Datatype
 {
     public class GH_LinkProperty : GH_Goo<LinkPropertyModel>
     {

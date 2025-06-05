@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Grasshopper", "Rhino2Midas.Grasshopper\Rhino2Fem.Grasshopper.csproj", "{A408F067-D644-4E5E-90C5-461471B61899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Core", "Rhino2Midas.Core\Rhino2Fem.Core.csproj", "{1D2AB245-2573-4D82-A2B5-60AFBA3367BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Core", "Fem2Rhino\Fem2Rhino.Core.csproj", "{FFDC90CD-7F18-4262-952E-DB2E1B308C1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Grasshopper", "Fem2Rhino.Grasshopper\Fem2Rhino.Grasshopper.csproj", "{2B0E0F0C-45DB-4918-894C-4A957549FE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyHelper", "ProxyHelper\ProxyHelper.csproj", "{905ACBD5-6FC2-4847-B66D-61FF278C3B8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrasshopperHelper", "GrasshopperHelper\GrasshopperHelper.csproj", "{C165F275-F9D9-458F-BB01-975D2B379CB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A408F067-D644-4E5E-90C5-461471B61899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A408F067-D644-4E5E-90C5-461471B61899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A408F067-D644-4E5E-90C5-461471B61899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A408F067-D644-4E5E-90C5-461471B61899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D2AB245-2573-4D82-A2B5-60AFBA3367BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2AB245-2573-4D82-A2B5-60AFBA3367BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2AB245-2573-4D82-A2B5-60AFBA3367BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2AB245-2573-4D82-A2B5-60AFBA3367BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDC90CD-7F18-4262-952E-DB2E1B308C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDC90CD-7F18-4262-952E-DB2E1B308C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDC90CD-7F18-4262-952E-DB2E1B308C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDC90CD-7F18-4262-952E-DB2E1B308C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0E0F0C-45DB-4918-894C-4A957549FE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0E0F0C-45DB-4918-894C-4A957549FE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0E0F0C-45DB-4918-894C-4A957549FE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0E0F0C-45DB-4918-894C-4A957549FE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905ACBD5-6FC2-4847-B66D-61FF278C3B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905ACBD5-6FC2-4847-B66D-61FF278C3B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905ACBD5-6FC2-4847-B66D-61FF278C3B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905ACBD5-6FC2-4847-B66D-61FF278C3B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C165F275-F9D9-458F-BB01-975D2B379CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C165F275-F9D9-458F-BB01-975D2B379CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C165F275-F9D9-458F-BB01-975D2B379CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C165F275-F9D9-458F-BB01-975D2B379CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10F914A4-4DDE-4FD6-AC45-85F29F0024A3}
+	EndGlobalSection
+EndGlobal

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Materials
+namespace Rhino2Fem.Grasshopper.Components.Materials
 {
     public class DatabaseConcreteMaterialComponent : GH_Component
     {
@@ -28,7 +28,7 @@ namespace Rhino2Midas.Grasshopper.Components.Materials
         };
 
         public DatabaseConcreteMaterialComponent()
-            : base("Database Concrete", "Database Concrete", "Database Concrete", Helper.Constants.Rhino2Midas, Helper.Constants.Materials)
+            : base("Database Concrete", "Database Concrete", "Database Concrete", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Materials)
         {
         }
 

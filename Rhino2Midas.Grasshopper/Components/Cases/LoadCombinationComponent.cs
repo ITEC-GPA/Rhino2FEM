@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.Cases;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Cases;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Cases
+namespace Rhino2Fem.Grasshopper.Components.Cases
 {
     public class LoadCombinationComponent : GH_Component
     {
         public LoadCombinationComponent()
-            : base("Load combination", "Load combination", "Load combination", Helper.Constants.Rhino2Midas, Helper.Constants.Cases)
+            : base("Load combination", "Load combination", "Load combination", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Cases)
         {
         }
 

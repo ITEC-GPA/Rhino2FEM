@@ -1,17 +1,17 @@
 ﻿using Grasshopper.Kernel;
-using Rhino2Midas.Core.Cases;
-using Rhino2Midas.Core.Elements;
-using Rhino2Midas.Core.Models;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Cases;
+using Rhino2Fem.Core.Elements;
+using Rhino2Fem.Core.Models;
+using Rhino2Fem.Grasshopper.Datatype;
 using System;
 using System.Collections.Generic;
 
-namespace Rhino2Midas.Grasshopper.Components.Models
+namespace Rhino2Fem.Grasshopper.Components.Models
 {
     public class BuildModelComponent : GH_Component
     {
         public BuildModelComponent()
-            : base("Build Model", "Build Model", "Build Model", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
+            : base("Build Model", "Build Model", "Build Model", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
         {
         }
 

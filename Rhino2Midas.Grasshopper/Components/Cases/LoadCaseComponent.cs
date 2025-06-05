@@ -1,16 +1,16 @@
 ﻿using System;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using Rhino2Midas.Core.Cases;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Cases;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Cases
+namespace Rhino2Fem.Grasshopper.Components.Cases
 {
     public class LoadCaseComponent : GH_Component
     {
         public LoadCaseComponent()
-            : base("Load case", "Load case", "Load case", Helper.Constants.Rhino2Midas, Helper.Constants.Cases)
+            : base("Load case", "Load case", "Load case", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Cases)
         {
         }
 

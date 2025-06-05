@@ -1,7 +1,7 @@
-﻿using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Cases;
+﻿using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Cases;
 
-namespace Rhino2Midas.Core.Loads
+namespace Rhino2Fem.Core.Loads
 {
     public class AreaLoadModel
     {

@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net8.0-windows</TargetFrameworks>
+	  <EnableDynamicLoading>true</EnableDynamicLoading>
+	  <TargetExt>.gha</TargetExt>
+	  <NoWarn>NU1701;NETSDK1086</NoWarn>
+	  <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<!-- Specifies information for Assembly and Yak -->
+		<Version>1.0</Version>
+		<Title>Fem2Rhino.Grasshopper</Title>
+		<Company>$(Authors)</Company>
+		<Description>Description of Fem2Rhino.Grasshopper</Description>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<EnableNETAnalyzers>False</EnableNETAnalyzers>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grasshopper" Version="8.18.25100.11001" />
+    <PackageReference Include="RhinoCommon" Version="8.18.25100.11001" />
+  </ItemGroup>
+
+	<!-- For Windows only builds -->
+	<PropertyGroup Condition="$(TargetFramework.Contains('-windows')) or $(TargetFramework.StartsWith('net4'))">
+		<UseWindowsForms>true</UseWindowsForms>
+		<UseWpf>true</UseWpf>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fem2Rhino\Fem2Rhino.Core.csproj" />
+    <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
+  </ItemGroup>
+
+	<Target Name="CopyPdbForMonoDebugging" AfterTargets="AfterBuild">
+		<!-- Enable debugging in Rhino 6/7 on Mac -->
+		<Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFiles="$(TargetDir)$(TargetName).gha.pdb" Condition="$([MSBuild]::IsOSPlatform(OSX)) and $(TargetFramework.StartsWith('net4')) and Exists('$(TargetDir)$(TargetName).pdb')" />
+	</Target>
+
+</Project>

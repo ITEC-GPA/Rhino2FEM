@@ -1,7 +1,7 @@
-﻿using Rhino2Midas.Core.Attributes;
+﻿using Rhino2Fem.Core.Attributes;
 using System.Collections.Generic;
 
-namespace Rhino2Midas.Core.Base
+namespace Rhino2Fem.Core.Base
 {
     public abstract class ElementModel : ModelObjectId
     {

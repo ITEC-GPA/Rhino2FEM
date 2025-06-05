@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Rhino2Midas.Core.Base;
+using Rhino2Fem.Core.Base;
 
-namespace Rhino2Midas.Core.ElementProperties
+namespace Rhino2Fem.Core.ElementProperties
 {
     public class MaterialModel : ModelObjectId, IEquatable<MaterialModel>
     {

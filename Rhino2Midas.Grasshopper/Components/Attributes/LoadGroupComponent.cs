@@ -1,14 +1,14 @@
 ﻿using System;
 using Grasshopper.Kernel;
-using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Attributes
+namespace Rhino2Fem.Grasshopper.Components.Attributes
 {
     public class LoadGroupComponent : GH_Component
     {
         public LoadGroupComponent()
-            : base("Load Group", "Load Group", "Load Group", Helper.Constants.Rhino2Midas, Helper.Constants.Attributes)
+            : base("Load Group", "Load Group", "Load Group", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Attributes)
         {
         }
 

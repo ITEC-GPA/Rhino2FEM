@@ -1,7 +1,7 @@
 ﻿using Grasshopper.Kernel.Types;
-using Rhino2Midas.Core.Settings;
+using Rhino2Fem.Core.Settings;
 
-namespace Rhino2Midas.Grasshopper.Datatype
+namespace Rhino2Fem.Grasshopper.Datatype
 {
     public class GH_Units : GH_Goo<ModelUnitsModel>
     {

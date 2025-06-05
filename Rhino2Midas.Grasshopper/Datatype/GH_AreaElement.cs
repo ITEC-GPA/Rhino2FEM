@@ -3,9 +3,9 @@ using System.Linq;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
-using Rhino2Midas.Core.Elements;
+using Rhino2Fem.Core.Elements;
 
-namespace Rhino2Midas.Grasshopper.Datatype
+namespace Rhino2Fem.Grasshopper.Datatype
 {
     public class GH_AreaElement : GH_GeometricGoo<AreaElementModel>, IGH_PreviewData
     {

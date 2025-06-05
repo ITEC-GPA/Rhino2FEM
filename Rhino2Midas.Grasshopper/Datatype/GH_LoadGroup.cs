@@ -1,7 +1,7 @@
 ﻿using Grasshopper.Kernel.Types;
-using Rhino2Midas.Core.Attributes;
+using Rhino2Fem.Core.Attributes;
 
-namespace Rhino2Midas.Grasshopper.Datatype
+namespace Rhino2Fem.Grasshopper.Datatype
 {
     public class GH_LoadGroup : GH_Goo<LoadGroupModel>
     {

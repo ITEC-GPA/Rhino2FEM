@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Rhino2Midas.Core.Base
+namespace Rhino2Fem.Core.Base
 {
     public class ModelObjectId : IEquatable<ModelObjectId>
     {

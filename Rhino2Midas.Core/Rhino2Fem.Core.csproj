@@ -11,8 +11,12 @@
 
 	
   <ItemGroup>
-	<PackageReference Include="RhinoCommon" Version="7.36.23346.16351" />
-	<!--<PackageReference Include="RhinoCommon" Version="8.0.23304.9001" Condition="!$(TargetFramework.StartsWith('net4'))" ExcludeAssets="runtime" />-->
+	<PackageReference Include="RhinoCommon" Version="8.18.25100.11001" />
+  </ItemGroup>
+
+	
+  <ItemGroup>
+    <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
   </ItemGroup>
 
 </Project>

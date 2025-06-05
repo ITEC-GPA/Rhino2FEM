@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Rhino.Geometry;
-using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.Cases;
-using Rhino2Midas.Core.Collections;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Elements;
-using Rhino2Midas.Core.Helper;
-using Rhino2Midas.Core.Loads;
-using Rhino2Midas.Core.Settings;
+using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.Cases;
+using Rhino2Fem.Core.Collections;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Elements;
+using Rhino2Fem.Core.Helper;
+using Rhino2Fem.Core.Loads;
+using Rhino2Fem.Core.Settings;
 
-namespace Rhino2Midas.Core.Models
+namespace Rhino2Fem.Core.Models
 {
     public class ModelModel : IEquatable<ModelModel>
     {
@@ -704,7 +704,7 @@ namespace Rhino2Midas.Core.Models
                     matName = matName.Substring(0, 28);
                 if (material.Standard == MaterialModel.Standards.Custom)
                 {
-                    textMgt.Add($"{material.Id}, {material.Type.GetDescription()}, {material.Name}, 0, 0, , C, NO, {material.DampingRatio}, 2, {material.ModulusElasticity}," +
+                    textMgt.Add($"{material.Id}, {material.Type.GetDescription()}, {matName}, 0, 0, , C, NO, {material.DampingRatio}, 2, {material.ModulusElasticity}," +
                         $" {material.PoissonRatio}, {material.ThermalCoefficient}, {material.Density}, {material.Mass}");
                 }
                 else

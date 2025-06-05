@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Models
+namespace Rhino2Fem.Grasshopper.Components.Models
 {
     public class NodeFilterComponent : GH_Component
     {
         public NodeFilterComponent()
-            : base("Node Filter", "Node Filter", "Node Filter", Helper.Constants.Rhino2Midas, Helper.Constants.Model)
+            : base("Node Filter", "Node Filter", "Node Filter", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
         {
         }
 

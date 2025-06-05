@@ -2,11 +2,11 @@
 using System.Drawing;
 using Rhino.Display;
 using Rhino.Geometry;
-using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.Loads;
+using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.Loads;
 
-namespace Rhino2Midas.Core.Elements
+namespace Rhino2Fem.Core.Elements
 {
     public class NodeElementModel : ElementModel
     {

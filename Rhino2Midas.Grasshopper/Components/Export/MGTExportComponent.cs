@@ -1,13 +1,13 @@
 ﻿using System;
 using Grasshopper.Kernel;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Export
+namespace Rhino2Fem.Grasshopper.Components.Export
 {
     public class MGTExportComponent : GH_Component
     {
         public MGTExportComponent()
-            : base("MGT Export", "MGT Export", "MGT Export", Helper.Constants.Rhino2Midas, Helper.Constants.Export)
+            : base("MGT Export", "MGT Export", "MGT Export", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Export)
         {
         }
 
@@ -33,7 +33,6 @@ namespace Rhino2Midas.Grasshopper.Components.Export
                 var model = gH_Model.Value;
                 var lines = model.CreateMgtFile();
                 DA.SetDataList(0, lines);
-                //string outMgtString = string.Join(Environment.NewLine, lines);
             }
         }
 

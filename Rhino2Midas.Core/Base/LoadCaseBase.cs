@@ -1,4 +1,4 @@
-﻿namespace Rhino2Midas.Core.Base
+﻿namespace Rhino2Fem.Core.Base
 {
     public class LoadCaseBase : ModelObjectId
     {

@@ -17,9 +17,9 @@
   <PropertyGroup>
     <!-- Specifies information for Assembly and Yak -->
     <Version>1.0</Version>
-    <Title>Rhino2Midas.Grasshopper</Title>
+    <Title>Rhino2Fem.Grasshopper</Title>
     <Company>$(Authors)</Company>
-    <Description>Description of Rhino2Midas.Grasshopper</Description>
+    <Description>Description of Rhino2Fem.Grasshopper</Description>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
@@ -32,10 +32,8 @@
   </ItemGroup>
   
   <ItemGroup>
-	<PackageReference Include="Grasshopper" Version="7.36.23346.16351" Condition="$(TargetFramework) == 'net48'" ExcludeAssets="runtime" />
-	<PackageReference Include="RhinoCommon" Version="7.36.23346.16351" Condition="$(TargetFramework) == 'net48'" ExcludeAssets="runtime" />
-	<PackageReference Include="Grasshopper" Version="8.0.23304.9001" Condition="!$(TargetFramework.StartsWith('net4'))" ExcludeAssets="runtime" />
-	<PackageReference Include="RhinoCommon" Version="8.0.23304.9001" Condition="!$(TargetFramework.StartsWith('net4'))" ExcludeAssets="runtime" />
+	<PackageReference Include="Grasshopper" Version="8.18.25100.11001" />
+	<PackageReference Include="RhinoCommon" Version="8.18.25100.11001" />
   </ItemGroup>
   
   <!-- For Windows only builds -->
@@ -55,7 +53,8 @@
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Midas.Core.csproj" />
+    <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
+    <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Fem.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\Preview\" />

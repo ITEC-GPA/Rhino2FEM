@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Rhino2Midas.Core.Helper
+namespace Rhino2Fem.Core.Helper
 {
     public static class EnumExtension
     {

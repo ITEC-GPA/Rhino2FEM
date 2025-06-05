@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Rhino.Display;
+using Rhino.Geometry;
+using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Loads;
 using System.Collections.Generic;
 using System.Drawing;
-using Rhino.Display;
-using Rhino.Geometry;
-using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.ElementProperties;
-using Rhino2Midas.Core.Loads;
 
-namespace Rhino2Midas.Core.Elements
+namespace Rhino2Fem.Core.Elements
 {
     public class FrameElementModel : ElementModel
     {
@@ -106,6 +105,9 @@ namespace Rhino2Midas.Core.Elements
 
                     LineCurve line = new LineCurve(NodeStart.Position, NodeEnd.Position);
                     Brep shape = surface.Faces[0].CreateExtrusion(line, true);
+                    Vector3d offset = GetOffset();
+                    offset.Transform(t);
+                    shape.Translate(offset.X, offset.Y, offset.Z);
                     Breps.Add(shape);
                 }
             }
@@ -142,6 +144,41 @@ namespace Rhino2Midas.Core.Elements
             axes1 = pl.XAxis;
             axes2 = pl.YAxis;
             toGlobal = Transform.PlaneToPlane(Plane.WorldXY, pl);
+        }
+
+        public Vector3d GetOffset()
+        {
+            BoundingBox boundingBox = new BoundingBox();
+
+            for (int i = 0; i < FrameProperty.Breps.Count; i++)
+            {
+                Brep brep = FrameProperty.Breps[i].DuplicateBrep();
+                boundingBox.Union(brep.GetBoundingBox(true));
+            }
+
+            Vector3d BBoxDiagonal = boundingBox.Diagonal;
+            switch (FrameProperty.Offset)
+            {
+                case FramePropertyModel.OffsetTypes.LT:
+                    return new Vector3d(-BBoxDiagonal.X / 2.0, -BBoxDiagonal.Y / 2.0, 0);
+                case FramePropertyModel.OffsetTypes.CT:
+                    return new Vector3d(0, -BBoxDiagonal.Y / 2.0, 0);
+                case FramePropertyModel.OffsetTypes.RT:
+                    return new Vector3d(BBoxDiagonal.X / 2.0, -BBoxDiagonal.Y / 2.0, 0);
+                case FramePropertyModel.OffsetTypes.LC:
+                    return new Vector3d(-BBoxDiagonal.X / 2.0, 0, 0);
+                case FramePropertyModel.OffsetTypes.CC:
+                    return new Vector3d(0, 0, 0);
+                case FramePropertyModel.OffsetTypes.RC:
+                    return new Vector3d(BBoxDiagonal.X / 2.0, 0, 0);
+                case FramePropertyModel.OffsetTypes.LB:
+                    return new Vector3d(-BBoxDiagonal.X / 2.0, BBoxDiagonal.Y / 2.0, 0);
+                case FramePropertyModel.OffsetTypes.CB:
+                    return new Vector3d(0, BBoxDiagonal.Y / 2.0, 0);
+                case FramePropertyModel.OffsetTypes.RB:
+                    return new Vector3d(BBoxDiagonal.X / 2.0, BBoxDiagonal.Y / 2.0, 0);
+            }
+            return new Vector3d(0, 0, 0);
         }
     }
 }

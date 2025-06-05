@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Rhino.Collections;
 using Rhino.Geometry;
-using Rhino2Midas.Core.Base;
+using Rhino2Fem.Core.Base;
 
-namespace Rhino2Midas.Core.ElementProperties
+namespace Rhino2Fem.Core.ElementProperties
 {
     public class FramePropertyModel : ModelObjectId, IEquatable<FramePropertyModel>
     {

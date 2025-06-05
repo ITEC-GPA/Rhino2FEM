@@ -1,7 +1,7 @@
-﻿using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Base;
+﻿using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
 
-namespace Rhino2Midas.Core.ElementProperties
+namespace Rhino2Fem.Core.ElementProperties
 {
     public class LinkPropertyModel : ModelObjectId
     {

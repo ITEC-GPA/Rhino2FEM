@@ -1,4 +1,4 @@
-﻿namespace Rhino2Midas.Core.Cases
+﻿namespace Rhino2Fem.Core.Cases
 {
     public class LoadFactorModel
     {

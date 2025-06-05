@@ -2,17 +2,17 @@ using System;
 using System.Collections.Generic;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Rhino2Midas.Core.Attributes;
-using Rhino2Midas.Core.Base;
-using Rhino2Midas.Core.Elements;
-using Rhino2Midas.Grasshopper.Datatype;
+using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
+using Rhino2Fem.Core.Elements;
+using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Midas.Grasshopper.Components.Elements
+namespace Rhino2Fem.Grasshopper.Components.Elements
 {
     public class FrameElementComponent : GH_Component
     {
         public FrameElementComponent()
-            : base("Frame element", "Frame element", "Frame element", Helper.Constants.Rhino2Midas, Helper.Constants.Elements)
+            : base("Frame element", "Frame element", "Frame element", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Elements)
         {
         }
 
