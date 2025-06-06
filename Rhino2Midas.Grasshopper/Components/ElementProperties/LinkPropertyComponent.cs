@@ -5,12 +5,12 @@ using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 using System;
 
-namespace Rhino2Fem.Grasshopper.Components.Attributes
+namespace Rhino2Fem.Midas.Grasshopper.Components.Attributes
 {
     public class LinkPropertyComponent : GH_Component
     {
         public LinkPropertyComponent()
-            : base("Link Type", "Link Type", "Link Type", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Attributes)
+            : base("Link Type", "Link Type", "Link Type", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ATTRIBUTES)
         {
         }
 

@@ -1,4 +1,4 @@
-﻿using FeMM.Grasshopper.Helpers;
+﻿
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino;
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class InteractiveAddFrameComponent : GH_Component
 	{
@@ -18,13 +18,13 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public InteractiveAddFrameComponent()
-			: base("Add Frame to Interactive Table", "AF", "Add frame to interactive model", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVEADD)
+			: base("Add Frame to Interactive Table", "AF", "Add frame to interactive model", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVEADD)
 		{
 		}
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Add");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Add");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

@@ -3,12 +3,12 @@ using Grasshopper.Kernel;
 using Rhino2Fem.Core.Cases;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Cases
+namespace Rhino2Fem.Midas.Grasshopper.Components.Cases
 {
     public class LoadFactorComponent : GH_Component
     {
         public LoadFactorComponent()
-            : base("Load factor", "Load factor", "Load factor", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Cases)
+            : base("Load factor", "Load factor", "Load factor", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_CASES)
         {
         }
 

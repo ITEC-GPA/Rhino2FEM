@@ -5,12 +5,12 @@ using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Core.Settings;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Models
+namespace Rhino2Fem.Midas.Grasshopper.Components.Models
 {
     public class ModelUnitsComponent : GH_Component
     {
         public ModelUnitsComponent()
-            : base("Model Units", "Model Units", "Model Units", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
+            : base("Model Units", "Model Units", "Model Units", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_MODEL)
         {
         }
 

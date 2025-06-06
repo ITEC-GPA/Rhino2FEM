@@ -4,12 +4,12 @@ using Rhino2Fem.Core.Cases;
 using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Cases
+namespace Rhino2Fem.Midas.Grasshopper.Components.Cases
 {
     public class SelfWeightComponent : GH_Component
     {
         public SelfWeightComponent()
-            : base("Selfweight", "Selfweight", "Selfweight", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Cases)
+            : base("Selfweight", "Selfweight", "Selfweight", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_CASES)
         {
         }
 

@@ -7,12 +7,12 @@ using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Loads
+namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
 {
     public class LoadFrameNonUniComponent : GH_Component
     {
         public LoadFrameNonUniComponent()
-            : base("Load frame non-uniform", "Load frame non-uniform", "Load frame non-uniform", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Loads)
+            : base("Load frame non-uniform", "Load frame non-uniform", "Load frame non-uniform", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_LOADS)
         {
         }
 

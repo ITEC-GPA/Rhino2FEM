@@ -1,10 +1,10 @@
-﻿using CSiAPIv1;
-using FeMM.Grasshopper.Helpers;
+﻿using SAP2000v1;
+
 using Grasshopper.Kernel;
 using System;
 using System.Collections.Generic;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class SAPSelectElementsListComponent : GH_Component
 	{
@@ -14,13 +14,13 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public SAPSelectElementsListComponent()
-			: base("Select Elements List", "SEL", "Select in SAP2000 the rhino elements", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVESAP)
+			: base("Select Elements List", "SEL", "Select in SAP2000 the rhino elements", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVESAP)
 		{
 		}
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Select");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Select");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

@@ -3,7 +3,7 @@ using Rhino.DocObjects;
 using System;
 using System.Collections.Generic;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public static class F2RModelHelper
 	{
@@ -62,7 +62,7 @@ namespace FeMM.Grasshopper.Components.F2R
 			return layers.ToArray();
 		}
 
-		public static CSIEditingTable GetAllFields(CSiAPIv1.cSapModel model, string tableName)
+		public static CSIEditingTable GetAllFields(SAP2000v1.cSapModel model, string tableName)
 		{
 			int NumberFields = 0;
 			int TableVersion = 0;
@@ -120,14 +120,23 @@ namespace FeMM.Grasshopper.Components.F2R
 				return null;
 		}
 
-		public static CSiAPIv1.cSapModel GetSapModel(out CSiAPIv1.cOAPI sapObject, string modelPath = "", bool attachToInstance = false)
+		public static SAP2000v1.cSapModel GetSapModel(out SAP2000v1.cOAPI sapObject, string modelPath = "", bool attachToInstance = false)
 		{
-			if (attachToInstance)
+            SAP2000v1.cHelper myHelper; //create API helper object
+            try
+            {
+                myHelper = new SAP2000v1.Helper();
+            }
+            catch
+            {
+                throw;
+            }
+            if (attachToInstance)
 			{
 				try
 				{
 					// Get the active SapObject
-					sapObject = (CSiAPIv1.cOAPI)StrausProxy.CSIActiveObject.GetActiveObject("CSI.SAP2000.API.SapObject");
+					sapObject = myHelper.GetObject("CSI.SAP2000.API.SapObject");
 				}
 				catch (Exception)
 				{
@@ -136,10 +145,8 @@ namespace FeMM.Grasshopper.Components.F2R
 			}
 			else
 			{
-				CSiAPIv1.cHelper myHelper; //create API helper object
 				try
 				{
-					myHelper = new CSiAPIv1.Helper();
 					sapObject = myHelper.CreateObjectProgID("CSI.SAP2000.API.SapObject");
 				}
 				catch
@@ -150,9 +157,9 @@ namespace FeMM.Grasshopper.Components.F2R
 				if (sapObject != null)
 				{
 					if (string.IsNullOrEmpty(modelPath))
-						sapObject.ApplicationStart(CSiAPIv1.eUnits.N_mm_C, true);
+						sapObject.ApplicationStart(SAP2000v1.eUnits.N_mm_C, true);
 					else
-						sapObject.ApplicationStart(CSiAPIv1.eUnits.N_mm_C, true, modelPath);
+						sapObject.ApplicationStart(SAP2000v1.eUnits.N_mm_C, true, modelPath);
 				}
 			}
 
@@ -161,12 +168,21 @@ namespace FeMM.Grasshopper.Components.F2R
 
 		public static ETABSv1.cSapModel GetEtabsModel(out ETABSv1.cOAPI sapObject, string modelPath = "", bool attachToInstance = false)
 		{
-			if (attachToInstance)
+            ETABSv1.cHelper myHelper; //create API helper object
+            try
+            {
+                myHelper = new ETABSv1.Helper();
+            }
+            catch
+            {
+                throw;
+            }
+            if (attachToInstance)
 			{
 				try
 				{
 					// Get the active SapObject
-					sapObject = (ETABSv1.cOAPI)StrausProxy.CSIActiveObject.GetActiveObject("CSI.ETABS.API.ETABSObject");
+					sapObject = (ETABSv1.cOAPI)myHelper.GetObject("CSI.ETABS.API.ETABSObject");
 				}
 				catch (Exception)
 				{
@@ -175,10 +191,8 @@ namespace FeMM.Grasshopper.Components.F2R
 			}
 			else
 			{
-				ETABSv1.cHelper myHelper; //create API helper object
 				try
 				{
-					myHelper = new ETABSv1.Helper();
 					sapObject = myHelper.CreateObjectProgID("CSI.ETABS.API.ETABSObject");
 				}
 				catch
@@ -198,14 +212,23 @@ namespace FeMM.Grasshopper.Components.F2R
 			return sapObject.SapModel;
 		}
 
-		public static CSiAPIv1.cSapModel GetCSIEtabsModel(out CSiAPIv1.cOAPI sapObject, string modelPath = "", bool attachToInstance = false)
+		public static SAP2000v1.cSapModel GetCSIEtabsModel(out SAP2000v1.cOAPI sapObject, string modelPath = "", bool attachToInstance = false)
 		{
-			if (attachToInstance)
+            SAP2000v1.cHelper myHelper; //create API helper object
+            try
+            {
+                myHelper = new SAP2000v1.Helper();
+            }
+            catch
+            {
+                throw;
+            }
+            if (attachToInstance)
 			{
 				try
 				{
 					// Get the active SapObject
-					sapObject = (CSiAPIv1.cOAPI)StrausProxy.CSIActiveObject.GetActiveObject("CSI.ETABS.API.ETABSObject");
+					sapObject = (SAP2000v1.cOAPI)myHelper.GetObject("CSI.ETABS.API.ETABSObject");
 				}
 				catch (Exception)
 				{
@@ -214,10 +237,8 @@ namespace FeMM.Grasshopper.Components.F2R
 			}
 			else
 			{
-				CSiAPIv1.cHelper myHelper; //create API helper object
 				try
 				{
-					myHelper = new CSiAPIv1.Helper();
 					sapObject = myHelper.CreateObjectProgID("CSI.ETABS.API.ETABSObject");
 				}
 				catch
@@ -228,9 +249,9 @@ namespace FeMM.Grasshopper.Components.F2R
 				if (sapObject != null)
 				{
 					if (string.IsNullOrEmpty(modelPath))
-						sapObject.ApplicationStart(CSiAPIv1.eUnits.N_m_C, true);
+						sapObject.ApplicationStart(SAP2000v1.eUnits.N_m_C, true);
 					else
-						sapObject.ApplicationStart(CSiAPIv1.eUnits.N_m_C, true, modelPath);
+						sapObject.ApplicationStart(SAP2000v1.eUnits.N_m_C, true, modelPath);
 				}
 			}
 

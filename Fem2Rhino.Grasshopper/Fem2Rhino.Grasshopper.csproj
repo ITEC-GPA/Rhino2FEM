@@ -6,6 +6,7 @@
 	  <TargetExt>.gha</TargetExt>
 	  <NoWarn>NU1701;NETSDK1086</NoWarn>
 	  <EnableWindowsTargeting>true</EnableWindowsTargeting>
+	  <Platforms>AnyCPU;ARM32;x64</Platforms>
   </PropertyGroup>
 
 	<PropertyGroup>
@@ -31,12 +32,28 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fem2Rhino\Fem2Rhino.Core.csproj" />
+    <ProjectReference Include="..\GrasshopperHelper\GrasshopperHelper.csproj" />
     <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
+    <ProjectReference Include="..\Rhino2Fem.Straus.Grasshopper\Rhino2Fem.Grasshopper.csproj" />
+    <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Fem.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ETABSv1">
+      <HintPath>..\..\External DLL\ETABSv1.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP2000v1">
+      <HintPath>..\..\External DLL\SAP2000v1.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 	<Target Name="CopyPdbForMonoDebugging" AfterTargets="AfterBuild">
 		<!-- Enable debugging in Rhino 6/7 on Mac -->
 		<Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFiles="$(TargetDir)$(TargetName).gha.pdb" Condition="$([MSBuild]::IsOSPlatform(OSX)) and $(TargetFramework.StartsWith('net4')) and Exists('$(TargetDir)$(TargetName).pdb')" />
+	</Target>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="echo $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework)&#xA;robocopy $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework) $(SolutionDir)bin\$(TargetFramework) /E /NFL /NDL /NJH /NJS /NC /NS&#xA;exit 0" />
 	</Target>
 
 </Project>

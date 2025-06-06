@@ -7,19 +7,20 @@
         Rhino 8 Windows: net48, net7.0, net7.0-windows, net7.0-windows10.0.22000.0, etc
         Rhino 8 Mac: net7.0, net7.0-macos, net7.0-macos12.0, etc
     -->
-    <TargetFrameworks>net7.0-windows</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <TargetExt>.gha</TargetExt>
     <NoWarn>NU1701;NETSDK1086</NoWarn>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
   
   <PropertyGroup>
     <!-- Specifies information for Assembly and Yak -->
     <Version>1.0</Version>
-    <Title>Rhino2Fem.Grasshopper</Title>
+    <Title>Rhino2Fem.Grasshopper.Midas</Title>
     <Company>$(Authors)</Company>
-    <Description>Description of Rhino2Fem.Grasshopper</Description>
+    <Description>Description of Rhino2Fem.Grasshopper.Midas</Description>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<EnableNETAnalyzers>False</EnableNETAnalyzers>
   </PropertyGroup>
@@ -54,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
+    <ProjectReference Include="..\Rhino2Fem.Straus.Grasshopper\Rhino2Fem.Grasshopper.csproj" />
     <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Fem.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +78,10 @@
   <Target Name="CopyPdbForMonoDebugging" AfterTargets="AfterBuild">
     <!-- Enable debugging in Rhino 6/7 on Mac -->
     <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFiles="$(TargetDir)$(TargetName).gha.pdb" Condition="$([MSBuild]::IsOSPlatform(OSX)) and $(TargetFramework.StartsWith('net4')) and Exists('$(TargetDir)$(TargetName).pdb')" />
+  </Target>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework)&#xD;&#xA;echo $(SolutionDir)bin\$(TargetFramework)&#xA;robocopy $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework) $(SolutionDir)bin\$(TargetFramework) /E /NFL /NDL /NJH /NJS /NC /NS&#xA;exit 0" />
   </Target>
 
 </Project>

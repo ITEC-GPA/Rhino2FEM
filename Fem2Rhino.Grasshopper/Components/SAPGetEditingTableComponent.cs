@@ -1,11 +1,11 @@
-using CSiAPIv1;
-using FeMM.Grasshopper.Helpers;
+using SAP2000v1;
+
 using Grasshopper;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using System;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class SAPGetEditingTableComponent : GH_Component
 	{
@@ -13,7 +13,7 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public SAPGetEditingTableComponent()
-			: base("Get Editing Table", "GET", "Get SAP2000 Editing Table", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVESAP)
+			: base("Get Editing Table", "GET", "Get SAP2000 Editing Table", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVESAP)
 		{
 		}
 
@@ -21,7 +21,7 @@ namespace FeMM.Grasshopper.Components.F2R
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Read");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Read");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

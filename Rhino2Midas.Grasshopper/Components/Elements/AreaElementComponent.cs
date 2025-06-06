@@ -8,13 +8,13 @@ using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.Elements;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Elements
+namespace Rhino2Fem.Midas.Grasshopper.Components.Elements
 {
     public class AreaElementComponent : GH_Component
     {
 
         public AreaElementComponent()
-            : base("Area element", "Area element", "Area element", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Elements)
+            : base("Area element", "Area element", "Area element", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ELEMENTS)
         {
         }
 
@@ -38,7 +38,7 @@ namespace Rhino2Fem.Grasshopper.Components.Elements
         {
             Mesh mesh = new Mesh();
             GH_AreaThickness areaThickness = new GH_AreaThickness();
-            Datatype.GH_Material material = new Datatype.GH_Material();
+            Rhino2Fem.Grasshopper.Datatype.GH_Material material = new Rhino2Fem.Grasshopper.Datatype.GH_Material();
             List<IGH_Goo> list = new List<IGH_Goo>();
             double angle = 0.0;
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();

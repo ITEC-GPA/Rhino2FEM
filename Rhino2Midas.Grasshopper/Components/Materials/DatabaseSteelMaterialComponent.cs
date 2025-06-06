@@ -6,7 +6,7 @@ using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Materials
+namespace Rhino2Fem.Midas.Grasshopper.Components.Materials
 {
     public class DatabaseSteelMaterialComponent : GH_Component
     {
@@ -18,7 +18,7 @@ namespace Rhino2Fem.Grasshopper.Components.Materials
         };
 
         public DatabaseSteelMaterialComponent()
-            : base("Database Steel", "Database Steel", "Database Steel", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Materials)
+            : base("Database Steel", "Database Steel", "Database Steel", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_MATERIALS)
         {
         }
 

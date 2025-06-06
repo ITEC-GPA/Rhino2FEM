@@ -2,12 +2,12 @@
 using Grasshopper.Kernel;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Export
+namespace Rhino2Fem.Midas.Grasshopper.Components.Export
 {
     public class MGTExportComponent : GH_Component
     {
         public MGTExportComponent()
-            : base("MGT Export", "MGT Export", "MGT Export", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Export)
+            : base("MGT Export", "MGT Export", "MGT Export", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_EXPORT)
         {
         }
 

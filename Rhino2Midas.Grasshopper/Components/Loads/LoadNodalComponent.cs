@@ -4,12 +4,12 @@ using Rhino2Fem.Core.Elements;
 using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Loads
+namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
 {
     public class LoadNodalComponent : GH_Component
     {
         public LoadNodalComponent()
-            : base("Load nodal", "Load nodal", "Load nodal", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Loads)
+            : base("Load nodal", "Load nodal", "Load nodal", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_LOADS)
         {
         }
 

@@ -16,6 +16,8 @@
 
         public BoundaryGroupModel BoundaryGroup { get; set; }
 
+        public bool HasBoundaryGroup => BoundaryGroup != null;
+
         public NodeSupportModel(bool dx, bool dy, bool dz, bool mx, bool my, bool mz)
         {
             Dx = dx;

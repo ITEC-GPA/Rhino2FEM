@@ -1,5 +1,4 @@
-﻿using CSiAPIv1;
-using FeMM.Grasshopper.Helpers;
+﻿using SAP2000v1;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino;
@@ -8,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class SAPSetGroupComponent : GH_Component
 	{
@@ -18,13 +17,13 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public SAPSetGroupComponent()
-			: base("Assign to group", "AG", "Assign group at selected elements in SAP2000", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVESAP)
+			: base("Assign to group", "AG", "Assign group at selected elements in SAP2000", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVESAP)
 		{
 		}
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Assign");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Assign");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

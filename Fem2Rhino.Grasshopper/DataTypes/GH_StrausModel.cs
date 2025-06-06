@@ -6,7 +6,7 @@ using Rhino.DocObjects;
 using Rhino.Geometry;
 using System;
 
-namespace FeMM.Grasshopper.DataTypes.F2R
+namespace Fem2Rhino.Grasshopper.DataTypes.F2R
 {
     public class GH_StrausModel : GH_GeometricGoo<StrausModel>, IGH_BakeAwareData, IGH_PreviewData
     {

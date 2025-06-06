@@ -4,12 +4,12 @@ using Rhino2Fem.Core.Attributes;
 using Rhino2Fem.Core.Elements;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Attributes
+namespace Rhino2Fem.Midas.Grasshopper.Components.Attributes
 {
     public class NodeSupportComponent : GH_Component
     {
         public NodeSupportComponent()
-            : base("Support", "Support", "Support", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Attributes)
+            : base("Support", "Support", "Support", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ATTRIBUTES)
         {
         }
 

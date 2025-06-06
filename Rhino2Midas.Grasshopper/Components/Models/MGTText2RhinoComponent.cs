@@ -5,12 +5,12 @@ using Grasshopper.Kernel;
 using Rhino2Fem.Core.Models;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Models
+namespace Rhino2Fem.Midas.Straus.Components.Models
 {
     public class MGTText2RhinoComponent : GH_Component
     {
         public MGTText2RhinoComponent()
-            : base("MGT2Rhino", "MGT2Rhino", "MGT2Rhino", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
+            : base("MGT2Rhino", "MGT2Rhino", "MGT2Rhino", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_MODEL)
         {
         }
 

@@ -15,13 +15,23 @@ namespace Fem2Rhino.CSI.ApiWrapper
 		public int InizializeAPI(bool attachToInstance = false, string sapExePath = null, int units = Units.N_m_C, bool visible = true, string filePath = "")
 		{
 			_attachToInstance = attachToInstance;
+
+			cHelper myHelper; //create API helper object
+			try
+			{
+				myHelper = new Helper();
+			}
+			catch
+			{
+				throw;
+			}
+
 			if (_attachToInstance)
 			{
 				try
 				{
 					// Get the active SapObject
-					_etabsObject = (cOAPI)StrausProxy.CSIActiveObject.GetActiveObject("CSI.ETABS.API.ETABSObject");
-
+					_etabsObject = myHelper.GetObject("CSI.ETABS.API.ETABSObject");
 				}
 				catch (Exception)
 				{
@@ -30,15 +40,6 @@ namespace Fem2Rhino.CSI.ApiWrapper
 			}
 			else
 			{
-				cHelper myHelper; //create API helper object
-				try
-				{
-					myHelper = new Helper();
-				}
-				catch
-				{
-					throw;
-				}
 
 				if (!string.IsNullOrEmpty(sapExePath)) //create an instance of the SapObject from the specified path
 				{

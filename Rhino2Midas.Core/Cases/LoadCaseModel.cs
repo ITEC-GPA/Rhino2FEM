@@ -44,12 +44,14 @@ namespace Rhino2Fem.Core.Cases
         }
 
         public LoadCaseTypes Type { get; set; }
+        public bool GravityNoStructuralMass { get; set; }
 
-        public LoadCaseModel(string name, LoadCaseTypes type, string description)
+        public LoadCaseModel(string name, LoadCaseTypes type = LoadCaseTypes.USER, string description = "", bool gravityNSM = false)
             : base(name, description)
         {
             Type = type;
             Description = description;
+            GravityNoStructuralMass = gravityNSM;
         }
 
         public LoadCaseModel()

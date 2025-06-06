@@ -4,12 +4,12 @@ using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.ElementProperties
+namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
 {
     public class AreaThicknessComponent : GH_Component
     {
         public AreaThicknessComponent()
-            : base("Area thickness", "Area thickness", "Area thickness", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_ElementProperties)
+            : base("Area thickness", "Area thickness", "Area thickness", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 

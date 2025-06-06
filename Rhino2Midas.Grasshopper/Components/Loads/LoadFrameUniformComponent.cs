@@ -6,12 +6,12 @@ using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Loads
+namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
 {
     public class LoadFrameUniformComponent : GH_Component
     {
         public LoadFrameUniformComponent()
-            : base("Load frame uniform", "Load frame uniform", "Load frame uniform", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Loads)
+            : base("Load frame uniform", "Load frame uniform", "Load frame uniform", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_LOADS)
         {
         }
 

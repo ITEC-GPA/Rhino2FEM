@@ -1,11 +1,11 @@
-﻿using CSiAPIv1;
-using FeMM.Grasshopper.Helpers;
+﻿using SAP2000v1;
+
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using System;
 using System.Collections.Generic;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class SAPChangeElementLabel : GH_Component
 	{
@@ -26,13 +26,13 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public SAPChangeElementLabel()
-			: base("Rename Elements", "R", "Rename elements in SAP2000", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVESAP)
+			: base("Rename Elements", "R", "Rename elements in SAP2000", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVESAP)
 		{
 		}
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Rename");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Rename");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

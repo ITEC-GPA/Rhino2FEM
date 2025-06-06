@@ -6,12 +6,12 @@ using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.ElementProperties
+namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
 {
     public class FramePropertyCompositeIComponent : GH_Component
     {
         public FramePropertyCompositeIComponent()
-            : base("Composite I Frame property", "Composite I Frame property", "Composite I Frame property", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_ElementProperties)
+            : base("Composite I Frame property", "Composite I Frame property", "Composite I Frame property", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 

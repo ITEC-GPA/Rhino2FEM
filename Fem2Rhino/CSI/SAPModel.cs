@@ -213,7 +213,7 @@ namespace Fem2Rhino.CSI
 									string nameInFile = string.Empty;
 									string inputFileName = string.Empty;
 									string matPropName = string.Empty;
-									CSiAPIv1.eFramePropType eFramePropType = 0;
+									SAP2000v1.eFramePropType eFramePropType = 0;
 									ret = _apiWrapper.GetFramePropNameInPropFile(section, ref nameInFile, ref inputFileName, ref matPropName, ref eFramePropType);
 
 									double weight = 0;

@@ -6,12 +6,12 @@ using Rhino2Fem.Grasshopper.Datatype;
 using System;
 using System.Collections.Generic;
 
-namespace Rhino2Fem.Grasshopper.Components.Models
+namespace Rhino2Fem.Midas.Grasshopper.Components.Models
 {
     public class BuildModelComponent : GH_Component
     {
         public BuildModelComponent()
-            : base("Build Model", "Build Model", "Build Model", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
+            : base("Build Model", "Build Model", "Build Model", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_MODEL)
         {
         }
 

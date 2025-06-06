@@ -2,7 +2,7 @@
 using System.Drawing;
 using Grasshopper.Kernel;
 
-namespace Rhino2Fem.Grasshopper
+namespace Rhino2Fem.Midas.Grasshopper
 {
     public class Rhino2Midas_GrasshopperInfo : GH_AssemblyInfo
     {

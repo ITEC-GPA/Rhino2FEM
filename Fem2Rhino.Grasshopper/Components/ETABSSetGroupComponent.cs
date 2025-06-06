@@ -1,5 +1,5 @@
-﻿using CSiAPIv1;
-using FeMM.Grasshopper.Helpers;
+﻿using SAP2000v1;
+
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino;
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class ETABSSetGroupComponent : GH_Component
 	{
@@ -18,13 +18,13 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public ETABSSetGroupComponent()
-			: base("Assign to group", "AG", "Assign group at selected elements in ETABS", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVEETABS)
+			: base("Assign to group", "AG", "Assign group at selected elements in ETABS", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVEETABS)
 		{
 		}
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Assign");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Assign");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;
@@ -87,7 +87,7 @@ namespace FeMM.Grasshopper.Components.F2R
 
 				try
 				{
-					cSapModel sapModel = F2RModelHelper.GetCSIEtabsModel(out CSiAPIv1.cOAPI sapObject, modelPath, attachToInstance);
+					cSapModel sapModel = F2RModelHelper.GetCSIEtabsModel(out SAP2000v1.cOAPI sapObject, modelPath, attachToInstance);
 
 					sapModel.SelectObj.ClearSelection();
 

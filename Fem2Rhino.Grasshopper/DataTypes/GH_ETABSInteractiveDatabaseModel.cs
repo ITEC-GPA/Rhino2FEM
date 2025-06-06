@@ -14,7 +14,7 @@ using Fem2Rhino.CSI.ModelWrapper;
 using Fem2Rhino.CSI.ApiWrapper;
 using Fem2Rhino.Common;
 
-namespace FeMM.Grasshopper.DataTypes.F2R
+namespace Fem2Rhino.Grasshopper.DataTypes.F2R
 {
 	public class GH_ETABSInteractiveDatabaseModel : GH_GeometricGoo<ETABSInteractiveDatabaseModel>, IGH_BakeAwareData, IGH_PreviewData
 	{

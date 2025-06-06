@@ -7,25 +7,25 @@ namespace Rhino2Fem.Core.ElementProperties
 {
     public class MaterialModel : ModelObjectId, IEquatable<MaterialModel>
     {
-        public static MaterialModel C12_15 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C12/15", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.7085e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C16_20 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C16/20", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.8607e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C20_25 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C20/25", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.9961e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C25_30 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C25/30", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.1475e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C30_37 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C30/37", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.2836e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C35_45 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C35/45", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.4077e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C40_50 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C40/50", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.522e+07, PoissonRatio = 0, ThermalCoefficient = 0 , Standard = Standards.EN04_RC};
-        public static MaterialModel C45_55 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C45/55", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.6283e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C50_60 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C50/60", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.7277e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C55_67 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C55/67", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.8214e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C60_75 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C60/75", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 3.9099e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C70_85 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C70/85", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 4.0742e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C80_95 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C80/95", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 4.2244e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
-        public static MaterialModel C90_105 => new MaterialModel() { Type = MaterialTypes.Concrete, Name ="C90/105", DampingRatio = 0.05, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 4.363e+07, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN04_RC };
+        public static MaterialModel C12_15 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C12/15", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 2.7085e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 12 };
+        public static MaterialModel C16_20 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C16/20", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 2.8607e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 16 };
+        public static MaterialModel C20_25 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C20/25", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 2.9961e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 20 };
+        public static MaterialModel C25_30 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C25/30", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.1475e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 25 };
+        public static MaterialModel C30_37 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C30/37", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.2836e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 30 };
+        public static MaterialModel C35_45 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C35/45", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.4077e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 35 };
+        public static MaterialModel C40_50 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C40/50", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.5220e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 40 };
+        public static MaterialModel C45_55 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C45/55", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.6283e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 45 };
+        public static MaterialModel C50_60 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C50/60", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.7277e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 50 };
+        public static MaterialModel C55_67 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C55/67", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.8214e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 55 };
+        public static MaterialModel C60_75 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C60/75", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 3.9099e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 60 };
+        public static MaterialModel C70_85 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C70/85", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 4.0742e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 70 };
+        public static MaterialModel C80_95 => new MaterialModel() { Type = MaterialTypes.Concrete, Name = "C80/95", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 4.2244e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 80 };
+        public static MaterialModel C90_105 => new MaterialModel() { Type = MaterialTypes.Concrete, Name ="C90/105", DampingRatio = 0.05, Density = 2.549E-09, Id = UNASSIGNED, ModulusElasticity = 4.363e+07, PoissonRatio = 0.2, ThermalCoefficient = 1.0E-05, Standard = Standards.EN04_RC, CompressiveStrength = 90 };
 
-        public static MaterialModel S235 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S235", DampingRatio = 0.02, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.1e+08, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN05_S };
-        public static MaterialModel S275 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S275", DampingRatio = 0.02, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.1e+08, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN05_S };
-        public static MaterialModel S355 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S355", DampingRatio = 0.02, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.1e+08, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN05_S };
-        public static MaterialModel S450 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S450", DampingRatio = 0.02, Density = 0, Id = UNASSIGNED, Mass = 0, ModulusElasticity = 2.1e+08, PoissonRatio = 0, ThermalCoefficient = 0, Standard = Standards.EN05_S };
+        public static MaterialModel S235 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S235", DampingRatio = 0.02, Density = 7.849E-9, Id = UNASSIGNED, ModulusElasticity = 2.1e+08, PoissonRatio = 0.3, ThermalCoefficient = 1.170E-05, Standard = Standards.EN05_S, TensileStrength = 235, TensileYeld = 360 };
+        public static MaterialModel S275 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S275", DampingRatio = 0.02, Density = 7.849E-9, Id = UNASSIGNED, ModulusElasticity = 2.1e+08, PoissonRatio = 0.3, ThermalCoefficient = 1.170E-05, Standard = Standards.EN05_S, TensileStrength = 275, TensileYeld = 430 };
+        public static MaterialModel S355 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S355", DampingRatio = 0.02, Density = 7.849E-9, Id = UNASSIGNED, ModulusElasticity = 2.1e+08, PoissonRatio = 0.3, ThermalCoefficient = 1.170E-05, Standard = Standards.EN05_S, TensileStrength = 355, TensileYeld = 510 };
+        public static MaterialModel S450 => new MaterialModel() { Type = MaterialTypes.Steel, Name = "S450", DampingRatio = 0.02, Density = 7.849E-9, Id = UNASSIGNED, ModulusElasticity = 2.1e+08, PoissonRatio = 0.3, ThermalCoefficient = 1.170E-05, Standard = Standards.EN05_S, TensileStrength = 450, TensileYeld = 550 };
 
 
         public static Dictionary<string, MaterialModel> ConcreteDatabase => new Dictionary<string, MaterialModel>()
@@ -85,9 +85,17 @@ namespace Rhino2Fem.Core.ElementProperties
 
         public double Density { get; set; }
 
-        public double Mass { get; set; }
+        public double Mass => Density / 9.81; // Density divided by gravity (9.81 m/s²)
 
-        public MaterialModel(string name, MaterialTypes type, double dampingRatio, double modulusElasticity, double poissonRatio, double thermalCoefficient, double density, double mass, Standards standard)
+        public double CompressiveStrength { get; set; }
+        
+        public double TensileStrength { get; set; }
+
+        public double TensileYeld { get; set; }
+
+        public double ShearModulus => ModulusElasticity / (2 * (1 + PoissonRatio));
+
+        public MaterialModel(string name, MaterialTypes type, double dampingRatio, double modulusElasticity, double poissonRatio, double thermalCoefficient, double density, Standards standard)
             : base(name)
         {
             Type = type;
@@ -96,7 +104,6 @@ namespace Rhino2Fem.Core.ElementProperties
             PoissonRatio = poissonRatio;
             ThermalCoefficient = thermalCoefficient;
             Density = density;
-            Mass = mass;
             Standard = standard;
         }
 
@@ -114,7 +121,6 @@ namespace Rhino2Fem.Core.ElementProperties
             PoissonRatio = materialModel.PoissonRatio;
             ThermalCoefficient = materialModel.ThermalCoefficient;
             Density = materialModel.Density;
-            Mass = materialModel.Mass;
             Standard = materialModel.Standard;
         }
 

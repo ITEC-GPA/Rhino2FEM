@@ -4,12 +4,12 @@ using Grasshopper.Kernel;
 using Rhino.Geometry;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Models
+namespace Rhino2Fem.Midas.Grasshopper.Components.Models
 {
     public class FrameFilterComponent : GH_Component
     {
         public FrameFilterComponent()
-            : base("Frame Filter", "Frame Filter", "Frame Filter", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Model)
+            : base("Frame Filter", "Frame Filter", "Frame Filter", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_MODEL)
         {
         }
 

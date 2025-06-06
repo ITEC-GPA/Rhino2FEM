@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net8.0-windows</TargetFrameworks>
+	  <EnableDynamicLoading>true</EnableDynamicLoading>
+	  <NoWarn>NU1701;NETSDK1086</NoWarn>
+	  <EnableWindowsTargeting>true</EnableWindowsTargeting>
+	  <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+	
+	<PropertyGroup>
+		<!-- Specifies information for Assembly and Yak -->
+		<Version>1.0</Version>
+		<Title>Rhino2Fem.Grasshopper</Title>
+		<Company>$(Authors)</Company>
+		<Description>Description of Rhino2Fem.Grasshopper</Description>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<EnableNETAnalyzers>False</EnableNETAnalyzers>
+	</PropertyGroup>
+	
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Fem.Core.csproj" />
+  </ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Grasshopper" Version="8.18.25100.11001" />
+		<PackageReference Include="RhinoCommon" Version="8.18.25100.11001" />
+	</ItemGroup>
+
+</Project>

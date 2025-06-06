@@ -1,4 +1,4 @@
-using CSiAPIv1;
+using SAP2000v1;
 using Fem2Rhino.Common;
 using Fem2Rhino.CSI.ModelWrapper;
 using Rhino;

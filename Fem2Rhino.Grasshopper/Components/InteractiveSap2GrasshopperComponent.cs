@@ -1,14 +1,13 @@
-﻿using FeMM.Grasshopper.DataTypes.F2R;
-using FeMM.Grasshopper.Helpers;
-using Fem2Rhino.Common;
+﻿using Fem2Rhino.Common;
 using Fem2Rhino.CSI.ModelWrapper;
+using Fem2Rhino.Grasshopper.DataTypes.F2R;
 using Grasshopper.Kernel;
 using Rhino;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
     public class InteractiveSap2GrasshopperComponent : GH_Component
     {
@@ -18,13 +17,13 @@ namespace FeMM.Grasshopper.Components.F2R
         /// Initializes a new instance of the MyComponent1 class.
         /// </summary>
         public InteractiveSap2GrasshopperComponent()
-            : base("SAP2Grasshopper", "S2G", "Open interactive model of current open istance", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVEGRASSHOPPER)
+            : base("SAP2Grasshopper", "S2G", "Open interactive model of current open istance", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVEGRASSHOPPER)
         {
         }
 
         public override void CreateAttributes()
         {
-            ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "SAP2Rhino");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "SAP2Rhino");
             buttonAttributes.ButtonPressed += () =>
             {
                 _run = true;

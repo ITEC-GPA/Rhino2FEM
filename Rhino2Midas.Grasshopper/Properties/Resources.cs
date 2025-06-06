@@ -6,7 +6,7 @@ using System.Globalization;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
-namespace Rhino2Fem.Grasshopper.Properties
+namespace Rhino2Fem.Midas.Grasshopper.Properties
 {
     [GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [DebuggerNonUserCode]
@@ -24,7 +24,7 @@ namespace Rhino2Fem.Grasshopper.Properties
             {
                 if (resourceMan == null)
                 {
-                    ResourceManager resourceManager = new ResourceManager("Rhino2Midas.Grasshopper.Properties.Resources", typeof(Resources).Assembly);
+                    ResourceManager resourceManager = new ResourceManager("Rhino2Fem.Midas.Grasshopper.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = resourceManager;
                 }
                 return resourceMan;

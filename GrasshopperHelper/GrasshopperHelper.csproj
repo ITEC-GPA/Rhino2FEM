@@ -3,10 +3,10 @@
   <PropertyGroup>
 	  <TargetFrameworks>net8.0-windows</TargetFrameworks>
 	  <EnableDynamicLoading>true</EnableDynamicLoading>
-	  <TargetExt>.gha</TargetExt>
 	  <NoWarn>NU1701;NETSDK1086</NoWarn>
 	  <EnableWindowsTargeting>true</EnableWindowsTargeting>
 	  <UseWindowsForms>true</UseWindowsForms>
+	  <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

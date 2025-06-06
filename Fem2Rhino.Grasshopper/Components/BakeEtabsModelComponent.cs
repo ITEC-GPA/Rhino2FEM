@@ -1,15 +1,13 @@
-using FeMM.Grasshopper.ComponentAttributes;
-using FeMM.Grasshopper.DataTypes.F2R;
-using FeMM.Grasshopper.Helpers;
 using Fem2Rhino.Common;
 using Fem2Rhino.CSI.ApiWrapper;
+using Fem2Rhino.Grasshopper.DataTypes.F2R;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino;
 using System;
 using System.Collections.Generic;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class BakeEtabsModelComponent : GH_Component
 	{
@@ -24,7 +22,7 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public BakeEtabsModelComponent()
-			: base("Bake Etabs Model", "BEM", "Bake ETABS model", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_BAKE)
+			: base("Bake Etabs Model", "BEM", "Bake ETABS model", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_BAKE)
 		{
 		}
 
@@ -32,7 +30,7 @@ namespace FeMM.Grasshopper.Components.F2R
 
 		public override void CreateAttributes()
 		{
-            ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Bake");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Bake");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

@@ -6,12 +6,12 @@ using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.ElementProperties
+namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
 {
     public class FramePropertyCircleComponent : GH_Component
     {
         public FramePropertyCircleComponent()
-            : base("Frame property solid circle", "Frame property solid circle", "Frame property solid circle", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_ElementProperties)
+            : base("Frame property solid circle", "Frame property solid circle", "Frame property solid circle", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 

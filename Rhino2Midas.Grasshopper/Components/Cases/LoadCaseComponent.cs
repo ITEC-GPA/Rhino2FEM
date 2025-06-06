@@ -5,12 +5,12 @@ using Rhino2Fem.Core.Cases;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Cases
+namespace Rhino2Fem.Midas.Grasshopper.Components.Cases
 {
     public class LoadCaseComponent : GH_Component
     {
         public LoadCaseComponent()
-            : base("Load case", "Load case", "Load case", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Cases)
+            : base("Load case", "Load case", "Load case", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_CASES)
         {
         }
 

@@ -1,4 +1,4 @@
-using CSiAPIv1;
+using SAP2000v1;
 using System;
 
 namespace Fem2Rhino.CSI.ApiWrapper
@@ -34,12 +34,21 @@ namespace Fem2Rhino.CSI.ApiWrapper
 		public int InizializeAPI(bool attachToInstance = false, string sapExePath = null, int units = Units.N_m_C, bool visible = true, string filePath = "")
 		{
 			_attachToInstance = attachToInstance;
+			cHelper myHelper; //create API helper object
+			try
+			{
+				myHelper = new SAP2000v1.Helper();
+			}
+			catch
+			{
+				throw;
+			}
 			if (_attachToInstance)
 			{
 				try
 				{
 					// Get the active SapObject
-					_sapObject = (cOAPI)StrausProxy.CSIActiveObject.GetActiveObject("CSI.SAP2000.API.SapObject");
+					_sapObject = myHelper.GetObject("CSI.SAP2000.API.SapObject");
 				}
 				catch (Exception)
 				{
@@ -48,15 +57,6 @@ namespace Fem2Rhino.CSI.ApiWrapper
 			}
 			else
 			{
-				cHelper myHelper; //create API helper object
-				try
-				{
-					myHelper = new CSiAPIv1.Helper();
-				}
-				catch
-				{
-					throw;
-				}
 
 				if (!string.IsNullOrEmpty(sapExePath)) //create an instance of the SapObject from the specified path
 				{

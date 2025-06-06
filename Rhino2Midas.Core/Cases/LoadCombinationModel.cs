@@ -15,7 +15,7 @@ namespace Rhino2Fem.Core.Cases
 
         public LoadCombinationTypes Type { get; set; }
 
-        public LoadCombinationModel(string name, List<LoadFactorModel> loadFactorList, LoadCombinationTypes type, string description)
+        public LoadCombinationModel(string name, List<LoadFactorModel> loadFactorList, LoadCombinationTypes type, string description = "")
             : base(name, description)    
         {
             LoadFactorList = loadFactorList;

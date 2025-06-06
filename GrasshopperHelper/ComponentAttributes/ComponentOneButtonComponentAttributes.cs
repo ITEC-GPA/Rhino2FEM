@@ -6,7 +6,7 @@ using Grasshopper.GUI.Canvas;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Attributes;
 
-namespace FeMM.Grasshopper.ComponentAttributes
+namespace GrasshopperHelper.ComponentAttributes
 {
     public class ComponentOneButtonComponentAttributes : GH_ComponentAttributes
     {

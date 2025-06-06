@@ -72,7 +72,7 @@ namespace Rhino2Fem.Core.ElementProperties
 
         public List<Brep> Breps { get; set; }
 
-        public FramePropertyModel(string name, FramePropertyTypes fptype, Types type, OffsetTypes offset, double dimension1 = 0.0, double dimension2 = 0.0,
+        public FramePropertyModel(string name, FramePropertyTypes fptype, Types type, OffsetTypes offset = OffsetTypes.CC, double dimension1 = 0.0, double dimension2 = 0.0,
             double dimension3 = 0.0, double dimension4 = 0.0, double dimension5 = 0.0, double dimension6 = 0.0, double dimension7 = 0.0,
             double dimension8 = 0.0, double dimension9 = 0.0, double dimension10 = 0.0, double composite1 = 0.0, double composite2 = 0.0,
             double composite3 = 0.0, double composite4 = 0.0, double composite5 = 0.0)

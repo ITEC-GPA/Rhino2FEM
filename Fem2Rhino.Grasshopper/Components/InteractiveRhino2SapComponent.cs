@@ -1,5 +1,5 @@
-using CSiAPIv1;
-using FeMM.Grasshopper.Helpers;
+using SAP2000v1;
+
 using Grasshopper.Kernel;
 using Rhino;
 using Rhino.DocObjects;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class InteractiveRhino2SapComponent : GH_Component
 	{
@@ -19,13 +19,13 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public InteractiveRhino2SapComponent()
-			: base("Rhino2SAP", "R2S", "Update SAP interactive model of current open istance", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVESAP)
+			: base("Rhino2SAP", "R2S", "Update SAP interactive model of current open istance", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVESAP)
 		{
 		}
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Rhino2SAP");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Rhino2SAP");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

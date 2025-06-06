@@ -7,12 +7,12 @@ using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.Elements;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Elements
+namespace Rhino2Fem.Midas.Grasshopper.Components.Elements
 {
     public class NodeElementComponent : GH_Component
     {
         public NodeElementComponent()
-            : base("Node Element", "Node Element", "Node Element", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Elements)
+            : base("Node Element", "Node Element", "Node Element", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ELEMENTS)
         {
         }
 

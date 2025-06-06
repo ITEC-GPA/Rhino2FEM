@@ -5,12 +5,12 @@ using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Materials
+namespace Rhino2Fem.Midas.Grasshopper.Components.Materials
 {
     public class MaterialComponent : GH_Component
     {
         public MaterialComponent()
-            : base("Material", "Material", "Material", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Materials)
+            : base("Material", "Material", "Material", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_MATERIALS)
         {
         }
 
@@ -25,7 +25,6 @@ namespace Rhino2Fem.Grasshopper.Components.Materials
             pManager.AddNumberParameter("Poisson ratio", "Poisson ratio", "Poisson ratio", GH_ParamAccess.item, 0.3);
             pManager.AddNumberParameter("Thermal coefficent", "Thermal coefficent", "Thermal coefficent", GH_ParamAccess.item, 1.17E-05);
             pManager.AddNumberParameter("Density", "Density", "Density", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Mass", "Mass", "Density divided by gravity", GH_ParamAccess.item);
             ((GH_ParamManager)pManager)[2].Optional = true;
             ((GH_ParamManager)pManager)[4].Optional = true;
             ((GH_ParamManager)pManager)[5].Optional = true;
@@ -45,14 +44,12 @@ namespace Rhino2Fem.Grasshopper.Components.Materials
             double poissonRatio = 0.0;
             double thermalCoefficient = 0.0;
             double density = 0.0;
-            double mass = 0.0;
 
             if (DA.GetData(0, ref name) && DA.GetData(1, ref type))
             {
-                if (DA.GetData(3, ref modulusElasticity) && DA.GetData(4, ref poissonRatio) && DA.GetData(5, ref thermalCoefficient) &&
-                    DA.GetData(6, ref density) && DA.GetData(7, ref mass))
+                if (DA.GetData(3, ref modulusElasticity) && DA.GetData(4, ref poissonRatio) && DA.GetData(5, ref thermalCoefficient) && DA.GetData(6, ref density))
                 {
-                    MaterialModel material = new MaterialModel(name, (MaterialModel.MaterialTypes)type, dampingRatio, modulusElasticity, poissonRatio, thermalCoefficient, density, mass, MaterialModel.Standards.Custom);
+                    MaterialModel material = new MaterialModel(name, (MaterialModel.MaterialTypes)type, dampingRatio, modulusElasticity, poissonRatio, thermalCoefficient, density, MaterialModel.Standards.Custom);
                     DA.SetData(0, new GH_Material(material));
                 }
             }

@@ -3,12 +3,12 @@ using Grasshopper.Kernel;
 using Rhino2Fem.Core.Attributes;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Attributes
+namespace Rhino2Fem.Midas.Grasshopper.Components.Attributes
 {
     public class ElementGroupComponent : GH_Component
     {
         public ElementGroupComponent()
-            : base("Element Group", "Element Group", "Element Group", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Attributes)
+            : base("Element Group", "Element Group", "Element Group", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ATTRIBUTES)
         {
         }
 

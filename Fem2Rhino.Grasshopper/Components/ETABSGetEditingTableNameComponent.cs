@@ -1,9 +1,9 @@
 using ETABSv1;
-using FeMM.Grasshopper.Helpers;
+
 using Grasshopper.Kernel;
 using System;
 
-namespace FeMM.Grasshopper.Components.F2R
+namespace Fem2Rhino.Grasshopper.Components.F2R
 {
 	public class ETABSGetEditingTableNameComponent : GH_Component
 	{
@@ -11,7 +11,7 @@ namespace FeMM.Grasshopper.Components.F2R
 		/// Initializes a new instance of the MyComponent1 class.
 		/// </summary>
 		public ETABSGetEditingTableNameComponent()
-			: base("Get Editing Table Name", "GETN", "Get ETABS Editing Table Name", CategoryNameConstants.CATEGORY_F2R, CategoryNameConstants.SUBCATEGORY_F2R_INTERACTIVEETABS)
+			: base("Get Editing Table Name", "GETN", "Get ETABS Editing Table Name", Rhino2Fem.Core.Helper.Constants.CATEGORY_FEM2RHINO, Rhino2Fem.Core.Helper.Constants.SUBCATEGORY_F2R_INTERACTIVEETABS)
 		{
 		}
 
@@ -19,7 +19,7 @@ namespace FeMM.Grasshopper.Components.F2R
 
 		public override void CreateAttributes()
 		{
-			ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new ComponentAttributes.ComponentOneButtonAttributes(this, "Read");
+            GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes buttonAttributes = new GrasshopperHelper.ComponentAttributes.ComponentOneButtonAttributes(this, "Read");
 			buttonAttributes.ButtonPressed += () =>
 			{
 				_run = true;

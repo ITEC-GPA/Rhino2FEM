@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ETABSv1">
+      <HintPath>..\..\External DLL\ETABSv1.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP2000v1">
+      <HintPath>..\..\External DLL\SAP2000v1.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

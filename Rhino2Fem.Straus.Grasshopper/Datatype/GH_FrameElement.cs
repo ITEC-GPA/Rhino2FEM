@@ -13,9 +13,9 @@ namespace Rhino2Fem.Grasshopper.Datatype
 
         public override bool IsValid => true;
 
-        public override string TypeName => "Node";
+        public override string TypeName => "Frame";
 
-        public override string TypeDescription => "Node";
+        public override string TypeDescription => "Frame";
 
         BoundingBox IGH_PreviewData.ClippingBox => Boundingbox;
 

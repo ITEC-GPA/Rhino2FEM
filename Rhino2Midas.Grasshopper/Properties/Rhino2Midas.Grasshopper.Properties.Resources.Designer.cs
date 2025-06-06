@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Rhino2Fem.Grasshopper.Properties {
+namespace Rhino2Fem.Grasshopper.Midas.Properties {
     using System;
     
     
@@ -39,7 +39,8 @@ namespace Rhino2Fem.Grasshopper.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rhino2Fem.Grasshopper.Properties.Rhino2Midas.Grasshopper.Properties.Resources", typeof(Rhino2Midas_Grasshopper_Properties_Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Rhino2Fem.Grasshopper.Midas.Properties.Rhino2Midas.Grasshopper.Properties.Resourc" +
+                            "es", typeof(Rhino2Midas_Grasshopper_Properties_Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

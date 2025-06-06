@@ -6,12 +6,12 @@ using Rhino2Fem.Core.Cases;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Grasshopper.Components.Cases
+namespace Rhino2Fem.Midas.Grasshopper.Components.Cases
 {
     public class LoadCombinationComponent : GH_Component
     {
         public LoadCombinationComponent()
-            : base("Load combination", "Load combination", "Load combination", Helper.Constants.PlugInName_Rhino2Fem, Helper.Constants.TabName_Cases)
+            : base("Load combination", "Load combination", "Load combination", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_CASES)
         {
         }
 
