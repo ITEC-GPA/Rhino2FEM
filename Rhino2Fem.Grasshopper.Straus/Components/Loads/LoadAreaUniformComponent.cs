@@ -50,6 +50,6 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Loads
 
         //protected override Bitmap Icon => Resources.load_area_uniform;
 
-        public override Guid ComponentGuid => new Guid("339d6450-5d17-42c3-b31e-2b59d896cada");
+        public override Guid ComponentGuid => new Guid("5ce9edca-2f7d-4b4d-902a-d31986b8a6c7");
     }
 }

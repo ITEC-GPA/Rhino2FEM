@@ -95,6 +95,6 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Models
 
         //protected override Bitmap Icon => Resources.mgt_model_builder;
 
-        public override Guid ComponentGuid => new Guid("bcdaae3b-1b5e-4f65-87b1-31b1bf23a558");
+        public override Guid ComponentGuid => new Guid("38a772ad-451e-4af6-bead-52f530028b8b");
     }
 }
