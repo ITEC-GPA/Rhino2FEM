@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Fem2Rhino.CSI;
 using Fem2Rhino.CSI.ModelWrapper;
-using Fem2Rhino.CSI.ApiWrapper;
 using Fem2Rhino.Common;
 
 namespace Fem2Rhino.Grasshopper.DataTypes.F2R

@@ -6,16 +6,20 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "Rhino2Fem.Grasshopper.Midas/1.0": {
+      "Fem2Rhino.Grasshopper.Interactive/1.0": {
         "dependencies": {
+          "Fem2Rhino.Core": "1.0.0",
           "Grasshopper": "8.18.25100.11001",
+          "GrasshopperHelper": "1.0.0",
           "ProxyHelper": "1.0.0",
           "Rhino2Fem.Core": "1.0.0",
           "Rhino2Fem.Grasshopper": "1.0.0",
-          "RhinoCommon": "8.18.25100.11001"
+          "RhinoCommon": "8.18.25100.11001",
+          "ETABSv1": "1.0.0.0",
+          "SAP2000v1": "1.0.0.0"
         },
         "runtime": {
-          "Rhino2Fem.Grasshopper.Midas.gha": {}
+          "Fem2Rhino.Grasshopper.Interactive.gha": {}
         }
       },
       "Grasshopper/8.18.25100.11001": {
@@ -33,6 +37,7 @@
           }
         }
       },
+      "Microsoft.Win32.SystemEvents/8.0.0": {},
       "RhinoCommon/8.18.25100.11001": {
         "runtime": {
           "lib/net48/Ed.Eto.dll": {
@@ -50,6 +55,42 @@
           "lib/net48/RhinoCommon.dll": {
             "assemblyVersion": "8.18.25100.11001",
             "fileVersion": "8.18.25100.11001"
+          }
+        }
+      },
+      "System.Drawing.Common/8.0.16": {
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1625.21702"
+          }
+        }
+      },
+      "Fem2Rhino.Core/1.0.0": {
+        "dependencies": {
+          "ProxyHelper": "1.0.0",
+          "RhinoCommon": "8.18.25100.11001"
+        },
+        "runtime": {
+          "Fem2Rhino.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GrasshopperHelper/1.0.0": {
+        "dependencies": {
+          "Grasshopper": "8.18.25100.11001",
+          "RhinoCommon": "8.18.25100.11001",
+          "System.Drawing.Common": "8.0.16"
+        },
+        "runtime": {
+          "GrasshopperHelper.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -105,7 +146,7 @@
     }
   },
   "libraries": {
-    "Rhino2Fem.Grasshopper.Midas/1.0": {
+    "Fem2Rhino.Grasshopper.Interactive/1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -117,12 +158,36 @@
       "path": "grasshopper/8.18.25100.11001",
       "hashPath": "grasshopper.8.18.25100.11001.nupkg.sha512"
     },
+    "Microsoft.Win32.SystemEvents/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9opKRyOKMCi2xJ7Bj7kxtZ1r9vbzosMvRrdEhVhDz8j8MoBGgB+WmC94yH839NPH+BclAjtQ/pyagvi/8gDLkw==",
+      "path": "microsoft.win32.systemevents/8.0.0",
+      "hashPath": "microsoft.win32.systemevents.8.0.0.nupkg.sha512"
+    },
     "RhinoCommon/8.18.25100.11001": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-R+wTXqGiig76AdVhTuMnMc7oDtA14RF9PP3I47zobNG0aZTN9b+SzLuHwhPLloE7rAxBONRl2/e3huVKDIDIvA==",
       "path": "rhinocommon/8.18.25100.11001",
       "hashPath": "rhinocommon.8.18.25100.11001.nupkg.sha512"
+    },
+    "System.Drawing.Common/8.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VFNoSWDAiSm5MhU4tmy+ZvwojojbpywDe2m8hV8OhPnxcAsml3tVCYteMS5UVI3izTqUAsQHuAKdovyqsZwNlA==",
+      "path": "system.drawing.common/8.0.16",
+      "hashPath": "system.drawing.common.8.0.16.nupkg.sha512"
+    },
+    "Fem2Rhino.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GrasshopperHelper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "ProxyHelper/1.0.0": {
       "type": "project",

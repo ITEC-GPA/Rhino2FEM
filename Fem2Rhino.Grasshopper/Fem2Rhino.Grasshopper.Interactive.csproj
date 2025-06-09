@@ -38,14 +38,14 @@
     <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Fem.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="ETABSv1">
-      <HintPath>..\..\External DLL\ETABSv1.dll</HintPath>
-    </Reference>
-    <Reference Include="SAP2000v1">
-      <HintPath>..\..\External DLL\SAP2000v1.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="ETABSv1">
+			<HintPath>C:\Program Files\Computers and Structures\ETABS 22\ETABSv1.dll</HintPath>
+		</Reference>
+		<Reference Include="SAP2000v1">
+			<HintPath>C:\Program Files\Computers and Structures\SAP2000 26\SAP2000v1.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 	<Target Name="CopyPdbForMonoDebugging" AfterTargets="AfterBuild">
 		<!-- Enable debugging in Rhino 6/7 on Mac -->

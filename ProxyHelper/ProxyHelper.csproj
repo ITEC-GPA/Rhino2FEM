@@ -9,4 +9,13 @@
     <Exec Command="del $(SolutionDir)bin\$(TargetFramework) /s /q&#xA;exit 0" />
   </Target>
 
+  <ItemGroup>
+    <Reference Include="ETABSv1">
+      <HintPath>..\..\..\..\..\..\Program Files\Computers and Structures\ETABS 22\ETABSv1.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP2000v1">
+      <HintPath>..\..\..\..\..\..\Program Files\Computers and Structures\SAP2000 26\SAP2000v1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

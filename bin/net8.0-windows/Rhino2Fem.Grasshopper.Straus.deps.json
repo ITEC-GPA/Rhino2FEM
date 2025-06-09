@@ -111,6 +111,22 @@
             "fileVersion": "0.0.0.0"
           }
         }
+      },
+      "ETABSv1/1.0.0.0": {
+        "runtime": {
+          "ETABSv1.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.8.0.0"
+          }
+        }
+      },
+      "SAP2000v1/1.0.0.0": {
+        "runtime": {
+          "SAP2000v1.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.6.0.0"
+          }
+        }
       }
     }
   },
@@ -165,6 +181,16 @@
     },
     "Rhino2Fem.Grasshopper/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ETABSv1/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SAP2000v1/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

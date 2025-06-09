@@ -139,7 +139,7 @@
         "runtime": {
           "SAP2000v1.dll": {
             "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.28.0.0"
+            "fileVersion": "2.6.0.0"
           }
         }
       }

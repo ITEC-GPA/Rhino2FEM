@@ -5,6 +5,7 @@
         public static string CATEGORY_RHINO2MIDAS = "Rhino2Midas";
         public static string CATEGORY_RHINO2STRAUS = "Rhino2Straus";
         public static string CATEGORY_FEM2RHINO = "Fem2Rhino";
+        public static string CATEGORY_CHECKS = "Fem4Checks";
 
         public static string SUBCATEGORY_PARAMETERS = "00-Parameter";
         public static string SUBCATEGORY_MATERIALS = "01-Materials";
@@ -24,5 +25,9 @@
         public static string SUBCATEGORY_F2R_INTERACTIVEGRASSHOPPER = "SAP2GH";
         public static string SUBCATEGORY_F2R_INTERACTIVESTRAUS = "Straus7";
         public static string SUBCATEGORY_F2R_INTERACTIVEETABS = "ETABS2RH";
+
+        public static string SUBCATEGORY_CHECKS_SAPEXTRA = "SAP Extra";
+        public static string SUBCATEGORY_CHECKS_SAPCHECKS = "SAP Checks";
+        public static string SUBCATEGORY_CHECKS_TODO = "";
     }
 }

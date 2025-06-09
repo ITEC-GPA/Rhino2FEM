@@ -13,7 +13,7 @@ namespace Fem2Rhino.CSI
 {
 	public class ETABSModel : Model
 	{
-		protected readonly ApiWrapper.ETABSApiWrapper _apiWrapper;
+		protected readonly ProxyHelper.CSI.ApiWrapper.ETABSApiWrapper _apiWrapper;
 		protected Dictionary<string, Joint> _idJointAssociation;
 
 		protected readonly bool _attachToInstance;
@@ -27,7 +27,7 @@ namespace Fem2Rhino.CSI
 		public string SapExePath => _sapExePath;
 		public bool AttachToInstance => _attachToInstance;
 
-		public ETABSModel(bool AttachToInstance = false, string SapExePath = "", int units = ApiWrapper.Units.N_mm_C, string filePath = "", bool visible = true)
+		public ETABSModel(bool AttachToInstance = false, string SapExePath = "", int units = ProxyHelper.CSI.ApiWrapper.Units.N_mm_C, string filePath = "", bool visible = true)
 			: base(filePath)
 		{
 			_units = units;
@@ -35,7 +35,7 @@ namespace Fem2Rhino.CSI
 			_attachToInstance = AttachToInstance;
 			_sapExePath = SapExePath;
 			_idJointAssociation = new Dictionary<string, Joint>();
-			_apiWrapper = new ApiWrapper.ETABSApiWrapper();
+			_apiWrapper = new ProxyHelper.CSI.ApiWrapper.ETABSApiWrapper();
 		}
 
 		public override void Process()

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Core", "Rhino2Mid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Core", "Fem2Rhino\Fem2Rhino.Core.csproj", "{FFDC90CD-7F18-4262-952E-DB2E1B308C1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Grasshopper", "Fem2Rhino.Grasshopper\Fem2Rhino.Grasshopper.csproj", "{2B0E0F0C-45DB-4918-894C-4A957549FE18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Grasshopper.Interactive", "Fem2Rhino.Grasshopper\Fem2Rhino.Grasshopper.Interactive.csproj", "{2B0E0F0C-45DB-4918-894C-4A957549FE18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyHelper", "ProxyHelper\ProxyHelper.csproj", "{905ACBD5-6FC2-4847-B66D-61FF278C3B8F}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Grasshopper", "Rhino2Fem.Straus.Grasshopper\Rhino2Fem.Grasshopper.csproj", "{1D85A092-D33A-4471-AC91-35661305A0DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Grasshopper.Straus", "Rhino2Fem.Grasshopper.Straus\Rhino2Fem.Grasshopper.Straus.csproj", "{E3A48578-101B-4C8E-A410-091CED3D365F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Grasshopper.Reading", "Fem2Rhino.Grasshopper.Reading\Fem2Rhino.Grasshopper.Reading.csproj", "{ADE7A59A-C6B1-4650-B445-82E231990DBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +127,18 @@ Global
 		{E3A48578-101B-4C8E-A410-091CED3D365F}.Release|ARM32.Build.0 = Release|Any CPU
 		{E3A48578-101B-4C8E-A410-091CED3D365F}.Release|x64.ActiveCfg = Release|x64
 		{E3A48578-101B-4C8E-A410-091CED3D365F}.Release|x64.Build.0 = Release|x64
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Debug|ARM32.ActiveCfg = Debug|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Debug|ARM32.Build.0 = Debug|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Debug|x64.Build.0 = Debug|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Release|ARM32.ActiveCfg = Release|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Release|ARM32.Build.0 = Release|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Release|x64.ActiveCfg = Release|Any CPU
+		{ADE7A59A-C6B1-4650-B445-82E231990DBA}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

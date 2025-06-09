@@ -1,7 +1,7 @@
 using ETABSv1;
 using System;
 
-namespace Fem2Rhino.CSI.ApiWrapper
+namespace ProxyHelper.CSI.ApiWrapper
 {
 	public class ETABSApiWrapper : CSIApiWrapper
 	{

@@ -11,8 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Fem2Rhino.CSI;
 using Fem2Rhino.CSI.ModelWrapper;
-using Fem2Rhino.CSI.ApiWrapper;
 using Fem2Rhino.Common;
+using ProxyHelper.CSI.ApiWrapper;
 
 namespace Fem2Rhino.Grasshopper.DataTypes.F2R
 {
@@ -20,7 +20,7 @@ namespace Fem2Rhino.Grasshopper.DataTypes.F2R
 	{
 		#region CONSTRUCTOR
 
-		private readonly SAPApiWrapper.CsiSoftware _software;
+		private readonly ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.CsiSoftware _software;
 
 		public GH_CSIModel()
 		{

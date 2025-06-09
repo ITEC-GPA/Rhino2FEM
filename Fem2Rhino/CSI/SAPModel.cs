@@ -12,7 +12,7 @@ namespace Fem2Rhino.CSI
 {
 	public class SAPModel : Model
 	{
-		protected readonly ApiWrapper.SAPApiWrapper _apiWrapper;
+		protected readonly ProxyHelper.CSI.ApiWrapper.SAPApiWrapper _apiWrapper;
 		protected Dictionary<string, Joint> _idJointAssociation;
 
 		protected readonly bool _attachToInstance;
@@ -26,7 +26,7 @@ namespace Fem2Rhino.CSI
 		public string SapExePath => _sapExePath;
 		public bool AttachToInstance => _attachToInstance;
 
-		public SAPModel(bool AttachToInstance = false, string SapExePath = "", int units = ApiWrapper.Units.N_mm_C, string filePath = "", bool visible = true)
+		public SAPModel(bool AttachToInstance = false, string SapExePath = "", int units = ProxyHelper.CSI.ApiWrapper.Units.N_mm_C, string filePath = "", bool visible = true)
 			: base(filePath)
 		{
 			_units = units;
@@ -34,7 +34,7 @@ namespace Fem2Rhino.CSI
 			_attachToInstance = AttachToInstance;
 			_sapExePath = SapExePath;
 			_idJointAssociation = new Dictionary<string, Joint>();
-			_apiWrapper = new ApiWrapper.SAPApiWrapper();
+			_apiWrapper = new ProxyHelper.CSI.ApiWrapper.SAPApiWrapper();
 		}
 
 		public override void Process()
@@ -398,38 +398,38 @@ namespace Fem2Rhino.CSI
 
 								double value = 0.0;
 								bool ProgramDetermined = false;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.UnbracedLengthRatioMajor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.UnbracedLengthRatioMajor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.UnbracedLengthRatioMajor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.UnbracedLengthRatioMinor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.UnbracedLengthRatioMinor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.UnbracedLengthRatioMinor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.UnbracedLengthRatioLateralTorsionalBuckling, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.UnbracedLengthRatioLateralTorsionalBuckling, ref value, ref ProgramDetermined);
 
 								designSteelOverwrite.UnbracedLengthRatioLateralTorsionalBuckling = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK1Major, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK1Major, ref value, ref ProgramDetermined);
 								designSteelOverwrite.EffectiveLengthFactorK1Major = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK1Minor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK1Minor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.EffectiveLengthFactorK1Minor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK2Major, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK2Major, ref value, ref ProgramDetermined);
 								designSteelOverwrite.EffectiveLengthFactorK2Major = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK2Minor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorK2Minor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.EffectiveLengthFactorK2Minor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorKLateralTorsionalBuckling, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.EffectiveLengthFactorKLateralTorsionalBuckling, ref value, ref ProgramDetermined);
 
 								designSteelOverwrite.EffectiveLengthFactorKLateralTorsionalBuckling = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.MomentCoefficientCmMajor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.MomentCoefficientCmMajor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.MomentCoefficientCmMajor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.MomentCoefficientCmMinor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.MomentCoefficientCmMinor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.MomentCoefficientCmMinor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.BendingCoefficientCb, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.BendingCoefficientCb, ref value, ref ProgramDetermined);
 
 								designSteelOverwrite.BendingCoefficientCb = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.NonswayMomentFactorB1Major, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.NonswayMomentFactorB1Major, ref value, ref ProgramDetermined);
 								designSteelOverwrite.NonswayMomentFactorB1Major = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.NonswayMomentFactorB1Minor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.NonswayMomentFactorB1Minor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.NonswayMomentFactorB1Minor = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.SwayMomentFactorB2Major, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.SwayMomentFactorB2Major, ref value, ref ProgramDetermined);
 								designSteelOverwrite.SwayMomentFactorB2Major = value;
-								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.SwayMomentFactorB2Minor, ref value, ref ProgramDetermined);
+								ret = _apiWrapper.GetDesignSteelOverwrite(frameName, ProxyHelper.CSI.ApiWrapper.SAPApiWrapper.DesignSteelOverwrite.SwayMomentFactorB2Minor, ref value, ref ProgramDetermined);
 								designSteelOverwrite.SwayMomentFactorB2Minor = value;
 
 								frame.DesignSteelOverwrite = designSteelOverwrite;

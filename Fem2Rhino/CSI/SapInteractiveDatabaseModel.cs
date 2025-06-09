@@ -15,7 +15,7 @@ namespace Fem2Rhino.CSI
 	{
 		protected readonly int _units;
 		protected string _group;
-		protected readonly ApiWrapper.SAPApiWrapper _apiWrapper;
+		protected readonly ProxyHelper.CSI.ApiWrapper.SAPApiWrapper _apiWrapper;
 		protected string[] _tableDataJointCoordinates;
 		protected string[] _tableDataConnectivityFrame;
 		protected string[] _tableDataConnectivityArea;
@@ -33,7 +33,7 @@ namespace Fem2Rhino.CSI
 		public SapInteractiveDatabaseModel()
 			: base()
 		{
-			_apiWrapper = new ApiWrapper.SAPApiWrapper();
+			_apiWrapper = new ProxyHelper.CSI.ApiWrapper.SAPApiWrapper();
 			_idJointAssociation = new Dictionary<string, Joint>();
 		}
 

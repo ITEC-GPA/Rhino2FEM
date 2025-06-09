@@ -1,7 +1,7 @@
 using SAP2000v1;
 using System;
 
-namespace Fem2Rhino.CSI.ApiWrapper
+namespace ProxyHelper.CSI.ApiWrapper
 {
 	public class SAPApiWrapper : CSIApiWrapper
 	{
@@ -96,15 +96,90 @@ namespace Fem2Rhino.CSI.ApiWrapper
 			return 0;
 		}
 
-		#region GENERAL FUNCTIONS
+        public bool InitializeModel(bool newIstance, string sapExe, string sapModel, out cOAPI mySapObject, out cSapModel mySapModel, out cHelper myHelper)
+        {
+            bool AttachToInstance = !newIstance;
+            bool SpecifyPath = true;
+            if (sapExe == null || sapExe == "" || sapExe == string.Empty)
+                SpecifyPath = false;
+            string ProgramPath = sapExe;
+            myHelper = null;
+            mySapObject = null;
+            mySapModel = null;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="units">The database units used when a new model is created. Data is internally stored in the program in the database units. The database units may be one of the following items in the eUnits enumeration:</param>
-		/// <param name="visible">If this item is True then the application is visible when started.  If it is False then the application is hidden when started.</param>
-		/// <param name="FilePath">The full path of a model file to be opened when the Sap2000 application is started. If no file name is specified, the application starts without loading an existing model.</param>
-		private int ApplicationStart(int units = Units.N_m_C, bool visible = true, string FilePath = "")
+            try
+            {
+                myHelper = new Helper();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            if (AttachToInstance)
+            {
+                try
+                {
+                    mySapObject = myHelper.GetObject("CSI.SAP2000.API.SapObject");
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (SpecifyPath)
+                {
+                    try
+                    {
+                        mySapObject = myHelper.CreateObject(ProgramPath);
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        mySapObject = myHelper.CreateObjectProgID("CSI.SAP2000.API.SapObject");
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
+                }
+
+                //start SAP2000 application
+                if (mySapObject.ApplicationStart() != 0)
+                    return false;
+            }
+            //create SapModel object
+            mySapModel = mySapObject.SapModel;
+
+            if (newIstance == true)
+            {
+                //initialize model
+                if (mySapModel.InitializeNewModel() != 0)
+                    return false;
+                if (mySapModel.File.OpenFile(sapModel) != 0)
+                    return false;
+            }
+
+            return true;
+        }
+
+        #region GENERAL FUNCTIONS
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="units">The database units used when a new model is created. Data is internally stored in the program in the database units. The database units may be one of the following items in the eUnits enumeration:</param>
+        /// <param name="visible">If this item is True then the application is visible when started.  If it is False then the application is hidden when started.</param>
+        /// <param name="FilePath">The full path of a model file to be opened when the Sap2000 application is started. If no file name is specified, the application starts without loading an existing model.</param>
+        private int ApplicationStart(int units = Units.N_m_C, bool visible = true, string FilePath = "")
 		{
 			int ret;
 			try
