@@ -54,7 +54,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Attributes
 
         //protected override Bitmap Icon => Resources.support;
 
-        public override Guid ComponentGuid => new Guid("3a2ecb62-7079-49f4-8466-960147f8fd9a");
+        public override Guid ComponentGuid => new Guid("68b40983-74b8-43fa-91f1-4ed76e73a0e2");
 
         public override GH_Exposure Exposure => GH_Exposure.quarternary ;
     }

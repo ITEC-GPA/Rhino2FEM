@@ -12,9 +12,9 @@
 	<PropertyGroup>
 		<!-- Specifies information for Assembly and Yak -->
 		<Version>1.0</Version>
-		<Title>Fem2Rhino.Grasshopper</Title>
+		<Title>Fem2Rhino.Grasshopper.Interactive</Title>
 		<Company>$(Authors)</Company>
-		<Description>Description of Fem2Rhino.Grasshopper</Description>
+		<Description>Description of Fem2Rhino.Grasshopper.Interactive</Description>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<EnableNETAnalyzers>False</EnableNETAnalyzers>
 	</PropertyGroup>
@@ -53,7 +53,7 @@
 	</Target>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="echo $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework)&#xA;robocopy $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework) $(SolutionDir)bin\$(TargetFramework) /E /NFL /NDL /NJH /NJS /NC /NS&#xA;exit 0" />
+	  <Exec Command="robocopy $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework) $(SolutionDir)bin\$(TargetFramework) /E /NFL /NDL /NJH /NJS /NC /NS&#xD;&#xA;del /f /q $(ProjectDir)bin\$(PlatformName)\$(ConfigurationName)\$(TargetFramework)&#xA;exit 0" />
 	</Target>
 
 </Project>

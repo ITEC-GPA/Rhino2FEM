@@ -39,6 +39,6 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 
         public override GH_Exposure Exposure => GH_Exposure.tertiary;
 
-        public override Guid ComponentGuid => new Guid("26b3ac8a-fd84-4968-bb61-a3b1963382b8");
+        public override Guid ComponentGuid => new Guid("fe66f2e0-1381-4c73-a206-f9f7e46346bc");
     }
 }

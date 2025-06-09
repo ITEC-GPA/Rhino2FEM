@@ -62,6 +62,6 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 
         //protected override Bitmap Icon => Resources.frame_property_angle;
 
-        public override Guid ComponentGuid => new Guid("8029cd51-3253-4415-ba42-1b7c231b926d");
+        public override Guid ComponentGuid => new Guid("96a3255f-e896-4403-915f-a846f156643b");
     }
 }
