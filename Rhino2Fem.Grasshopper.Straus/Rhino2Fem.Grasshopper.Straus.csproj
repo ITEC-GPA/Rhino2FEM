@@ -37,7 +37,6 @@
 	</PropertyGroup>
 	
   <ItemGroup>
-    <Folder Include="Components\Export\" />
     <Folder Include="Components\Preview\" />
   </ItemGroup>
 	

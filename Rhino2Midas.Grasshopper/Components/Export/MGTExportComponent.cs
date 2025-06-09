@@ -33,6 +33,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Export
                 var model = gH_Model.Value;
                 var lines = model.CreateMgtFile();
                 DA.SetDataList(0, lines);
+                Message = "Done";
             }
         }
 

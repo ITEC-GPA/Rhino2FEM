@@ -54,6 +54,7 @@
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GrasshopperHelper\GrasshopperHelper.csproj" />
     <ProjectReference Include="..\ProxyHelper\ProxyHelper.csproj" />
     <ProjectReference Include="..\Rhino2Fem.Straus.Grasshopper\Rhino2Fem.Grasshopper.csproj" />
     <ProjectReference Include="..\Rhino2Midas.Core\Rhino2Fem.Core.csproj" />
