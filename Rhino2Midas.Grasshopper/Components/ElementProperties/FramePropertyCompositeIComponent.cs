@@ -19,7 +19,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
         {
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Offset", "Offset", "Offset LT/CT/RT/LC/CC/RC/LB/CB/RB", GH_ParamAccess.item, 4);
-            foreach (FramePropertyModel.OffsetTypes v in Enum.GetValues(typeof(FramePropertyModel.OffsetTypes)))
+            foreach (FrameSectionModel.OffsetTypes v in Enum.GetValues(typeof(FrameSectionModel.OffsetTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddNumberParameter("Height", "Height", "Height", GH_ParamAccess.item);
             pManager.AddNumberParameter("Width top flange", "Width top flange", "Width top flange", GH_ParamAccess.item);
@@ -66,7 +66,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
                 DA.GetData(5, ref b2) && DA.GetData(6, ref tf2) && DA.GetData(7, ref tw) && DA.GetData(8, ref s1) && DA.GetData(9, ref s2) && DA.GetData(10, ref s3) &&
                 DA.GetData(11, ref c1) && DA.GetData(12, ref c2) && DA.GetData(13, ref c3) && DA.GetData(14, ref c4) && DA.GetData(15, ref c5)  && DA.GetData(16, ref number))
             {
-                FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.H, FramePropertyModel.Types.COMPOSITE_I, (FramePropertyModel.OffsetTypes)offset,
+                FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.H, FrameSectionModel.Types.COMPOSITE_I, (FrameSectionModel.OffsetTypes)offset,
                     h, tw, b1, tf1, b2, tf2, s1, s2, s3, 0, c1, c2, c3, c4, c5)
                 { Id = number, };
                 DA.SetData(0, new GH_FrameProperty(frameProperty));

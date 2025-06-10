@@ -72,28 +72,22 @@ namespace Rhino2Fem.Core.ElementProperties
         }
 
         public MaterialTypes Type { get; set; }
-
         public Standards Standard { get; set; }
 
         public double DampingRatio { get; set; }
-
         public double ModulusElasticity { get; set; }
-
-        public double PoissonRatio { get; set; }
-
+        public double PoissonRatio { get; set; }        
+        public double ShearModulus => ModulusElasticity / (2 * (1 + PoissonRatio));
         public double ThermalCoefficient { get; set; }
-
+        public double Conductivity { get; set; }
+        public double SpecificHeat { get; set; }
+        public double ViscousDamping { get; set; }
         public double Density { get; set; }
-
         public double Mass => Density / 9.81; // Density divided by gravity (9.81 m/s²)
 
-        public double CompressiveStrength { get; set; }
-        
+        public double CompressiveStrength { get; set; }        
         public double TensileStrength { get; set; }
-
         public double TensileYeld { get; set; }
-
-        public double ShearModulus => ModulusElasticity / (2 * (1 + PoissonRatio));
 
         public MaterialModel(string name, MaterialTypes type, double dampingRatio, double modulusElasticity, double poissonRatio, double thermalCoefficient, double density, Standards standard)
             : base(name)

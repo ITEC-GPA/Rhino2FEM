@@ -1,10 +1,7 @@
-using System;
 using Grasshopper.Kernel;
-using Grasshopper.Kernel.Parameters;
-using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.ElementProperties;
-using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
+using System;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 {
@@ -55,7 +52,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
             if (!DA.GetData(count++, ref tf))
                 return;
 
-            FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.L, FramePropertyModel.Types.DBUSER, FramePropertyModel.OffsetTypes.CC,
+            FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.L, FrameSectionModel.Types.DBUSER, FrameSectionModel.OffsetTypes.CC,
                 h, w, tw, tf, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
             DA.SetData(0, new GH_FrameProperty(frameProperty));
         }

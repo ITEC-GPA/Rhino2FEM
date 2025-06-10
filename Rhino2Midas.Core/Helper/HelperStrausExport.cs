@@ -1,10 +1,15 @@
-﻿using Rhino2Fem.Core.Base;
+﻿using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Cases;
+using Rhino2Fem.Core.ElementProperties;
+using Rhino2Fem.Core.Elements;
+using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Core.Models;
 using Rhino2Fem.Core.Settings;
 using St7API;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Rhino2Fem.Core.Helper
@@ -112,13 +117,12 @@ namespace Rhino2Fem.Core.Helper
                     throw new Exception("Failed to set the units");
 
                 // Groups
-                GroupModel[] groups = model.Elements.SelectMany(e => e.Groups).Distinct().ToArray();
-                Dictionary<GroupModel, int> groups_ids = new Dictionary<GroupModel, int>();
-                for (int k = 0; k < groups.Length; k++)
+                Dictionary<ElementGroupModel, int> groupsIds = new Dictionary<ElementGroupModel, int>();
+                for (int k = 0; k < Model.Groups.Count; k++)
                 {
-                    GroupModel group = groups[k];
+                    ElementGroupModel group = Model.Groups.ElementAt(k).Value;
                     int parent_id = 1;
-                    if (group.Parent != null)
+                    if (group.HasGroupParent)
                     {
                         /*List<GroupModel> parents = new List<GroupModel>();
 						GroupModel curr_parent = group.Parent;
@@ -127,11 +131,11 @@ namespace Rhino2Fem.Core.Helper
 							parents.Insert(0, curr_parent);
 							curr_parent = curr_parent.Parent;
 						}*/
-                        List<GroupModel> parents = GroupModel.GetBranch(group);
+                        List<ElementGroupModel> parents = group.GetBranch();
                         parents.RemoveAt(parents.Count - 1);
                         for (int j = 0; j < parents.Count; j++)
                         {
-                            GroupModel parent = parents[j];
+                            ElementGroupModel parent = parents[j];
                             // Check in the group already exists
                             bool found = false;
                             int numGroups = 0;
@@ -142,7 +146,7 @@ namespace Rhino2Fem.Core.Helper
                                 int gid = 0;
                                 St7.St7GetGroupByIndex(modelId, i, gname, St7.kMaxStrLen, ref gid);
                                 string sname = gname.ToString().Replace("Model\\", "");
-                                if (parent.FullName == sname)
+                                if (parent.GroupFullName == sname)
                                 {
                                     found = true;
                                     parent_id = gid;
@@ -165,17 +169,17 @@ namespace Rhino2Fem.Core.Helper
                         warnings.Add(string.Format("Failed to create group {0}", group.Name));
                         continue;
                     }
-                    groups_ids.Add(group, group_id);
+                    groupsIds.Add(group, group_id);
                 }
 
                 // Beam properties
                 int id = 1;
                 Dictionary<string, int> beamProperties = new Dictionary<string, int>();
                 Dictionary<int, string> bxsFiles = new Dictionary<int, string>();
-                BeamPropertyModel[] beamProps = model.Beams.Select(b => b.BeamProperty).Distinct().ToArray();
-                for (int k = 0; k < beamProps.Length; k++)
+
+                for (int k = 0; k < Model.FrameProperties.Count; k++)
                 {
-                    BeamPropertyModel bp = beamProps[k];
+                    FramePropertyModel bp = Model.FrameProperties.ElementAt(k).Value;
                     if (beamProperties.ContainsKey(bp.Name))
                     {
                         warnings.Add(string.Format("The beam property {0} already exists", bp.Name));
@@ -183,21 +187,22 @@ namespace Rhino2Fem.Core.Helper
                     }
 
                     // Property type
-                    int beamType = St7.btNull;
-                    if (bp.PropertyType == BeamPropertyType.Cable)
-                        beamType = St7.btCable;
-                    else if (bp.PropertyType == BeamPropertyType.Truss)
-                        beamType = St7.btTruss;
-                    else if (bp.PropertyType == BeamPropertyType.CutoffBar)
-                        beamType = St7.btCutoff;
-                    else if (bp.PropertyType == BeamPropertyType.PointContact)
-                        beamType = St7.btContact;
-                    else if (bp.PropertyType == BeamPropertyType.Beam)
-                        beamType = St7.btBeam;
-                    else if (bp.PropertyType == BeamPropertyType.Pipe)
-                        beamType = St7.btPipe;
-                    else if (bp.PropertyType == BeamPropertyType.Connection)
-                        beamType = St7.btConnection;
+                    int beamType = St7.btBeam;
+                    //int beamType = St7.btNull;
+                    //if (bp.PropertyType == BeamPropertyType.Cable)
+                    //    beamType = St7.btCable;
+                    //else if (bp.PropertyType == BeamPropertyType.Truss)
+                    //    beamType = St7.btTruss;
+                    //else if (bp.PropertyType == BeamPropertyType.CutoffBar)
+                    //    beamType = St7.btCutoff;
+                    //else if (bp.PropertyType == BeamPropertyType.PointContact)
+                    //    beamType = St7.btContact;
+                    //else if (bp.PropertyType == BeamPropertyType.Beam)
+                    //    beamType = St7.btBeam;
+                    //else if (bp.PropertyType == BeamPropertyType.Pipe)
+                    //    beamType = St7.btPipe;
+                    //else if (bp.PropertyType == BeamPropertyType.Connection)
+                    //    beamType = St7.btConnection;
 
                     if (HandleError(St7.St7NewBeamProperty(modelId, id, beamType, bp.Name)))
                     {
@@ -205,20 +210,21 @@ namespace Rhino2Fem.Core.Helper
                         continue;
                     }
                     // CutoffBar specific properties
-                    if (bp.PropertyType == BeamPropertyType.CutoffBar)
-                    {
-                        int[] co_ints = new int[2];
-                        co_ints[St7.ipCutoffType] = bp.CutoffType == CutoffType.Brittle ? St7.cbBrittle : St7.cbDuctile;
-                        co_ints[St7.ipKeepMass] = bp.KeepMass ? St7.btTrue : St7.btFalse;
-                        double[] co_doubles = new double[2];
-                        co_doubles[St7.ipCutoffTension] = bp.MaxTension;
-                        co_doubles[St7.ipCutoffCompression] = bp.MaxCompression;
-                        St7.St7SetCutoffBarData(modelId, id, co_ints, co_doubles);
-                    }
+                    //if (bp.PropertyType == BeamPropertyType.CutoffBar)
+                    //{
+                    //    int[] co_ints = new int[2];
+                    //    co_ints[St7.ipCutoffType] = bp.CutoffType == CutoffType.Brittle ? St7.cbBrittle : St7.cbDuctile;
+                    //    co_ints[St7.ipKeepMass] = bp.KeepMass ? St7.btTrue : St7.btFalse;
+                    //    double[] co_doubles = new double[2];
+                    //    co_doubles[St7.ipCutoffTension] = bp.MaxTension;
+                    //    co_doubles[St7.ipCutoffCompression] = bp.MaxCompression;
+                    //    St7.St7SetCutoffBarData(modelId, id, co_ints, co_doubles);
+                    //}
 
                     // Section Geometry
-                    if (bp.SectionType != SectionModel.SectionTypes.Generic)
+                    if (bp.SectionGeometryType != FrameSectionModel.SectionGeometryTypes.Generic)
                     {
+                        /*
                         if (bp.SectionType == SectionModel.SectionTypes.GenericShapes)
                         {
                             //using bxs. creating a new model
@@ -273,80 +279,78 @@ namespace Rhino2Fem.Core.Helper
                             St7.St7CloseFile(BXS_MODEL);
                             bxsFiles.Add(id, bxsFileName);
                         }
-                        else
+                        else*/
                         {
                             int sectionType = St7.bsNullSection;
                             double[] st_doubles = new double[6];
-                            switch (bp.SectionType)
+                            switch (bp.SectionGeometryType)
                             {
-                                case SectionModel.SectionTypes.SolidCircle:
+                                case FrameSectionModel.SectionGeometryTypes.SR:
                                     St7.St7SetBeamSectionName(modelId, id, "SolidRound");
                                     sectionType = St7.bsCircularSolid;
-                                    st_doubles[0] = bp.D;
+                                    st_doubles[0] = bp.Dimension1;
                                     break;
-                                case SectionModel.SectionTypes.HollowCircle:
+                                case FrameSectionModel.SectionGeometryTypes.P:
                                     St7.St7SetBeamSectionName(modelId, id, "HollowRound");
                                     sectionType = St7.bsCircularHollow;
-                                    st_doubles[0] = bp.D;
-                                    st_doubles[3] = bp.T;
+                                    st_doubles[0] = bp.Dimension1;
+                                    st_doubles[3] = bp.Dimension2;
                                     break;
-                                case SectionModel.SectionTypes.SolidRectangle:
+                                case FrameSectionModel.SectionGeometryTypes.SB:
                                     St7.St7SetBeamSectionName(modelId, id, "SolidRect");
                                     sectionType = St7.bsSquareSolid;
-                                    st_doubles[0] = bp.B;
-                                    st_doubles[1] = bp.D;
+                                    st_doubles[0] = bp.Dimension1;
+                                    st_doubles[1] = bp.Dimension2;
                                     break;
-                                case SectionModel.SectionTypes.HollowRectangle:
+                                case FrameSectionModel.SectionGeometryTypes.B:
                                     St7.St7SetBeamSectionName(modelId, id, "HollowRect");
                                     sectionType = St7.bsSquareHollow;
-                                    st_doubles[0] = bp.B;
-                                    st_doubles[1] = bp.D;
-                                    st_doubles[3] = bp.T1;
-                                    st_doubles[4] = bp.T2;
+                                    st_doubles[0] = bp.Dimension2;
+                                    st_doubles[1] = bp.Dimension1;
+                                    st_doubles[3] = bp.Dimension3;
+                                    st_doubles[4] = bp.Dimension4;
                                     break;
-                                case SectionModel.SectionTypes.I:
+                                case FrameSectionModel.SectionGeometryTypes.H:
                                     St7.St7SetBeamSectionName(modelId, id, "IBeam");
                                     sectionType = St7.bsISection;
-                                    st_doubles[0] = bp.B1;
-                                    st_doubles[1] = bp.B2;
-                                    st_doubles[2] = bp.D;
-                                    st_doubles[3] = bp.T1;
-                                    st_doubles[4] = bp.T2;
-                                    st_doubles[5] = bp.T3;
+                                    st_doubles[0] = bp.Dimension5;
+                                    st_doubles[1] = bp.Dimension2;
+                                    st_doubles[2] = bp.Dimension1;
+                                    st_doubles[3] = bp.Dimension6;
+                                    st_doubles[4] = bp.Dimension4;
+                                    st_doubles[5] = bp.Dimension3;
                                     break;
-                                case SectionModel.SectionTypes.T:
+                                case FrameSectionModel.SectionGeometryTypes.T:
                                     St7.St7SetBeamSectionName(modelId, id, "TBeam");
                                     sectionType = St7.bsTSection;
-                                    st_doubles[0] = bp.B;
-                                    st_doubles[1] = bp.D;
-                                    st_doubles[2] = bp.L;
-                                    st_doubles[3] = bp.T1;
-                                    st_doubles[4] = bp.T2;
-                                    st_doubles[5] = bp.T3;
+                                    st_doubles[0] = bp.Dimension2;
+                                    st_doubles[1] = bp.Dimension1;
+                                    st_doubles[2] = bp.Dimension5;
+                                    st_doubles[3] = bp.Dimension4;
+                                    st_doubles[4] = bp.Dimension3;
+                                    st_doubles[5] = bp.Dimension6;
                                     break;
-                                case SectionModel.SectionTypes.C:
+                                case FrameSectionModel.SectionGeometryTypes.C:
                                     St7.St7SetBeamSectionName(modelId, id, "Lipped Channel");
                                     sectionType = St7.bsLipChannel;
-                                    st_doubles[0] = bp.B;
-                                    st_doubles[1] = bp.D;
-                                    st_doubles[2] = bp.L;
-                                    st_doubles[3] = bp.T1;
-                                    st_doubles[4] = bp.T2;
-                                    st_doubles[5] = bp.T3;
+                                    st_doubles[0] = bp.Dimension2;
+                                    st_doubles[1] = bp.Dimension1;
+                                    st_doubles[2] = bp.Dimension5;
+                                    st_doubles[3] = bp.Dimension4;
+                                    st_doubles[4] = bp.Dimension3;
+                                    st_doubles[5] = bp.Dimension6;
                                     break;
-                                case SectionModel.SectionTypes.Angle:
+                                case FrameSectionModel.SectionGeometryTypes.L:
                                     St7.St7SetBeamSectionName(modelId, id, "Angle");
                                     sectionType = St7.bsLSection;
-                                    st_doubles[0] = bp.B;
-                                    st_doubles[1] = bp.D;
-                                    st_doubles[3] = bp.T1;
-                                    st_doubles[4] = bp.T2;
-                                    break;
-                                case SectionModel.SectionTypes.Generic:
+                                    st_doubles[0] = bp.Dimension2;
+                                    st_doubles[1] = bp.Dimension1;
+                                    st_doubles[3] = bp.Dimension4;
+                                    st_doubles[4] = bp.Dimension3;
                                     break;
                                 default:
                                     warnings.Add(string.Format("Unable to det the section geometry {0} of the beam property {1}",
-                                        bp.SectionType, bp.Id));
+                                        bp.SectionGeometryType, bp.Id));
                                     break;
                             }
                             St7.St7SetBeamSectionGeometry(modelId, id, sectionType, st_doubles);
@@ -354,7 +358,7 @@ namespace Rhino2Fem.Core.Helper
                     }
 
                     // Section data
-                    if (bp.SectionType != SectionModel.SectionTypes.GenericShapes)
+                    if (bp.SectionGeometryType == FrameSectionModel.SectionGeometryTypes.Generic)
                     {
                         int[] ints = new int[1];
                         ints[0] = 0;
@@ -369,67 +373,68 @@ namespace Rhino2Fem.Core.Helper
                         doubles[St7.ipSA2] = bp.ShearA2;
                         doubles[St7.ipXBAR] = bp.Centroid.X;
                         doubles[St7.ipYBAR] = bp.Centroid.Y;
-                        doubles[St7.ipANGLE] = bp.AngleX1Rad;
+                        doubles[St7.ipANGLE] = bp.Angle;
                         St7.St7SetBeamSectionPropertyData(modelId, id, ints, doubles);
                     }
 
-                    if (bp.Mirror != SectionModel.MirrorTypes.None)
-                    {
-                        int mirrorType = St7.mtLeft;
-                        int compatibleTwist = St7.btFalse;
-                        St7.St7SetBeamMirrorOption(modelId, id, mirrorType, compatibleTwist, new double[] { bp.MirrorGapA, bp.MirrorGapB });
-                    }
+                    //if (bp.Mirror != SectionModel.MirrorTypes.None)
+                    //{
+                    //    int mirrorType = St7.mtLeft;
+                    //    int compatibleTwist = St7.btFalse;
+                    //    St7.St7SetBeamMirrorOption(modelId, id, mirrorType, compatibleTwist, new double[] { bp.MirrorGapA, bp.MirrorGapB });
+                    //}
 
                     // Material
                     St7.St7SetMaterialName(modelId, St7.ptBEAMPROP, id, bp.Material.Name);
 
                     double[] doubles1 = new double[9];
-                    doubles1[St7.ipBeamModulus] = UnitsConvert.ConvertFromDefaultUnits(bp.Material.Modulus, pressureUnits, 1);// * c_f * Math.Pow(c_l, 2);
-                    doubles1[St7.ipBeamDensity] = UnitsConvert.ConvertFromDefaultUnits(bp.Material.Density, massUnits, 1, lengthUnits, -3); //  * c_f * Math.Pow(c_l, 3);
-                    doubles1[St7.ipBeamAlpha] = bp.Material.ThermalExpansion;
+                    doubles1[St7.ipBeamModulus] = bp.Material.ModulusElasticity;
+                    doubles1[St7.ipBeamDensity] = bp.Material.Density;
+                    doubles1[St7.ipBeamAlpha] = bp.Material.ThermalCoefficient;
                     doubles1[St7.ipBeamViscosity] = bp.Material.ViscousDamping;
                     doubles1[St7.ipBeamDampingRatio] = bp.Material.DampingRatio;
-                    doubles1[St7.ipBeamConductivity] = UnitsConvert.ConvertFromDefaultUnits(bp.Material.Conductivity, lengthUnits, -1);  /// c_l;
-					doubles1[St7.ipBeamSpecificHeat] = UnitsConvert.ConvertFromDefaultUnits(bp.Material.SpecificHeat, massUnits, -1); //* Math.Pow(c_l, 3);
-                    doubles1[St7.ipBeamShear] = UnitsConvert.ConvertFromDefaultUnits(bp.Material.ShearModulus, pressureUnits, 1);
+                    doubles1[St7.ipBeamConductivity] = bp.Material.Conductivity;
+                    doubles1[St7.ipBeamSpecificHeat] = bp.Material.SpecificHeat;
+                    doubles1[St7.ipBeamShear] = bp.Material.ShearModulus;
                     doubles1[St7.ipBeamPoisson] = bp.Material.PoissonRatio;
+
                     St7.St7SetBeamMaterialData(modelId, id, doubles1);
-                    if (bp.Material.UsePoisson)
-                        St7.St7SetBeamShearModulusMode(modelId, id, St7.smUsePoissonsRatio);
-                    else
-                        St7.St7SetBeamShearModulusMode(modelId, id, St7.smUseShearModulus);
+                    //if (bp.Material.UsePoisson)
+                    St7.St7SetBeamShearModulusMode(modelId, id, St7.smUsePoissonsRatio);
+                    //else
+                    //    St7.St7SetBeamShearModulusMode(modelId, id, St7.smUseShearModulus);
 
                     St7.St7UpdateElementPropertyData(modelId, St7.ptBEAMPROP, id);
-                    if (bp.SectionType != SectionModel.SectionTypes.Generic && bp.SectionType != SectionModel.SectionTypes.GenericShapes)
-                    {
+
+                    if (bp.SectionGeometryType != FrameSectionModel.SectionGeometryTypes.Generic)
                         St7.St7CalculateBeamSectionProperties(modelId, id, St7.btTrue);
-                    }
 
-                    if (bp.Material.StressStrainTable != null && (bp.PropertyType == BeamPropertyType.Beam || bp.PropertyType == BeamPropertyType.Truss))
-                    {
-                        int maxTableNum = 0;
-                        int tables = 0;
 
-                        St7.St7GetNumTables(modelId, St7.ttStressStrain, ref tables, ref maxTableNum);
+                    //if (bp.Material.StressStrainTable != null && (bp.PropertyType == BeamPropertyType.Beam || bp.PropertyType == BeamPropertyType.Truss))
+                    //{
+                    //    int maxTableNum = 0;
+                    //    int tables = 0;
 
-                        var strain = bp.Material.StressStrainTable.Select(i => i.strain).ToArray();
-                        var stress = bp.Material.StressStrainTable.Select(i => i.stress).ToArray();
+                    //    St7.St7GetNumTables(modelId, St7.ttStressStrain, ref tables, ref maxTableNum);
 
-                        double[] stressStrainTable = new double[strain.Length * 2];
-                        for (int i = 0; i < strain.Length; i++)
-                        {
-                            stressStrainTable[i * 2] = strain[i];
-                            stressStrainTable[i * 2 + 1] = stress[i];
-                        }
-                        maxTableNum++;
+                    //    var strain = bp.Material.StressStrainTable.Select(i => i.strain).ToArray();
+                    //    var stress = bp.Material.StressStrainTable.Select(i => i.stress).ToArray();
 
-                        St7.St7NewTableType(modelId, St7.ttStressStrain, maxTableNum, bp.Material.StressStrainTable.Length, bp.Material.Name, stressStrainTable);
+                    //    double[] stressStrainTable = new double[strain.Length * 2];
+                    //    for (int i = 0; i < strain.Length; i++)
+                    //    {
+                    //        stressStrainTable[i * 2] = strain[i];
+                    //        stressStrainTable[i * 2 + 1] = stress[i];
+                    //    }
+                    //    maxTableNum++;
 
-                        if (bp.PropertyType == BeamPropertyType.Beam)
-                            St7.St7SetPropertyTable(modelId, St7.ptBeamStressVsStrain, id, maxTableNum);
-                        else if (bp.PropertyType == BeamPropertyType.Truss)
-                            St7.St7SetPropertyTable(modelId, St7.ptBeamStressVsStrain, id, maxTableNum);
-                    }
+                    //    St7.St7NewTableType(modelId, St7.ttStressStrain, maxTableNum, bp.Material.StressStrainTable.Length, bp.Material.Name, stressStrainTable);
+
+                    //    if (bp.PropertyType == BeamPropertyType.Beam)
+                    //        St7.St7SetPropertyTable(modelId, St7.ptBeamStressVsStrain, id, maxTableNum);
+                    //    else if (bp.PropertyType == BeamPropertyType.Truss)
+                    //        St7.St7SetPropertyTable(modelId, St7.ptBeamStressVsStrain, id, maxTableNum);
+                    //}
 
                     beamProperties.Add(bp.Name, id++);
                     //St7.St7SaveFile(modelId);
@@ -438,10 +443,9 @@ namespace Rhino2Fem.Core.Helper
                 // Plate properties
                 id = 1;
                 Dictionary<string, int> plateProperties = new Dictionary<string, int>();
-                var plateProps = model.Plates.Select(p => p.PlateProperty).Distinct().ToArray();
-                for (int j = 0; j < plateProps.Length; j++)
+                for (int j = 0; j < Model.AreaProperties.Count; j++)
                 {
-                    PlatePropertyModel pp = plateProps[j];
+                    AreaPropertyModel pp = Model.AreaProperties.ElementAt(j).Value;
                     if (plateProperties.ContainsKey(pp.Name))
                     {
                         warnings.Add(string.Format("The plate property {0} already exists", pp.Name));
@@ -450,27 +454,25 @@ namespace Rhino2Fem.Core.Helper
 
                     int plateType = St7.ptNull;
                     int materialType = St7.mtNull;
-                    if (pp.PropertyType == PlatePropertyType.ShellThin ||
-                        pp.PropertyType == PlatePropertyType.ShellThick ||
-                        pp.PropertyType == PlatePropertyType.PlateThin ||
-                        pp.PropertyType == PlatePropertyType.PlateThick)
+                    if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShellThin ||
+                        pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShellThick ||
+                        pp.PropertyType == AreaPropertyModel.PlatePropertyType.PlateThin ||
+                        pp.PropertyType == AreaPropertyModel.PlatePropertyType.PlateThick)
                     {
                         plateType = St7.ptPlateShell;
                         materialType = St7.mtIsotropic;
                     }
-                    else if (pp.PropertyType == PlatePropertyType.ShearPanel)
+                    else if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShearPanel)
                     {
-                        //plateType = ro.Const("kPlateTypeShearPanel");
-                        //materialType = ro.Const("mtIsotropic");
                         plateType = St7.ptPlateShell;
                         materialType = St7.mtOrthotropic;
                     }
-                    else if (pp.PropertyType == PlatePropertyType.Membrane)
+                    else if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.Membrane)
                     {
                         plateType = St7.ptMembrane;
                         materialType = St7.mtIsotropic;
                     }
-                    else if (pp.PropertyType == PlatePropertyType.LoadPatch)
+                    else if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.LoadPatch)
                     {
                         plateType = St7.ptLoadPatch;
                         materialType = St7.mtIsotropic;
@@ -482,25 +484,25 @@ namespace Rhino2Fem.Core.Helper
                         continue;
                     }
 
-                    if (pp.PropertyType != PlatePropertyType.LoadPatch)
+                    if (pp.PropertyType != AreaPropertyModel.PlatePropertyType.LoadPatch)
                     {
                         St7.St7SetMaterialName(modelId, St7.ptPLATEPROP, id, pp.Material.Name);
 
-                        if (pp.PropertyType == PlatePropertyType.ShellThin ||
-                            pp.PropertyType == PlatePropertyType.ShellThick ||
-                            pp.PropertyType == PlatePropertyType.PlateThin ||
-                            pp.PropertyType == PlatePropertyType.PlateThick ||
-                            pp.PropertyType == PlatePropertyType.ShearPanel)
+                        if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShellThin ||
+                            pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShellThick ||
+                            pp.PropertyType == AreaPropertyModel.PlatePropertyType.PlateThin ||
+                            pp.PropertyType == AreaPropertyModel.PlatePropertyType.PlateThick ||
+                            pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShearPanel)
                         {
                             double[] thickness = new double[2];
-                            thickness[0] = pp.MembraneThickness;
-                            thickness[1] = pp.BendingThickness;
+                            thickness[0] = pp.ThicknessMembrane;
+                            thickness[1] = pp.ThicknessBending;
                             St7.St7SetPlateThickness(modelId, id, thickness);
                         }
-                        else if (pp.PropertyType == PlatePropertyType.Membrane)
+                        else if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.Membrane)
                         {
                             double[] thickness = new double[2];
-                            thickness[0] = pp.MembraneThickness;
+                            thickness[0] = pp.ThicknessMembrane;
                             thickness[1] = 0;
                             St7.St7SetPlateThickness(modelId, id, thickness);
                         }
@@ -510,62 +512,63 @@ namespace Rhino2Fem.Core.Helper
                         //{
                         //    case Model.PlateProperty.MaterialType.Isotropic:
                         // Workarround for the API bug that it doesn't set the shear modulus in the ShearPanels
-                        if (pp.PropertyType == PlatePropertyType.ShearPanel)
+                        if (pp.PropertyType == AreaPropertyModel.PlatePropertyType.ShearPanel)
                         {
                             // temporarilly set the property as Shell Orthotropic
                             doubles = new double[18];
-                            doubles[St7.ipPlateOrthoModulus1] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.Modulus, pressureUnits, 1);
+                            doubles[St7.ipPlateOrthoModulus1] = pp.Material.ModulusElasticity;
                             doubles[St7.ipPlateOrthoModulus1] = doubles[St7.ipPlateOrthoModulus1];
                             doubles[St7.ipPlateOrthoModulus1] = doubles[St7.ipPlateOrthoModulus1];
                             doubles[St7.ipPlateOrthoShear12] = doubles[St7.ipPlateOrthoModulus1];
                             doubles[St7.ipPlateOrthoPoisson12] = pp.Material.PoissonRatio;
                             doubles[St7.ipPlateOrthoPoisson23] = doubles[St7.ipPlateOrthoPoisson12];
                             doubles[St7.ipPlateOrthoPoisson31] = doubles[St7.ipPlateOrthoPoisson12];
-                            doubles[St7.ipPlateOrthoDensity] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.Density, massUnits, 1, lengthUnits, -3); //* c_f * Math.Pow(c_l, 3);
-                            doubles[St7.ipPlateOrthoAlpha1] = pp.Material.ThermalExpansion;
+                            doubles[St7.ipPlateOrthoDensity] = pp.Material.Density; //* c_f * Math.Pow(c_l, 3);
+                            doubles[St7.ipPlateOrthoAlpha1] = pp.Material.ThermalCoefficient;
                             doubles[St7.ipPlateOrthoAlpha2] = doubles[St7.ipPlateOrthoAlpha1];
                             doubles[St7.ipPlateOrthoAlpha3] = doubles[St7.ipPlateOrthoAlpha1];
                             doubles[St7.ipPlateOrthoViscosity] = pp.Material.ViscousDamping;
                             doubles[St7.ipPlateOrthoDampingRatio] = pp.Material.DampingRatio;
-                            doubles[St7.ipPlateOrthoConductivity1] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.Conductivity, lengthUnits, -1);// pp.Material.Conductivity / c_l;
+                            doubles[St7.ipPlateOrthoConductivity1] = pp.Material.Conductivity;// pp.Material.Conductivity / c_l;
                             doubles[St7.ipPlateOrthoConductivity2] = doubles[St7.ipPlateOrthoConductivity1];
-                            doubles[St7.ipPlateOrthoSpecificHeat] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.SpecificHeat, massUnits, -1);// pp.Material.SpecificHeat * Math.Pow(c_l, 3);
+                            doubles[St7.ipPlateOrthoSpecificHeat] = pp.Material.SpecificHeat;// pp.Material.SpecificHeat * Math.Pow(c_l, 3);
                             St7.St7SetPlateOrthotropicMaterial(modelId, id, doubles);
                             // Then change the property in ShearPanel Isotropic
                             St7.St7SetPlatePropertyType(modelId, id, St7.ptShearPanel, St7.mtIsotropic);
                         }
+
                         doubles = new double[8];
-                        doubles[St7.ipPlateIsoModulus] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.Modulus, pressureUnits, 1);// * c_f * Math.Pow(c_l, 2);
+                        doubles[St7.ipPlateIsoModulus] = pp.Material.ModulusElasticity;// * c_f * Math.Pow(c_l, 2);
                         doubles[St7.ipPlateIsoPoisson] = pp.Material.PoissonRatio;
-                        doubles[St7.ipPlateIsoDensity] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.Density, massUnits, 1, lengthUnits, -3); //* c_f * Math.Pow(c_l, 3);
-                        doubles[St7.ipPlateIsoAlpha] = pp.Material.ThermalExpansion;
+                        doubles[St7.ipPlateIsoDensity] = pp.Material.Density; //* c_f * Math.Pow(c_l, 3);
+                        doubles[St7.ipPlateIsoAlpha] = pp.Material.ThermalCoefficient;
                         doubles[St7.ipPlateIsoViscosity] = pp.Material.ViscousDamping;
                         doubles[St7.ipPlateIsoDampingRatio] = pp.Material.DampingRatio;
-                        doubles[St7.ipPlateIsoConductivity] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.Conductivity, lengthUnits, -1);// pp.Material.Conductivity / c_l;
-                        doubles[St7.ipPlateIsoSpecificHeat] = UnitsConvert.ConvertFromDefaultUnits(pp.Material.SpecificHeat, massUnits, -1);// pp.Material.SpecificHeat * Math.Pow(c_l, 3);
+                        doubles[St7.ipPlateIsoConductivity] = pp.Material.Conductivity;// pp.Material.Conductivity / c_l;
+                        doubles[St7.ipPlateIsoSpecificHeat] = pp.Material.SpecificHeat;// pp.Material.SpecificHeat * Math.Pow(c_l, 3);
                         St7.St7SetPlateIsotropicMaterial(modelId, id, doubles);
 
-                        if (pp.Material.StressStrainTable != null && (pp.PropertyType == PlatePropertyType.ShellThin || pp.PropertyType == PlatePropertyType.ShellThick ||
-                            pp.PropertyType == PlatePropertyType.PlateThin || pp.PropertyType == PlatePropertyType.PlateThick))
-                        {
-                            int maxTableNum = 0;
-                            int tables = 0;
+                        //if (pp.Material.StressStrainTable != null && (pp.PropertyType == PlatePropertyType.ShellThin || pp.PropertyType == PlatePropertyType.ShellThick ||
+                        //    pp.PropertyType == PlatePropertyType.PlateThin || pp.PropertyType == PlatePropertyType.PlateThick))
+                        //{
+                        //    int maxTableNum = 0;
+                        //    int tables = 0;
 
-                            St7.St7GetNumTables(modelId, St7.ttStressStrain, ref tables, ref maxTableNum);
+                        //    St7.St7GetNumTables(modelId, St7.ttStressStrain, ref tables, ref maxTableNum);
 
-                            double[] strain = pp.Material.StressStrainTable.Select(i => i.strain).ToArray();
-                            double[] stress = pp.Material.StressStrainTable.Select(i => i.stress).ToArray();
-                            double[] stressStrainTable = new double[strain.Length * 2];
+                        //    double[] strain = pp.Material.StressStrainTable.Select(i => i.strain).ToArray();
+                        //    double[] stress = pp.Material.StressStrainTable.Select(i => i.stress).ToArray();
+                        //    double[] stressStrainTable = new double[strain.Length * 2];
 
-                            for (int i = 0; i < strain.Length; i++)
-                            {
-                                stressStrainTable[(i) * 2] = strain[i];
-                                stressStrainTable[(i) * 2 + 1] = stress[i];
-                            }
-                            maxTableNum++;
-                            St7.St7NewTableType(modelId, St7.ttStressStrain, maxTableNum, pp.Material.StressStrainTable.Length, pp.Material.Name, stressStrainTable);
-                            St7.St7SetPropertyTable(modelId, St7.ptPlateStressVsStrain, id, maxTableNum);
-                        }
+                        //    for (int i = 0; i < strain.Length; i++)
+                        //    {
+                        //        stressStrainTable[(i) * 2] = strain[i];
+                        //        stressStrainTable[(i) * 2 + 1] = stress[i];
+                        //    }
+                        //    maxTableNum++;
+                        //    St7.St7NewTableType(modelId, St7.ttStressStrain, maxTableNum, pp.Material.StressStrainTable.Length, pp.Material.Name, stressStrainTable);
+                        //    St7.St7SetPropertyTable(modelId, St7.ptPlateStressVsStrain, id, maxTableNum);
+                        //}
 
                         /*break;
 					case Model.PlateProperty.MaterialType.Orthotropic:
@@ -604,152 +607,63 @@ namespace Rhino2Fem.Core.Helper
                 }
 
                 // Load cases
-                ModelHelper.GetLoadCases(model, out List<LoadCaseModel> loadCases);
                 Dictionary<string, int> loadCaseNameIdMap = new Dictionary<string, int>();
 
                 id = 1;
-                for (int i = 0; i < loadCases.Count; i++)
+                if (Model.SelfWeight != null)
                 {
-                    LoadCaseModel loadCase = loadCases[i];
-                    if (loadCase.Name == LoadCaseModel.Dead.Name)
-                    {
-                        if (HandleError(St7.St7SetLoadCaseName(modelId, id, loadCase.Name)))
-                            warnings.Add(string.Format("Failed to rename the default load case in {0}", loadCase.Name));
-                    }
-                    else
-                    {
-                        if (HandleError(St7.St7NewLoadCase(modelId, loadCase.Name)))
-                            warnings.Add(string.Format("Failed to define the load case {0}", loadCase.Name));
-                    }
+                    var sw = Model.SelfWeight;
 
-                    loadCase.Id = id.ToString();
+                    if (HandleError(St7.St7SetLoadCaseName(modelId, id, sw.LoadCase.Name)))
+                        warnings.Add(string.Format("Failed to rename the default load case in {0}", sw.LoadCase.Name));
+
+                    //sw.LoadCase.Id = id;
+                    loadCaseNameIdMap[sw.LoadCase.Name] = id;
+
+                    int caseType = St7.lcNoInertia;
+
+                    if (sw.GlobalInertiaLoad == SelfWeightModel.GlobalInertiaLoads.Gravity)
+                        caseType = St7.lcGravity;
+
+                    if (HandleError(St7.St7SetLoadCaseType(modelId, id, caseType)))
+                        warnings.Add(string.Format("Failed to set load case type of the load case {0}", sw.LoadCase.Name));
+
+                    if (HandleError(St7.St7SetLoadCaseGravityDir(modelId, id, (int)sw.GravityDirection + 1)))
+                        warnings.Add(string.Format("Failed to set gravity direction of the load case {0}", sw.LoadCase.Name));
+
+                    if (HandleError(St7.St7SetLoadCaseMassOption(modelId, id, Convert.ToByte(sw.StructuralMassAcceleration), Convert.ToByte(sw.NonStructuralMassAcceleration))))
+                        warnings.Add(string.Format("Failed to set the mass options of the {0} load case", sw.LoadCase.Name));
+
+                    if (HandleError(St7.St7SetLoadCaseDefaults(modelId, id, new[] { 0, 0, 0, 0, 0, 0, sw.GravityValue, 0, 0, 0, 0, 0, 0 })))
+                        warnings.Add(string.Format("Failed to set the gravity value of the {0} load case", sw.LoadCase.Name));
+                    id++;
+                }
+
+                for (int i = 0; i < Model.LoadCases.Count; i++)
+                {
+                    LoadCaseModel loadCase = new LoadCaseModel(Model.LoadCases.ElementAt(i).Value);
+
+                    if (HandleError(St7.St7NewLoadCase(modelId, loadCase.Name)))
+                        warnings.Add(string.Format("Failed to define the load case {0}", loadCase.Name));
+
+                    //loadCase.Id = id;
                     loadCaseNameIdMap[loadCase.Name] = id;
 
                     int caseType = St7.lcNoInertia;
 
-                    if (loadCase.GlobalInertiaLoad == LoadCaseModel.GlobalInertiaLoads.Gravity)
-                        caseType = St7.lcGravity;
-
-                    if (HandleError(St7.St7SetLoadCaseType(modelId, Convert.ToInt32(loadCase.Id), caseType)))
+                    if (HandleError(St7.St7SetLoadCaseType(modelId, id, caseType)))
                         warnings.Add(string.Format("Failed to set load case type of the load case {0}", loadCase.Name));
 
-                    if (HandleError(St7.St7SetLoadCaseGravityDir(modelId, Convert.ToInt32(loadCase.Id), (int)loadCase.GravityDirection + 1)))
-                        warnings.Add(string.Format("Failed to set gravity direction of the load case {0}", loadCase.Name));
-
-                    if (HandleError(St7.St7SetLoadCaseMassOption(modelId, Convert.ToInt32(loadCase.Id), Convert.ToByte(loadCase.StructuralMassAcceleration),
-                        Convert.ToByte(loadCase.NonStructuralMassAcceleration))))
+                    if (HandleError(St7.St7SetLoadCaseMassOption(modelId, id, Convert.ToByte(false), Convert.ToByte(loadCase.GravityNoStructuralMass))))
                         warnings.Add(string.Format("Failed to set the mass options of the {0} load case", loadCase.Name));
-
-                    if (HandleError(St7.St7SetLoadCaseDefaults(modelId, Convert.ToInt32(loadCase.Id), new[] { 0, 0, 0, 0, 0, 0,
-                        UnitsConvert.ConvertFromDefaultUnits(loadCase.GravityValue, lengthUnits, 1), 0, 0, 0, 0, 0, 0 })))
-                        warnings.Add(string.Format("Failed to set the gravity value of the {0} load case", loadCase.Name));
                     id++;
                 }
 
-
-                #region Multithread preprocessing
-
-                // Checking only a single load case for node displacements. This load case will give coefficients to apply in all
-                // combinations at the freedom case
-                LoadCaseModel displLoadCase = null;
-                Dictionary<int, int[]> beamsNodeNumberMap = new Dictionary<int, int[]>();
-                Dictionary<int, int[]> plateNodeNumberMap = new Dictionary<int, int[]>();
-                List<string> warningPreprocessingList = new List<string>();
-                Dictionary<NodeModel, int> nodePositionMap = new Dictionary<NodeModel, int>();
-
-                try
-                {
-                    for (int j = 0; j < model.Nodes.Count; j++)
-                    {
-                        nodePositionMap.Add(model.Nodes[j], j + 1);
-                        var node = model.Nodes[j];
-                        for (int i = 0; i < node.Loads.Count; i++)
-                        {
-                            LoadModel load = node.Loads[i];
-                            if (load is NodeDisplacementLoadModel dl)
-                            {
-                                if (displLoadCase == null)
-                                {
-                                    displLoadCase = dl.LoadCase;
-                                }
-                                else
-                                {
-                                    if (displLoadCase.Name != dl.LoadCase.Name)
-                                    {
-                                        warningPreprocessingList.Add($"Only one displacement load case admitted. All displacement load will be applied considering {dl.LoadCase.Name}");
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    for (int i = 0; i < model.Beams.Count; i++)
-                    {
-                        BeamModel beam = model.Beams[i];
-
-                        List<NodeModel> fromNodes = model.Nodes.Where(n => n.Position.DistanceTo(beam.PointFrom) < tolerance).ToList();
-                        List<NodeModel> toNodes = model.Nodes.Where(n => n.Position.DistanceTo(beam.PointTo) < tolerance).ToList();
-
-                        if (fromNodes.Count() > 1)
-                            warningPreprocessingList.Add(string.Format($"Collapsing {fromNodes.Count()} nodes at coordinates {beam.PointFrom}", beam.PointFrom));
-                        if (toNodes.Count() > 1)
-                            warningPreprocessingList.Add(string.Format($"Collapsing {toNodes.Count()} nodes at coordinates {beam.PointTo}"));
-
-                        fromNodes.Sort(NodeModel.Comparer);
-                        toNodes.Sort(NodeModel.Comparer);
-                        NodeModel node1 = fromNodes.FirstOrDefault();
-                        NodeModel node2 = toNodes.FirstOrDefault();
-
-                        if (node1 == null || node2 == null)
-                        {
-                            warnings.Add($"Unreconized node(s) at coordinates {beam.PointFrom} and / or {beam.PointTo}");
-                            continue;
-                        }
-
-                        int[] connections = new int[St7.kMaxElementNode + 1];
-                        connections[0] = 2;
-                        connections[1] = Convert.ToInt32(nodePositionMap[node1]);
-                        connections[2] = Convert.ToInt32(nodePositionMap[node2]);
-
-                        beamsNodeNumberMap[i] = connections;
-                    }
-
-                    for (int j = 0; j < model.Plates.Count; j++)
-                    {
-                        var plate = model.Plates[j];
-
-                        int[] connections = new int[St7.kMaxElementNode + 1];
-                        connections[0] = plate.Points.Count;
-
-                        for (int i = 0; i < plate.Points.Count; i++)
-                        {
-                            List<NodeModel> nodes = model.Nodes.Where(n => n.Position.DistanceTo(plate.Points[i]) < tolerance).ToList();
-                            if (nodes.Count() > 1)
-                                warningPreprocessingList.Add(string.Format($"Collapsing {nodes.Count()} nodes at coordinates {nodes.FirstOrDefault().Position}"));
-
-                            nodes.Sort(NodeModel.Comparer);
-                            connections[i + 1] = Convert.ToInt32(nodePositionMap[nodes.FirstOrDefault()]);
-                        }
-
-                        plateNodeNumberMap[j] = connections;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    warnings.Add(string.Format($"Failed to preprocess the model. {ex.Message}"));
-                }
-
-                warnings.AddRange(warningPreprocessingList);
-
-                #endregion
-
                 // Load Combinations
                 int comboNumber = 1;
-                LoadCombinationModel[] loadCombModelArray = model.LoadCombinations.ToArray();
-                for (int i = 0; i < loadCombModelArray.Length; i++)
+                for (int i = 0; i < Model.LoadCombinations.Count; i++)
                 {
-                    LoadCombinationModel combo = loadCombModelArray[i];
+                    LoadCombinationModel combo = Model.LoadCombinations.ElementAt(i).Value;
                     // For linear static analysis
                     if (HandleError(St7.St7AddLSACombination(modelId, combo.Name)))
                     {
@@ -757,14 +671,15 @@ namespace Rhino2Fem.Core.Helper
                     }
                     else
                     {
-                        foreach (KeyValuePair<LoadCaseModel, double> item in combo.Values)
+                        foreach (LoadFactorModel item in combo.LoadFactorList)
                         {
-                            int lc = Convert.ToInt32(loadCases.Single(l => l.Name == item.Key.Name).Id);
-                            if (HandleError(St7.St7SetLSACombinationFactor(modelId, St7.ltLoadCase, comboNumber, lc, 1, item.Value)))
+                            int lc = Model.LoadCases.Single(l => l.Value.Name == item.LoadCase.Name).Value.Id;
+                            if (HandleError(St7.St7SetLSACombinationFactor(modelId, St7.ltLoadCase, comboNumber, lc, 1, item.Factor)))
                                 warnings.Add($"Failed to set the LSA combination factor: {combo.Name}");
                         }
                     }
 
+                    /*
                     // For nonlinear static analysis
                     if (HandleError(St7.St7AddNLAIncrement(modelId, 0, combo.Name)))
                     {
@@ -785,18 +700,91 @@ namespace Rhino2Fem.Core.Helper
                                 }
                             }
                         }
-                    }
+                    }*/
                     comboNumber++;
                 }
+
+
+                #region Multithread preprocessing
+
+                // Checking only a single load case for node displacements. This load case will give coefficients to apply in all
+                // combinations at the freedom case
+                LoadCaseModel displLoadCase = null;
+                Dictionary<int, int[]> beamsNodeNumberMap = new Dictionary<int, int[]>();
+                Dictionary<int, int[]> plateNodeNumberMap = new Dictionary<int, int[]>();
+                List<string> warningPreprocessingList = new List<string>();
+                Dictionary<NodeElementModel, int> nodePositionMap = new Dictionary<NodeElementModel, int>();
+
+                try
+                {
+                    for (int i = 0; i < Model.FrameElements.Count; i++)
+                    {
+                        var beam = Model.FrameElements.ElementAt(i);
+
+                        List<NodeElementModel> fromNodes = Model.NodeElements.Where(n => n.Value.Position.DistanceTo(beam.Value.NodeStart.Position) < Model.ModelUnits.Tolerance).Select(k => k.Value).ToList();
+                        List<NodeElementModel> toNodes = Model.NodeElements.Where(n => n.Value.Position.DistanceTo(beam.Value.NodeEnd.Position) < Model.ModelUnits.Tolerance).Select(k => k.Value).ToList();
+
+                        if (fromNodes.Count() > 1)
+                            warningPreprocessingList.Add(string.Format($"Collapsing {fromNodes.Count()} nodes at coordinates {beam.Value.NodeStart.Position}"));
+                        if (toNodes.Count() > 1)
+                            warningPreprocessingList.Add(string.Format($"Collapsing {toNodes.Count()} nodes at coordinates {beam.Value.NodeEnd.Position}"));
+
+                        fromNodes.Sort(NodeElementModel.Comparer);
+                        toNodes.Sort(NodeElementModel.Comparer);
+                        NodeElementModel node1 = fromNodes.FirstOrDefault();
+                        NodeElementModel node2 = toNodes.FirstOrDefault();
+
+                        if (node1 == null || node2 == null)
+                        {
+                            warnings.Add($"Unreconized node(s) at coordinates {beam.Value.NodeEnd.Position} and / or {beam.Value.NodeStart.Position}");
+                            continue;
+                        }
+
+                        int[] connections = new int[St7.kMaxElementNode + 1];
+                        connections[0] = 2;
+                        connections[1] = nodePositionMap[node1];
+                        connections[2] = nodePositionMap[node2];
+
+                        beamsNodeNumberMap[i] = connections;
+                    }
+
+                    for (int j = 0; j < Model.AreaElements.Count; j++)
+                    {
+                        AreaElementModel plate = Model.AreaElements.ElementAt(j).Value;
+
+                        int[] connections = new int[St7.kMaxElementNode + 1];
+                        connections[0] = plate.NodeList.Count;
+
+                        for (int i = 0; i < plate.NodeList.Count; i++)
+                        {
+                            List<NodeElementModel> nodes = Model.NodeElements.Where(n => n.Value.Position.DistanceTo(plate.NodeList[i].Position) < Model.ModelUnits.Tolerance).Select(k => k.Value).ToList();
+                            if (nodes.Count() > 1)
+                                warningPreprocessingList.Add(string.Format($"Collapsing {nodes.Count()} nodes at coordinates {nodes.FirstOrDefault().Position}"));
+
+                            nodes.Sort(NodeElementModel.Comparer);
+                            connections[i + 1] = nodePositionMap[nodes.FirstOrDefault()];
+                        }
+
+                        plateNodeNumberMap[j] = connections;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    warnings.Add(string.Format($"Failed to preprocess the model. {ex.Message}"));
+                }
+
+                warnings.AddRange(warningPreprocessingList);
+
+                #endregion
 
                 #region Export nodi ed elementi
 
                 // Nodes
                 //List<int> addedNodes = new List<int>();
                 HashSet<int> addedNodesNumber = new HashSet<int>();
-                for (int i = 0; i < model.Nodes.Count; i++)
+                for (int i = 0; i < Model.NodeElements.Count; i++)
                 {
-                    NodeModel node = model.Nodes[i];
+                    NodeElementModel node = Model.NodeElements.ElementAt(i).Value;
                     try
                     {
                         int nodeNumber = i + 1;
@@ -806,26 +794,24 @@ namespace Rhino2Fem.Core.Helper
                             St7.St7SetNodeXYZ(modelId, nodeNumber, new double[] { node.Position.X, node.Position.Y, node.Position.Z });
                             addedNodesNumber.Add(nodeNumber);
                         }
+                        if (St7.St7SetNodeID(modelId, nodeNumber, node.Id) != 0)
+                            warnings.Add(string.Format($"Failed to set Node ID {node.Id} on node {nodeNumber}."));
 
-                        if (node.HasAttribute(typeof(NodeRestraintAttributeModel)))
+                        if (node.Support.IsActive)
                         {
                             try
                             {
-                                IEnumerable<NodeRestraintAttributeModel.AttributeData> restraints = node.Attributes.Where(n => n.GetType() == typeof(NodeRestraintAttributeModel))
-                                    .Cast<NodeRestraintAttributeModel>().Select(r => r.Value);
-
                                 int[] sts = new int[6];
-                                foreach (NodeRestraintAttributeModel.AttributeData restraint in restraints)
-                                {
-                                    sts[0] |= restraint.Tx ? St7.btTrue : St7.btFalse;
-                                    sts[1] |= restraint.Ty ? St7.btTrue : St7.btFalse;
-                                    sts[2] |= restraint.Tz ? St7.btTrue : St7.btFalse;
-                                    sts[3] |= restraint.Rx ? St7.btTrue : St7.btFalse;
-                                    sts[4] |= restraint.Ry ? St7.btTrue : St7.btFalse;
-                                    sts[5] |= restraint.Rz ? St7.btTrue : St7.btFalse;
-                                }
+                                sts[0] |= node.Support.Dx ? St7.btTrue : St7.btFalse;
+                                sts[1] |= node.Support.Dy ? St7.btTrue : St7.btFalse;
+                                sts[2] |= node.Support.Dz ? St7.btTrue : St7.btFalse;
+                                sts[3] |= node.Support.Mx ? St7.btTrue : St7.btFalse;
+                                sts[4] |= node.Support.My ? St7.btTrue : St7.btFalse;
+                                sts[5] |= node.Support.Mz ? St7.btTrue : St7.btFalse;
 
                                 double[] doubles = new double[6];
+
+                                /*
                                 //searching for displacements on the node
                                 for (int j = 0; j < node.Loads.Count; j++)
                                 {
@@ -840,16 +826,16 @@ namespace Rhino2Fem.Core.Helper
                                         doubles[5] = ndl.Value.Rotation.Z;
                                         break;
                                     }
-                                }
+                                }*/
                                 St7.St7SetNodeRestraint6(modelId, nodeNumber, 1, 1, sts, doubles);
                             }
                             catch (Exception ex)
                             {
-                                warnings.Add(string.Format($"Failed to set Node Restraint on {node.NodeId}. {ex.Message}"));
+                                warnings.Add(string.Format($"Failed to set Node Restraint on {node.Id}. {ex.Message}"));
                                 continue;
                             }
                         }
-
+                        /*
                         if (node.HasAttribute(typeof(NodeStiffnessAttributeModel)))
                         {
                             try
@@ -865,42 +851,35 @@ namespace Rhino2Fem.Core.Helper
                                 continue;
                             }
                         }
+                        */
 
-                        if (GetElementID(node, ref warnings, out int elementId))
+                        for (int j = 0; j < node.NodalLoadList.Count; j++)
                         {
-                            St7.St7SetNodeID(modelId, nodeNumber, elementId);
-                        }
-
-                        for (int j = 0; j < node.Loads.Count; j++)
-                        {
-                            LoadModel load = node.Loads[j];
+                            NodalLoadModel load = node.NodalLoadList[j];
                             int lc = loadCaseNameIdMap[load.LoadCase.Name];
-                            if (load.GetType() == typeof(NodeForceLoadModel))
+                            if (load.GetType() == typeof(NodalLoadModel))
                             {
-                                NodeForceLoadModel f = (NodeForceLoadModel)load;
-                                if (f.Value.Length != 0)
-                                {
-                                    double fx = 0, fy = 0, fz = 0;
-                                    St7.St7GetNodeForce3(modelId, nodeNumber, lc, new double[] { fx, fy, fz });
-                                    St7.St7SetNodeForce3(modelId, nodeNumber, lc, new double[] { f.Value.X + fx, f.Value.Y + fy, f.Value.Z + fz });
-                                }
+                                NodalLoadModel f = (NodalLoadModel)load;
+
+                                double fx = 0, fy = 0, fz = 0;
+                                St7.St7GetNodeForce3(modelId, nodeNumber, lc, new double[] { fx, fy, fz });
+                                St7.St7SetNodeForce3(modelId, nodeNumber, lc, new double[] { f.FX + fx, f.FY + fy, f.FZ + fz });
+
+                                double mx = 0, my = 0, mz = 0;
+                                St7.St7SetNodeMoment3(modelId, nodeNumber, lc, new double[] { mx, my, mz });
+                                St7.St7SetNodeMoment3(modelId, nodeNumber, lc, new double[] { f.MX + mx, f.MY + my, f.MZ + mz });
                             }
-                            else if (load.GetType() == typeof(NodeMomentLoadModel))
-                            {
-                                NodeMomentLoadModel m = (NodeMomentLoadModel)load;
-                                if (m.Value.Length != 0)
-                                    St7.St7SetNodeMoment3(modelId, nodeNumber, lc, new double[] { m.Value.X, m.Value.Y, m.Value.Z });
-                            }
+                            /*
                             else if (load.GetType() == typeof(NodeTemperatureLoadModel))
                             {
                                 NodeTemperatureLoadModel t = (NodeTemperatureLoadModel)load;
                                 St7.St7SetNodeTemperature1(modelId, nodeNumber, lc, new double[] { t.Value });
-                            }
+                            }*/
                         }
                     }
                     catch (Exception ex)
                     {
-                        warnings.Add(string.Format($"Failed to create node {node.NodeId}. {ex.Message}"));
+                        warnings.Add(string.Format($"Failed to create node {node.Id}. {ex.Message}"));
                         continue;
                     }
                 }
@@ -908,63 +887,45 @@ namespace Rhino2Fem.Core.Helper
                 // Beams
                 HashSet<int> addedBeamsId = new HashSet<int>();
                 //var ordered = model.Beams.OrderBy(k => k.BeamId).ToArray();
-                for (int k = 0; k < model.Beams.Count; k++)
+                for (int k = 0; k < Model.FrameElements.Count; k++)
                 {
-                    BeamModel beam = model.Beams[k];
+                    FrameElementModel beam = Model.FrameElements.ElementAt(k).Value;
                     try
                     {
                         int beamNumber = k + 1;
-                        int propNumber = beamProperties[beam.BeamProperty.Name];
+                        int propNumber = beamProperties[beam.FrameProperty.Name];
 
                         if (!addedBeamsId.Contains(beamNumber))
                         {
                             try
                             {
-                                //NodeModel node1 = model.Nodes.Single(n => n.Position.DistanceToSquared(beam.PointFrom) < tol);
-                                //NodeModel node2 = model.Nodes.Single(n => n.Position.DistanceToSquared(beam.PointTo) < tol);
-                                //IEnumerable<NodeModel> fromNodes = model.Nodes.Where(n => n.Position.DistanceToSquared(beam.PointFrom) < squaredTol);
-                                //IEnumerable<NodeModel> toNodes = model.Nodes.Where(n => n.Position.DistanceToSquared(beam.PointTo) < squaredTol);
-                                //if (fromNodes.Count() > 1)
-                                //    warnings.Add(string.Format("Collapsing {0} nodes at coordinates {1}", fromNodes.Count(), beam.PointFrom));
-                                //if (toNodes.Count() > 1)
-                                //    warnings.Add(string.Format("Collapsing {0} nodes at coordinates {1}", toNodes.Count(), beam.PointTo));
-                                //NodeModel node1 = fromNodes.First();
-                                //NodeModel node2 = toNodes.First();
-                                //if (node1 == null || node2 == null)
-                                //{
-                                //    errors.Add(string.Format("Unreconized node(s) at coordinates {0} and/or {1}", beam.PointFrom, beam.PointTo));
-                                //    return false;
-                                //}
-                                //int[] connections = new int[St7ApiWrapper.St7ApiConst.kMaxElementNode];
-                                //connections[0] = 2;
-                                //connections[1] = Convert.ToInt32(node1.NodeId);
-                                //connections[2] = Convert.ToInt32(node2.NodeId);
-
-
-                                St7.St7SetElementConnection(modelId, St7.tyBEAM, beamNumber, propNumber, beamsNodeNumberMap[k]);
+                                if (St7.St7SetElementConnection(modelId, St7.tyBEAM, beamNumber, propNumber, beamsNodeNumberMap[k]) != 0)
+                                {
+                                    warnings.Add(string.Format($"Failed to set the connection of the beam {beam.Id} with nodes {beam.NodeStart.Id} and {beam.NodeEnd.Id}"));
+                                    continue;
+                                }
 
                                 if (beam.Groups.Count > 0)
                                 {
-                                    if (HandleError(St7.St7SetEntityGroup(modelId, St7.tyBEAM, beamNumber, groups_ids[beam.Groups[0]])))
+                                    if (HandleError(St7.St7SetEntityGroup(modelId, St7.tyBEAM, beamNumber, groupsIds[beam.Groups[0]])))
                                         warnings.Add(string.Format("Failed to set the group {0} to the beam {1}\r\n", beam.Groups[0], id));
                                     if (beam.Groups.Count > 1)
                                         warnings.Add(string.Format("Straus7 allows assigning only one single group to the beam {0}\r\n", id));
                                 }
 
-                                if (GetElementID(beam, ref warnings, out int elementId))
-                                {
-                                    St7.St7SetBeamID(modelId, beamNumber, elementId);
-                                }
+                                if (St7.St7SetBeamID(modelId, beamNumber, beam.Id) != 0)
+                                    warnings.Add(string.Format($"Failed to set the ID {beam.Id} of the beam {beamNumber}."));
 
                                 double angle = 90;
-                                if (beam.AngleDeg != 0)
-                                    angle += beam.AngleDeg;
-                                if (RotateOf90Deg(beam))
+                                if (beam.Angle != 0)
+                                    angle += beam.Angle;
+                                if (RotateOf90Deg(beam.FrameProperty))
                                     angle += 90;
-                                else if (RotateOf180Deg(beam))
+                                else if (RotateOf180Deg(beam.FrameProperty))
                                     angle += 180;
 
-                                St7.St7SetBeamReferenceAngle1(modelId, beamNumber, new double[] { angle });
+                                if (St7.St7SetBeamReferenceAngle1(modelId, beamNumber, new double[] { Rhino.RhinoMath.ToDegrees(angle) }) != 0)
+                                    warnings.Add(string.Format($"Failed to set the reference angle of the beam {beam.Id}."));
 
                                 if (beam.Offset != Rhino.Geometry.Vector2d.Unset && beam.Offset.Length > 0) //Rhino.Geometry.Vector2d or Maffeis.Geometry.Vector2d?
                                     St7.St7SetBeamOffset2(modelId, beamNumber, new double[] { beam.Offset.X, beam.Offset.Y });
@@ -973,11 +934,11 @@ namespace Rhino2Fem.Core.Helper
                             }
                             catch (Exception ex)
                             {
-                                warnings.Add(string.Format($"Failed to create geometry of beam {beam.BeamId}. {ex.Message}"));
+                                warnings.Add(string.Format($"Failed to create geometry of beam {beam.Id}. {ex.Message}"));
                                 continue;
                             }
                         }
-
+                        /*
                         // Releases
                         if (beam.HasAttribute(typeof(BeamReleasesAttributeModel)))
                         {
@@ -1191,6 +1152,7 @@ namespace Rhino2Fem.Core.Helper
                                 continue;
                             }
                         }
+                        */
 
                         // Loads
                         List<int> preLoadLC = new List<int>();
@@ -1201,21 +1163,13 @@ namespace Rhino2Fem.Core.Helper
                         Dictionary<int, int> distrFPId = new Dictionary<int, int>();
                         Dictionary<int, int> distrFGId = new Dictionary<int, int>();
 
-                        for (int j = 0; j < beam.Loads.Count; j++)
+                        for (int j = 0; j < beam.FrameLoadList.Count; j++)
                         {
-                            LoadModel load = beam.Loads[j];
+                            FrameLoadModel load = beam.FrameLoadList[j];
                             try
                             {
-                                int lc = 0;
-                                try
-                                {
-                                    lc = Convert.ToInt32(load.LoadCase.Id);
-                                }
-                                catch (Exception)
-                                {
-                                    warnings.Add($"Load case {load.LoadCase.Name} has no ID");
-                                    continue;
-                                }
+                                int lc = loadCaseNameIdMap[load.LoadCase.Name];
+                                /*
                                 if (load.GetType() == typeof(BeamPreLoadModel))
                                 {
                                     BeamPreLoadModel pl = (BeamPreLoadModel)load;
@@ -1417,39 +1371,40 @@ namespace Rhino2Fem.Core.Helper
                                         continue;
                                     }
                                 }
+                                */
                             }
                             catch (Exception ex)
                             {
-                                warnings.Add(string.Format($"Failed to set load case {load.LoadCase.Id} to beam {beam.BeamId}. {ex.Message}"));
+                                warnings.Add(string.Format($"Failed to set load case {load.LoadCase.Id} to beam {beam.Id}. {ex.Message}"));
                                 continue;
                             }
                         }
 
-                        //StringGroup
-                        if (beam.HasAttribute(typeof(BeamStringGroupAttributeModel)))
-                        {
-                            BeamStringGroupAttributeModel.AttributeData sg = BeamStringGroupAttributeModel.GetStringGroup(beam);
-                            int idSG = sg.ID;
-                            St7.St7SetBeamStringGroup1(modelId, beamNumber, idSG);
-                        }
+                        ////StringGroup
+                        //if (beam.HasAttribute(typeof(BeamStringGroupAttributeModel)))
+                        //{
+                        //    BeamStringGroupAttributeModel.AttributeData sg = BeamStringGroupAttributeModel.GetStringGroup(beam);
+                        //    int idSG = sg.ID;
+                        //    St7.St7SetBeamStringGroup1(modelId, beamNumber, idSG);
+                        //}
                     }
                     catch (Exception ex)
                     {
-                        warnings.Add(string.Format($"Failed to create beam {beam.BeamId}. {ex.Message}"));
+                        warnings.Add(string.Format($"Failed to create beam {beam.Id}. {ex.Message}"));
                         continue;
                     }
                 }
 
                 // Plates
                 HashSet<int> addedPlatesId = new HashSet<int>();
-                for (int k = 0; k < model.Plates.Count; k++)
+                for (int k = 0; k < Model.AreaElements.Count; k++)
                 {
-                    PlateModel plate = model.Plates[k];
+                    var plate = Model.AreaElements.ElementAt(k).Value;
                     try
                     {
-                        int plateId = k + 1;
+                        int plateNumber = k + 1;
 
-                        if (!addedPlatesId.Contains(plateId))
+                        if (!addedPlatesId.Contains(plateNumber))
                         {
                             //int[] connections = new int[St7ApiWrapper.St7ApiConst.kMaxElementNode + 1];
                             //connections[0] = plate.Points.Count;
@@ -1458,43 +1413,42 @@ namespace Rhino2Fem.Core.Helper
 
                             try
                             {
-                                int propId = plateProperties[plate.PlateProperty.Name];
-                                if (HandleError(St7.St7SetElementConnection(modelId, St7.tyPLATE, plateId, propId, plateNodeNumberMap[k])))
+                                int propId = plateProperties[plate.AreaProperty.Name];
+                                if (HandleError(St7.St7SetElementConnection(modelId, St7.tyPLATE, plateNumber, propId, plateNodeNumberMap[k])))
                                 {
                                     warnings.Add($"Failed to define the plate {id}");
                                     continue;
                                 }
+                                if (St7.St7SetPlateID(modelId, plateNumber, plate.Id) != 0)                                
+                                    warnings.Add($"Failed to set the ID to the plate {plate.Id}");
+
                                 if (plate.Groups.Count > 0) // We consider only the first group as Straus7 allows
                                 {
-                                    if (HandleError(St7.St7SetEntityGroup(modelId, St7.tyPLATE, plateId, groups_ids[plate.Groups[0]])))
+                                    if (HandleError(St7.St7SetEntityGroup(modelId, St7.tyPLATE, plateNumber, groupsIds[plate.Groups[0]])))
                                         warnings.Add($"Failed to set the group {plate.Groups[0]} to the plate {id}");
                                     if (plate.Groups.Count > 1)
                                         warnings.Add($"Straus7 allows assigning only one single group to the beam {id}");
                                 }
-                                if (plate.AngleDeg != 0)
+                                if (plate.Angle != 0)
                                 {
-                                    St7.St7SetPlateXAngle1(modelId, plateId, new[] { plate.AngleDeg });
+                                    St7.St7SetPlateXAngle1(modelId, plateNumber, new[] { Rhino.RhinoMath.ToDegrees(plate.Angle) });
                                 }
                                 if (plate.Offset != 0)
                                 {
-                                    if (HandleError(St7.St7SetPlateOffset1(modelId, plateId, new double[] { plate.Offset })))
+                                    if (HandleError(St7.St7SetPlateOffset1(modelId, plateNumber, new double[] { plate.Offset })))
                                         warnings.Add($"Failed to set the offset to the plate {id}");
                                 }
 
-                                if (GetElementID(plate, ref warnings, out int elementId))
-                                {
-                                    St7.St7SetPlateID(modelId, plateId, elementId);
-                                }
-
-                                addedPlatesId.Add(plateId);
+                                addedPlatesId.Add(plateNumber);
                             }
                             catch (Exception ex)
                             {
-                                warnings.Add(string.Format($"Failed to create geometry of plate {plate.PlateId}. {ex.Message}"));
+                                warnings.Add(string.Format($"Failed to create geometry of plate {plate.Id}. {ex.Message}"));
                                 continue;
                             }
                         }
 
+                        /*
                         // Attributes
                         for (int j = 0; j < plate.Attributes.Count; j++)
                         {
@@ -1536,7 +1490,7 @@ namespace Rhino2Fem.Core.Helper
                                     }
                                     int edgesBits = Convert.ToInt32(edgesString, 2);
                                     double[] doubles = lp.Value.Weights.ToArray();
-                                    St7.St7SetPlateLoadPatch4(modelId, plateId, patchType, edgesBits, doubles);
+                                    St7.St7SetPlateLoadPatch4(modelId, plateNumber, patchType, edgesBits, doubles);
                                 }
                                 catch (Exception ex)
                                 {
@@ -1560,7 +1514,7 @@ namespace Rhino2Fem.Core.Helper
                                     }
                                     for (int i = 0; i < loadCases.Count; i++)
                                     {
-                                        St7.St7SetPlateFaceSupport4(modelId, plateId, St7.psPlateMinusZ, Convert.ToInt32(loadCases[i].Id),
+                                        St7.St7SetPlateFaceSupport4(modelId, plateNumber, St7.psPlateMinusZ, Convert.ToInt32(loadCases[i].Id),
                                             new int[] { cOnly, St7.btFalse }, new double[] { support.Value.Stiffness, 0, 0, 0 });
                                     }
                                 }
@@ -1571,50 +1525,44 @@ namespace Rhino2Fem.Core.Helper
                                 }
                             }
                         }
+                        */
 
                         // Loads
-                        for (int i = 0; i < plate.Loads.Count; i++)
+                        for (int i = 0; i < plate.AreaLoadList.Count; i++)
                         {
-                            LoadModel load = plate.Loads[i];
-                            if (load.LoadCase.Id != "")
+                            AreaLoadMidasModel load = plate.AreaLoadList[i];
+                            
                             {
-                                int lc = 0;
-
-                                try
-                                {
-                                    lc = Convert.ToInt32(load.LoadCase.Id);
-                                }
-                                catch (Exception)
-                                {
-                                    warnings.Add($"Load case {load.LoadCase.Name} has no ID");
-                                    continue;
-                                }
-                                if (load is PlatePressureModel pp)
+                                int lc = loadCaseNameIdMap[load.LoadCase.Name];
+                                
+                                if (load is AreaLoadMidasModel pp)
                                 {
                                     try
                                     {
-                                        if (pp.Value.CoordinateSystem == null)
+                                        if (pp.CoordinateSystem == null)
                                         {
-                                            St7.St7SetPlateNormalPressure2(modelId, plateId, lc, new double[] { pp.Value.P.Z });
+                                            St7.St7SetPlateNormalPressure2(modelId, plateNumber, lc, new double[] { pp.Value.P.Z });
                                         }
                                         else
                                         {
-                                            int projectFlag = pp.Value.Projected ? St7.btTrue : St7.btFalse;
-                                            int face = pp.Value.Face == PlatePressureModel.LoadFace.Top ? St7.psPlatePlusZ : St7.psPlateMinusZ;
-                                            St7.St7SetPlateGlobalPressure3S(modelId, plateId, face, projectFlag, lc, new double[] { pp.Value.P.X, pp.Value.P.Y, pp.Value.P.Z });
+                                            int projectFlag = pp.IsProjected ? St7.btTrue : St7.btFalse;
+                                            int face = St7.psPlatePlusZ;
+                                            //int face = pp.Value.Face == PlatePressureModel.LoadFace.Top ? St7.psPlatePlusZ : St7.psPlateMinusZ;
+                                            St7.St7SetPlateGlobalPressure3S(modelId, plateNumber, face, projectFlag, lc, new double[] { pp.Value.P.X, pp.Value.P.Y, pp.Value.P.Z });
                                         }
                                     }
                                     catch (Exception ex)
                                     {
-                                        warnings.Add(string.Format($"Failed to set load case {lc} on plate {plate.PlateId}. {ex.Message}"));
+                                        warnings.Add(string.Format($"Failed to set load case {lc} on plate {plate.Id}. {ex.Message}"));
                                         continue;
                                     }
                                 }
+                                /*
                                 else if (load is PlatePreStressModel pps)
                                 {
                                     try
                                     {
-                                        St7.St7SetPlatePreLoad3(modelId, plateId, lc, St7.plPlatePreStress, new double[] { pps.Value.LocalPressure.X, pps.Value.LocalPressure.Y, pps.Value.LocalPressure.Z });
+                                        St7.St7SetPlatePreLoad3(modelId, plateNumber, lc, St7.plPlatePreStress, new double[] { pps.Value.LocalPressure.X, pps.Value.LocalPressure.Y, pps.Value.LocalPressure.Z });
                                     }
                                     catch (Exception ex)
                                     {
@@ -1626,32 +1574,27 @@ namespace Rhino2Fem.Core.Helper
                                 {
                                     try
                                     {
-                                        St7.St7SetPlateNSMass5ID(modelId, plateId, lc, 1, new double[5] { ns.Value.Mass, ns.Value.DynFactor, ns.Value.Offset.X, ns.Value.Offset.Y, ns.Value.Offset.Z });
+                                        St7.St7SetPlateNSMass5ID(modelId, plateNumber, lc, 1, new double[5] { ns.Value.Mass, ns.Value.DynFactor, ns.Value.Offset.X, ns.Value.Offset.Y, ns.Value.Offset.Z });
                                     }
                                     catch (Exception ex)
                                     {
                                         warnings.Add(string.Format($"Failed to set load patch {lc} on plate {plate.PlateId}. {ex.Message}"));
                                         continue;
                                     }
-                                }
+                                }*/
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        warnings.Add(string.Format($"Failed to create plate {plate.PlateId}. {ex.Message}"));
+                        warnings.Add(string.Format($"Failed to create plate {plate.Id}. {ex.Message}"));
                         continue;
                     }
                 }
 
                 #endregion
 
-                // NamedSets
-                if (model.NamedSetsModels != null && model.NamedSetsModels.Count() > 0)
-                {
-                    warnings.Add("Named sets not supported");
-                }
-
+                /*
                 // StagedLoadCase
                 for (int i = 0; i < loadCases.Count; i++)
                 {
@@ -1783,6 +1726,7 @@ namespace Rhino2Fem.Core.Helper
                         }
                     }
                 }
+                */
 
                 if (st7FileOpened)
                 {
@@ -1846,32 +1790,14 @@ namespace Rhino2Fem.Core.Helper
             }
         }
 
-        public static bool RotateOf90Deg(BeamModel beam)
+        public static bool RotateOf90Deg(FramePropertyModel beam)
         {
-            return beam.BeamProperty.SectionType == SectionModel.SectionTypes.Angle && beam.BeamProperty.Mirror != SectionModel.MirrorTypes.None;
+            return beam.Section.SectionGeometryType == FrameSectionModel.SectionGeometryTypes.L;
         }
 
-        public static bool RotateOf180Deg(BeamModel beam)
+        public static bool RotateOf180Deg(FramePropertyModel beam)
         {
-            return beam.BeamProperty.AngleX1Rad < -0.000001;
-        }
-
-        private static bool GetElementID(ElementModel el, ref List<string> warnings, out int eId)
-        {
-            ElementIdAttributeModel id = (ElementIdAttributeModel)el.Attributes.FirstOrDefault(at => at is ElementIdAttributeModel);
-            eId = 0;
-            if (id != null)
-            {
-                if (int.TryParse(id.Value, out eId))
-                {
-                    return true;
-                }
-                else
-                {
-                    warnings.Add("Unable to assign id " + id.Value + ". Id for st7 must be an integer value");
-                }
-            }
-            return false;
+            return beam.Section.Angle < -0.0001;
         }
 
         private static int GetAvailableModelId()

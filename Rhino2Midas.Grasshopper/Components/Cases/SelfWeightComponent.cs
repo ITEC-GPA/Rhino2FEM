@@ -1,7 +1,6 @@
 ﻿using System;
 using Grasshopper.Kernel;
 using Rhino2Fem.Core.Cases;
-using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Grasshopper.Datatype;
 
 namespace Rhino2Fem.Midas.Grasshopper.Components.Cases

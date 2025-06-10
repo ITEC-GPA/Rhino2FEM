@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using Rhino.Display;
+﻿using Rhino.Display;
 using Rhino.Geometry;
 using Rhino2Fem.Core.Attributes;
 using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.Loads;
+using Rhino2Fem.Core.Models;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Rhino2Fem.Core.Elements
 {
@@ -15,7 +16,6 @@ namespace Rhino2Fem.Core.Elements
         public double Y { get; set; }
 
         public double Z { get; set; }
-
         public List<NodalLoadModel> NodalLoadList { get; set; }
 
         public NodeSupportModel Support { get; set; }
@@ -75,6 +75,21 @@ namespace Rhino2Fem.Core.Elements
         public void DrawSolid(DisplayPipeline display, RhinoViewport viewport, Color color)
         {
 
+        }
+
+        public static int Comparer(NodeElementModel a, NodeElementModel b)
+        {
+            var rx = a.Position.X.CompareTo(b.Position.X);
+            if (rx == 0)
+            {
+                var ry = a.Position.Y.CompareTo(b.Position.Y);
+
+                if (ry == 0)
+                    return a.Position.Z.CompareTo(b.Position.Z);
+                else
+                    return ry;
+            }
+            return rx;
         }
     }
 }

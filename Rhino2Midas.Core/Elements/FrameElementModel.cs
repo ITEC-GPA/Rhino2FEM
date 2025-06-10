@@ -15,11 +15,27 @@ namespace Rhino2Fem.Core.Elements
 
         public NodeElementModel NodeEnd { get; set; }
 
+        public FrameSectionModel FrameSection { get; set; }
+
         public FramePropertyModel FrameProperty { get; set; }
 
         public MaterialModel Material { get; set; }
 
         public List<FrameLoadModel> FrameLoadList { get; set; }
+
+        public Vector2d Offset { get; set; }
+
+        public double OffsetX
+        {
+            get => Offset.X;
+            set => Offset = new Vector2d(value, Offset.Y);
+        }
+
+        public double OffsetY
+        {
+            get => Offset.Y;
+            set => Offset = new Vector2d(Offset.X, value);
+        }
 
         public double Angle { get; set; }
 
@@ -35,13 +51,15 @@ namespace Rhino2Fem.Core.Elements
             }
         }
 
-        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, MaterialModel material, double angle = 0, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, double angle, Vector2d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
             : base()
         {
             NodeStart = startNode;
             NodeEnd = endNode;
             FrameProperty = frameProperty;
-            Material = material;
+            FrameSection = frameProperty.Section;
+            Material = frameProperty.Material;
+            Offset = offset;
             if (frameLoadList != null)
                 FrameLoadList = frameLoadList;
             else
@@ -53,6 +71,11 @@ namespace Rhino2Fem.Core.Elements
                 Groups = new List<ElementGroupModel>();
             Breps = new List<Brep>();
             BuildBreps();
+        }
+
+        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FrameSectionModel frameProperty, MaterialModel material, double angle, Vector2d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+            : this(startNode, endNode, new FramePropertyModel(frameProperty.Name, material, frameProperty), angle, offset, group, frameLoadList)
+        {
         }
 
         public FrameElementModel()
@@ -68,7 +91,7 @@ namespace Rhino2Fem.Core.Elements
         {
             NodeStart = frameElementModel.NodeStart;
             NodeEnd = frameElementModel.NodeEnd;
-            FrameProperty = frameElementModel.FrameProperty;
+            FrameSection = frameElementModel.FrameSection;
             Material = frameElementModel.Material;
             Angle = frameElementModel.Angle;
             Groups = frameElementModel.Groups;
@@ -95,12 +118,12 @@ namespace Rhino2Fem.Core.Elements
             if (Breps == null)
                 Breps = new List<Brep>();
 
-            if (FrameProperty != null && FrameProperty.Breps != null && FrameProperty.Breps.Count > 0)
+            if (FrameSection != null && FrameSection.Breps != null && FrameSection.Breps.Count > 0)
             {
                 GetLocalAxes(false, out Vector3d x, out Vector3d y, out Vector3d z, out Transform t);
-                for (int j = 0; j < FrameProperty.Breps.Count; j++)
+                for (int j = 0; j < FrameSection.Breps.Count; j++)
                 {
-                    Brep surface = FrameProperty.Breps[j].DuplicateBrep();
+                    Brep surface = FrameSection.Breps[j].DuplicateBrep();
                     surface.Transform(t);
 
                     LineCurve line = new LineCurve(NodeStart.Position, NodeEnd.Position);
@@ -118,7 +141,7 @@ namespace Rhino2Fem.Core.Elements
             double r = Angle;
             if (!getPrincipal)
             {
-                r -= FrameProperty.Angle;
+                r -= FrameSection.Angle;
             }
             axes3 = NodeEnd.Position - NodeStart.Position;
             axes3.Unitize();
@@ -150,32 +173,32 @@ namespace Rhino2Fem.Core.Elements
         {
             BoundingBox boundingBox = new BoundingBox();
 
-            for (int i = 0; i < FrameProperty.Breps.Count; i++)
+            for (int i = 0; i < FrameSection.Breps.Count; i++)
             {
-                Brep brep = FrameProperty.Breps[i].DuplicateBrep();
+                Brep brep = FrameSection.Breps[i].DuplicateBrep();
                 boundingBox.Union(brep.GetBoundingBox(true));
             }
 
             Vector3d BBoxDiagonal = boundingBox.Diagonal;
-            switch (FrameProperty.Offset)
+            switch (FrameSection.Offset)
             {
-                case FramePropertyModel.OffsetTypes.LT:
+                case FrameSectionModel.OffsetTypes.LT:
                     return new Vector3d(-BBoxDiagonal.X / 2.0, -BBoxDiagonal.Y / 2.0, 0);
-                case FramePropertyModel.OffsetTypes.CT:
+                case FrameSectionModel.OffsetTypes.CT:
                     return new Vector3d(0, -BBoxDiagonal.Y / 2.0, 0);
-                case FramePropertyModel.OffsetTypes.RT:
+                case FrameSectionModel.OffsetTypes.RT:
                     return new Vector3d(BBoxDiagonal.X / 2.0, -BBoxDiagonal.Y / 2.0, 0);
-                case FramePropertyModel.OffsetTypes.LC:
+                case FrameSectionModel.OffsetTypes.LC:
                     return new Vector3d(-BBoxDiagonal.X / 2.0, 0, 0);
-                case FramePropertyModel.OffsetTypes.CC:
+                case FrameSectionModel.OffsetTypes.CC:
                     return new Vector3d(0, 0, 0);
-                case FramePropertyModel.OffsetTypes.RC:
+                case FrameSectionModel.OffsetTypes.RC:
                     return new Vector3d(BBoxDiagonal.X / 2.0, 0, 0);
-                case FramePropertyModel.OffsetTypes.LB:
+                case FrameSectionModel.OffsetTypes.LB:
                     return new Vector3d(-BBoxDiagonal.X / 2.0, BBoxDiagonal.Y / 2.0, 0);
-                case FramePropertyModel.OffsetTypes.CB:
+                case FrameSectionModel.OffsetTypes.CB:
                     return new Vector3d(0, BBoxDiagonal.Y / 2.0, 0);
-                case FramePropertyModel.OffsetTypes.RB:
+                case FrameSectionModel.OffsetTypes.RB:
                     return new Vector3d(BBoxDiagonal.X / 2.0, BBoxDiagonal.Y / 2.0, 0);
             }
             return new Vector3d(0, 0, 0);

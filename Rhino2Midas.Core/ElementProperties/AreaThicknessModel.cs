@@ -6,14 +6,24 @@ namespace Rhino2Fem.Core.ElementProperties
 {
     public class AreaThicknessModel : ModelObjectId, IEquatable<AreaThicknessModel>
     {
-        public double Thickness { get; set; }
+        public double ThicknessMembrane { get; set; }
+        public double ThicknessBending { get; set; }
 
         public double Offset { get; set; }
 
-        public AreaThicknessModel(string name, double thickness, double offset = 0)
+        public AreaThicknessModel(string name, double thicknessMembrane, double thicknessBending, double offset = 0)
             : base(name)
         {
-            Thickness = thickness;
+            ThicknessMembrane = thicknessMembrane;
+            ThicknessBending = thicknessBending;
+            Offset = offset;
+        }
+
+        public AreaThicknessModel(string name, double thicknessMembrane, double offset = 0)
+            : this(name, thicknessMembrane, 0, offset)
+        {
+            ThicknessMembrane = thicknessMembrane;
+            ThicknessBending = thicknessMembrane;
             Offset = offset;
         }
 
@@ -25,7 +35,7 @@ namespace Rhino2Fem.Core.ElementProperties
         public AreaThicknessModel(AreaThicknessModel areaThicknessModel)
             :base(areaThicknessModel.Id, areaThicknessModel.Name)
         {
-            Thickness = areaThicknessModel.Thickness;
+            ThicknessMembrane = areaThicknessModel.ThicknessMembrane;
             Offset = areaThicknessModel.Offset;
         }
 
@@ -39,7 +49,7 @@ namespace Rhino2Fem.Core.ElementProperties
             return !(other is null) &&
                    base.Equals(other) &&
                    Name == other.Name &&
-                   Thickness == other.Thickness &&
+                   ThicknessMembrane == other.ThicknessMembrane &&
                    Offset == other.Offset;
         }
 
@@ -48,7 +58,7 @@ namespace Rhino2Fem.Core.ElementProperties
             int hashCode = 475748675;
             hashCode = hashCode * -1521134295 + base.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + Thickness.GetHashCode();
+            hashCode = hashCode * -1521134295 + ThicknessMembrane.GetHashCode();
             hashCode = hashCode * -1521134295 + Offset.GetHashCode();
             return hashCode;
         }

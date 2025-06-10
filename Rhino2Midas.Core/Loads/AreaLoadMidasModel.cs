@@ -3,7 +3,7 @@ using Rhino2Fem.Core.Cases;
 
 namespace Rhino2Fem.Core.Loads
 {
-    public class AreaLoadModel
+    public class AreaLoadMidasModel : AreaLoadBaseModel
     {
         public enum LoadDirections
         {
@@ -14,7 +14,6 @@ namespace Rhino2Fem.Core.Loads
             Gy,
             Gz,
         }
-        public LoadCaseModel LoadCase { get; set; }
 
         public LoadDirections Direction { get; set; }
 
@@ -30,9 +29,9 @@ namespace Rhino2Fem.Core.Loads
 
         public LoadGroupModel LoadGroup { get; set; }
 
-        public AreaLoadModel(LoadCaseModel loadCase, LoadDirections direction, bool isProjected = false, double p1 = 0, double p2 = 0, double p3 = 0, double p4 = 0)
+        public AreaLoadMidasModel(LoadCaseModel loadCase, LoadDirections direction, bool isProjected = false, double p1 = 0, double p2 = 0, double p3 = 0, double p4 = 0)
+            :base(loadCase)
         {
-            LoadCase = loadCase;
             Direction = direction;
             IsProjected = isProjected;
             P1 = p1;
@@ -41,13 +40,13 @@ namespace Rhino2Fem.Core.Loads
             P4 = p4;
         }
 
-        public AreaLoadModel()
+        public AreaLoadMidasModel()
         {
         }
 
-        public AreaLoadModel(AreaLoadModel areaLoadModel)
+        public AreaLoadMidasModel(AreaLoadMidasModel areaLoadModel)
+            : base(areaLoadModel)
         {
-            LoadCase = areaLoadModel.LoadCase;
             Direction = areaLoadModel.Direction;
             IsProjected = areaLoadModel.IsProjected;
             P1 = areaLoadModel.P1;

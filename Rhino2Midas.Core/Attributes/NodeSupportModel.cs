@@ -14,6 +14,8 @@
 
         public bool Mz { get; set; }
 
+        public bool IsActive => Dx || Dy || Dz || Mx || My || Mz;
+
         public BoundaryGroupModel BoundaryGroup { get; set; }
 
         public bool HasBoundaryGroup => BoundaryGroup != null;

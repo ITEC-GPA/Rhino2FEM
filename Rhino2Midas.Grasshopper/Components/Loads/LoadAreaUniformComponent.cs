@@ -20,7 +20,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
             pManager.AddGenericParameter("Area", "Area", "Area", GH_ParamAccess.item);
             pManager.AddGenericParameter("Load case", "Load case", "Load case", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Direction", "Direction", "Lx/Ly/Lz/Gx/Gy/Gz", GH_ParamAccess.item, 5);
-            foreach (AreaLoadModel.LoadDirections v in Enum.GetValues(typeof(AreaLoadModel.LoadDirections)))
+            foreach (AreaLoadMidasModel.LoadDirections v in Enum.GetValues(typeof(AreaLoadMidasModel.LoadDirections)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddBooleanParameter("Projected?", "Projected?", "Bool", GH_ParamAccess.item, false);
             pManager.AddNumberParameter("Load", "Load", "Load", GH_ParamAccess.item);
@@ -45,7 +45,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
             if (DA.GetData(0, ref gH_AreaElement) && DA.GetData(1, ref loadCase) && DA.GetData(2, ref direction) && DA.GetData(3, ref isProjected) && DA.GetData(4, ref num))
             {
                 DA.GetData(5, ref loadGroup);
-                AreaLoadModel areaLoad = new AreaLoadModel(loadCase.Value, (AreaLoadModel.LoadDirections)direction, isProjected, num, num, num, num);
+                AreaLoadMidasModel areaLoad = new AreaLoadMidasModel(loadCase.Value, (AreaLoadMidasModel.LoadDirections)direction, isProjected, num, num, num, num);
                 AreaElementModel areaElementModel = new AreaElementModel(gH_AreaElement.Value);
                 if (loadGroup != null)
                     areaLoad.LoadGroup = loadGroup.Value;

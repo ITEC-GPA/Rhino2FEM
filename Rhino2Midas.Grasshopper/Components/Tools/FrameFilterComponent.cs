@@ -79,7 +79,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Models
 
                 if (!find)
                 {
-                    if (propName.Contains(gh_Frames[i].Value.FrameProperty.Name))
+                    if (propName.Contains(gh_Frames[i].Value.FrameSection.Name))
                         find = true;
                 }
 

@@ -19,7 +19,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
         {
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Offset", "Offset", "Offset LT/CT/RT/LC/CC/RC/LB/CB/RB", GH_ParamAccess.item, 4);
-            foreach (FramePropertyModel.OffsetTypes v in Enum.GetValues(typeof(FramePropertyModel.OffsetTypes)))
+            foreach (FrameSectionModel.OffsetTypes v in Enum.GetValues(typeof(FrameSectionModel.OffsetTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddNumberParameter("Height", "Height", "Height", GH_ParamAccess.item);
             pManager.AddNumberParameter("Width", "Width", "Width", GH_ParamAccess.item);
@@ -51,7 +51,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
             if (DA.GetData(0, ref name) && DA.GetData(1, ref offset) && DA.GetData(2, ref dimension) && DA.GetData(3, ref dimension2) &&
                 DA.GetData(4, ref dimension3) && DA.GetData(5, ref dimension4))
             {
-                FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.T, FramePropertyModel.Types.DBUSER, (FramePropertyModel.OffsetTypes)offset,
+                FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.T, FrameSectionModel.Types.DBUSER, (FrameSectionModel.OffsetTypes)offset,
                     dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }

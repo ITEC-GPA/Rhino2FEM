@@ -8,10 +8,10 @@ using Rhino2Fem.Grasshopper.Datatype;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 {
-    public class FramePropertyBoxComponent : GH_Component
+    public class FramePropertyGenericComponent : GH_Component
     {
-        public FramePropertyBoxComponent()
-            : base("Frame property box", "Frame property box", "Frame property box", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
+        public FramePropertyGenericComponent()
+            : base("Frame property Generic", "Frame property Generic", "Frame property Generic", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 
@@ -34,21 +34,34 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string name = "";
-            double h = 0.0;
-            double w = 0.0;
-            double tw = 0.0;
-            double tft = 0.0;
-            double tfb = 0.0;
-            double ctcw = 0.0;
-            double dimension5 = 0.0;
-            double dimension6 = 0.0;
-            double dimension7 = 0.0;
-            double dimension8 = 0.0;
+            double area = 0.0;
+            double j11 = 0.0;
+            double j22 = 0.0;
+            double J = 0.0;
+            double shearL1 = 0.0;
+            double shearL2 = 0.0;
+            double shearA1 = 0.0;
+            double shearA2 = 0.0;
+            double centroidX = 0.0;
+            double CentroidY = 0.0;
+            double angle = 0.0;
 
-            if (DA.GetData(0, ref name) && DA.GetData(1, ref h) && DA.GetData(2, ref w) && DA.GetData(3, ref tw) && DA.GetData(4, ref tft) && DA.GetData(5, ref tfb) && DA.GetData(6, ref ctcw))
+            if (DA.GetData(0, ref name) && DA.GetData(1, ref area) && DA.GetData(2, ref j11) && DA.GetData(3, ref j22) && DA.GetData(4, ref J) && DA.GetData(5, ref shearL1) && DA.GetData(6, ref shearL2)
+                && DA.GetData(7, ref shearA1) && DA.GetData(8, ref shearA2) && DA.GetData(9, ref centroidX) && DA.GetData(10, ref CentroidY) && DA.GetData(11, ref angle))
             {
-                FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.B, FrameSectionModel.Types.DBUSER, FrameSectionModel.OffsetTypes.CC,
-                    h, w, tw, tft, tfb, ctcw, dimension5, dimension6, dimension7, dimension8);
+                FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.Generic, FrameSectionModel.Types.DBUSER, FrameSectionModel.OffsetTypes.CC)
+                {
+                    SectionArea = area,
+                    I11 = j11,
+                    I22 = j22,
+                    J = J,
+                    ShearL1 = shearL1,
+                    ShearL2 = shearL2,
+                    ShearA1 = shearA1,
+                    ShearA2 = shearA2,
+                    Centroid = new Rhino.Geometry.Point2d(centroidX, CentroidY),
+                    Angle = angle,
+                };
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }
         }

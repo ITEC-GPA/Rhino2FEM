@@ -1284,7 +1284,7 @@ namespace St7API
         public const int dtNoDamping = 0;
         public const int dtRayleighDamping = 1;
         public const int dtModalDamping = 2;
-        public const int dtViscousDamping = 3;
+        public const int dtPropertyDamping = 3;
 
         // Rayleigh Modes
         public const int rmSetFrequencies = 0;
@@ -1471,6 +1471,7 @@ namespace St7API
         public const int spMaxDynamicPointContactFactor = 51;
         public const int spMaxEigenRatio = 52;
         public const int spZeroModalDisp = 53;
+        public const int spSupportUpdate = 54;
 
         // Solver Parameters Constants - spBeamKgType
         public const int scSimplifiedBeamKg = 0;
@@ -2045,6 +2046,10 @@ namespace St7API
         public const int ERR7_AutoMesherModuleNotLicensed = 462;
         public const int ERR7_RCModuleNotLicensed = 463;
         public const int ERR7_CompositesModuleNotLicensed = 464;
+        public const int ERR7_InvalidPseudoTime = 465;
+        public const int ERR7_InvalidSectionPosition = 466;
+        public const int ERR7_UnknownSolverProcess = 467;
+        public const int ERR7_InvalidParameters = 468;
 
         // Solver Error Codes
         public const int SE_NoLoadCaseSelected = 1001;
@@ -2148,6 +2153,7 @@ namespace St7API
         public const int SE_InvalidCavityFluidDefinition = 1099;
         public const int SE_InactiveCavityControlCase = 1100;
         public const int SE_MovingLoadModuleNotLicensed = 1101;
+        public const int SE_NeedTemperatureDependence = 1102;
 
         // Solver Termination Error Codes
         public const int ST_NoError = 0;
@@ -2603,7 +2609,6 @@ namespace St7API
         public const int ipTetraMeshSmooth = 5;
         public const int ipTetraMeshAutoCreateProperties = 7;
         public const int ipTetraMeshDeletePlates = 8;
-        public const int ipTetraMeshMultiBodyOption = 9;
         public const int ipTetraMeshAllowUserStop = 10;
         public const int ipTetraMeshCheckSelfIntersect = 11;
         public const int ipTetraMeshZipOption = 12;
@@ -2625,9 +2630,6 @@ namespace St7API
         public const int msFine = 1;
         public const int msMedium = 2;
         public const int msCoarse = 3;
-        public const int mbCancelMeshing = 0;
-        public const int mbCavity = 1;
-        public const int mbSeparateSolids = 2;
 
         // Polygon Meshing
         public const int ipMeshTargetNodes = 0;

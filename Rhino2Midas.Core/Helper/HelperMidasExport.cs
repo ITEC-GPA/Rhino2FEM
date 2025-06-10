@@ -151,29 +151,29 @@ namespace Rhino2Fem.Core.Helper
 
                 if (row == sectionMatchTest)
                 {
-                    Dictionary<string, FramePropertyModel.FramePropertyTypes> kvpType = new Dictionary<string, FramePropertyModel.FramePropertyTypes>()
+                    Dictionary<string, FrameSectionModel.SectionGeometryTypes> kvpType = new Dictionary<string, FrameSectionModel.SectionGeometryTypes>()
                     {
-                        {"SB", FramePropertyModel.FramePropertyTypes.SB},
-                        {"SR",  FramePropertyModel.FramePropertyTypes.SR},
-                        {"P",  FramePropertyModel.FramePropertyTypes.P},
-                        {"L",  FramePropertyModel.FramePropertyTypes.L},
-                        {"C",  FramePropertyModel.FramePropertyTypes.C},
-                        {"H",  FramePropertyModel.FramePropertyTypes.H},
-                        {"T",  FramePropertyModel.FramePropertyTypes.T},
-                        {"B",  FramePropertyModel.FramePropertyTypes.B},
+                        {"SB", FrameSectionModel.SectionGeometryTypes.SB},
+                        {"SR",  FrameSectionModel.SectionGeometryTypes.SR},
+                        {"P",  FrameSectionModel.SectionGeometryTypes.P},
+                        {"L",  FrameSectionModel.SectionGeometryTypes.L},
+                        {"C",  FrameSectionModel.SectionGeometryTypes.C},
+                        {"H",  FrameSectionModel.SectionGeometryTypes.H},
+                        {"T",  FrameSectionModel.SectionGeometryTypes.T},
+                        {"B",  FrameSectionModel.SectionGeometryTypes.B},
                     };
 
-                    Dictionary<string, FramePropertyModel.OffsetTypes> kvpOffset = new Dictionary<string, FramePropertyModel.OffsetTypes>()
+                    Dictionary<string, FrameSectionModel.OffsetTypes> kvpOffset = new Dictionary<string, FrameSectionModel.OffsetTypes>()
                     {
-                        {"LT", FramePropertyModel.OffsetTypes.LT},
-                        {"CT", FramePropertyModel.OffsetTypes.CT},
-                        {"RT", FramePropertyModel.OffsetTypes.RT},
-                        {"LC", FramePropertyModel.OffsetTypes.LC},
-                        {"CC", FramePropertyModel.OffsetTypes.CC},
-                        {"RC", FramePropertyModel.OffsetTypes.RC},
-                        {"LB", FramePropertyModel.OffsetTypes.LB},
-                        {"CB", FramePropertyModel.OffsetTypes.CB},
-                        {"RB", FramePropertyModel.OffsetTypes.RB},
+                        {"LT", FrameSectionModel.OffsetTypes.LT},
+                        {"CT", FrameSectionModel.OffsetTypes.CT},
+                        {"RT", FrameSectionModel.OffsetTypes.RT},
+                        {"LC", FrameSectionModel.OffsetTypes.LC},
+                        {"CC", FrameSectionModel.OffsetTypes.CC},
+                        {"RC", FrameSectionModel.OffsetTypes.RC},
+                        {"LB", FrameSectionModel.OffsetTypes.LB},
+                        {"CB", FrameSectionModel.OffsetTypes.CB},
+                        {"RB", FrameSectionModel.OffsetTypes.RB},
                     };
 
                     for (int j = i + 42; j < textMgt.Length; j++)
@@ -190,15 +190,15 @@ namespace Rhino2Fem.Core.Helper
 
                         var splitlist = textMgt[j].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
 
-                        FramePropertyModel sectionModel = new FramePropertyModel()
+                        FrameSectionModel sectionModel = new FrameSectionModel()
                         {
                             Id = int.Parse(splitlist[0].Trim()),
-                            PropertyType = kvpType[splitlist[12].Trim()],
+                            SectionGeometryType = kvpType[splitlist[12].Trim()],
                             Name = splitlist[2].Trim(),
                             Offset = kvpOffset[splitlist[3].Trim()],
                         };
 
-                        Model.FrameProperties.Add(sectionModel);
+                        Model.FrameSections.Add(sectionModel);
                     }
                 }
             }
@@ -223,7 +223,7 @@ namespace Rhino2Fem.Core.Helper
                         {
                             Id = int.Parse(splitlist[0].Trim()),
                             Name = splitlist[2].Trim(),
-                            Thickness = double.Parse(splitlist[4].Trim()),
+                            ThicknessMembrane = double.Parse(splitlist[4].Trim()),
                             Offset = double.Parse(splitlist[8].Trim()),
                         };
 
@@ -283,7 +283,7 @@ namespace Rhino2Fem.Core.Helper
                             {
                                 Id = int.Parse(splitlist[0].Trim()),
                                 Material = Model.Materials[int.Parse(splitlist[2].Trim())],
-                                FrameProperty = Model.FrameProperties[int.Parse(splitlist[3].Trim())],
+                                FrameSection = Model.FrameSections[int.Parse(splitlist[3].Trim())],
                                 NodeStart = Model.NodeElements[int.Parse(splitlist[4].Trim())],
                                 NodeEnd = Model.NodeElements[int.Parse(splitlist[5].Trim())],
                                 Angle = double.Parse(splitlist[6].Trim()),
@@ -555,23 +555,23 @@ namespace Rhino2Fem.Core.Helper
 
         private void WriteMgtFrameProperty(List<string> textMgt)
         {
-            if (Model.FrameProperties.Count > 0)
+            if (Model.FrameSections.Count > 0)
             {
                 textMgt.Add("*SECTION");
                 textMgt.Add("; i, (section type), (name), (offset), (iCENT=0), (iREF=0), (iHORZ=0), (huser=0), (iVERT=0), (vuser=0), (consider shear deformation = \"YES\"), (consider warping effect = \"NO\"), (shape type), 2, (dimension 1 to 10)");
             }
-            foreach (var kvp in Model.FrameProperties)
+            foreach (var kvp in Model.FrameSections)
             {
-                FramePropertyModel frameProperty = kvp.Value;
+                FrameSectionModel frameProperty = kvp.Value;
                 string framePropertyName = frameProperty.Name;
                 if (framePropertyName.Length > 28)
                     framePropertyName = framePropertyName.Substring(0, 28);
 
-                if (frameProperty.Type == FramePropertyModel.Types.DBUSER)
-                    textMgt.Add($"{frameProperty.Id}, {frameProperty.Type}, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, {frameProperty.PropertyType.ToString()}, 2, " +
+                if (frameProperty.Type == FrameSectionModel.Types.DBUSER)
+                    textMgt.Add($"{frameProperty.Id}, {frameProperty.Type}, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, {frameProperty.SectionGeometryType.ToString()}, 2, " +
                         $"{frameProperty.Dimension1}, {frameProperty.Dimension2}, {frameProperty.Dimension3}, {frameProperty.Dimension4}, {frameProperty.Dimension5}, " +
                         $"{frameProperty.Dimension6}, {frameProperty.Dimension7}, {frameProperty.Dimension8}, {frameProperty.Dimension9}, {frameProperty.Dimension10}");
-                else if (frameProperty.Type == FramePropertyModel.Types.COMPOSITE_I)
+                else if (frameProperty.Type == FrameSectionModel.Types.COMPOSITE_I)
                     textMgt.Add($"{frameProperty.Id}, {frameProperty.Type}, {framePropertyName}, {frameProperty.Offset.ToString()}, 0, 0, 0, 0, 0, 0, YES, NO, NO, I, " +
                         $"{frameProperty.Dimension1}, {frameProperty.Dimension2}, {frameProperty.Dimension3}, {frameProperty.Dimension4}, {frameProperty.Dimension5}, {frameProperty.Dimension6}, " +
                         "0, 0, 0, 0, 0, 0, 0\r\n       " +
@@ -600,7 +600,7 @@ namespace Rhino2Fem.Core.Helper
                 string offsett = areaThickness.Offset != 0 ? "YES" : "NO";
                 string offsettype = areaThickness.Offset != 0 ? "1" : "0";
 
-                textMgt.Add($"{areaThickness.Id}, VALUE, {name}, YES, {areaThickness.Thickness}, 0, {offsett}, {offsettype}, {areaThickness.Offset}");
+                textMgt.Add($"{areaThickness.Id}, VALUE, {name}, YES, {areaThickness.ThicknessMembrane}, 0, {offsett}, {offsettype}, {areaThickness.Offset}");
             }
         }
 
@@ -614,7 +614,7 @@ namespace Rhino2Fem.Core.Helper
             foreach (var kvp in Model.FrameElements)
             {
                 FrameElementModel frameElement = kvp.Value;
-                textMgt.Add($"{frameElement.Id}, BEAM, {frameElement.Material.Id}, {frameElement.FrameProperty.Id}, {frameElement.NodeStart.Id}, {frameElement.NodeEnd.Id}, {Rhino.RhinoMath.ToDegrees(frameElement.Angle)} , 0");
+                textMgt.Add($"{frameElement.Id}, BEAM, {frameElement.Material.Id}, {frameElement.FrameSection.Id}, {frameElement.NodeStart.Id}, {frameElement.NodeEnd.Id}, {Rhino.RhinoMath.ToDegrees(frameElement.Angle)} , 0");
             }
         }
 
@@ -699,7 +699,7 @@ namespace Rhino2Fem.Core.Helper
             {
                 for (int j = 0; j < area.Value.AreaLoadList.Count; j++)
                 {
-                    AreaLoadModel load = area.Value.AreaLoadList[j];
+                    AreaLoadMidasModel load = area.Value.AreaLoadList[j];
                     if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
                         loadGroups.Add(load.LoadGroup.Name);
                 }
@@ -794,10 +794,10 @@ namespace Rhino2Fem.Core.Helper
             foreach (var kvp in Model.AreaElements)
             {
                 AreaElementModel areaElement = kvp.Value;
-                List<AreaLoadModel> areaLoadList = areaElement.AreaLoadList;
+                List<AreaLoadMidasModel> areaLoadList = areaElement.AreaLoadList;
                 for (int i = 0; i < areaLoadList.Count; i++)
                 {
-                    AreaLoadModel item = areaLoadList[i];
+                    AreaLoadMidasModel item = areaLoadList[i];
                     string proj = ((!item.IsProjected) ? "NO" : "YES");
                     textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
                     textMgt.Add("*PRESSURE   ;Pressure Loads");

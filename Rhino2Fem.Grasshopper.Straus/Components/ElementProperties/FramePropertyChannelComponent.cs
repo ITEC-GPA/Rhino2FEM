@@ -1,10 +1,7 @@
-using System;
 using Grasshopper.Kernel;
-using Grasshopper.Kernel.Parameters;
-using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.ElementProperties;
-using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
+using System;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 {
@@ -44,10 +41,11 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
             double dimension8 = 0.0;
             double dimension9 = 0.0;
             double dimension10 = 0.0;
+
             if (DA.GetData(0, ref name) && DA.GetData(1, ref h) && DA.GetData(2, ref topFlangeWidth) &&
                 DA.GetData(3, ref webThick) && DA.GetData(4, ref topFlangeThick) && DA.GetData(5, ref bottomFlangeWidth) && DA.GetData(7, ref bottomFlangeThick))
             {
-                FramePropertyModel frameProperty = new FramePropertyModel(name, FramePropertyModel.FramePropertyTypes.C, FramePropertyModel.Types.DBUSER, FramePropertyModel.OffsetTypes.CC,
+                FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.C, FrameSectionModel.Types.DBUSER, FrameSectionModel.OffsetTypes.CC,
                     h, topFlangeWidth, webThick, topFlangeThick, bottomFlangeWidth, bottomFlangeThick, dimension7, dimension8, dimension9, dimension10);
                 DA.SetData(0, new GH_FrameProperty(frameProperty));
             }

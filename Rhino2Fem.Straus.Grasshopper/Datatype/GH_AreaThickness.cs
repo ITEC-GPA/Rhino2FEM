@@ -29,7 +29,7 @@ namespace Rhino2Fem.Grasshopper.Datatype
         public override string ToString()
         {
             return "Name: " + Value.Name + "\n" +
-                "Thickness: " + Value.Thickness;
+                "Thickness: " + Value.ThicknessMembrane;
         }
     }
 }

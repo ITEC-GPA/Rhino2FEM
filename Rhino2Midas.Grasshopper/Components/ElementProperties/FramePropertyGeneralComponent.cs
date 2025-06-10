@@ -19,10 +19,10 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
         {
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Type", "Type L/C/H/T/B/P/SB/SR", "Type", GH_ParamAccess.item);
-            foreach (FramePropertyModel.FramePropertyTypes v in Enum.GetValues(typeof(FramePropertyModel.FramePropertyTypes)))
+            foreach (FrameSectionModel.SectionGeometryTypes v in Enum.GetValues(typeof(FrameSectionModel.SectionGeometryTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddIntegerParameter("Offset", "Offset", "Offset LT/CT/RT/LC/CC/RC/LB/CB/RB", GH_ParamAccess.item, 4);
-            foreach (FramePropertyModel.OffsetTypes v in Enum.GetValues(typeof(FramePropertyModel.OffsetTypes)))
+            foreach (FrameSectionModel.OffsetTypes v in Enum.GetValues(typeof(FrameSectionModel.OffsetTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddNumberParameter("Dimension 1", "Dimension 1", "Dimension 1", GH_ParamAccess.item, 0.0);
             pManager.AddNumberParameter("Dimension 2", "Dimension 2", "Dimension 2", GH_ParamAccess.item, 0.0);
@@ -66,7 +66,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
                 return;
             }
 
-            FramePropertyModel frameProperty = new FramePropertyModel(name, (FramePropertyModel.FramePropertyTypes)text, FramePropertyModel.Types.DBUSER, (FramePropertyModel.OffsetTypes)offset,
+            FrameSectionModel frameProperty = new FrameSectionModel(name, (FrameSectionModel.SectionGeometryTypes)text, FrameSectionModel.Types.DBUSER, (FrameSectionModel.OffsetTypes)offset,
                 dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
             frameProperty.Id = number;
             DA.SetData(0, new GH_FrameProperty(frameProperty));

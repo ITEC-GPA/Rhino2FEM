@@ -3,9 +3,9 @@ using Rhino2Fem.Core.ElementProperties;
 
 namespace Rhino2Fem.Grasshopper.Datatype
 {
-    public class GH_FrameProperty : GH_Goo<FramePropertyModel>
+    public class GH_FrameProperty : GH_Goo<FrameSectionModel>
     {
-        public GH_FrameProperty(FramePropertyModel model)
+        public GH_FrameProperty(FrameSectionModel model)
         {
             Value = model;
         }
@@ -29,7 +29,7 @@ namespace Rhino2Fem.Grasshopper.Datatype
         public override string ToString()
         {
             return "Name: " + Value.Name + ", \r" +
-                "Type: " + Value.PropertyType;
+                "Type: " + Value.SectionGeometryType;
         }
     }
 }

@@ -57,6 +57,18 @@ namespace Rhino2Fem.Core.Attributes
             return group;
         }
 
+        public List<ElementGroupModel> GetBranch()
+        {
+            List<ElementGroupModel> branch = new List<ElementGroupModel>() { this };
+            ElementGroupModel curr_parent = GroupParent;
+            while (curr_parent != null)
+            {
+                branch.Insert(0, curr_parent);
+                curr_parent = curr_parent.GroupParent;
+            }
+            return branch;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as ElementGroupModel);

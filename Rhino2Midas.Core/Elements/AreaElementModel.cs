@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using Rhino.Display;
+﻿using Rhino.Display;
 using Rhino.Geometry;
 using Rhino2Fem.Core.Attributes;
 using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Loads;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 
 namespace Rhino2Fem.Core.Elements
 {
@@ -17,30 +16,42 @@ namespace Rhino2Fem.Core.Elements
 
         public AreaThicknessModel AreaThickness { get; set; }
 
+        public AreaPropertyModel AreaProperty { get; set; }
+
         public MaterialModel Material { get; set; }
 
-        public List<AreaLoadModel> AreaLoadList { get; set; }
+        public List<AreaLoadMidasModel> AreaLoadList { get; set; }
 
         public double Angle { get; set; }
 
+        public double Offset { get; set; }
+
         public Brep Brep { get; set; }
 
-        public AreaElementModel(List<NodeElementModel> nodeList, AreaThicknessModel areaThickness, MaterialModel material, double angle = 0, List<ElementGroupModel> group = null, List<AreaLoadModel> areaLoadList = null)
-            : base()
+        public AreaElementModel(List<NodeElementModel> nodeList, AreaPropertyModel areaPropertyModel, double angle = 0, double offset = 0, List<ElementGroupModel> group = null, List<AreaLoadMidasModel> areaLoadList = null)
+        : base()
         {
             NodeList = nodeList;
-            AreaThickness = areaThickness;
-            Material = material;
+            AreaProperty = areaPropertyModel;
+            AreaThickness = areaPropertyModel.Section;
+            Material = areaPropertyModel.Material;
             Angle = angle;
+            Offset = offset;
             if (areaLoadList != null)
                 AreaLoadList = areaLoadList;
             else
-                AreaLoadList = new List<AreaLoadModel>();
+                AreaLoadList = new List<AreaLoadMidasModel>();
             if (group != null)
                 Groups = group;
             else
                 Groups = new List<ElementGroupModel>();
             BuildBrep();
+        }
+
+        public AreaElementModel(List<NodeElementModel> nodeList, AreaThicknessModel areaThickness, MaterialModel material, double angle = 0, double offset = 0, List<ElementGroupModel> group = null, List<AreaLoadMidasModel> areaLoadList = null)
+            : this(nodeList, new AreaPropertyModel(areaThickness.Name, material, areaThickness), angle, offset, group, areaLoadList)
+        {
+
         }
 
         public AreaElementModel()
@@ -59,6 +70,7 @@ namespace Rhino2Fem.Core.Elements
             Groups = areaElementModel.Groups;
             AreaLoadList = areaElementModel.AreaLoadList;
             Brep = areaElementModel.Brep;
+            Offset = areaElementModel.Offset;
         }
 
         public void DrawWireframe(DisplayPipeline display, RhinoViewport viewport, Color color)
@@ -79,9 +91,9 @@ namespace Rhino2Fem.Core.Elements
 
         private void BuildBrep()
         {
-            if(Brep == null)
+            if (Brep == null)
             {
-                if(NodeList.Count > 2)
+                if (NodeList.Count > 2)
                 {
                     List<Curve> curves = new List<Curve>();
                     for (int i = 0; i < NodeList.Count; i++)
@@ -96,10 +108,11 @@ namespace Rhino2Fem.Core.Elements
                     {
                         var brepBuffer = brepBuffers.FirstOrDefault();
                         var plane = new Plane(NodeList[0].Position, NodeList[1].Position, NodeList[2].Position);
-                        brepBuffer.Translate(-plane.Normal * (AreaThickness.Thickness / 2.0));
-                        LineCurve line = new LineCurve(NodeList[0].Position, NodeList[0].Position + plane.Normal * AreaThickness.Thickness);
+                        brepBuffer.Translate(-plane.Normal * (AreaThickness.ThicknessMembrane / 2.0));
+                        LineCurve line = new LineCurve(NodeList[0].Position, NodeList[0].Position + plane.Normal * AreaThickness.ThicknessMembrane);
                         Brep = brepBuffer.Faces[0].CreateExtrusion(line, true);
                         Brep.Translate(plane.Normal * AreaThickness.Offset);
+                        Brep.Translate(plane.Normal * Offset);
                     }
                 }
             }

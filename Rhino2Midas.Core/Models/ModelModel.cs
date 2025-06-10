@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using Rhino.Geometry;
 using Rhino2Fem.Core.Attributes;
 using Rhino2Fem.Core.Base;
@@ -10,8 +6,10 @@ using Rhino2Fem.Core.Collections;
 using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Elements;
 using Rhino2Fem.Core.Helper;
-using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Core.Settings;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Rhino2Fem.Core.Models
 {
@@ -22,8 +20,10 @@ namespace Rhino2Fem.Core.Models
         public UniqueNameCollection<LoadCaseModel> LoadCases { get; }
         public UniqueNameCollection<LoadCombinationModel> LoadCombinations { get; }
         public UniqueNameCollection<ElementGroupModel> Groups { get; }
+        public UniqueIdCollection<FrameSectionModel> FrameSections { get; }
         public UniqueIdCollection<FramePropertyModel> FrameProperties { get; }
         public UniqueIdCollection<AreaThicknessModel> AreaThicknesses { get; }
+        public UniqueIdCollection<AreaPropertyModel> AreaProperties { get; }
         public UniqueIdCollection<NodeElementModel> NodeElements { get; }
         public UniqueIdCollection<FrameElementModel> FrameElements { get; }
         public UniqueIdCollection<AreaElementModel> AreaElements { get; }
@@ -36,7 +36,7 @@ namespace Rhino2Fem.Core.Models
             LoadCases = new UniqueNameCollection<LoadCaseModel>();
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
             Groups = new UniqueNameCollection<ElementGroupModel>();
-            FrameProperties = new UniqueIdCollection<FramePropertyModel>();
+            FrameSections = new UniqueIdCollection<FrameSectionModel>();
             AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
@@ -50,7 +50,7 @@ namespace Rhino2Fem.Core.Models
             LoadCases = new UniqueNameCollection<LoadCaseModel>();
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
             Groups = new UniqueNameCollection<ElementGroupModel>();
-            FrameProperties = new UniqueIdCollection<FramePropertyModel>();
+            FrameSections = new UniqueIdCollection<FrameSectionModel>();
             AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
@@ -65,8 +65,8 @@ namespace Rhino2Fem.Core.Models
                 LoadCombinations.Add(new LoadCombinationModel(model.LoadCombinations.Values.ElementAt(i)));
             for (int i = 0; i < model.Groups.Count; i++)
                 Groups.Add(new ElementGroupModel(model.Groups.Values.ElementAt(i)));
-            for (int i = 0; i < model.FrameProperties.Count; i++)
-                FrameProperties.Add(new FramePropertyModel(model.FrameProperties.Values.ElementAt(i)));
+            for (int i = 0; i < model.FrameSections.Count; i++)
+                FrameSections.Add(new FrameSectionModel(model.FrameSections.Values.ElementAt(i)));
             for (int i = 0; i < model.AreaThicknesses.Count; i++)
                 AreaThicknesses.Add(new AreaThicknessModel(model.AreaThicknesses.Values.ElementAt(i)));
             for (int i = 0; i < model.NodeElements.Count; i++)
@@ -389,6 +389,7 @@ namespace Rhino2Fem.Core.Models
                     }
                 }
             }
+
             for (int i = 0; i < framesBuffer.Count; i++)
             {
                 var element = framesBuffer[i];
@@ -430,11 +431,15 @@ namespace Rhino2Fem.Core.Models
             #region Properties
 
             int idMaterial = 1;
+            int idFrameSection = 1;
             int idFrameProperty = 1;
+            int idAreaThicknes = 1;
             int idAreaProperty = 1;
             List<int> usedMaterialIds = frames.Select(x => x.Material.Id).Union(areas.Select(i => i.Material.Id)).Distinct().ToList();
+            List<int> usedFrameSectionIds = frames.Select(x => x.FrameSection.Id).Distinct().ToList();
             List<int> usedFramePropertyIds = frames.Select(x => x.FrameProperty.Id).Distinct().ToList();
-            List<int> usedAreaPropertyIds = areas.Select(x => x.AreaThickness.Id).Distinct().ToList();
+            List<int> usedAreaSectionIds = areas.Select(x => x.AreaThickness.Id).Distinct().ToList();
+            List<int> usedAreaPropertyIds = areas.Select(x => x.AreaProperty.Id).Distinct().ToList();
 
             for (int i = 0; i < framesBuffer.Count; i++)
             {
@@ -484,6 +489,29 @@ namespace Rhino2Fem.Core.Models
 
             for (int i = 0; i < framesBuffer.Count; i++)
             {
+                var fp = new FrameSectionModel(framesBuffer[i].FrameSection);
+
+                bool exist = false;
+                for (int j = 0; j < FrameSections.Count; j++)
+                {
+                    if (framesBuffer[i].FrameSection == FrameSections.ElementAt(j).Value)
+                    {
+                        exist = true;
+                        framesBuffer[i].FrameSection = FrameSections.ElementAt(j).Value;
+                    }
+                }
+                if (!exist)
+                {
+                    if (fp.Id == ModelObjectId.UNASSIGNED)
+                        fp.Id = NewId(usedFrameSectionIds, idFrameSection);
+                    usedFrameSectionIds.Add(fp.Id);
+                    FrameSections.Add(fp);
+                    framesBuffer[i].FrameSection = FrameSections[fp.Id];
+                }
+            }
+
+            for (int i = 0; i < framesBuffer.Count; i++)
+            {
                 var fp = new FramePropertyModel(framesBuffer[i].FrameProperty);
 
                 bool exist = false;
@@ -521,10 +549,33 @@ namespace Rhino2Fem.Core.Models
                 if (!exist)
                 {
                     if (fp.Id == ModelObjectId.UNASSIGNED)
-                        fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
-                    usedAreaPropertyIds.Add(fp.Id);
+                        fp.Id = NewId(usedAreaSectionIds, idAreaThicknes);
+                    usedAreaSectionIds.Add(fp.Id);
                     AreaThicknesses.Add(fp);
                     areasBuffer[i].AreaThickness = AreaThicknesses[fp.Id];
+                }
+            }
+
+            for (int i = 0; i < areasBuffer.Count; i++)
+            {
+                var fp = new AreaPropertyModel(areasBuffer[i].AreaProperty);
+
+                bool exist = false;
+                for (int j = 0; j < AreaProperties.Count; j++)
+                {
+                    if (areasBuffer[i].AreaProperty == AreaProperties.ElementAt(j).Value)
+                    {
+                        exist = true;
+                        areasBuffer[i].AreaProperty = AreaProperties.ElementAt(j).Value;
+                    }
+                }
+                if (!exist)
+                {
+                    if (fp.Id == ModelObjectId.UNASSIGNED)
+                        fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
+                    usedAreaSectionIds.Add(fp.Id);
+                    AreaProperties.Add(fp);
+                    areasBuffer[i].AreaProperty = AreaProperties[fp.Id];
                 }
             }
 
@@ -670,7 +721,7 @@ namespace Rhino2Fem.Core.Models
                    EqualityComparer<UniqueNameCollection<LoadCaseModel>>.Default.Equals(LoadCases, other.LoadCases) &&
                    EqualityComparer<UniqueNameCollection<LoadCombinationModel>>.Default.Equals(LoadCombinations, other.LoadCombinations) &&
                    EqualityComparer<UniqueNameCollection<ElementGroupModel>>.Default.Equals(Groups, other.Groups) &&
-                   EqualityComparer<UniqueIdCollection<FramePropertyModel>>.Default.Equals(FrameProperties, other.FrameProperties) &&
+                   EqualityComparer<UniqueIdCollection<FrameSectionModel>>.Default.Equals(FrameSections, other.FrameSections) &&
                    EqualityComparer<UniqueIdCollection<AreaThicknessModel>>.Default.Equals(AreaThicknesses, other.AreaThicknesses) &&
                    EqualityComparer<UniqueIdCollection<NodeElementModel>>.Default.Equals(NodeElements, other.NodeElements) &&
                    EqualityComparer<UniqueIdCollection<FrameElementModel>>.Default.Equals(FrameElements, other.FrameElements) &&
@@ -685,7 +736,7 @@ namespace Rhino2Fem.Core.Models
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<LoadCaseModel>>.Default.GetHashCode(LoadCases);
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<LoadCombinationModel>>.Default.GetHashCode(LoadCombinations);
             hashCode = hashCode * -17 + EqualityComparer<UniqueNameCollection<ElementGroupModel>>.Default.GetHashCode(Groups);
-            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<FramePropertyModel>>.Default.GetHashCode(FrameProperties);
+            hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<FrameSectionModel>>.Default.GetHashCode(FrameSections);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<AreaThicknessModel>>.Default.GetHashCode(AreaThicknesses);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<NodeElementModel>>.Default.GetHashCode(NodeElements);
             hashCode = hashCode * -17 + EqualityComparer<UniqueIdCollection<FrameElementModel>>.Default.GetHashCode(FrameElements);

@@ -1,5 +1,5 @@
 ﻿using Grasshopper.Kernel.Types;
-using Rhino2Fem.Core.Loads;
+using Rhino2Fem.Core.Cases;
 
 namespace Rhino2Fem.Grasshopper.Datatype
 {
