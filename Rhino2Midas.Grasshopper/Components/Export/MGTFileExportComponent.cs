@@ -59,6 +59,6 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Export
 
         //protected override Bitmap Icon => Resources.frame_element;
 
-        public override Guid ComponentGuid => new Guid("55aba149-7646-456a-877c-4b7f647a1208");
+        public override Guid ComponentGuid => new Guid("a7ba36e2-a6ea-41f7-8d79-0b63124cdeae");
     }
 }

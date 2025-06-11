@@ -927,7 +927,7 @@ namespace Rhino2Fem.Core.Helper
                                 if (St7.St7SetBeamReferenceAngle1(modelId, beamNumber, new double[] { Rhino.RhinoMath.ToDegrees(angle) }) != 0)
                                     warnings.Add(string.Format($"Failed to set the reference angle of the beam {beam.Id}."));
 
-                                if (beam.Offset != Rhino.Geometry.Vector2d.Unset && beam.Offset.Length > 0) //Rhino.Geometry.Vector2d or Maffeis.Geometry.Vector2d?
+                                if (beam.Offset != Rhino.Geometry.Vector3d.Unset && beam.Offset != Rhino.Geometry.Vector3d.Zero && beam.Offset.Length > 0) //Rhino.Geometry.Vector2d or Maffeis.Geometry.Vector2d?
                                     St7.St7SetBeamOffset2(modelId, beamNumber, new double[] { beam.Offset.X, beam.Offset.Y });
 
                                 addedBeamsId.Add(beamNumber);

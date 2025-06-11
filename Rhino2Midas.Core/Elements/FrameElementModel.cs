@@ -23,18 +23,18 @@ namespace Rhino2Fem.Core.Elements
 
         public List<FrameLoadModel> FrameLoadList { get; set; }
 
-        public Vector2d Offset { get; set; }
+        public Vector3d Offset { get; set; }
 
         public double OffsetX
         {
             get => Offset.X;
-            set => Offset = new Vector2d(value, Offset.Y);
+            set => Offset = new Vector3d(value, Offset.Y, Offset.Z);
         }
 
         public double OffsetY
         {
             get => Offset.Y;
-            set => Offset = new Vector2d(Offset.X, value);
+            set => Offset = new Vector3d(Offset.X, value, Offset.Z);
         }
 
         public double Angle { get; set; }
@@ -51,7 +51,7 @@ namespace Rhino2Fem.Core.Elements
             }
         }
 
-        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, double angle, Vector2d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, double angle, Vector3d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
             : base()
         {
             NodeStart = startNode;
@@ -73,7 +73,7 @@ namespace Rhino2Fem.Core.Elements
             BuildBreps();
         }
 
-        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FrameSectionModel frameProperty, MaterialModel material, double angle, Vector2d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FrameSectionModel frameProperty, MaterialModel material, double angle, Vector3d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
             : this(startNode, endNode, new FramePropertyModel(frameProperty.Name, material, frameProperty), angle, offset, group, frameLoadList)
         {
         }
@@ -131,8 +131,12 @@ namespace Rhino2Fem.Core.Elements
                     Vector3d offset = GetSectionOffset();
                     offset.Transform(t);
                     shape.Translate(offset.X, offset.Y, offset.Z);
-                    if(Offset != Vector2d.Unset && Offset != Vector2d.Zero)                    
-                        shape.Translate(OffsetX, OffsetY, 0);
+                    if (Offset != Vector3d.Unset && Offset != Vector3d.Zero)
+                    {
+                        Vector3d localOffset = new Vector3d(Offset);
+                        localOffset .Transform(t);
+                        shape.Translate(localOffset.X, localOffset.Y, localOffset.Z);
+                    }
                     
                     Breps.Add(shape);
                 }

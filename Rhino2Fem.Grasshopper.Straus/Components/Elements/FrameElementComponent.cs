@@ -41,7 +41,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
             double angle = 0;
             int id = 0;
-            Vector2d offset = Vector2d.Unset;
+            Vector3d offset = Vector3d.Unset;
 
             if (!DA.GetData(0, ref val) || !DA.GetData(1, ref gH_FrameProperty) || !DA.GetData(2, ref gH_Material))
                 return;

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Rhino.Collections;
+﻿using Rhino.Collections;
 using Rhino.Geometry;
 using Rhino2Fem.Core.Base;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Rhino2Fem.Core.ElementProperties
 {
@@ -255,22 +255,22 @@ namespace Rhino2Fem.Core.ElementProperties
                         case SectionGeometryTypes.B:
                             {
                                 List<Point3d> ptsOut = new List<Point3d>
-                        {
-                            new Point3d(-Dimension2 / 2, -Dimension1 / 2, 0),
-                            new Point3d(Dimension2 / 2, -Dimension1 / 2, 0),
-                            new Point3d(Dimension2 / 2, Dimension1 / 2, 0),
-                            new Point3d(-Dimension2 / 2, Dimension1 / 2, 0),
-                            new Point3d(-Dimension2 / 2, -Dimension1 / 2, 0)
-                        };
+                                {
+                                    new Point3d(-Dimension2 / 2, -Dimension1 / 2, 0),
+                                    new Point3d(Dimension2 / 2, -Dimension1 / 2, 0),
+                                    new Point3d(Dimension2 / 2, Dimension1 / 2, 0),
+                                    new Point3d(-Dimension2 / 2, Dimension1 / 2, 0),
+                                    new Point3d(-Dimension2 / 2, -Dimension1 / 2, 0)
+                                };
                                 PolylineCurve border = new PolylineCurve(ptsOut);
                                 List<Point3d> ptsIn = new List<Point3d>
-                        {
-                            new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension4, 0),
-                            new Point3d(Dimension2 / 2 - Dimension3, -Dimension1 / 2 + Dimension4, 0),
-                            new Point3d(Dimension2 / 2 - Dimension3, Dimension1 / 2 - Dimension4, 0),
-                            new Point3d(-Dimension2 / 2 + Dimension3, Dimension1 / 2 - Dimension4, 0),
-                            new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension4, 0)
-                        };
+                                {
+                                    new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension6, 0),
+                                    new Point3d(Dimension2 / 2 - Dimension3, -Dimension1 / 2 + Dimension6, 0),
+                                    new Point3d(Dimension2 / 2 - Dimension3, Dimension1 / 2 - Dimension4, 0),
+                                    new Point3d(-Dimension2 / 2 + Dimension3, Dimension1 / 2 - Dimension4, 0),
+                                    new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension6, 0)
+                                };
                                 PolylineCurve inner = new PolylineCurve(ptsIn);
 
                                 CurveList curves = new CurveList
@@ -318,7 +318,7 @@ namespace Rhino2Fem.Core.ElementProperties
                                     new Point3d(Dimension3, Dimension1 - Dimension4, 0),
                                     new Point3d(Dimension2, Dimension1 - Dimension4, 0),
                                     new Point3d(Dimension2, Dimension1, 0),
-                                    new Point3d(0, Dimension1, 0),                                    
+                                    new Point3d(0, Dimension1, 0),
                                     new Point3d(0, 0, 0),
                                 };
                                 PolylineCurve border = new PolylineCurve(pts);
