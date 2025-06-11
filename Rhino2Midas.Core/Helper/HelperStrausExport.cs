@@ -709,7 +709,7 @@ namespace Rhino2Fem.Core.Helper
 
                 // Checking only a single load case for node displacements. This load case will give coefficients to apply in all
                 // combinations at the freedom case
-                LoadCaseModel displLoadCase = null;
+                //LoadCaseModel displLoadCase = null;
                 Dictionary<int, int[]> beamsNodeNumberMap = new Dictionary<int, int[]>();
                 Dictionary<int, int[]> plateNodeNumberMap = new Dictionary<int, int[]>();
                 List<string> warningPreprocessingList = new List<string>();
@@ -1396,7 +1396,7 @@ namespace Rhino2Fem.Core.Helper
                 }
 
                 // Plates
-                HashSet<int> addedPlatesId = new HashSet<int>();
+                HashSet<int> addedPlatesNumbers = new HashSet<int>();
                 for (int k = 0; k < Model.AreaElements.Count; k++)
                 {
                     var plate = Model.AreaElements.ElementAt(k).Value;
@@ -1404,13 +1404,8 @@ namespace Rhino2Fem.Core.Helper
                     {
                         int plateNumber = k + 1;
 
-                        if (!addedPlatesId.Contains(plateNumber))
+                        if (!addedPlatesNumbers.Contains(plateNumber))
                         {
-                            //int[] connections = new int[St7ApiWrapper.St7ApiConst.kMaxElementNode + 1];
-                            //connections[0] = plate.Points.Count;
-                            //for (int i = 0; i < plate.Points.Count; i++)
-                            //    connections[i + 1] = Convert.ToInt32(model.Nodes.Single(n => n.Position.DistanceToSquared(plate.Points[i]) < squaredTol).NodeId);
-
                             try
                             {
                                 int propId = plateProperties[plate.AreaProperty.Name];
@@ -1419,7 +1414,7 @@ namespace Rhino2Fem.Core.Helper
                                     warnings.Add($"Failed to define the plate {id}");
                                     continue;
                                 }
-                                if (St7.St7SetPlateID(modelId, plateNumber, plate.Id) != 0)                                
+                                if (St7.St7SetPlateID(modelId, plateNumber, plate.Id) != 0)
                                     warnings.Add($"Failed to set the ID to the plate {plate.Id}");
 
                                 if (plate.Groups.Count > 0) // We consider only the first group as Straus7 allows
@@ -1439,7 +1434,7 @@ namespace Rhino2Fem.Core.Helper
                                         warnings.Add($"Failed to set the offset to the plate {id}");
                                 }
 
-                                addedPlatesId.Add(plateNumber);
+                                addedPlatesNumbers.Add(plateNumber);
                             }
                             catch (Exception ex)
                             {
@@ -1530,32 +1525,22 @@ namespace Rhino2Fem.Core.Helper
                         // Loads
                         for (int i = 0; i < plate.AreaLoadList.Count; i++)
                         {
-                            AreaLoadMidasModel load = plate.AreaLoadList[i];
-                            
+                            AreaLoadBaseModel load = plate.AreaLoadList[i];
+
                             {
                                 int lc = loadCaseNameIdMap[load.LoadCase.Name];
-                                
-                                if (load is AreaLoadMidasModel pp)
+
+                                if (load is AreaPressureLoadModel pp)
                                 {
-                                    try
-                                    {
-                                        if (pp.CoordinateSystem == null)
-                                        {
-                                            St7.St7SetPlateNormalPressure2(modelId, plateNumber, lc, new double[] { pp.Value.P.Z });
-                                        }
-                                        else
-                                        {
-                                            int projectFlag = pp.IsProjected ? St7.btTrue : St7.btFalse;
-                                            int face = St7.psPlatePlusZ;
-                                            //int face = pp.Value.Face == PlatePressureModel.LoadFace.Top ? St7.psPlatePlusZ : St7.psPlateMinusZ;
-                                            St7.St7SetPlateGlobalPressure3S(modelId, plateNumber, face, projectFlag, lc, new double[] { pp.Value.P.X, pp.Value.P.Y, pp.Value.P.Z });
-                                        }
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        warnings.Add(string.Format($"Failed to set load case {lc} on plate {plate.Id}. {ex.Message}"));
-                                        continue;
-                                    }
+                                    if (St7.St7SetPlateNormalPressure2(modelId, plateNumber, lc, new double[] { pp.Value }) != 0)
+                                        warnings.Add(string.Format($"Failed to set load case {lc} on plate {plate.Id}."));
+                                }
+                                if (load is AreaGlobalPressureStraus gp)
+                                {
+                                            int projectFlag = gp.Projected ? St7.btTrue : St7.btFalse;
+                                            int face = gp.Face == AreaGlobalPressureStraus.LoadFace.Top ? St7.psPlatePlusZ : St7.psPlateMinusZ;    
+                                            St7.St7SetPlateGlobalPressure3S(modelId, plateNumber, face, projectFlag, lc, new double[] { gp.Value.X, gp.Value.Y, gp.Value.Z });
+
                                 }
                                 /*
                                 else if (load is PlatePreStressModel pps)

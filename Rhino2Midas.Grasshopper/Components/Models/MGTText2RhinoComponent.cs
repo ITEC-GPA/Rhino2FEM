@@ -31,9 +31,7 @@ namespace Rhino2Fem.Midas.Straus.Components.Models
             if (!DA.GetDataList(0, strings))
                 return;
 
-            ModelModel modelModel = new ModelModel();
-
-            modelModel.ReadMgtFile(strings.ToArray());
+            ModelModel modelModel = ModelModel.CreateFromMgtFile(strings);
 
             DA.SetData(0, new GH_Model(modelModel));
         }

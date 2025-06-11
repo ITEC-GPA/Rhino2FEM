@@ -49,7 +49,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Elements
 
             NodeElementModel startNode = new NodeElementModel(val.PointAtStart.X, val.PointAtStart.Y, val.PointAtStart.Z, null, null, null);
             NodeElementModel endNode = new NodeElementModel(val.PointAtEnd.X, val.PointAtEnd.Y, val.PointAtEnd.Z, null, null, null);
-            FrameElementModel frameElement = new FrameElementModel(startNode, endNode, gH_FrameProperty.Value, gH_Material.Value, Rhino.RhinoMath.ToRadians(angle))
+            FrameElementModel frameElement = new FrameElementModel(startNode, endNode, gH_FrameProperty.Value, gH_Material.Value, Rhino.RhinoMath.ToRadians(angle), Vector2d.Unset)
             { Id = id };
 
             if (groups != null && groups.Count > 0)

@@ -24,6 +24,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
             pManager.AddAngleParameter("Angle (deg)", "Angle (deg)", "Angle (deg)", GH_ParamAccess.item, 0.0);
             pManager.AddGenericParameter("Groups", "Groups", "Groups", GH_ParamAccess.list);
             ((GH_ParamManager)pManager)[4].Optional = true;
+            pManager.AddVectorParameter("Offset", "Offset", "Offset", GH_ParamAccess.item, Vector3d.Unset);
             pManager.AddIntegerParameter("Frame ID", "Frame ID", "Frame ID", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
 
@@ -40,16 +41,18 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
             double angle = 0;
             int id = 0;
+            Vector2d offset = Vector2d.Unset;
 
             if (!DA.GetData(0, ref val) || !DA.GetData(1, ref gH_FrameProperty) || !DA.GetData(2, ref gH_Material))
                 return;
             DA.GetData(3, ref angle);
             DA.GetDataList(4, groups);
-            DA.GetData(5, ref id);
+            DA.GetData(5, ref offset);
+            DA.GetData(6, ref id);
 
             NodeElementModel startNode = new NodeElementModel(val.PointAtStart.X, val.PointAtStart.Y, val.PointAtStart.Z, null, null, null);
             NodeElementModel endNode = new NodeElementModel(val.PointAtEnd.X, val.PointAtEnd.Y, val.PointAtEnd.Z, null, null, null);
-            FrameElementModel frameElement = new FrameElementModel(startNode, endNode, gH_FrameProperty.Value, gH_Material.Value, Rhino.RhinoMath.ToRadians(angle))
+            FrameElementModel frameElement = new FrameElementModel(startNode, endNode, gH_FrameProperty.Value, gH_Material.Value, Rhino.RhinoMath.ToRadians(angle), offset)
             { Id = id };
 
             if (groups != null && groups.Count > 0)

@@ -688,6 +688,13 @@ namespace Rhino2Fem.Core.Models
             return helperMidasExport.CreateMgtFile();
         }
 
+        public static ModelModel CreateFromMgtFile(IEnumerable<string> strings)
+        {
+            HelperMidasExport helperMidasExport = new HelperMidasExport(new ModelModel());
+            helperMidasExport.ReadMgtFile(strings.ToArray());
+            return helperMidasExport.Model;
+        }
+
         private int NewId(List<int> usedNodeIds, int previousId)
         {
             bool exist = true;
@@ -703,7 +710,10 @@ namespace Rhino2Fem.Core.Models
 
         public bool CreateModelStraus7R3(string outputPath, out int modelId, out List<string> warnings, out List<string> errors)
         {
-
+            HelperStrausExport helperStrausExport = new HelperStrausExport(this);
+            if (helperStrausExport.CreateModelR3(outputPath, out modelId, out warnings, out errors))
+                return true;
+            return false;
         }
 
         #region Overrides and Operators

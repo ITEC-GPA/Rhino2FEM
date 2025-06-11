@@ -38,6 +38,11 @@ namespace Rhino2Fem.Core.Loads
             P2 = p2;
             P3 = p3;
             P4 = p4;
+
+            if(direction == LoadDirections.Lx || direction == LoadDirections.Ly || direction == LoadDirections.Lz)
+                CoordinateSystem = CoordinateSystemModel.Local;            
+            else
+                CoordinateSystem = CoordinateSystemModel.Global;            
         }
 
         public AreaLoadMidasModel()

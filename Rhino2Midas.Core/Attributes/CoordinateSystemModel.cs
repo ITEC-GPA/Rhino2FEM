@@ -14,6 +14,7 @@ namespace Rhino2Fem.Core.Attributes
         public Point3d Point2 { get; set; }
 
         public readonly static CoordinateSystemModel Global = new CoordinateSystemModel("Global", Point3d.Origin, new Point3d(1, 0, 0), new Point3d(0, 1, 0), 1);
+        public readonly static CoordinateSystemModel Local = new CoordinateSystemModel("Local", Point3d.Origin, new Point3d(1, 0, 0), new Point3d(0, 1, 0), 1);
 
         public CoordinateSystemModel(string name, Point3d origin, Point3d p1, Point3d p2, int id)
             : base(id, name)

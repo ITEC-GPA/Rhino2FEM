@@ -128,9 +128,12 @@ namespace Rhino2Fem.Core.Elements
 
                     LineCurve line = new LineCurve(NodeStart.Position, NodeEnd.Position);
                     Brep shape = surface.Faces[0].CreateExtrusion(line, true);
-                    Vector3d offset = GetOffset();
+                    Vector3d offset = GetSectionOffset();
                     offset.Transform(t);
                     shape.Translate(offset.X, offset.Y, offset.Z);
+                    if(Offset != Vector2d.Unset && Offset != Vector2d.Zero)                    
+                        shape.Translate(OffsetX, OffsetY, 0);
+                    
                     Breps.Add(shape);
                 }
             }
@@ -169,7 +172,7 @@ namespace Rhino2Fem.Core.Elements
             toGlobal = Transform.PlaneToPlane(Plane.WorldXY, pl);
         }
 
-        public Vector3d GetOffset()
+        public Vector3d GetSectionOffset()
         {
             BoundingBox boundingBox = new BoundingBox();
 

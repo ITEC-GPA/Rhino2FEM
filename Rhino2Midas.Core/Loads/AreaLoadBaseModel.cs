@@ -6,10 +6,13 @@ namespace Rhino2Fem.Core.Loads
     public abstract class AreaLoadBaseModel
     {
         public LoadCaseModel LoadCase { get; set; }
+        public CoordinateSystemModel CoordinateSystem { get; set; }
 
-        public AreaLoadBaseModel(LoadCaseModel loadCase)
+        public AreaLoadBaseModel(LoadCaseModel loadCase, CoordinateSystemModel coordinateSystem = null)
         {
             LoadCase = loadCase;
+            if(coordinateSystem != null)
+                CoordinateSystem = coordinateSystem;
         }
 
         public AreaLoadBaseModel()
@@ -19,6 +22,7 @@ namespace Rhino2Fem.Core.Loads
         public AreaLoadBaseModel(AreaLoadBaseModel areaLoadModel)
         {
             LoadCase = areaLoadModel.LoadCase;
+            CoordinateSystem = areaLoadModel.CoordinateSystem;
         }
     }
 }

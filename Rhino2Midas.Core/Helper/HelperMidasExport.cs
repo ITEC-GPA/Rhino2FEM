@@ -49,8 +49,9 @@ namespace Rhino2Fem.Core.Helper
             return outputStrings;
         }
 
-        public void ReadMgtFile(string[] textMgt)
+        public bool ReadMgtFile(string[] textMgt)
         {
+            Model = new ModelModel();
             string unitsMatchTest = "*UNIT    ; Unit System";
             string groupMatchTest = "*GROUP    ; Group";
             string nodeCoordinateMatchTest = "*NODE    ; Nodes";
@@ -488,6 +489,8 @@ namespace Rhino2Fem.Core.Helper
                     }
                 }
             }
+
+            return true;
         }
 
         #endregion
@@ -699,9 +702,11 @@ namespace Rhino2Fem.Core.Helper
             {
                 for (int j = 0; j < area.Value.AreaLoadList.Count; j++)
                 {
-                    AreaLoadMidasModel load = area.Value.AreaLoadList[j];
-                    if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
-                        loadGroups.Add(load.LoadGroup.Name);
+                    if (area.Value.AreaLoadList[j] is AreaLoadMidasModel load)                    {
+
+                        if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
+                            loadGroups.Add(load.LoadGroup.Name);
+                    }
                 }
             }
             if (loadGroups.Count > 0)
@@ -794,20 +799,21 @@ namespace Rhino2Fem.Core.Helper
             foreach (var kvp in Model.AreaElements)
             {
                 AreaElementModel areaElement = kvp.Value;
-                List<AreaLoadMidasModel> areaLoadList = areaElement.AreaLoadList;
-                for (int i = 0; i < areaLoadList.Count; i++)
+                for (int i = 0; i < areaElement.AreaLoadList.Count; i++)
                 {
-                    AreaLoadMidasModel item = areaLoadList[i];
-                    string proj = ((!item.IsProjected) ? "NO" : "YES");
-                    textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
-                    textMgt.Add("*PRESSURE   ;Pressure Loads");
-                    if (!flag)
+                    if (areaElement.AreaLoadList[i] is AreaLoadMidasModel item)
                     {
-                        textMgt.Add("; (index element), (load classificiation=PRES), (elementtype=PLATE), (loadtype=FACE), (direction), (Vx=0), (Vy=0), (Vz=0),(projected yes/no), (load uniform), (P1=0), (P2=0), (P3=0), (P4=0), (group=''), (psltkey=0)");
-                        flag = true;
+                        string proj = ((!item.IsProjected) ? "NO" : "YES");
+                        textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
+                        textMgt.Add("*PRESSURE   ;Pressure Loads");
+                        if (!flag)
+                        {
+                            textMgt.Add("; (index element), (load classificiation=PRES), (elementtype=PLATE), (loadtype=FACE), (direction), (Vx=0), (Vy=0), (Vz=0),(projected yes/no), (load uniform), (P1=0), (P2=0), (P3=0), (P4=0), (group=''), (psltkey=0)");
+                            flag = true;
+                        }
+                        string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
+                        textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, {loadGroup},0");
                     }
-                    string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
-                    textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, {loadGroup},0");
                 }
             }
         }
