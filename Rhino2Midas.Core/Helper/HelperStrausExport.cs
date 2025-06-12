@@ -718,6 +718,10 @@ namespace Rhino2Fem.Core.Helper
 
                 try
                 {
+                    for (int j = 0; j < Model.NodeElements.Count; j++)
+                    {
+                        nodePositionMap.Add(Model.NodeElements.ElementAt(j).Value, j + 1);
+                    }
                     for (int i = 0; i < Model.FrameElements.Count; i++)
                     {
                         var beam = Model.FrameElements.ElementAt(i);
@@ -795,7 +799,7 @@ namespace Rhino2Fem.Core.Helper
                             St7.St7SetNodeXYZ(modelId, nodeNumber, new double[] { node.Position.X, node.Position.Y, node.Position.Z });
                             addedNodesNumber.Add(nodeNumber);
                         }
-                        if(node.Id != ModelObjectId.UNASSIGNED)
+                        if (node.Id != ModelObjectId.UNASSIGNED)
                             if (St7.St7SetNodeID(modelId, nodeNumber, node.Id) != 0)
                                 warnings.Add(string.Format($"Failed to set Node ID {node.Id} on node {nodeNumber}."));
 
@@ -921,13 +925,13 @@ namespace Rhino2Fem.Core.Helper
 
                                 double angle = 90;
                                 if (beam.Angle != 0)
-                                    angle += beam.Angle;
+                                    angle += Rhino.RhinoMath.ToDegrees(beam.Angle);
                                 if (RotateOf90Deg(beam.FrameProperty))
                                     angle += 90;
                                 else if (RotateOf180Deg(beam.FrameProperty))
                                     angle += 180;
 
-                                if (St7.St7SetBeamReferenceAngle1(modelId, beamNumber, new double[] { Rhino.RhinoMath.ToDegrees(angle) }) != 0)
+                                if (St7.St7SetBeamReferenceAngle1(modelId, beamNumber, new double[] { angle }) != 0)
                                     warnings.Add(string.Format($"Failed to set the reference angle of the beam {beam.Id}."));
 
                                 if (beam.Offset != Rhino.Geometry.Vector3d.Unset && beam.Offset != Rhino.Geometry.Vector3d.Zero && beam.Offset.Length > 0) //Rhino.Geometry.Vector2d or Maffeis.Geometry.Vector2d?
@@ -1168,10 +1172,184 @@ namespace Rhino2Fem.Core.Helper
 
                         for (int j = 0; j < beam.FrameLoadList.Count; j++)
                         {
-                            FrameLoadModel load = beam.FrameLoadList[j];
+                            FrameLoadBaseModel load = beam.FrameLoadList[j];
                             try
                             {
                                 int lc = loadCaseNameIdMap[load.LoadCase.Name];
+
+                                if (load.GetType() == typeof(FrameLoadStrausModel))
+                                {
+                                    FrameLoadStrausModel dl = (FrameLoadStrausModel)load;
+                                    int type = 0;
+                                    int loadId;
+                                    switch (dl.LoadSchema)
+                                    {
+                                        case FrameLoadStrausModel.LoadSchemas.Uniform:
+                                            type = St7.dlConstant;
+                                            break;
+                                        case FrameLoadStrausModel.LoadSchemas.Keystone:
+                                            type = St7.dlLinear;
+                                            break;
+                                        case FrameLoadStrausModel.LoadSchemas.Triangular:
+                                            type = St7.dlTriangular;
+                                            break;
+                                        case FrameLoadStrausModel.LoadSchemas.TriangularEnd1_Keystone:
+                                            type = St7.dlThreePoint0;
+                                            break;
+                                        case FrameLoadStrausModel.LoadSchemas.Keystone_TriangularEnd2:
+                                            type = St7.dlThreePoint1;
+                                            break;
+                                        case FrameLoadStrausModel.LoadSchemas.TriangularEnds_Keystone:
+                                            type = St7.dlTrapezoidal;
+                                            break;
+                                    }
+                                    if (dl.CoordinateSystem == CoordinateSystemModel.Local)
+                                    {
+                                        int dir = (int)dl.Direction + 1;
+                                        if (distrFPId.TryGetValue(lc, out loadId))
+                                        {
+                                            loadId++;
+                                            distrFPId[lc] = loadId;
+                                        }
+                                        else
+                                        {
+                                            loadId = 1;
+                                            distrFPId.Add(lc, loadId);
+                                        }
+                                        if (dl.LoadType == FrameLoadStrausModel.FrameLoadTypes.Force)
+                                            St7.St7SetBeamDistributedForcePrincipal6ID(modelId, beamNumber, dir, lc, type, loadId, new[] { dl.PA, dl.PB, dl.P1, dl.P2, dl.A, dl.B });
+                                        else
+                                            St7.St7SetBeamDistributedMomentPrincipal6ID(modelId, beamNumber, dir, lc, type, loadId, new[] { dl.PA, dl.PB, dl.P1, dl.P2, dl.A, dl.B });
+                                    }
+                                    else
+                                    {
+                                        int dir = 0;
+                                        switch (dl.Direction)
+                                        {
+                                            case FrameLoadStrausModel.LoadDirections.X:
+                                            case FrameLoadStrausModel.LoadDirections.X_Projected:
+                                                dir = 1;
+                                                break;
+                                            case FrameLoadStrausModel.LoadDirections.Y:
+                                            case FrameLoadStrausModel.LoadDirections.Y_Projected:
+                                                dir = 2;
+                                                break;
+                                            case FrameLoadStrausModel.LoadDirections.Z:
+                                            case FrameLoadStrausModel.LoadDirections.Z_Projected:
+                                            case FrameLoadStrausModel.LoadDirections.Gravity:
+                                            case FrameLoadStrausModel.LoadDirections.Gravity_Projected:
+                                                dir = 3;
+                                                break;
+                                        }
+                                        int projectFlag = 0;
+                                        switch (dl.Direction)
+                                        {
+                                            case FrameLoadStrausModel.LoadDirections.X:
+                                            case FrameLoadStrausModel.LoadDirections.Y:
+                                            case FrameLoadStrausModel.LoadDirections.Z:
+                                            case FrameLoadStrausModel.LoadDirections.Gravity:
+                                                projectFlag = St7.btFalse;
+                                                break;
+                                            case FrameLoadStrausModel.LoadDirections.X_Projected:
+                                            case FrameLoadStrausModel.LoadDirections.Y_Projected:
+                                            case FrameLoadStrausModel.LoadDirections.Z_Projected:
+                                            case FrameLoadStrausModel.LoadDirections.Gravity_Projected:
+                                                projectFlag = St7.btTrue;
+                                                break;
+                                        }
+                                        double[] values = new[] { dl.PA, dl.PB, dl.P1, dl.P2, dl.A, dl.B };
+                                        if (dl.Direction == FrameLoadStrausModel.LoadDirections.Gravity ||
+                                            dl.Direction == FrameLoadStrausModel.LoadDirections.Gravity_Projected)
+                                        {
+                                            values[0] = -dl.PA != 0 ? -dl.PA : 0;
+                                            values[1] = -dl.PB != 0 ? -dl.PB : 0;
+                                            values[2] = -dl.P1 != 0 ? -dl.P1 : 0;
+                                            values[3] = -dl.P2 != 0 ? -dl.P2 : 0;
+                                        }
+
+                                        if (distrFGId.TryGetValue(lc, out loadId))
+                                        {
+                                            loadId++;
+                                            distrFGId[lc] = loadId;
+                                        }
+                                        else
+                                        {
+                                            loadId = 1;
+                                            distrFGId.Add(lc, loadId);
+                                        }
+
+                                        St7.St7SetBeamDistributedForceGlobal6ID(modelId, beamNumber, dir, projectFlag, lc, type, loadId, values);
+                                    }
+                                }
+                                //else if (load.GetType() == typeof(BeamPointLoadModel))
+                                //{
+                                //    BeamPointLoadModel pl = (BeamPointLoadModel)load;
+                                //    double[] values = new[] { pl.Value.P.X, pl.Value.P.Y, pl.Value.P.Z, pl.Value.A };
+                                //    int loadId;
+                                //    if (pl.PointLoadType == BeamPointLoadModel.LoadType.Force)
+                                //    {
+                                //        if (pl.Value.CoordinateSystem == null)
+                                //        {
+                                //            if (pointFPId.TryGetValue(lc, out loadId))
+                                //            {
+                                //                loadId++;
+                                //                pointFPId[lc] = loadId;
+                                //            }
+                                //            else
+                                //            {
+                                //                loadId = 1;
+                                //                pointFPId.Add(lc, loadId);
+                                //            }
+                                //            St7.St7SetBeamPointForcePrincipal4ID(modelId, beamNumber, lc, loadId, values);
+                                //        }
+                                //        else
+                                //        {
+                                //            if (pointFGId.TryGetValue(lc, out loadId))
+                                //            {
+                                //                loadId++;
+                                //                pointFGId[lc] = loadId;
+                                //            }
+                                //            else
+                                //            {
+                                //                loadId = 1;
+                                //                pointFGId.Add(lc, loadId);
+                                //            }
+                                //            St7.St7SetBeamPointForceGlobal4ID(modelId, beamNumber, lc, loadId, values);
+                                //        }
+                                //    }
+                                //    else
+                                //    {
+                                //        if (pl.Value.CoordinateSystem == null)
+                                //        {
+                                //            if (pointMPId.TryGetValue(lc, out loadId))
+                                //            {
+                                //                loadId++;
+                                //                pointMPId[lc] = loadId;
+                                //            }
+                                //            else
+                                //            {
+                                //                loadId = 1;
+                                //                pointMPId.Add(lc, loadId);
+                                //            }
+                                //            St7.St7SetBeamPointMomentPrincipal4ID(modelId, beamNumber, lc, loadId, values);
+                                //        }
+                                //        else
+                                //        {
+                                //            if (pointMGId.TryGetValue(lc, out loadId))
+                                //            {
+                                //                loadId++;
+                                //                pointMGId[lc] = loadId;
+                                //            }
+                                //            else
+                                //            {
+                                //                loadId = 1;
+                                //                pointMGId.Add(lc, loadId);
+                                //            }
+                                //            St7.St7SetBeamPointMomentGlobal4ID(modelId, beamNumber, lc, loadId, values);
+                                //        }
+                                //    }
+                                //}
+    
                                 /*
                                 if (load.GetType() == typeof(BeamPreLoadModel))
                                 {
@@ -1540,9 +1718,9 @@ namespace Rhino2Fem.Core.Helper
                                 }
                                 if (load is AreaGlobalPressureStraus gp)
                                 {
-                                            int projectFlag = gp.Projected ? St7.btTrue : St7.btFalse;
-                                            int face = gp.Face == AreaGlobalPressureStraus.LoadFace.Top ? St7.psPlatePlusZ : St7.psPlateMinusZ;    
-                                            St7.St7SetPlateGlobalPressure3S(modelId, plateNumber, face, projectFlag, lc, new double[] { gp.Value.X, gp.Value.Y, gp.Value.Z });
+                                    int projectFlag = gp.Projected ? St7.btTrue : St7.btFalse;
+                                    int face = gp.Face == AreaGlobalPressureStraus.LoadFace.Top ? St7.psPlatePlusZ : St7.psPlateMinusZ;
+                                    St7.St7SetPlateGlobalPressure3S(modelId, plateNumber, face, projectFlag, lc, new double[] { gp.Value.X, gp.Value.Y, gp.Value.Z });
 
                                 }
                                 /*

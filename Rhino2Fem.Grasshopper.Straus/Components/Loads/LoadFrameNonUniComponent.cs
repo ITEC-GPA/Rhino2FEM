@@ -1,10 +1,11 @@
-﻿using System;
-using Grasshopper.Kernel;
+﻿using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
+using Rhino2Fem.Core.Attributes;
 using Rhino2Fem.Core.Elements;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Core.Loads;
 using Rhino2Fem.Grasshopper.Datatype;
+using System;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.Loads
 {
@@ -20,12 +21,16 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Loads
             pManager.AddGenericParameter("Frame", "Frame", "Frame", GH_ParamAccess.item);
             pManager.AddGenericParameter("Load case", "Load case", "Load case", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Type", "Type (Force or Moment)", "Type (Force or Moment)", GH_ParamAccess.item, 0);
-            foreach (FrameLoadModel.FrameLoadTypes v in Enum.GetValues(typeof(FrameLoadModel.FrameLoadTypes)))
+            foreach (FrameLoadStrausModel.FrameLoadTypes v in Enum.GetValues(typeof(FrameLoadStrausModel.FrameLoadTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddIntegerParameter("Direction", "Direction", "Lx/Ly/Lz/Gx/Gy/Gz", GH_ParamAccess.item, 5);
-            foreach (FrameLoadModel.LoadDirections v in Enum.GetValues(typeof(FrameLoadModel.LoadDirections)))
+            foreach (FrameLoadStrausModel.LoadDirections v in Enum.GetValues(typeof(FrameLoadStrausModel.LoadDirections)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddBooleanParameter("Projected?", "Projected?", "Bool", GH_ParamAccess.item, false);
+            pManager.AddIntegerParameter("Coordinate System", "Coordinate System", "Coordinate System", GH_ParamAccess.item, 1);
+            Param_Integer dir_param = (Param_Integer)pManager[4];
+            dir_param.AddNamedValue("Local", 0);
+            dir_param.AddNamedValue("Global", 1);
             pManager.AddNumberParameter("Load at start", "Load at start", "Load at start", GH_ParamAccess.item);
             pManager.AddNumberParameter("Load at end", "Load at end", "Load at end", GH_ParamAccess.item);
             pManager.AddNumberParameter("Location relative start", "Location relative start", "Location relative start", GH_ParamAccess.item, 0.0);
@@ -44,14 +49,15 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Loads
             int type = 0;
             int direction = 0;
             bool isProjected = false;
+            int coordinateSystem = 1; // Default to global coordinate system
             double startLoad = 0.0;
             double endLoad = 0.0;
             double num = 0.0;
             double num2 = 0.0;
 
             if (DA.GetData(0, ref gH_FrameElement) && DA.GetData(1, ref loadCase) && DA.GetData(2, ref type) &&
-                DA.GetData(3, ref direction) && DA.GetData(4, ref isProjected) && DA.GetData(5, ref startLoad) &&
-                DA.GetData(6, ref endLoad) && DA.GetData(7, ref num) && DA.GetData(8, ref num2))
+                DA.GetData(3, ref direction) && DA.GetData(4, ref isProjected) && DA.GetData(5, ref coordinateSystem) && DA.GetData(6, ref startLoad) &&
+                DA.GetData(7, ref endLoad) && DA.GetData(8, ref num) && DA.GetData(9, ref num2))
             {
                 if (num >= num2)
                 {
@@ -65,8 +71,8 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Loads
                 }
 
                 FrameElementModel frameElementModel = new FrameElementModel(gH_FrameElement.Value);
-                FrameLoadModel frameLoad = new FrameLoadModel(loadCase.Value, (FrameLoadModel.FrameLoadTypes)type, (FrameLoadModel.LoadDirections)direction,
-                    isProjected, num, startLoad, num2, endLoad);
+                FrameLoadStrausModel frameLoad = new FrameLoadStrausModel(loadCase.Value, (FrameLoadStrausModel.FrameLoadTypes)type, (FrameLoadStrausModel.LoadDirections)direction,
+                    isProjected, num, startLoad, num2, endLoad, FrameLoadStrausModel.LoadSchemas.Keystone, coordinateSystem == 1 ? CoordinateSystemModel.Global : CoordinateSystemModel.Local);
                 frameElementModel.FrameLoadList.Add(frameLoad);
                 DA.SetData(0, new GH_FrameElement(frameElementModel));
             }

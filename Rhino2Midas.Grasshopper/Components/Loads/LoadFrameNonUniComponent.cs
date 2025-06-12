@@ -21,10 +21,10 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
             pManager.AddGenericParameter("Frame", "Frame", "Frame", GH_ParamAccess.item);
             pManager.AddGenericParameter("Load case", "Load case", "Load case", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Type", "Type (Force or Moment)", "Type (Force or Moment)", GH_ParamAccess.item, 0);
-            foreach (FrameLoadModel.FrameLoadTypes v in Enum.GetValues(typeof(FrameLoadModel.FrameLoadTypes)))
+            foreach (FrameLoadMidasModel.FrameLoadTypes v in Enum.GetValues(typeof(FrameLoadMidasModel.FrameLoadTypes)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddIntegerParameter("Direction", "Direction", "Lx/Ly/Lz/Gx/Gy/Gz", GH_ParamAccess.item, 5);
-            foreach (FrameLoadModel.LoadDirections v in Enum.GetValues(typeof(FrameLoadModel.LoadDirections)))
+            foreach (FrameLoadMidasModel.LoadDirections v in Enum.GetValues(typeof(FrameLoadMidasModel.LoadDirections)))
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddBooleanParameter("Projected?", "Projected?", "Bool", GH_ParamAccess.item, false);
             pManager.AddNumberParameter("Load at start", "Load at start", "Load at start", GH_ParamAccess.item);
@@ -70,7 +70,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Loads
                 DA.GetData(9, ref loadGroup);
 
                 FrameElementModel frameElementModel = new FrameElementModel(gH_FrameElement.Value);
-                FrameLoadModel frameLoad = new FrameLoadModel(loadCase.Value, (FrameLoadModel.FrameLoadTypes)type, (FrameLoadModel.LoadDirections)direction,
+                FrameLoadMidasModel frameLoad = new FrameLoadMidasModel(loadCase.Value, (FrameLoadMidasModel.FrameLoadTypes)type, (FrameLoadMidasModel.LoadDirections)direction,
                     isProjected, num, startLoad, num2, endLoad);
                 if (loadGroup != null)
                     frameLoad.LoadGroup = loadGroup.Value;

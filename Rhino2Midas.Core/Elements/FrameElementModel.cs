@@ -21,7 +21,7 @@ namespace Rhino2Fem.Core.Elements
 
         public MaterialModel Material { get; set; }
 
-        public List<FrameLoadModel> FrameLoadList { get; set; }
+        public List<FrameLoadBaseModel> FrameLoadList { get; set; }
 
         public Vector3d Offset { get; set; }
 
@@ -51,7 +51,7 @@ namespace Rhino2Fem.Core.Elements
             }
         }
 
-        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, double angle, Vector3d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FramePropertyModel frameProperty, double angle, Vector3d offset, List<ElementGroupModel> group = null, List<FrameLoadBaseModel> frameLoadList = null)
             : base()
         {
             NodeStart = startNode;
@@ -63,7 +63,7 @@ namespace Rhino2Fem.Core.Elements
             if (frameLoadList != null)
                 FrameLoadList = frameLoadList;
             else
-                FrameLoadList = new List<FrameLoadModel>();
+                FrameLoadList = new List<FrameLoadBaseModel>();
             Angle = angle;
             if (group != null)
                 Groups = group;
@@ -73,7 +73,7 @@ namespace Rhino2Fem.Core.Elements
             BuildBreps();
         }
 
-        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FrameSectionModel frameProperty, MaterialModel material, double angle, Vector3d offset, List<ElementGroupModel> group = null, List<FrameLoadModel> frameLoadList = null)
+        public FrameElementModel(NodeElementModel startNode, NodeElementModel endNode, FrameSectionModel frameProperty, MaterialModel material, double angle, Vector3d offset, List<ElementGroupModel> group = null, List<FrameLoadBaseModel> frameLoadList = null)
             : this(startNode, endNode, new FramePropertyModel(frameProperty.Name, material, frameProperty), angle, offset, group, frameLoadList)
         {
         }
@@ -81,7 +81,7 @@ namespace Rhino2Fem.Core.Elements
         public FrameElementModel()
             : base()
         {
-            FrameLoadList = new List<FrameLoadModel>();
+            FrameLoadList = new List<FrameLoadBaseModel>();
             Groups = new List<ElementGroupModel>();
             Breps = new List<Brep>();
         }

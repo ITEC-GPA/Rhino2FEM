@@ -35,7 +35,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 
             if (DA.GetData(0, ref name) && DA.GetData(1, ref gH_AreaThickness) && DA.GetData(2, ref gH_Material))
             {
-                AreaPropertyModel frameProperty = new AreaPropertyModel(name, gH_Material.Value, gH_AreaThickness.Value);
+                AreaPropertyModel frameProperty = new AreaPropertyModel(name, gH_Material.Value, gH_AreaThickness.Value) { PropertyType = AreaPropertyModel.PlatePropertyType.ShellThick };
                 DA.SetData(0, new GH_AreaProperty(frameProperty));
             }
         }

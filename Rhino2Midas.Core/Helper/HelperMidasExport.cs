@@ -693,9 +693,11 @@ namespace Rhino2Fem.Core.Helper
             {
                 for (int j = 0; j < frame.Value.FrameLoadList.Count; j++)
                 {
-                    FrameLoadModel load = frame.Value.FrameLoadList[j];
-                    if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
-                        loadGroups.Add(load.LoadGroup.Name);
+                    if( frame.Value.FrameLoadList[j] is FrameLoadMidasModel load)
+                    {
+                        if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
+                            loadGroups.Add(load.LoadGroup.Name);
+                    }
                 }
             }
             foreach (var area in Model.AreaElements)
@@ -750,22 +752,25 @@ namespace Rhino2Fem.Core.Helper
             foreach (var kvp in Model.FrameElements)
             {
                 FrameElementModel frameElement = kvp.Value;
-                foreach (var item in frameElement.FrameLoadList)
+                foreach (var lc in frameElement.FrameLoadList)
                 {
-                    string forceOrMoment = item.LoadType == FrameLoadModel.FrameLoadTypes.Force ? "UNILOAD" : "UNIMOMENT";
-                    string proj = (!item.IsProjected) ? "NO" : "YES";
-
-                    textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
-                    textMgt.Add("*BEAMLOAD");
-                    if (!flag)
+                    if (lc is FrameLoadMidasModel item)
                     {
-                        textMgt.Add("; (index element), (load classificiation=BEAM), (loadtype), (direction), (projected), (bEccen=NO), (eccenDir=aDir[1]), (i-end=''), (j-end=''), (bj-end=''), " +
-                            "(location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
-                        flag = true;
+                        string forceOrMoment = item.LoadType == FrameLoadMidasModel.FrameLoadTypes.Force ? "UNILOAD" : "UNIMOMENT";
+                        string proj = (!item.IsProjected) ? "NO" : "YES";
+
+                        textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
+                        textMgt.Add("*BEAMLOAD");
+                        if (!flag)
+                        {
+                            textMgt.Add("; (index element), (load classificiation=BEAM), (loadtype), (direction), (projected), (bEccen=NO), (eccenDir=aDir[1]), (i-end=''), (j-end=''), (bj-end=''), " +
+                                "(location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
+                            flag = true;
+                        }
+                        string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
+                        textMgt.Add($"{frameElement.Id}, BEAM, {forceOrMoment}, {item.Direction.ToString()}, {proj}, NO, aDir[1], , , , " +
+                            $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0, {loadGroup}");
                     }
-                    string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
-                    textMgt.Add($"{frameElement.Id}, BEAM, {forceOrMoment}, {item.Direction.ToString()}, {proj}, NO, aDir[1], , , , " +
-                        $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0, {loadGroup}");
                 }
             }
         }

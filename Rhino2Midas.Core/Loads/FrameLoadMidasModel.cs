@@ -3,7 +3,7 @@ using Rhino2Fem.Core.Cases;
 
 namespace Rhino2Fem.Core.Loads
 {
-    public class FrameLoadModel
+    public class FrameLoadMidasModel : FrameLoadBaseModel
     {
         public enum FrameLoadTypes
         {
@@ -21,8 +21,6 @@ namespace Rhino2Fem.Core.Loads
             Gz,
         }
 
-        public LoadCaseModel LoadCase { get; set; }
-
         public FrameLoadTypes LoadType { get; set; }
 
         public LoadDirections Direction { get; set; }
@@ -39,7 +37,7 @@ namespace Rhino2Fem.Core.Loads
 
         public LoadGroupModel LoadGroup { get; set; }
 
-        public FrameLoadModel(LoadCaseModel loadCase, FrameLoadTypes forceOrMoment, LoadDirections direction, bool isProjected, double startLocationRelative, double startLoad, double endLocationRelative, double endLoad)
+        public FrameLoadMidasModel(LoadCaseModel loadCase, FrameLoadTypes forceOrMoment, LoadDirections direction, bool isProjected, double startLocationRelative, double startLoad, double endLocationRelative, double endLoad)
         {
             LoadCase = loadCase;
             LoadType = forceOrMoment;
@@ -49,13 +47,18 @@ namespace Rhino2Fem.Core.Loads
             StartLoad = startLoad;
             EndLocationRelative = endLocationRelative;
             EndLoad = endLoad;
+            if (direction == LoadDirections.Lx || direction == LoadDirections.Ly || direction == LoadDirections.Lz)
+                CoordinateSystem = CoordinateSystemModel.Local;
+            else
+                CoordinateSystem = CoordinateSystemModel.Global;
         }
 
-        public FrameLoadModel()
+        public FrameLoadMidasModel()
         {
         }
 
-        public FrameLoadModel(FrameLoadModel frameLoadModel)
+        public FrameLoadMidasModel(FrameLoadMidasModel frameLoadModel)
+            :base(frameLoadModel)
         {
             LoadCase = frameLoadModel.LoadCase;
             LoadType = frameLoadModel.LoadType;
@@ -63,7 +66,7 @@ namespace Rhino2Fem.Core.Loads
             IsProjected = frameLoadModel.IsProjected;
             StartLocationRelative = frameLoadModel.StartLocationRelative;
             StartLoad = frameLoadModel.StartLoad;
-            EndLocationRelative= frameLoadModel.EndLocationRelative;
+            EndLocationRelative = frameLoadModel.EndLocationRelative;
             EndLoad = frameLoadModel.EndLoad;
             LoadGroup = frameLoadModel.LoadGroup;
         }
