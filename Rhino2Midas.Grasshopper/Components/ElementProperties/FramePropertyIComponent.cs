@@ -57,7 +57,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
             {
                 FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.H, FrameSectionModel.Types.DBUSER, (FrameSectionModel.OffsetTypes)offset, h, b1, tw, tf1, b2, tf2, r1, r2, dimension9, dimension10);
                 frameProperty.Id = number;
-                DA.SetData(0, new GH_FrameProperty(frameProperty));
+                DA.SetData(0, new GH_FrameSection(frameProperty));
             }
         }
 

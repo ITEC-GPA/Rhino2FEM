@@ -6,12 +6,12 @@ using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Helper;
 using Rhino2Fem.Grasshopper.Datatype;
 
-namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
+namespace Rhino2Fem.Grasshopper.Midas.Components.ElementProperties
 {
     public class FramePropertyBoxComponent : GH_Component
     {
         public FramePropertyBoxComponent()
-            : base("Frame property box", "Frame property box", "Frame property box", Core.Helper.Constants.CATEGORY_RHINO2MIDAS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
+            : base("Frame property box", "Frame property box", "Frame property box", Constants.CATEGORY_RHINO2MIDAS, Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 
@@ -54,9 +54,11 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
                 DA.GetData(4, ref tw) && DA.GetData(5, ref tft) && DA.GetData(6, ref tfb) && DA.GetData(7, ref ctcw) && DA.GetData(8, ref propNumber))
             {
                 FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.B, FrameSectionModel.Types.DBUSER, (FrameSectionModel.OffsetTypes)offset,
-                    h, w, tw, tft, tfb, ctcw, dimension5, dimension6, dimension7, dimension8);
-                frameProperty.Id = propNumber;
-                DA.SetData(0, new GH_FrameProperty(frameProperty));
+                    h, w, tw, tft, tfb, ctcw, dimension5, dimension6, dimension7, dimension8)
+                {
+                    Id = propNumber
+                };
+                DA.SetData(0, new GH_FrameSection(frameProperty));
             }
         }
 

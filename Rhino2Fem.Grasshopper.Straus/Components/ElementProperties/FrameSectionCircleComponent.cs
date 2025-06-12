@@ -8,19 +8,16 @@ using Rhino2Fem.Grasshopper.Datatype;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 {
-    public class FramePropertyCircleComponent : GH_Component
+    public class FrameSectionCircleComponent : GH_Component
     {
-        public FramePropertyCircleComponent()
-            : base("Frame property solid circle", "Frame property solid circle", "Frame property solid circle", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
+        public FrameSectionCircleComponent()
+            : base("Frame Section solid circle", "Frame Section solid circle", "Frame Section solid circle", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
-            pManager.AddIntegerParameter("Offset", "Offset", "Offset LT/CT/RT/LC/CC/RC/LB/CB/RB", GH_ParamAccess.item, 4);
-            foreach (FrameSectionModel.OffsetTypes v in Enum.GetValues(typeof(FrameSectionModel.OffsetTypes)))
-                ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
+            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item, "");
             pManager.AddNumberParameter("Diameter", "Diameter", "Diameter", GH_ParamAccess.item);
         }
 
@@ -33,21 +30,12 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
         {
             string name = "";
             double dimension = 0.0;
-            double dimension2 = 0.0;
-            double dimension3 = 0.0;
-            double dimension4 = 0.0;
-            double dimension5 = 0.0;
-            double dimension6 = 0.0;
-            double dimension7 = 0.0;
-            double dimension8 = 0.0;
-            double dimension9 = 0.0;
-            double dimension10 = 0.0;
 
             if (DA.GetData(0, ref name) && DA.GetData(1, ref dimension))
             {
                 FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.SR, FrameSectionModel.Types.DBUSER, FrameSectionModel.OffsetTypes.CC,
-                    dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
-                DA.SetData(0, new GH_FrameProperty(frameProperty));
+                    dimension);
+                DA.SetData(0, new GH_FrameSection(frameProperty));
             }
         }
 

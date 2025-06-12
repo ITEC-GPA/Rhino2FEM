@@ -11,7 +11,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
     public class FramePropertyGenericComponent : GH_Component
     {
         public FramePropertyGenericComponent()
-            : base("Frame property Generic", "Frame property Generic", "Frame property Generic", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
+            : base("Frame Section Generic", "Frame Section Generic", "Frame Section Generic", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 
@@ -62,7 +62,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
                     Centroid = new Rhino.Geometry.Point2d(centroidX, CentroidY),
                     Angle = angle,
                 };
-                DA.SetData(0, new GH_FrameProperty(frameProperty));
+                DA.SetData(0, new GH_FrameSection(frameProperty));
             }
         }
 

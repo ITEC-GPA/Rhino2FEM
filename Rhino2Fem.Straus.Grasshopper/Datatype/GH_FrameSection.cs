@@ -3,23 +3,23 @@ using Rhino2Fem.Core.ElementProperties;
 
 namespace Rhino2Fem.Grasshopper.Datatype
 {
-    public class GH_FrameProperty : GH_Goo<FramePropertyModel>
+    public class GH_FrameSection : GH_Goo<FrameSectionModel>
     {
-        public GH_FrameProperty(FramePropertyModel model)
+        public GH_FrameSection(FrameSectionModel model)
         {
             Value = model;
         }
 
-        public GH_FrameProperty()
+        public GH_FrameSection()
         {
 
         }
 
         public override bool IsValid => true;
 
-        public override string TypeName => "FrameProperty";
+        public override string TypeName => "FrameSectionModel";
 
-        public override string TypeDescription => "FrameProperty";
+        public override string TypeDescription => "FrameSectionModel";
 
         public override IGH_Goo Duplicate()
         {

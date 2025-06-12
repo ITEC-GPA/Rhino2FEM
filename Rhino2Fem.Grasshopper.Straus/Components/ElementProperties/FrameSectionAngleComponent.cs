@@ -5,16 +5,16 @@ using System;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 {
-    public class FramePropertyAngleComponent : GH_Component
+    public class FrameSectionAngleComponent : GH_Component
     {
-        public FramePropertyAngleComponent()
-            : base("Frame property angle", "Frame property angle", "Frame property angle", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
+        public FrameSectionAngleComponent()
+            : base("Frame Section Angle", "Frame Section Angle", "Frame Section Angle", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
+            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item, "");
             pManager.AddNumberParameter("Height", "Height", "Height", GH_ParamAccess.item);
             pManager.AddNumberParameter("Width", "Width", "Width", GH_ParamAccess.item);
             pManager.AddNumberParameter("Thickness web", "Thickness web", "Thickness web", GH_ParamAccess.item);
@@ -54,7 +54,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 
             FrameSectionModel frameProperty = new FrameSectionModel(name, FrameSectionModel.SectionGeometryTypes.L, FrameSectionModel.Types.DBUSER, FrameSectionModel.OffsetTypes.CC,
                 h, w, tw, tf, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
-            DA.SetData(0, new GH_FrameProperty(frameProperty));
+            DA.SetData(0, new GH_FrameSection(frameProperty));
         }
 
         //protected override Bitmap Icon => Resources.frame_property_angle;

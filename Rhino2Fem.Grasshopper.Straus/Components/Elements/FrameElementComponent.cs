@@ -36,7 +36,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             Curve val = null;
-            GH_FrameProperty gH_FrameProperty = null;
+            GH_FrameSection gH_FrameProperty = null;
             GH_Material gH_Material = null;
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
             double angle = 0;

@@ -38,7 +38,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.Models
             Point3d startNode = Point3d.Unset;
             Point3d endNode = Point3d.Unset;
             List<GH_ElementGroup> gH_ElementGroups = new List<GH_ElementGroup>();
-            List<GH_FrameProperty> gH_FrameProperties = new List<GH_FrameProperty>();
+            List<GH_FrameSection> gH_FrameProperties = new List<GH_FrameSection>();
             double tolerance = 0;
 
             int count = 0;

@@ -69,7 +69,7 @@ namespace Rhino2Fem.Midas.Grasshopper.Components.ElementProperties
             FrameSectionModel frameProperty = new FrameSectionModel(name, (FrameSectionModel.SectionGeometryTypes)text, FrameSectionModel.Types.DBUSER, (FrameSectionModel.OffsetTypes)offset,
                 dimension, dimension2, dimension3, dimension4, dimension5, dimension6, dimension7, dimension8, dimension9, dimension10);
             frameProperty.Id = number;
-            DA.SetData(0, new GH_FrameProperty(frameProperty));
+            DA.SetData(0, new GH_FrameSection(frameProperty));
         }
 
         //protected override Bitmap Icon => Resources.frame_property_general;
