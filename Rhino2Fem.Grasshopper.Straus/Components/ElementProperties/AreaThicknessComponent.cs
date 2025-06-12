@@ -14,7 +14,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
+            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item, "");
             pManager.AddNumberParameter("Thickness", "Thickness", "Thickness", GH_ParamAccess.item);
         }
 

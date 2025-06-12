@@ -88,6 +88,7 @@ namespace Rhino2Fem.Core.Elements
             : base(areaElementModel)
         {
             NodeList = areaElementModel.NodeList;
+            AreaProperty = areaElementModel.AreaProperty;
             AreaThickness = areaElementModel.AreaThickness;
             Material = areaElementModel.Material;
             Angle = areaElementModel.Angle;

@@ -1,4 +1,5 @@
 ﻿using Rhino2Fem.Core.Attributes;
+using Rhino2Fem.Core.Base;
 using Rhino2Fem.Core.Cases;
 using Rhino2Fem.Core.ElementProperties;
 using Rhino2Fem.Core.Elements;
@@ -794,8 +795,9 @@ namespace Rhino2Fem.Core.Helper
                             St7.St7SetNodeXYZ(modelId, nodeNumber, new double[] { node.Position.X, node.Position.Y, node.Position.Z });
                             addedNodesNumber.Add(nodeNumber);
                         }
-                        if (St7.St7SetNodeID(modelId, nodeNumber, node.Id) != 0)
-                            warnings.Add(string.Format($"Failed to set Node ID {node.Id} on node {nodeNumber}."));
+                        if(node.Id != ModelObjectId.UNASSIGNED)
+                            if (St7.St7SetNodeID(modelId, nodeNumber, node.Id) != 0)
+                                warnings.Add(string.Format($"Failed to set Node ID {node.Id} on node {nodeNumber}."));
 
                         if (node.Support.IsActive)
                         {
@@ -905,6 +907,10 @@ namespace Rhino2Fem.Core.Helper
                                     continue;
                                 }
 
+                                if (beam.Id != ModelObjectId.UNASSIGNED)
+                                    if (St7.St7SetBeamID(modelId, beamNumber, beam.Id) != 0)
+                                        warnings.Add(string.Format($"Failed to set the ID {beam.Id} of the beam {beamNumber}."));
+
                                 if (beam.Groups.Count > 0)
                                 {
                                     if (HandleError(St7.St7SetEntityGroup(modelId, St7.tyBEAM, beamNumber, groupsIds[beam.Groups[0]])))
@@ -912,9 +918,6 @@ namespace Rhino2Fem.Core.Helper
                                     if (beam.Groups.Count > 1)
                                         warnings.Add(string.Format("Straus7 allows assigning only one single group to the beam {0}\r\n", id));
                                 }
-
-                                if (St7.St7SetBeamID(modelId, beamNumber, beam.Id) != 0)
-                                    warnings.Add(string.Format($"Failed to set the ID {beam.Id} of the beam {beamNumber}."));
 
                                 double angle = 90;
                                 if (beam.Angle != 0)

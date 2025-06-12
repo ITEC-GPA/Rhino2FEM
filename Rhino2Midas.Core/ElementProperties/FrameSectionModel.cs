@@ -265,11 +265,11 @@ namespace Rhino2Fem.Core.ElementProperties
                                 PolylineCurve border = new PolylineCurve(ptsOut);
                                 List<Point3d> ptsIn = new List<Point3d>
                                 {
-                                    new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension6, 0),
-                                    new Point3d(Dimension2 / 2 - Dimension3, -Dimension1 / 2 + Dimension6, 0),
+                                    new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension5, 0),
+                                    new Point3d(Dimension2 / 2 - Dimension3, -Dimension1 / 2 + Dimension5, 0),
                                     new Point3d(Dimension2 / 2 - Dimension3, Dimension1 / 2 - Dimension4, 0),
                                     new Point3d(-Dimension2 / 2 + Dimension3, Dimension1 / 2 - Dimension4, 0),
-                                    new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension6, 0)
+                                    new Point3d(-Dimension2 / 2 + Dimension3, -Dimension1 / 2 + Dimension5, 0)
                                 };
                                 PolylineCurve inner = new PolylineCurve(ptsIn);
 

@@ -21,10 +21,11 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddMeshParameter("Area", "Area", "Area", GH_ParamAccess.item);
-            pManager.AddGenericParameter("Area thickness", "Area thickness", "Area thickness", GH_ParamAccess.item);
-            pManager.AddGenericParameter("Material", "Material", "Material", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Area Property", "Area Property", "Area Property", GH_ParamAccess.item);
             pManager.AddAngleParameter("Angle (deg)", "Angle (deg)", "Angle (deg)", GH_ParamAccess.item, 0);
             pManager.AddGenericParameter("Groups", "Groups", "Groups", GH_ParamAccess.list);
+            ((GH_ParamManager)pManager)[3].Optional = true;
+            pManager.AddNumberParameter("Offset", "Offset", "Offset", GH_ParamAccess.item, 0.0);
             ((GH_ParamManager)pManager)[4].Optional = true;
             pManager.AddIntegerParameter("Area ID", "Area ID", "Area ID", GH_ParamAccess.item, ModelObjectId.UNASSIGNED);
         }
@@ -37,17 +38,18 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             Mesh mesh = new Mesh();
-            GH_AreaThickness areaThickness = new GH_AreaThickness();
-            Rhino2Fem.Grasshopper.Datatype.GH_Material material = new Rhino2Fem.Grasshopper.Datatype.GH_Material();
+            GH_AreaProperty areaProp = new GH_AreaProperty();
             List<IGH_Goo> list = new List<IGH_Goo>();
             double angle = 0.0;
+            double offset = 0.0;
             List<GH_ElementGroup> groups = new List<GH_ElementGroup>();
             int id = 0;
 
-            if (!DA.GetData(0, ref mesh) || !DA.GetData(1, ref areaThickness) || !DA.GetData(2, ref material))
+            if (!DA.GetData(0, ref mesh) || !DA.GetData(1, ref areaProp))
                 return;
-            DA.GetData(3, ref angle);
-            DA.GetDataList(4, groups);
+            DA.GetData(2, ref angle);
+            DA.GetDataList(3, groups);
+            DA.GetData(4, ref offset);
             DA.GetData(5, ref id);
 
             int num = mesh.Vertices.Count;
@@ -61,7 +63,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Elements
             for (int i = 0; i < num; i++)
                 listBuffer.Add(new NodeElementModel(mesh.Vertices[i]));
 
-            AreaElementModel areaElement = new AreaElementModel(listBuffer, areaThickness.Value, material.Value, angle) { Id = id }; 
+            AreaElementModel areaElement = new AreaElementModel(listBuffer, areaProp.Value, angle, offset) { Id = id }; 
             if (groups != null && groups.Count > 0)
             {
                 List<ElementGroupModel> elementGroupModels = new List<ElementGroupModel>();

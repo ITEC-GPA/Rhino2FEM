@@ -91,6 +91,7 @@ namespace Rhino2Fem.Core.Elements
         {
             NodeStart = frameElementModel.NodeStart;
             NodeEnd = frameElementModel.NodeEnd;
+            FrameProperty = frameElementModel.FrameProperty;
             FrameSection = frameElementModel.FrameSection;
             Material = frameElementModel.Material;
             Angle = frameElementModel.Angle;

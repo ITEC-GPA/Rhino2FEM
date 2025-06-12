@@ -37,7 +37,9 @@ namespace Rhino2Fem.Core.Models
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
             Groups = new UniqueNameCollection<ElementGroupModel>();
             FrameSections = new UniqueIdCollection<FrameSectionModel>();
+            FrameProperties = new UniqueIdCollection<FramePropertyModel>();
             AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
+            AreaProperties = new UniqueIdCollection<AreaPropertyModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
             AreaElements = new UniqueIdCollection<AreaElementModel>();
@@ -51,7 +53,9 @@ namespace Rhino2Fem.Core.Models
             LoadCombinations = new UniqueNameCollection<LoadCombinationModel>();
             Groups = new UniqueNameCollection<ElementGroupModel>();
             FrameSections = new UniqueIdCollection<FrameSectionModel>();
+            FrameProperties = new UniqueIdCollection<FramePropertyModel>();
             AreaThicknesses = new UniqueIdCollection<AreaThicknessModel>();
+            AreaProperties = new UniqueIdCollection<AreaPropertyModel>();
             NodeElements = new UniqueIdCollection<NodeElementModel>();
             FrameElements = new UniqueIdCollection<FrameElementModel>();
             AreaElements = new UniqueIdCollection<AreaElementModel>();

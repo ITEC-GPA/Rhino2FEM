@@ -8,27 +8,32 @@ using Rhino2Fem.Grasshopper.Datatype;
 
 namespace Rhino2Fem.Grasshopper.Straus.Components.ElementProperties
 {
-    public class FramePropertyGenericComponent : GH_Component
+    public class FrameSectionGenericComponent : GH_Component
     {
-        public FramePropertyGenericComponent()
+        public FrameSectionGenericComponent()
             : base("Frame Section Generic", "Frame Section Generic", "Frame Section Generic", Core.Helper.Constants.CATEGORY_RHINO2STRAUS, Core.Helper.Constants.SUBCATEGORY_ELEMENTPROPERTIES)
         {
         }
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Height", "Height", "Height", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Width", "Width", "Width", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Thickness web", "Thickness web", "Thickness web", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Thickness flange top", "Thickness flange top", "Thickness flange top", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Center to center web", "Center to center web", "Center to center web", GH_ParamAccess.item, 0.0);
-            pManager.AddNumberParameter("Thickness flange bottom", "Thickness flange bottom", "Thickness flange bottom", GH_ParamAccess.item);
+            pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item, "");
+            pManager.AddNumberParameter("Area", "Height", "Height", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("J11", "Width", "Width", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("J22", "Thickness web", "Thickness web", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("J", "Thickness flange top", "Thickness flange top", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Shear L1", "Shear L1", "Shear L1", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Shear L2", "Shear L2", "Shear L2", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Shear A1", "Shear A1", "Shear A1", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Shear A2", "Shear A2", "Shear A2", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Centroid x", "Centroid x", "Centroid x", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Centroid y", "Centroid y", "Centroid y", GH_ParamAccess.item, 0.0);
+            pManager.AddNumberParameter("Angle", "Angle", "Angle", GH_ParamAccess.item, 0.0);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Frame property", "Frame property", "Frame property", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Frame Section", "Frame Section", "Frame Section", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
