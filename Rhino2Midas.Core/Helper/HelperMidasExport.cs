@@ -651,15 +651,18 @@ namespace Rhino2Fem.Core.Helper
             foreach (var kvp in Model.LinkElements)
             {
                 LinkElementModel linkElement = kvp.Value;
+                string bgName = "";
+                if (linkElement.LinkProperty.BoundaryGroup != null)
+                    bgName = linkElement.LinkProperty.BoundaryGroup.Name;
                 if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.GEN)
                     textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, " +
                         $"0, NO, NO, NO, NO, NO, NO," +
                         $"{linkElement.LinkProperty.Kx}, {linkElement.LinkProperty.Ky},{linkElement.LinkProperty.Kz}," +
                         $"{linkElement.LinkProperty.Rx},{linkElement.LinkProperty.Ry},{linkElement.LinkProperty.Rz}," +
-                        $"NO, 0.5, 0.5, {linkElement.LinkProperty.BoundaryGroup.Name}");
+                        $"NO, 0.5, 0.5, {bgName}");
                 else if (linkElement.LinkProperty.Type == LinkPropertyModel.LinkPropertyTypes.RIGID)
                     textMgt.Add($"{linkElement.Id}, {linkElement.NodeStart.Id}, {linkElement.NodeEnd.Id}, {linkElement.LinkProperty.Type}, 0, " +
-                        $"NO, 0.5, 0.5, {linkElement.LinkProperty.BoundaryGroup.Name}");
+                        $"NO, 0.5, 0.5, {bgName}");
             }
         }
 
