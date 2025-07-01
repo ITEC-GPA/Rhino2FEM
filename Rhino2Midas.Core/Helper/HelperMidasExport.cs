@@ -696,7 +696,7 @@ namespace Rhino2Fem.Core.Helper
             {
                 for (int j = 0; j < frame.Value.FrameLoadList.Count; j++)
                 {
-                    if( frame.Value.FrameLoadList[j] is FrameLoadMidasModel load)
+                    if (frame.Value.FrameLoadList[j] is FrameLoadMidasModel load)
                     {
                         if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
                             loadGroups.Add(load.LoadGroup.Name);
@@ -707,7 +707,8 @@ namespace Rhino2Fem.Core.Helper
             {
                 for (int j = 0; j < area.Value.AreaLoadList.Count; j++)
                 {
-                    if (area.Value.AreaLoadList[j] is AreaLoadMidasModel load)                    {
+                    if (area.Value.AreaLoadList[j] is AreaLoadMidasModel load)
+                    {
 
                         if (load.LoadGroup != null && !string.IsNullOrEmpty(load.LoadGroup.Name))
                             loadGroups.Add(load.LoadGroup.Name);
@@ -751,28 +752,28 @@ namespace Rhino2Fem.Core.Helper
 
         private void WriteMgtFrameLoad(List<string> textMgt)
         {
-            bool flag = false;
-            foreach (var kvp in Model.FrameElements)
+            foreach (var lcc in Model.LoadCases)
             {
-                FrameElementModel frameElement = kvp.Value;
-                foreach (var lc in frameElement.FrameLoadList)
-                {
-                    if (lc is FrameLoadMidasModel item)
-                    {
-                        string forceOrMoment = item.LoadType == FrameLoadMidasModel.FrameLoadTypes.Force ? "UNILOAD" : "UNIMOMENT";
-                        string proj = (!item.IsProjected) ? "NO" : "YES";
+                textMgt.Add("*USE-STLD, " + lcc.Value.Name);
+                textMgt.Add("*BEAMLOAD");
+                textMgt.Add("; (index element), (load classificiation=BEAM), (loadtype), (direction), (projected), (bEccen=NO), (eccenDir=aDir[1]), (i-end=''), (j-end=''), (bj-end=''), " +
+                    "(location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
 
-                        textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
-                        textMgt.Add("*BEAMLOAD");
-                        if (!flag)
+                foreach (var kvp in Model.FrameElements)
+                {
+                    FrameElementModel frameElement = kvp.Value;
+                    foreach (var lc in frameElement.FrameLoadList)
+                    {
+                        if (lc is FrameLoadMidasModel item)
                         {
-                            textMgt.Add("; (index element), (load classificiation=BEAM), (loadtype), (direction), (projected), (bEccen=NO), (eccenDir=aDir[1]), (i-end=''), (j-end=''), (bj-end=''), " +
-                                "(location relative 1), (force1), (location relative 2), (force2), (location relative 3=0), (force3=0), (location relative 4=0), (force4=0)");
-                            flag = true;
+                            if (item.LoadCase.Id != lcc.Value.Id)
+                                continue;
+                            string forceOrMoment = item.LoadType == FrameLoadMidasModel.FrameLoadTypes.Force ? "UNILOAD" : "UNIMOMENT";
+                            string proj = (!item.IsProjected) ? "NO" : "YES";
+                            string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
+                            textMgt.Add($"{frameElement.Id}, BEAM, {forceOrMoment}, {item.Direction.ToString()}, {proj}, NO, aDir[1], , , , " +
+                                $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0, {loadGroup}");
                         }
-                        string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
-                        textMgt.Add($"{frameElement.Id}, BEAM, {forceOrMoment}, {item.Direction.ToString()}, {proj}, NO, aDir[1], , , , " +
-                            $"{item.StartLocationRelative}, {item.StartLoad}, {item.EndLocationRelative}, {item.EndLoad}, 0, 0, 0, 0, {loadGroup}");
                     }
                 }
             }
@@ -780,22 +781,23 @@ namespace Rhino2Fem.Core.Helper
 
         private void WriteMgtNodalLoad(List<string> textMgt)
         {
-            bool flag = false;
-            foreach (var node in Model.NodeElements)
+            foreach (var lc in Model.LoadCases)
             {
-                foreach (var load in node.Value.NodalLoadList)
+                textMgt.Add("*USE-STLD, " + lc.Value.Name);
+                textMgt.Add("*CONLOAD");
+                textMgt.Add("; (index node), (FX), (FY), (FZ), (MX), (MY), (MZ), (group='') ");
+
+                foreach (var node in Model.NodeElements)
                 {
-                    if (load.FX != 0.0 || load.FY != 0.0 || load.FZ != 0.0 || load.MX != 0.0 || load.MY != 0.0 || load.MZ != 0.0)
+                    foreach (var load in node.Value.NodalLoadList)
                     {
-                        textMgt.Add("*USE-STLD, " + load.LoadCase.Name);
-                        textMgt.Add("*CONLOAD");
-                        if (!flag)
+                        if (load.FX != 0.0 || load.FY != 0.0 || load.FZ != 0.0 || load.MX != 0.0 || load.MY != 0.0 || load.MZ != 0.0)
                         {
-                            textMgt.Add("; (index node), (FX), (FY), (FZ), (MX), (MY), (MZ), (group='') ");
-                            flag = true;
+                            if (load.LoadCase.Id != lc.Value.Id)
+                                continue;
+                            string loadGroup = load.LoadGroup == null ? "" : load.LoadGroup.Name;
+                            textMgt.Add($"{node.Value.Id}, {load.FX}, {load.FY}, {load.FZ}, {load.MX}, {load.MY}, {load.MZ},{loadGroup} ");
                         }
-                        string loadGroup = load.LoadGroup == null ? "" : load.LoadGroup.Name;
-                        textMgt.Add($"{node.Value.Id}, {load.FX}, {load.FY}, {load.FZ}, {load.MX}, {load.MY}, {load.MZ},{loadGroup} ");
                     }
                 }
             }
@@ -803,24 +805,27 @@ namespace Rhino2Fem.Core.Helper
 
         private void WriteMgtAreaLoad(List<string> textMgt)
         {
-            bool flag = false;
-            foreach (var kvp in Model.AreaElements)
+            foreach (var lc in Model.LoadCases)
             {
-                AreaElementModel areaElement = kvp.Value;
-                for (int i = 0; i < areaElement.AreaLoadList.Count; i++)
+                LoadCaseModel loadCase = lc.Value;
+
+                textMgt.Add("*USE-STLD, " + loadCase.Name);
+                textMgt.Add("*PRESSURE   ;Pressure Loads");
+                textMgt.Add("; (index element), (load classificiation=PRES), (elementtype=PLATE), (loadtype=FACE), (direction), (Vx=0), (Vy=0), (Vz=0),(projected yes/no), (load uniform), (P1=0), (P2=0), (P3=0), (P4=0), (group=''), (psltkey=0)");
+
+                foreach (var kvp in Model.AreaElements)
                 {
-                    if (areaElement.AreaLoadList[i] is AreaLoadMidasModel item)
+                    AreaElementModel areaElement = kvp.Value;
+                    for (int i = 0; i < areaElement.AreaLoadList.Count; i++)
                     {
-                        string proj = ((!item.IsProjected) ? "NO" : "YES");
-                        textMgt.Add("*USE-STLD, " + item.LoadCase.Name);
-                        textMgt.Add("*PRESSURE   ;Pressure Loads");
-                        if (!flag)
+                        if (areaElement.AreaLoadList[i] is AreaLoadMidasModel item)
                         {
-                            textMgt.Add("; (index element), (load classificiation=PRES), (elementtype=PLATE), (loadtype=FACE), (direction), (Vx=0), (Vy=0), (Vz=0),(projected yes/no), (load uniform), (P1=0), (P2=0), (P3=0), (P4=0), (group=''), (psltkey=0)");
-                            flag = true;
+                            if (item.LoadCase.Id != loadCase.Id)
+                                continue;
+                            string proj = ((!item.IsProjected) ? "NO" : "YES");
+                            string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
+                            textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, {loadGroup},0");
                         }
-                        string loadGroup = item.LoadGroup == null ? "" : item.LoadGroup.Name;
-                        textMgt.Add($"{areaElement.Id}, PRES, PLATE, FACE, {item.Direction.ToString()}, 0, 0, 0, {proj}, 0, {item.P1}, {item.P2}, {item.P3}, {item.P4}, {loadGroup},0");
                     }
                 }
             }
