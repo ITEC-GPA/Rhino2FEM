@@ -28,7 +28,7 @@ namespace Rhino2Fem.Grasshopper.Straus.Components.Loads
                 ((Param_Integer)pManager[pManager.ParamCount - 1]).AddNamedValue(v.GetDescription(), (int)v);
             pManager.AddBooleanParameter("Projected?", "Projected?", "Bool", GH_ParamAccess.item, false);
             pManager.AddIntegerParameter("Coordinate System", "Coordinate System", "Coordinate System", GH_ParamAccess.item, 1);
-            Param_Integer dir_param = (Param_Integer)pManager[4];
+            Param_Integer dir_param = (Param_Integer)pManager[5];
             dir_param.AddNamedValue("Local", 0);
             dir_param.AddNamedValue("Global", 1);
             pManager.AddNumberParameter("Load at start", "Load at start", "Load at start", GH_ParamAccess.item);

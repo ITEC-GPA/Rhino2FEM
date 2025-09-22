@@ -6,6 +6,7 @@ namespace St7API
 {
     public static class St7
     {
+        private const string _strausProxy = @"C:\Program Files\Straus7 R31\Bin64\St7api.dll";
 
         public const int lmMessageBox = 0;
         public const int lmWaitRetry = 1;
@@ -4729,3837 +4730,3837 @@ namespace St7API
         public const int ipVoShowPropSummary = 14;
         public const int ipVoShowModelSummary = 15;
 
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLicenceOptions(int Mode, int MaxRetry, int RetryPause);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLicenceOptions(ref int Mode, ref int MaxRetry, ref int RetryPause);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7Init();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7Release();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7Version(ref int Major, ref int Minor, ref int Point);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7BuildString(StringBuilder BuildString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMaxModelFileID(ref int MaxID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetListSeparatorCode(ref int Code);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDecimalSeparatorCode(ref int Code);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetIconSize(int IconSize);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetIconSize(ref int IconSize);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FileVersion(string FileName, ref int Major, ref int Minor, ref int Point);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7OpenFile(int uID, string FileName, string ScratchPath);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7OpenFileReadOnly(int uID, string FileName, string ScratchPath);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CloseFile(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewFile(int uID, string FileName, string ScratchPath);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SaveFile(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SaveFileCopy(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SaveViewOnlyCopy(int uID, string FileName, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SaveDeformedCopy(int uID, string FileName, int ResultCase, double DispScale, int ScaleType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SaveSubModel(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ValidateResultFile(int uID, string FileName, ref int ValidationCode, ref int Solver);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultFileOpenFlag(int uID, int Index, byte State);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultFileOpenFlag(int uID, int Index, ref byte State);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNFAFileOpenMinMass(int uID, double Mass);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNFAFileOpenMinMass(int uID, ref double Mass);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7OpenResultFile(int uID, string FileName, string SpectralName, int CombinationCode, ref int NumPrimary, ref int NumSecondary);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateLSACombinations(int uID, ref int NumSecondary, ref int WarningCode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateEnvelopes(int uID, ref int NumLimitEnvelopes, ref int NumCombinationEnvelopes, ref int NumFactorsEnvelopes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CloseResultFile(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetDisplayOptionsPath(string ConfigPath);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDisplayOptionsPath(StringBuilder ConfigPath, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLibraryPath(string LibraryPath);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryPath(StringBuilder LibraryPath, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAPIPath(StringBuilder St7Path, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLastError();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAPIErrorString(int iErr, StringBuilder ErrorString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverErrorString(int iErr, StringBuilder ErrorString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLastOpenFileCode();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLastSaveFileCode();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7TransformToUCS(int uID, int UCSId, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7TransformToXYZ(int uID, int UCSId, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7VectorTransformToUCS(int uID, int UCSId, double[] Position, double[] VXYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7VectorTransformToXYZ(int uID, int UCSId, double[] Position, double[] VXYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateUV(int uID, int PlateNum, double[] XYZ, double[] UV);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickUVW(int uID, int BrickNum, double[] XYZ, double[] UVW);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PlateHullVolume(int uID, int ResultCase, ref double Volume);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateAdjacencyList(int uID, int[] Integers, ref int AdjacencyIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FreeAdjacencyList(int uID, int AdjacencyIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumElementsAtNode(int uID, int AdjacencyIndex, int NodeNum, ref int NumElements);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementsAtNode(int uID, int AdjacencyIndex, int NodeNum, int[] EntityNums, int[] EntityTypes, int ArrayDim);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntitySelectState(int uID, int Entity, int EntityNum, int EndEdgeFace, byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntitySelectState(int uID, int Entity, int EntityNum, int EndEdgeFace, ref byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntitySelectCount(int uID, int Entity, ref int NumSelected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAllEntitySelectState(int uID, int Entity, byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntitySelectStateByProperty(int uID, int Entity, int PropertyNum, byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntitySelectStateByGroup(int uID, int Entity, int GroupID, byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntitySelectStateByEntitySet(int uID, int Entity, int SetNum, byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSelectState(int uID, int EntityNum, int FaceNum, int EdgeNum, byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSelectState(int uID, int EntityNum, int FaceNum, int EdgeNum, ref byte Selected);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetModelWindowRefresh(int uID, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateModelWindow(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DestroyModelWindow(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModelWindowState(int uID, ref int State);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModelWindowHandle(int uID, ref IntPtr Handle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetModelWindowParent(int uID, IntPtr Handle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModelWindowParent(int uID, ref IntPtr Handle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowModelWindow(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideModelWindow(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowCombos(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowCombos(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowEntityPanel(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowEntityPanel(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowStatusBar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowStatusBar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableWindowStatusBar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableWindowStatusBar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowStatusBarRefreshMode(int uID, byte AutoRefresh);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RefreshWindowStatusBar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableWindowEntityInspector(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableWindowEntityInspector(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowSelectionToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowSelectionToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowCaption(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowCaption(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowViewToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowViewToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowResultsToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowResultsToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowWindowShowHideToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideWindowShowHideToolbar(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableWindowResize(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableWindowResize(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableWindowViewChanges(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableWindowViewChanges(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearModelWindow(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RedrawModel(int uID, byte Rescale);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RotateModel(int uID, double RX, double RY, double RZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ZoomModel(int uID, double CentreX, double CentreY, double ZoomScale);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PanModel(int uID, double PanX, double PanY);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowEntity(int uID, int Entity);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideEntity(int uID, int Entity);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityVisibility(int uID, int Entity, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowPointAttributes(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HidePointAttributes(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPointAttributesVisibility(int uID, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowEntityAttributes(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideEntityAttributes(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityAttributesVisibility(int uID, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PositionModelWindow(int uID, int Left, int Top, int Width, int Height);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModelWindowPosition(int uID, ref int Left, ref int Top, ref int Width, ref int Height);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDrawAreaSize(int uID, ref int Width, ref int Height);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDrawAreaPosition(int uID, ref int Left, ref int Top, ref int Width, ref int Height);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowProperty(int uID, int Entity, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideProperty(int uID, int Entity, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyVisibility(int uID, int Entity, int PropNum, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowGroup(int uID, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideGroup(int uID, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupVisibility(int uID, int GroupID, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAllEntitiesOn(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityNumVisibility(int uID, int Entity, int EntityNum, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowResultCase(int uID, int ResultCase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowFreedomCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowUCSCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamResultDisplay(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateResultDisplay(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickResultDisplay(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkResultDisplay(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsStyle(int uID, int Solver, int Entity, int Quantity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsStyle(int uID, int Solver, int Entity, int Quantity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsLimits(int uID, int Solver, int Entity, int Quantity, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsLimits(int uID, int Solver, int Entity, int Quantity, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsLimitsString(int uID, int Solver, int Entity, int Quantity, string LimitsString);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsLimitsString(int uID, int Solver, int Entity, int Quantity, StringBuilder LimitsString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsLegend(int uID, int Solver, int Entity, int Quantity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsLegend(int uID, int Solver, int Entity, int Quantity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsLegendFont(int uID, int Solver, int Entity, int Quantity, string FontName, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsLegendFont(int uID, int Solver, int Entity, int Quantity, StringBuilder FontName, int MaxStringLen, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsDiagram(int uID, int Solver, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsDiagram(int uID, int Solver, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultSettingsDiagramColours(int uID, int Solver, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultSettingsDiagramColours(int uID, int Solver, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowColours(int uID, int WindowMode, int SolidColour, int GradientColour);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetWindowColours(int uID, int WindowMode, ref int SolidColour, ref int GradientColour);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowBackgroundMode(int uID, int WindowMode, int BackgroundMode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetWindowBackgroundMode(int uID, int WindowMode, ref int BackgroundMode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowImageLocation(int uID, int ImageLocation);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetWindowImageLocation(int uID, ref int ImageLocation);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowImageSize(int uID, int ImageSize);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetWindowImageSize(int uID, ref int ImageSize);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetWindowImageFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetWindowImageFile(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNumericOptions(int uID, int Mode, int Style, int Digits, int Exponent, double Zero);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumericOptions(int uID, int Mode, ref int Style, ref int Digits, ref int Exponent, ref double Zero);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeStyle(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeShowHideSelected(int uID, byte UseSettings);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeSize(int uID, int Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFreeNodes(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeStyle(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeShowHideSelected(int uID, ref byte UseSettings);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeSize(int uID, ref int Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFreeNodes(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamStyle(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamCableAsLine(int uID, byte AsLine);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamFill(int uID, int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamOutline(int uID, int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamLineThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamLighting(int uID, byte FillLighting, byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamNRef(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamOffsetNodes(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamMoveToOffset(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamDrawAxes(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSpringCoils(int uID, int Coils);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSpringAspect(int uID, int Aspect);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamRoundFacets(int uID, int Facets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSlices(int uID, int Slices);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamShrink(int uID, int Shrink);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamStyle(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamCableAsLine(int uID, ref byte AsLine);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamFill(int uID, ref int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamOutline(int uID, ref int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamLineThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamLighting(int uID, ref byte FillLighting, ref byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamNRef(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamOffsetNodes(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamMoveToOffset(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamDrawAxes(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSpringCoils(int uID, ref int Coils);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSpringAspect(int uID, ref int Aspect);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamRoundFacets(int uID, ref int Facets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSlices(int uID, ref int Slices);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamShrink(int uID, ref int Shrink);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateStyle(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFill(int uID, int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateOutline(int uID, int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateLineThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateLighting(int uID, byte FillLighting, byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateOffsetNodes(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateMoveToOffset(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateDrawAxes(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateShrink(int uID, int Shrink);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceNodes(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateAxisLayer(int uID, int Layer);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateOutlineMode(int uID, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateAverageNormals(int uID, byte AverageNormals);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateAverageNormalsAngle(int uID, int Angle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateStyle(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFill(int uID, ref int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateOutline(int uID, ref int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateLineThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateLighting(int uID, ref byte FillLighting, ref byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateOffsetNodes(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateMoveToOffset(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateDrawAxes(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateShrink(int uID, ref int Shrink);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceNodes(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAxisLayer(int uID, ref int Layer);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateOutlineMode(int uID, ref int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAverageNormals(int uID, ref byte AverageNormals);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAverageNormalsAngle(int uID, ref int Angle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickFill(int uID, int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickOutline(int uID, int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickLineThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickLighting(int uID, byte FillLighting, byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickDrawAxes(int uID, byte Show1, byte Show2, byte Show3);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickShrink(int uID, int Shrink);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickOutlineMode(int uID, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickWireframeAll(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFill(int uID, ref int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickOutline(int uID, ref int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickLineThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickLighting(int uID, ref byte FillLighting, ref byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickDrawAxes(int uID, ref byte Show1, ref byte Show2, ref byte Show3);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickShrink(int uID, ref int Shrink);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickOutlineMode(int uID, ref int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickWireframeAll(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkOutline(int uID, int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkLineThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkDashes(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkOutline(int uID, ref int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkLineThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkDashes(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexStyle(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexShowHideSelected(int uID, byte UseSettings);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexSize(int uID, int Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFreeVertices(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexStyle(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexShowHideSelected(int uID, ref byte UseSettings);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexSize(int uID, ref int Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFreeVertices(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceFillStyle(int uID, int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceFill(int uID, int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceOutline(int uID, int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceLighting(int uID, byte FillLighting, byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceLineThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceWireThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceWireDensity(int uID, int Density);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceNormalsSize(int uID, int Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceNIEdges(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceControlPoints(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFaceNormals(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceFillStyle(int uID, ref int Style);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceFill(int uID, ref int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceOutline(int uID, ref int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceLighting(int uID, ref byte FillLighting, ref byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceLineThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceWireThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceWireDensity(int uID, ref int Density);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceNormalsSize(int uID, ref int Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceNIEdges(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceControlPoints(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFaceNormals(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathFill(int uID, int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathOutline(int uID, int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathLabelStyle(int uID, int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathLighting(int uID, byte FillLighting, byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathLineThickness(int uID, int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPathDivisions(int uID, byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathFill(int uID, ref int Fill);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathOutline(int uID, ref int Outline);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathLabelStyle(int uID, ref int LabelStyle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathColours(int uID, int[] Colours, int NumCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathLighting(int uID, ref byte FillLighting, ref byte LineLighting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathLineThickness(int uID, ref int Thickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPathDivisions(int uID, ref byte Show);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAttributeDisplay(int uID, int AttributeOrd, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAttributeDisplay(int uID, int AttributeOrd, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityFont(int uID, int Entity, string FontName, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityFont(int uID, int Entity, StringBuilder FontName, int MaxStringLen, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourFile(int uID, int Entity, int FileType, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourFile(int uID, int Entity, ref int FileType, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourIndex(int uID, int Entity, int Index);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourIndex(int uID, int Entity, ref int Index);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourSettingsStyle(int uID, int Entity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourSettingsStyle(int uID, int Entity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourSettingsLimits(int uID, int Entity, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourSettingsLimits(int uID, int Entity, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourSettingsLimitsString(int uID, int Entity, string LimitsString);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourSettingsLimitsString(int uID, int Entity, StringBuilder LimitsString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourSettingsLegend(int uID, int Entity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourSettingsLegend(int uID, int Entity, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityContourSettingsLegendFont(int uID, int Entity, string FontName, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityContourSettingsLegendFont(int uID, int Entity, StringBuilder FontName, int MaxStringLen, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetModelDefaults(int uID, int Options, int Mode, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetDisplacementScale(int uID, double DispScale, int ScaleType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDisplacementScale(int uID, ref double DispScale, ref int ScaleType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteAllGraphs(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportST7(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportIGES(int uID, string FileName, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportACIS(int uID, string FileName, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportSTEP(int uID, string FileName, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportRhino(int uID, string FileName, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportDXF(int uID, string FileName, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportSTL(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportNASTRAN(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportANSYS(int uID, string FileName, string LoadCaseFilePath, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportSTAAD(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ImportSAP2000(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportImage(int uID, string FileName, int ImageType, int Width, int Height);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportImageToClipboard(int uID, int Width, int Height);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportST7(int uID, string FileName, int Mode, int ExportFormat);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportIGES(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportSTEP(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportDXF(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportSTL(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportNASTRAN(int uID, string FileName, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportANSYS(int uID, string FileName, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PlayAnimationFile(string FileName, ref int aHandle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateAnimation(int uID, int[] Integers, ref int aHandle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateAnimationEmbedded(int uID, IntPtr pHandle, int[] Integers, ref int aHandle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateAnimationFile(int uID, int[] Integers, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CloseAnimation(int aHandle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAnimationCase(int uID, int CaseNum, byte Active);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAnimationCase(int uID, int CaseNum, ref byte Active);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotal(int uID, int Entity, ref int Total);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCableDroopDirection(int uID, int Direction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCableDroopDirection(int uID, ref int Direction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTitle(int uID, int TitleType, string TitleString);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTitle(int uID, int TitleType, StringBuilder TitleString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddComment(int uID, string CommentString);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumComments(int uID, ref int NumComments);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetComment(int uID, int Comment, string CommentString);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetComment(int uID, int Comment, StringBuilder CommentString, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteComment(int uID, int Comment);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateNumPlies(int uID, int PlateNum, ref int NumPlies);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamAxisSystemInitial(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamAxisSystemBirth(int uID, int BeamNum, int ResultCase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamAxisSystemGNL(int uID, int BeamNum, int ResultCase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAxisSystemInitial(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAxisSystemBirth(int uID, int PlateNum, int ResultCase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAxisSystemGNL(int uID, int PlateNum, int ResultCase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAxisSystemInitial(int uID, int BrickNum, int FaceNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAxisSystemBirth(int uID, int BrickNum, int FaceNum, int ResultCase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAxisSystemGNL(int uID, int BrickNum, int FaceNum, int ResultCase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumBXSLoopsAndPlates(int uID, int PropNum, ref int NumLoops, ref int NumPlates);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumBXSLoopPoints(int uID, int PropNum, int LoopNum, ref int NumPoints);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBXSLoop(int uID, int PropNum, int LoopNum, int MaxPoints, ref int NumPoints, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBXSLoopType(int uID, int PropNum, int LoopNum, ref int LoopType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateBXS(int uID, string BXSName, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExportBXS(int uID, int PropNum, string BXSName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewLoadCase(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLoadCase(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadCaseName(int uID, int CaseNum, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadCaseName(int uID, int CaseNum, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadCaseDefaults(int uID, int CaseNum, double[] Defaults);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadCaseDefaults(int uID, int CaseNum, double[] Defaults);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadCaseType(int uID, int CaseNum, int CaseType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadCaseType(int uID, int CaseNum, ref int CaseType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadCaseGravityDir(int uID, int CaseNum, int GravDir);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadCaseGravityDir(int uID, int CaseNum, ref int GravDir);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadCaseGravity(int uID, int CaseNum, double Gravity);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadCaseGravity(int uID, int CaseNum, ref double Gravity);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSeismicCaseDynamicNSMassState(int uID, int CaseNum, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSeismicCaseDynamicNSMassState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadCaseMassOption(int uID, int CaseNum, byte SMass, byte NSMass);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadCaseMassOption(int uID, int CaseNum, ref byte SMass, ref byte NSMass);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumSeismicCase(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSeismicCaseDefaults(int uID, int CaseNum, double[] Defaults);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSeismicCaseDefaults(int uID, int CaseNum, double[] Defaults);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewFreedomCase(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumFreedomCase(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFreedomCaseName(int uID, int CaseNum, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFreedomCaseName(int uID, int CaseNum, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFreedomCaseDefaults(int uID, int CaseNum, int[] Defaults);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFreedomCaseDefaults(int uID, int CaseNum, int[] Defaults);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFreedomCaseType(int uID, int CaseNum, int CaseType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFreedomCaseType(int uID, int CaseNum, ref int CaseType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFreedomCaseRigidMotion(int uID, int CaseNum, byte Remove);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFreedomCaseRigidMotion(int uID, int CaseNum, ref byte Remove);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteFreedomCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUCS(int uID, int UCSId, int UCSType, double[] UCSDoubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUCS(int uID, int UCSId, ref int UCSType, double[] UCSDoubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteUCS(int uID, int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUCSName(int uID, int UCSId, string UCSName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUCSName(int uID, int UCSId, StringBuilder UCSName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUCSID(int uID, int Index, ref int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumUCS(int uID, ref int NumUCS);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGroupIDName(int uID, int ID, string GName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupIDName(int uID, int ID, StringBuilder GName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGroups(int uID, ref int NumGroups);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupByIndex(int uID, int Index, StringBuilder GName, int MaxStringLen, ref int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewChildGroup(int uID, int ParentID, string GName, ref int ChildID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupParent(int uID, int GroupID, ref int ParentID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupChild(int uID, int GroupID, ref int ChildID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupSibling(int uID, int GroupID, ref int SiblingID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteGroup(int uID, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGroupColour(int uID, int GroupID, int GroupCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGroupColour(int uID, int GroupID, ref int GroupCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetDefaultGroupID(int uID, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDefaultGroupID(int uID, ref int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddStage(int uID, string StageName, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertStage(int uID, int Stage, string StageName, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteStage(int uID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumStages(int uID, ref int NumStages);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetStageName(int uID, int Stage, string StageName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetStageName(int uID, int Stage, StringBuilder StageName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetStageData(int uID, int Stage, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetStageData(int uID, int Stage, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetStageFluidLevel(int uID, int Stage, double Level);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetStageFluidLevel(int uID, int Stage, ref double Level);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableStageGroup(int uID, int Stage, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableStageGroup(int uID, int Stage, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetStageGroupState(int uID, int Stage, int GroupID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewEntitySet(int uID, string SetName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteEntitySet(int uID, int SetNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntitySetName(int uID, int SetNum, string SetName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntitySetName(int uID, int SetNum, StringBuilder SetName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntitySetEntityState(int uID, int Entity, int EntityNum, int SetNum, ref byte Included);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowEntitySet(int uID, int SetNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideEntitySet(int uID, int SetNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntitySetVisibility(int uID, int SetNum, ref byte Visible);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumEntitySets(int uID, ref int NumSets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddSelectedToEntitySet(int uID, int Entity, int SetNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RemoveSelectedFromEntitySet(int uID, int Entity, int SetNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUnits(int uID, int[] Units);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUnits(int uID, int[] Units);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetRCUnits(int uID, int AreaUnit, int LengthUnit);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetRCUnits(int uID, ref int AreaUnit, ref int LengthUnit);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertUnits(int uID, int[] Units);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeXYZ(int uID, int NodeNum, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeXYZ(int uID, int NodeNum, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeUCS(int uID, int NodeNum, int UCSId, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeUCS(int uID, int NodeNum, int UCSId, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetElementConnection(int uID, int Entity, int EntityNum, int PropNum, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementConnection(int uID, int Entity, int EntityNum, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementData(int uID, int Entity, int EntityNum, int ResultCase, ref double EltData);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementDataGNL(int uID, int Entity, int EntityNum, int ResultCase, ref double EltData);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementDataDeformed(int uID, int Entity, int EntityNum, int ResultCase, double DispScale, ref double EltData);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeLengths(int uID, int PlateNum, int ResultCase, double[] Lengths);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeLengthsGNL(int uID, int PlateNum, int ResultCase, double[] Lengths);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeLengthsDeformed(int uID, int PlateNum, int ResultCase, double DispScale, double[] Lengths);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAreas(int uID, int BrickNum, int ResultCase, double[] Areas);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAreasGNL(int uID, int BrickNum, int ResultCase, double[] Areas);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAreasDeformed(int uID, int BrickNum, int ResultCase, double DispScale, double[] Areas);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementCentroid(int uID, int Entity, int EntityNum, int FaceEdgeNum, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementCentroidAtBirth(int uID, int Entity, int EntityNum, int FaceEdgeNum, int ResultCase, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementCoordinatesAtBirth(int uID, int Entity, int EntityNum, int ResultCase, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMasterSlaveLink(int uID, int LinkNum, int UCSId, int[] Connection, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMasterSlaveLink(int uID, int LinkNum, ref int UCSId, int[] Connection, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSectorSymmetryLink(int uID, int LinkNum, int Axis, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSectorSymmetryLink(int uID, int LinkNum, ref int Axis, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCouplingLink(int uID, int LinkNum, int Couple, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCouplingLink(int uID, int LinkNum, ref int Couple, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPinnedLink(int uID, int LinkNum, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPinnedLink(int uID, int LinkNum, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetRigidLink(int uID, int LinkNum, int UCSId, int Plane, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetRigidLink(int uID, int LinkNum, ref int UCSId, ref int Plane, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetShrinkLink(int uID, int LinkNum, int[] Connection, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetShrinkLink(int uID, int LinkNum, int[] Connection, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTwoPointLink(int uID, int LinkNum, int[] Connection, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTwoPointLink(int uID, int LinkNum, int[] Connection, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAttachmentLink(int uID, int LinkNum, int[] Connection, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAttachmentLink(int uID, int LinkNum, int[] Connection, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInterpolatedMultiPointLink(int uID, int LinkNum, int NumNodes, int Couple, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInterpolatedMultiPointLink(int uID, int LinkNum, int MaxNodes, ref int NumNodes, ref int Couple, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMasterSlaveMultiPointLink(int uID, int LinkNum, int NumNodes, int UCSId, int DoFBits, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMasterSlaveMultiPointLink(int uID, int LinkNum, int MaxNodes, ref int NumNodes, ref int UCSId, ref int DoFBits, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPinnedMultiPointLink(int uID, int LinkNum, int NumNodes, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPinnedMultiPointLink(int uID, int LinkNum, int MaxNodes, ref int NumNodes, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetRigidMultiPointLink(int uID, int LinkNum, int NumNodes, int UCSId, int Axis, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetRigidMultiPointLink(int uID, int LinkNum, int MaxNodes, ref int NumNodes, ref int UCSId, ref int Axis, int[] Connection);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUserDefinedMultiPointLink(int uID, int LinkNum, int NumNodes, int CaseNum, double CFactor, int[] Connection, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUserDefinedMultiPointLink(int uID, int LinkNum, int MaxNodes, ref int NumNodes, ref int CaseNum, ref double CFactor, int[] Connection, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetReactionMultiPointLink(int uID, int LinkNum, int NumNodes, int SetNum, int[] Connection, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetReactionMultiPointLink(int uID, int LinkNum, int MaxNodes, ref int NumNodes, ref int SetNum, int[] Connection, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetReactionMultiPointLinkAttributes(int uID, int LinkNum, int SetNum, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetReactionMultiPointLinkAttributes(int uID, int LinkNum, ref int SetNum, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInterpolatedMultiPointLinkAttributes(int uID, int LinkNum, int Couple);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInterpolatedMultiPointLinkAttributes(int uID, int LinkNum, ref int Couple);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMasterSlaveMultiPointLinkAttributes(int uID, int LinkNum, int UCSId, int DoFBits);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMasterSlaveMultiPointLinkAttributes(int uID, int LinkNum, ref int UCSId, ref int DoFBits);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetRigidMultiPointLinkAttributes(int uID, int LinkNum, int UCSId, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetRigidMultiPointLinkAttributes(int uID, int LinkNum, ref int UCSId, ref int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumMultiPointLinkNodes(int uID, int LinkNum, ref int NumNodes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkType(int uID, int LinkNum, ref int LinkType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexXYZ(int uID, int VertexNum, double[] XYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceOuterLoops(int uID, int FaceNum, int[] OuterLoops);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGeometryFaceCavityLoops(int uID, int FaceNum, ref int NumCavityLoops);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceCavityLoops(int uID, int FaceNum, int MaxCavityLoops, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGeometryFaceEdges(int uID, int FaceNum, ref int NumEdges);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceEdges(int uID, int FaceNum, int MaxEdges, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGeometryLoopEdges(int uID, int LoopNum, ref int NumEdges);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryLoopEdges(int uID, int LoopNum, int MaxEdges, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryEdgeLength(int uID, int EdgeNum, ref double EdgeLength);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGeometryFaceCoedges(int uID, int FaceNum, ref int NumCoedges);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceCoedges(int uID, int FaceNum, int MaxCoedges, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGeometryLoopCoedges(int uID, int LoopNum, ref int NumCoedges);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryLoopCoedges(int uID, int LoopNum, int MaxCoedges, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeEdge(int uID, int CoedgeNum, ref int EdgeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumGeometryFaceVertices(int uID, int FaceNum, ref int NumVertices);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceVertices(int uID, int FaceNum, int MaxVertices, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryEdgeVertices(int uID, int EdgeNum, int[] EdgeVertices);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceSurface(int uID, int FaceNum, ref int SurfaceNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometrySurfaceType(int uID, int SurfaceNum, ref int SurfaceType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InvalidateGeometryFace(int uID, int FaceNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InvalidateGeometryFaceCavityLoopID(int uID, int FaceNum, int LoopNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InvalidateGeometryFaceCavityLoopIndex(int uID, int FaceNum, int LoopIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteInvalidGeometry(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCleanGeometryOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCleanGeometryOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CleanGeometry(int uID, ref int ChangesMade, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometrySize(int uID, ref double Size);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPath(int uID, int LoadPathID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPath(int uID, int LoadPathID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadPath(int uID, int LoadPathID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeID(int uID, int NodeNum, int NodeID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeRestraint6(int uID, int NodeNum, int CaseNum, int UCSId, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeForce3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeMoment3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeTemperature1(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeTemperatureType1(int uID, int NodeNum, int CaseNum, int TType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeTemperatureTable(int uID, int NodeNum, int CaseNum, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeKTranslation3F(int uID, int NodeNum, int CaseNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeKRotation3F(int uID, int NodeNum, int CaseNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeTMass1(int uID, int NodeNum, double Mass);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeTMass3(int uID, int NodeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeRMass3(int uID, int NodeNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeNSMass5ID(int uID, int NodeNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeKDamping3F(int uID, int NodeNum, int CaseNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeHeatSource1(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeHeatSourceTables(int uID, int NodeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeInitialVelocity3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeAcceleration3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeResponse(int uID, int NodeNum, int CaseNum, int ResponseType, int UCSId, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeID(int uID, int NodeNum, ref int NodeID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeRestraint6(int uID, int NodeNum, int CaseNum, ref int UCSId, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeForce3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeMoment3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeTemperature1(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeTemperatureType1(int uID, int NodeNum, int CaseNum, ref int TType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeTemperatureTable(int uID, int NodeNum, int CaseNum, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeKTranslation3F(int uID, int NodeNum, int CaseNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeKRotation3F(int uID, int NodeNum, int CaseNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeTMass3(int uID, int NodeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeRMass3(int uID, int NodeNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeNSMass5ID(int uID, int NodeNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeKDamping3F(int uID, int NodeNum, int CaseNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeHeatSource1(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeHeatSourceTables(int uID, int NodeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeInitialVelocity3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeAcceleration3(int uID, int NodeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeResponse(int uID, int NodeNum, int CaseNum, int ResponseType, ref int UCSId, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamID(int uID, int BeamNum, int BeamID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamReferenceAngle1(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamConnectionUCS(int uID, int BeamNum, int BeamEnd, int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamTaper2(int uID, int BeamNum, int TaperAxis, int TaperType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamOffset2(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSupport2(int uID, int BeamNum, int Direction, int CaseNum, int Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionFactor7(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamTRelease3(int uID, int BeamNum, int BeamEnd, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamRRelease3(int uID, int BeamNum, int BeamEnd, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamCableFreeLength1(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamRadius1(int uID, int BeamNum, int BeamDir, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPipePressure2AF(int uID, int BeamNum, int CaseNum, int Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPipeTemperature2OT(int uID, int BeamNum, int CaseNum, int Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamStringGroup1(int uID, int BeamNum, int StringID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPreLoad1(int uID, int BeamNum, int CaseNum, int LoadType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamTempGradient2(int uID, int BeamNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPreCurvature2(int uID, int BeamNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPointForcePrincipal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPointForceGlobal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPointMomentPrincipal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPointMomentGlobal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamDistributedForcePrincipal6ID(int uID, int BeamNum, int BeamDir, int CaseNum, int DLType, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamDistributedForceGlobal6ID(int uID, int BeamNum, int BeamDir, int ProjectFlag, int CaseNum, int DLType, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamDistributedMomentPrincipal6ID(int uID, int BeamNum, int BeamDir, int CaseNum, int DLType, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamNSMass10ID(int uID, int BeamNum, int CaseNum, int DLType, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamConvection2(int uID, int BeamNum, int BeamEnd, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamConvectionTables(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamRadiation2(int uID, int BeamNum, int BeamEnd, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamRadiationTables(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamFlux1(int uID, int BeamNum, int BeamEnd, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamFluxTables(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamHeatSource1(int uID, int BeamNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamHeatSourceTables(int uID, int BeamNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamResponse(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamCreepLoadingAge1(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamEndAttachment1(int uID, int BeamNum, int BeamEnd, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSideAttachment1(int uID, int BeamNum, int BeamEnd, int Direction, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamID(int uID, int BeamNum, ref int BeamID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamReferenceAngle1(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamConnectionUCS(int uID, int BeamNum, int BeamEnd, ref int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamTaper2(int uID, int BeamNum, int TaperAxis, ref int TaperType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamOffset2(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSupport2(int uID, int BeamNum, int Direction, int CaseNum, ref int Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionFactor7(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamTRelease3(int uID, int BeamNum, int BeamEnd, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamRRelease3(int uID, int BeamNum, int BeamEnd, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamCableFreeLength1(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamRadius1(int uID, int BeamNum, ref int BeamDir, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPipePressure2AF(int uID, int BeamNum, int CaseNum, ref int Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPipeTemperature2OT(int uID, int BeamNum, int CaseNum, ref int Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamStringGroup1(int uID, int BeamNum, ref int StringID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPreLoad1(int uID, int BeamNum, int CaseNum, ref int LoadType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamTempGradient2(int uID, int BeamNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPreCurvature2(int uID, int BeamNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPointForcePrincipal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPointForceGlobal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPointMomentPrincipal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPointMomentGlobal4ID(int uID, int BeamNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamDistributedForcePrincipal6ID(int uID, int BeamNum, int BeamDir, int CaseNum, int ID, ref int DLType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamDistributedForceGlobal6ID(int uID, int BeamNum, int BeamDir, int CaseNum, int ID, ref int ProjectFlag, ref int DLType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamDistributedMomentPrincipal6ID(int uID, int BeamNum, int BeamDir, int CaseNum, int ID, ref int DLType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamNSMass10ID(int uID, int BeamNum, int CaseNum, int ID, ref int DLType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamConvection2(int uID, int BeamNum, int BeamEnd, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamConvectionTables(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamRadiation2(int uID, int BeamNum, int BeamEnd, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamRadiationTables(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamFlux1(int uID, int BeamNum, int BeamEnd, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamFluxTables(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamHeatSource1(int uID, int BeamNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamHeatSourceTables(int uID, int BeamNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamResponse(int uID, int BeamNum, int BeamEnd, int CaseNum, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamCreepLoadingAge1(int uID, int BeamNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamEndAttachment1(int uID, int BeamNum, int BeamEnd, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSideAttachment1(int uID, int BeamNum, int BeamEnd, int Direction, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateID(int uID, int PlateNum, int PlateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateXAngle1(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateThickness2(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateOffset1(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeSupport4(int uID, int PlateNum, int EdgeNum, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceSupport4(int uID, int PlateNum, int Surface, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeRelease1(int uID, int PlateNum, int EdgeNum, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlatePreLoad3(int uID, int PlateNum, int CaseNum, int LoadType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlatePreCurvature2(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateTempGradient1(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlatePointForce6(int uID, int PlateNum, int CaseNum, int Position, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlatePointMoment6(int uID, int PlateNum, int CaseNum, int Position, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgePressure1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgePressure3(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeShear1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeTransverseShear1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateNormalPressure2(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateGlobalPressure3S(int uID, int PlateNum, int Surface, int ProjectFlag, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateShear2(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateNSMass5ID(int uID, int PlateNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeConvection2(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeConvectionTables(int uID, int PlateNum, int CaseNum, int EdgeNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeRadiation2(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeRadiationTables(int uID, int PlateNum, int CaseNum, int EdgeNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFlux1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFluxTables(int uID, int PlateNum, int CaseNum, int EdgeNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceConvection2(int uID, int PlateNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceConvectionTables(int uID, int PlateNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceRadiation2(int uID, int PlateNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceRadiationTables(int uID, int PlateNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateHeatSource1(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateHeatSourceTables(int uID, int PlateNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilStress2(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilRatio2(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateResponse(int uID, int PlateNum, int CaseNum, int ResponseType, int UCSId, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateLoadPatch4(int uID, int PlateNum, int PatchType, int EdgeBits, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateReinforcement2(int uID, int PlateNum, int LayoutID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateCreepLoadingAge1(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateEdgeAttachment1(int uID, int PlateNum, int EdgeNum, int Direction, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFaceAttachment1(int uID, int PlateNum, int Surface, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSectionFactor10(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateCavityFluid(int uID, int PlateNum, int Surface, int CavityID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateID(int uID, int PlateNum, ref int PlateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateXAngle1(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateThickness2(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateOffset1(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeSupport4(int uID, int PlateNum, int EdgeNum, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceSupport4(int uID, int PlateNum, int Surface, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeRelease1(int uID, int PlateNum, int EdgeNum, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlatePreLoad3(int uID, int PlateNum, int CaseNum, ref int LoadType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlatePreCurvature2(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateTempGradient1(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlatePointForce6(int uID, int PlateNum, int CaseNum, int Position, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlatePointMoment6(int uID, int PlateNum, int CaseNum, int Position, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgePressure1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgePressure3(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeShear1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeTransverseShear1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateNormalPressure2(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateGlobalPressure3S(int uID, int PlateNum, int Surface, int CaseNum, ref int ProjectFlag, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateShear2(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateNSMass5ID(int uID, int PlateNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeConvection2(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeConvectionTables(int uID, int PlateNum, int CaseNum, int EdgeNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeRadiation2(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeRadiationTables(int uID, int PlateNum, int CaseNum, int EdgeNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFlux1(int uID, int PlateNum, int CaseNum, int EdgeNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFluxTables(int uID, int PlateNum, int CaseNum, int EdgeNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceConvection2(int uID, int PlateNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceConvectionTables(int uID, int PlateNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceRadiation2(int uID, int PlateNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceRadiationTables(int uID, int PlateNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateHeatSource1(int uID, int PlateNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateHeatSourceTables(int uID, int PlateNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilStress2(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilRatio2(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateResponse(int uID, int PlateNum, int CaseNum, int ResponseType, ref int UCSId, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateLoadPatch4(int uID, int PlateNum, ref int PatchType, ref int EdgeBits, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateReinforcement2(int uID, int PlateNum, ref int LayoutID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateCreepLoadingAge1(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateEdgeAttachment1(int uID, int PlateNum, int EdgeNum, int Direction, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFaceAttachment1(int uID, int PlateNum, int Surface, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSectionFactor10(int uID, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateCavityFluid(int uID, int PlateNum, int Surface, ref int CavityID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickID(int uID, int BrickNum, int BrickID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickLocalAxes1(int uID, int BrickNum, int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSupport4(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickPreLoad3(int uID, int BrickNum, int CaseNum, int LoadType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickPointForce6(int uID, int BrickNum, int FaceNum, int CaseNum, int Position, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickNormalPressure1(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickGlobalPressure3(int uID, int BrickNum, int FaceNum, int ProjectFlag, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickShear2(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickNSMass5ID(int uID, int BrickNum, int FaceNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickConvection2(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickConvectionTables(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickRadiation2(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickRadiationTables(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickFlux1(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickFluxTables(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickHeatSource1(int uID, int BrickNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickHeatSourceTables(int uID, int BrickNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilStress2(int uID, int BrickNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilRatio2(int uID, int BrickNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickResponse(int uID, int BrickNum, int CaseNum, int UCSId, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickCreepLoadingAge1(int uID, int BrickNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickFaceAttachment1(int uID, int BrickNum, int FaceNum, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickCavityFluid(int uID, int BrickNum, int FaceNum, int CavityID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickID(int uID, int BrickNum, ref int BrickID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickLocalAxes1(int uID, int BrickNum, ref int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSupport4(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickPreLoad3(int uID, int BrickNum, int CaseNum, ref int LoadType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickPointForce6(int uID, int BrickNum, int FaceNum, int CaseNum, int Position, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickNormalPressure1(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickGlobalPressure3(int uID, int BrickNum, int FaceNum, int CaseNum, ref int ProjectFlag, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickShear2(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickNSMass5ID(int uID, int BrickNum, int FaceNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickConvection2(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickConvectionTables(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickRadiation2(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickRadiationTables(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFlux1(int uID, int BrickNum, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFluxTables(int uID, int BrickNum, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickHeatSource1(int uID, int BrickNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickHeatSourceTables(int uID, int BrickNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilStress2(int uID, int BrickNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilRatio2(int uID, int BrickNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickResponse(int uID, int BrickNum, int CaseNum, ref int UCSId, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickCreepLoadingAge1(int uID, int BrickNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFaceAttachment1(int uID, int BrickNum, int FaceNum, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickCavityFluid(int uID, int BrickNum, int FaceNum, ref int CavityID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLinkID(int uID, int LinkNum, int LinkID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkID(int uID, int LinkNum, ref int LinkID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexType(int uID, int VertexNum, int VertexType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexID(int uID, int VertexNum, int VertexID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexMeshSize1(int uID, int VertexNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexRestraint6(int uID, int VertexNum, int CaseNum, int UCSId, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexForce3(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexMoment3(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexTemperature1(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexTemperatureType1(int uID, int VertexNum, int CaseNum, int TType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexTemperatureTable(int uID, int VertexNum, int CaseNum, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexKTranslation3F(int uID, int VertexNum, int CaseNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexKRotation3F(int uID, int VertexNum, int CaseNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexTMass1(int uID, int VertexNum, double Mass);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexTMass3(int uID, int VertexNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexRMass3(int uID, int VertexNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexNSMass5ID(int uID, int VertexNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexKDamping3F(int uID, int VertexNum, int CaseNum, int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexHeatSource1(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetVertexHeatSourceTables(int uID, int VertexNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexType(int uID, int VertexNum, ref int VertexType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexID(int uID, int VertexNum, ref int VertexID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexMeshSize1(int uID, int VertexNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexRestraint6(int uID, int VertexNum, int CaseNum, ref int UCSId, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexForce3(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexMoment3(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexTemperature1(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexTemperatureType1(int uID, int VertexNum, int CaseNum, ref int TType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexTemperatureTable(int uID, int VertexNum, int CaseNum, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexKTranslation3F(int uID, int VertexNum, int CaseNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexKRotation3F(int uID, int VertexNum, int CaseNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexTMass3(int uID, int VertexNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexRMass3(int uID, int VertexNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexNSMass5ID(int uID, int VertexNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexKDamping3F(int uID, int VertexNum, int CaseNum, ref int UCSId, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexHeatSource1(int uID, int VertexNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetVertexHeatSourceTables(int uID, int VertexNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryEdgeType(int uID, int EdgeNum, int EdgeType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryEdgeMinDivisions(int uID, int EdgeNum, int Divisions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryEdgeBeamProperty(int uID, int EdgeNum, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryEdgeCluster(int uID, int EdgeNum, int ClusterID, int Entity, int EntityType, int OriginCode, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryEdgeType(int uID, int EdgeNum, ref int EdgeType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryEdgeMinDivisions(int uID, int EdgeNum, ref int Divisions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryEdgeBeamProperty(int uID, int EdgeNum, ref int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryEdgeCluster(int uID, int EdgeNum, ref int ClusterID, ref int Entity, ref int EntityType, ref int OriginCode, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeRelease1(int uID, int CoedgeNum, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeSupport4(int uID, int CoedgeNum, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgePressure1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgePressure3(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeShear1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeTransverseShear1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeConvection2(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeConvectionTables(int uID, int CoedgeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeRadiation2(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeRadiationTables(int uID, int CoedgeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeFlux1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeFluxTables(int uID, int CoedgeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryCoedgeAttachment1(int uID, int CoedgeNum, int Direction, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeRelease1(int uID, int CoedgeNum, int[] Status);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeSupport4(int uID, int CoedgeNum, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgePressure1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgePressure3(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeShear1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeTransverseShear1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeConvection2(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeConvectionTables(int uID, int CoedgeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeRadiation2(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeRadiationTables(int uID, int CoedgeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeFlux1(int uID, int CoedgeNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeFluxTables(int uID, int CoedgeNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryCoedgeAttachment1(int uID, int CoedgeNum, int Direction, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceProperty(int uID, int FaceNum, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceID(int uID, int FaceNum, int FaceID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceThickness2(int uID, int FaceNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceOffset1(int uID, int FaceNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceSupport4(int uID, int FaceNum, int Surface, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceTempGradient1(int uID, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceNormalPressure2(int uID, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceGlobalPressure3S(int uID, int FaceNum, int Surface, int ProjectFlag, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceNSMass5ID(int uID, int FaceNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceConvection2(int uID, int FaceNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceConvectionTables(int uID, int FaceNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceRadiation2(int uID, int FaceNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceRadiationTables(int uID, int FaceNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceHeatSource1(int uID, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceHeatSourceTables(int uID, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetGeometryFaceAttachment1(int uID, int FaceNum, int Surface, int AttachType, int ConnectType, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceProperty(int uID, int FaceNum, ref int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceID(int uID, int FaceNum, ref int FaceID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceThickness2(int uID, int FaceNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceOffset1(int uID, int FaceNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceSupport4(int uID, int FaceNum, int Surface, int CaseNum, int[] Status, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceTempGradient1(int uID, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceNormalPressure2(int uID, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceGlobalPressure3S(int uID, int FaceNum, int Surface, int CaseNum, ref int ProjectFlag, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceNSMass5ID(int uID, int FaceNum, int CaseNum, int ID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceConvection2(int uID, int FaceNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceConvectionTables(int uID, int FaceNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceRadiation2(int uID, int FaceNum, int CaseNum, int Surface, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceRadiationTables(int uID, int FaceNum, int CaseNum, int Surface, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceHeatSource1(int uID, int FaceNum, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceHeatSourceTables(int uID, int FaceNum, int CaseNum, int[] Tables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGeometryFaceAttachment1(int uID, int FaceNum, int Surface, ref int AttachType, ref int ConnectType, ref int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetElementProperty(int uID, int Entity, int EntityNum, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementProperty(int uID, int Entity, int EntityNum, ref int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementPropertySequence(int uID, int Entity, int EntityNum, int MaxProps, int[] Props);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetElementPropertySwitch(int uID, int Entity, int EntityNum, int PropID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteAttribute(int uID, int Entity, int EntityNum, int AttributeOrd, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityGroup(int uID, int Entity, int EntityNum, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityGroup(int uID, int Entity, int EntityNum, ref int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityAttributeSequenceCount(int uID, int Entity, int EntityNum, int AttributeOrd, ref int NumSets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityAttributeSequence(int uID, int Entity, int EntityNum, int AttributeOrd, int MaxSets, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMarker(int uID, int Entity, int EntityNum, int FaceNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMarker(int uID, int Entity, int EntityNum, int FaceNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteMarker(int uID, int Entity, int EntityNum, int FaceNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ShowMarker(int uID, int Entity, int EntityNum, int FaceNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7HideMarker(int uID, int Entity, int EntityNum, int FaceNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotalProperties(int uID, int[] NumProperties, int[] LastProperty);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyNumByIndex(int uID, int Entity, int PropIndex, ref int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPropertyName(int uID, int Entity, int PropNum, string PropName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyName(int uID, int Entity, int PropNum, StringBuilder PropName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPropertyColour(int uID, int Entity, int PropNum, int PropCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyColour(int uID, int Entity, int PropNum, ref int PropCol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPropertyTable(int uID, int PropTableType, int PropNum, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyTable(int uID, int PropTableType, int PropNum, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPropertyCreepID(int uID, int Entity, int PropNum, int CreepID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyCreepID(int uID, int Entity, int PropNum, ref int CreepID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPropertyRayleighFactors(int uID, int Entity, int PropNum, int RayleighMode, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPropertyRayleighFactors(int uID, int Entity, int PropNum, ref int RayleighMode, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMaterialName(int uID, int Entity, int PropNum, string MaterialName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMaterialName(int uID, int Entity, int PropNum, StringBuilder MaterialName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTimeDependentModType(int uID, int Entity, int PropNum, int ModType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTimeDependentModType(int uID, int Entity, int PropNum, ref int ModType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHardeningType(int uID, int Entity, int PropNum, int HardType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHardeningType(int uID, int Entity, int PropNum, ref int HardType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAlphaTempType(int uID, int Entity, int PropNum, int AlphaTempType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAlphaTempType(int uID, int Entity, int PropNum, ref int AlphaTempType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteProperty(int uID, int Entity, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteUnusedProperties(int uID, int Entity, ref int NumDeleted);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7UpdateElementPropertyData(int uID, int Entity, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewBeamProperty(int uID, int PropNum, int BeamType, string PropName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionName(int uID, int PropNum, string SectionName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionName(int uID, int PropNum, StringBuilder SectionName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamPropertyType(int uID, int PropNum, int BeamType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPropertyType(int uID, int PropNum, ref int BeamType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamMirrorOption(int uID, int PropNum, int MirrorType, int CompatibleTwist, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamMirrorOption(int uID, int PropNum, ref int MirrorType, ref int CompatibleTwist, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamNonlinearType(int uID, int PropNum, int NonlinType, int YieldType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamNonlinearType(int uID, int PropNum, ref int NonlinType, ref int YieldType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionPropertyData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionPropertyData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionGeometry(int uID, int PropNum, int SectionType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionGeometry(int uID, int PropNum, ref int SectionType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionGeometryBGL(int uID, int PropNum, int Shape, double[] Dimensions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionGeometryBGL(int uID, int PropNum, ref int Shape, double[] Dimensions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionNominalDiscretisation(int uID, int PropNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionNominalDiscretisation(int uID, int PropNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamSectionCircularDiscretisation(int uID, int PropNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionCircularDiscretisation(int uID, int PropNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamPropertyData(int uID, int PropNum, int[] Integers, double[] SectionData, double[] MaterialData);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CalculateBeamSectionProperties(int uID, int PropNum, byte DoShear);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignBXS(int uID, int PropNum, string BXSName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SaveBeamSectionMesh(int uID, int PropNum, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSpringDamperData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSpringDamperData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTrussData(int uID, int PropNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTrussData(int uID, int PropNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCableData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCableData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCutoffBarData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCutoffBarData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPointContactData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPointContactData(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPipeData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPipeData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetConnectionData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetConnectionData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUserBeamData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUserBeamData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CheckBeamSectionQuality(int uID, int PropNum, ref double Shear1, ref double Shear2, ref double Torque);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSpringDamperThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSpringDamperThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPointContactThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPointContactThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUserBeamThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUserBeamThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetConnectionThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetConnectionThermalData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamMaterialData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamMaterialData(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamShearModulusMode(int uID, int PropNum, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamShearModulusMode(int uID, int PropNum, ref int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamNonlinearMode(int uID, int PropNum, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamNonlinearMode(int uID, int PropNum, ref int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewPlateProperty(int uID, int PropNum, int PlateType, int MaterialType, string PropName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlatePropertyType(int uID, int PropNum, int PlateType, int MaterialType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlatePropertyType(int uID, int PropNum, ref int PlateType, ref int MaterialType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateNonlinearType(int uID, int PropNum, int NonlinType, int YieldType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateNonlinearType(int uID, int PropNum, ref int NonlinType, ref int YieldType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateThickness(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateThickness(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateLayers(int uID, int PropNum, int NumLayers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateLayers(int uID, int PropNum, ref int NumLayers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlatePatchTol(int uID, int PropNum, double PatchTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlatePatchTol(int uID, int PropNum, ref double PatchTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateIsotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateIsotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateOrthotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateOrthotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateRubberMaterial(int uID, int PropNum, int RubberType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateRubberMaterial(int uID, int PropNum, ref int RubberType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateAnisotropicMaterial(int uID, int PropNum, int MatType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAnisotropicMaterial(int uID, int PropNum, ref int MatType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateLaminateMaterial(int uID, int PropNum, int LaminateID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateLaminateMaterial(int uID, int PropNum, ref int LaminateID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateUserDefinedMaterial(int uID, int PropNum, int MatType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateUserDefinedMaterial(int uID, int PropNum, ref int MatType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilType(int uID, int PropNum, ref int SoilType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateMCDPMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateMCDPMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilDCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilDCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilCCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilCCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilMCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilMCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilDPMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilDPMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateSoilLSMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateSoilLSMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateFluidMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateFluidMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateUseReducedInt(int uID, int PropNum, byte UseReducedInt);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateUseReducedInt(int uID, int PropNum, ref byte UseReducedInt);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateAddBubbleFunction(int uID, int PropNum, byte AddBubbleFunction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateAddBubbleFunction(int uID, int PropNum, ref byte AddBubbleFunction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewBrickProperty(int uID, int PropNum, int MaterialType, string PropName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickPropertyType(int uID, int PropNum, int MaterialType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickPropertyType(int uID, int PropNum, ref int MaterialType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickNonlinearType(int uID, int PropNum, int NonlinType, int YieldType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickNonlinearType(int uID, int PropNum, ref int NonlinType, ref int YieldType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickIsotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickIsotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickOrthotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickOrthotropicMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickAnisotropicMaterial(int uID, int PropNum, int MatType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickAnisotropicMaterial(int uID, int PropNum, ref int MatType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickRubberMaterial(int uID, int PropNum, int RubberType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickRubberMaterial(int uID, int PropNum, ref int RubberType, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilType(int uID, int PropNum, ref int SoilType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickMCDPMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickMCDPMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilDCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilDCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilCCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilCCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilMCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilMCMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilDPMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilDPMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickSoilLSMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickSoilLSMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickFluidMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickFluidMaterial(int uID, int PropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickAddBubbleFunction(int uID, int PropNum, byte AddBubbleFunction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickAddBubbleFunction(int uID, int PropNum, ref byte AddBubbleFunction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBrickIntegrationPoints(int uID, int PropNum, int Xi, int Eta, int Zeta);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickIntegrationPoints(int uID, int PropNum, ref int Xi, ref int Eta, ref int Zeta);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewPlyProperty(int uID, int PropNum, string PropName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlyMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlyMaterial(int uID, int PropNum, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotalLaminateStacks(int uID, ref int NumStacks, ref int LastStack);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLaminateStackNumByIndex(int uID, int Index, ref int LaminateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewLaminate(int uID, int LaminateID, string LamName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLaminateName(int uID, int LaminateID, string LamName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLaminateName(int uID, int LaminateID, StringBuilder LamName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLaminateNumPlies(int uID, int LaminateID, ref int NumPlies);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLaminatePly(int uID, int LaminateID, int Pos, int PlyPropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLaminatePly(int uID, int LaminateID, int Pos, ref int PlyPropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLaminatePly(int uID, int LaminateID, int PlyPropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLaminatePly(int uID, int LaminateID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLaminatePly(int uID, int LaminateID, int Pos, int PlyPropNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLaminateData(int uID, int LaminateID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLaminateMatrices(int uID, int LaminateID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLaminate(int uID, int LaminateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteUnusedLaminates(int uID, ref int NumDeleted);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotalReinforcementLayouts(int uID, ref int NumLayouts, ref int LastLayout);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetReinforcementLayoutNumByIndex(int uID, int Index, ref int LayoutID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewReinforcementLayout(int uID, int LayoutID, string LayoutName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetReinforcementName(int uID, int LayoutID, string LayoutName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetReinforcementName(int uID, int LayoutID, StringBuilder LayoutName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetReinforcementData(int uID, int LayoutID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetReinforcementData(int uID, int LayoutID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteReinforcementLayout(int uID, int LayoutID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotalCreepDefinitions(int uID, ref int NumSets, ref int LastSet);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepDefinitionNumByIndex(int uID, int Index, ref int CreepID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewCreepDefinition(int uID, int CreepID, string CreepDefinitionName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepDefinitionName(int uID, int CreepID, string CreepDefinitionName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepDefinitionName(int uID, int CreepID, StringBuilder CreepDefinitionName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepLaw(int uID, int CreepID, int CreepLaw);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepLaw(int uID, int CreepID, ref int CreepLaw);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepBasicData(int uID, int CreepID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepBasicData(int uID, int CreepID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableCreepUserTable(int uID, int CreepID, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableCreepUserTable(int uID, int CreepID, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepUserTableState(int uID, int CreepID, int TableID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepUserTableData(int uID, int CreepID, int TableID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepUserTableData(int uID, int CreepID, int TableID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepHardeningType(int uID, int CreepID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepHardeningType(int uID, int CreepID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepTimeUnit(int uID, int CreepID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepTimeUnit(int uID, int CreepID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepTemperatureInclude(int uID, int CreepID, byte Include);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepTemperatureInclude(int uID, int CreepID, ref byte Include);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteHyperbolicData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteHyperbolicData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteViscoChainData(int uID, int CreepID, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteViscoChainData(int uID, int CreepID, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableCreepConcreteUserTable(int uID, int CreepID, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableCreepConcreteUserTable(int uID, int CreepID, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteUserTableState(int uID, int CreepID, int TableID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteUserTableData(int uID, int CreepID, int TableID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteUserTableData(int uID, int CreepID, int TableID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteFunctionType(int uID, int CreepID, int FunctionType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteFunctionType(int uID, int CreepID, ref int FunctionType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteLoadingAge(int uID, int CreepID, double LoadingAge);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteLoadingAge(int uID, int CreepID, ref double LoadingAge);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteLoadingTimeUnit(int uID, int CreepID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteLoadingTimeUnit(int uID, int CreepID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteShrinkageType(int uID, int CreepID, int ShrinkageType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteShrinkageType(int uID, int CreepID, ref int ShrinkageType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteShrinkageFormulaData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteShrinkageFormulaData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteShrinkageTableData(int uID, int CreepID, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteShrinkageTableData(int uID, int CreepID, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteTemperatureData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteTemperatureData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCreepConcreteCementCuringData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCreepConcreteCementCuringData(int uID, int CreepID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteCreepDefinition(int uID, int CreepID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotalLoadPathTemplates(int uID, ref int NumTemplates, ref int LastTemplate);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateNumByIndex(int uID, int Index, ref int TemplateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewLoadPathTemplate(int uID, int TemplateID, string TemplateName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateName(int uID, int TemplateID, string TemplateName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateName(int uID, int TemplateID, StringBuilder TemplateName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateParameters(int uID, int TemplateID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateParameters(int uID, int TemplateID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateLaneFactor(int uID, int TemplateID, int Lane, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateLaneFactor(int uID, int TemplateID, int Lane, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLoadPathTemplateVehicle(int uID, int TemplateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateVehicleName(int uID, int TemplateID, int Vehicle, string VehicleName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateVehicleName(int uID, int TemplateID, int Vehicle, StringBuilder VehicleName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLoadPathTemplateVehicle(int uID, int TemplateID, int Vehicle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CloneLoadPathTemplateVehicle(int uID, int TemplateID, int Vehicle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadPathTemplateVehicle(int uID, int TemplateID, int Vehicle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLoadPathTemplateVehicles(int uID, int TemplateID, ref int NumVehicles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateVehicleData(int uID, int TemplateID, int Vehicle, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateVehicleData(int uID, int TemplateID, int Vehicle, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableLoadPathTemplateVehicleLane(int uID, int TemplateID, int Vehicle, int Lane);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableLoadPathTemplateVehicleLane(int uID, int TemplateID, int Vehicle, int Lane);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateVehicleLaneState(int uID, int TemplateID, int Vehicle, int Lane, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLoadPathTemplatePointForce(int uID, int TemplateID, int Vehicle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLoadPathTemplatePointForce(int uID, int TemplateID, int Vehicle, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadPathTemplatePointForce(int uID, int TemplateID, int Vehicle, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLoadPathTemplatePointForces(int uID, int TemplateID, int Vehicle, ref int NumPointForces);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplatePointForceData(int uID, int TemplateID, int Vehicle, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplatePointForceData(int uID, int TemplateID, int Vehicle, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLoadPathTemplateDistributedForce(int uID, int TemplateID, int Vehicle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLoadPathTemplateDistributedForce(int uID, int TemplateID, int Vehicle, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadPathTemplateDistributedForce(int uID, int TemplateID, int Vehicle, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLoadPathTemplateDistributedForces(int uID, int TemplateID, int Vehicle, ref int NumDistributedForces);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateDistributedForceData(int uID, int TemplateID, int Vehicle, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateDistributedForceData(int uID, int TemplateID, int Vehicle, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLoadPathTemplateHeatSource(int uID, int TemplateID, int Vehicle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLoadPathTemplateHeatSource(int uID, int TemplateID, int Vehicle, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadPathTemplateHeatSource(int uID, int TemplateID, int Vehicle, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLoadPathTemplateHeatSources(int uID, int TemplateID, int Vehicle, ref int NumHeatSources);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateHeatSourceData(int uID, int TemplateID, int Vehicle, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateHeatSourceData(int uID, int TemplateID, int Vehicle, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateVehicleSet(int uID, int TemplateID, int Vehicle, string VehicleSet);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateVehicleSet(int uID, int TemplateID, int Vehicle, StringBuilder VehicleSet, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLoadPathTemplate(int uID, int TemplateID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLoadPathTemplateCentrifugalData(int uID, int TemplateID, string K0, string K1, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLoadPathTemplateCentrifugalData(int uID, int TemplateID, StringBuilder K0, StringBuilder K1, int MaxStringLen, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTotalCavityFluidLayouts(int uID, ref int NumLayouts, ref int LastLayout);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCavityFluidLayoutNumByIndex(int uID, int Index, ref int CavityID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewCavityFluidLayout(int uID, int CavityID, string LayoutName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCavityFluidName(int uID, int CavityID, string LayoutName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCavityFluidName(int uID, int CavityID, StringBuilder LayoutName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCavityFluidType(int uID, int CavityID, ref int FluidType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCavityFluidIdealGas(int uID, int CavityID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCavityFluidIdealGas(int uID, int CavityID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCavityFluidConstBulk(int uID, int CavityID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCavityFluidConstBulk(int uID, int CavityID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCavityFluidPreLoad(int uID, int CavityID, int CaseNum, int PreType, double Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCavityFluidPreLoad(int uID, int CavityID, int CaseNum, ref int PreType, ref double Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteCavityFluidLayout(int uID, int CavityID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLibraries(int LibraryType, ref int NumLibraries);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryName(int LibraryType, int LibraryID, StringBuilder LibraryName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryID(int LibraryType, string LibraryName, ref int LibraryID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLibraryItems(int LibraryType, int LibraryID, ref int NumItems);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryItemName(int LibraryType, int LibraryID, int ItemID, StringBuilder ItemName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryItemID(int LibraryType, int LibraryID, string ItemName, ref int ItemID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryBeamSectionPropertyDataBSL(int LibraryID, int ItemID, int LengthUnit, StringBuilder ItemName, int MaxStringLen, ref int ItemShape, double[] SectionData);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryBeamSectionPropertyDataBGL(int LibraryID, int ItemID, int LengthUnit, StringBuilder ItemName, int MaxStringLen, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLibraryBeamSectionGeometryBGL(int LibraryID, int ItemID, int LengthUnit, StringBuilder ItemName, int MaxStringLen, ref int ItemShape, double[] ItemDimensions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryMaterial(int uID, int Entity, int PropNum, int LibraryID, int ItemID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryComposite(int uID, int PropNum, int LibraryID, int ItemID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryBeamSection(int uID, int PropNum, int LibraryID, int ItemID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryBeamSectionBGL(int uID, int PropNum, int LibraryID, int ItemID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryCreepDefinition(int uID, int CreepID, int LibraryID, int ItemID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryLoadPathTemplate(int uID, int TemplateID, int LibraryID, int ItemID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssignLibraryReinforcementLayout(int uID, int LayoutID, int LibraryID, int ItemID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewTableType(int uID, int TableType, int TableID, int NumEntries, string TableName, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteTableType(int uID, int TableType, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTableTypeName(int uID, int TableType, int TableID, string TableName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTableTypeName(int uID, int TableType, int TableID, StringBuilder TableName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTableID(int uID, string TableName, int TableType, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumTableTypeRows(int uID, int TableType, int TableID, ref int NumRows);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTableTypeData(int uID, int TableType, int TableID, int NumEntries, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTableTypeData(int uID, int TableType, int TableID, int MaxRows, ref int NumRows, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFrequencyPeriodTableType(int uID, int TableID, int FreqType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFrequencyPeriodTableType(int uID, int TableID, ref int FreqType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTimeTableUnits(int uID, int TableType, int TableID, int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTimeTableUnits(int uID, int TableType, int TableID, ref int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertTimeTableUnits(int uID, int TableType, int TableID, int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFrequencyPeriodTableUnits(int uID, int TableID, int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFrequencyPeriodTableUnits(int uID, int TableID, ref int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAccVsTimeTableUnits(int uID, int TableID, int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAccVsTimeTableUnits(int uID, int TableID, ref int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMomentRotationTableUnits(int uID, int TableID, int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMomentRotationTableUnits(int uID, int TableID, ref int UnitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumTables(int uID, int TableType, ref int NumTables, ref int MaxTableNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTableInfoByIndex(int uID, int TableType, int Index, ref int TableID, StringBuilder TableName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableLSALoadCase(int uID, int LoadCaseNum, int FreedomCaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableLSALoadCase(int uID, int LoadCaseNum, int FreedomCaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLSALoadCaseState(int uID, int LoadCaseNum, int FreedomCaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableInitialPCGFile(int uID, int SolverType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableInitialPCGFile(int uID, int SolverType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInitialPCGFileState(int uID, int SolverType, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInitialPCGFile(int uID, int SolverType, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInitialPCGFile(int uID, int SolverType, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLBAInitial(int uID, string FileName, int VariableCaseNum, int FixedCaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLBAInitial(int uID, StringBuilder FileName, ref int VariableCaseNum, ref int FixedCaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLBANumModes(int uID, int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLBANumModes(int uID, ref int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLBAShift(int uID, double Shift);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLBAShift(int uID, ref double Shift);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableLIALoadCase(int uID, int LoadCaseNum, int FreedomCaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableLIALoadCase(int uID, int LoadCaseNum, int FreedomCaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLIALoadCaseState(int uID, int LoadCaseNum, int FreedomCaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNLAStagedAnalysis(int uID, byte StagedAnalysis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAStagedAnalysis(int uID, ref byte StagedAnalysis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableNLAStage(int uID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableNLAStage(int uID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAStageState(int uID, int Stage, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddNLAIncrement(int uID, int Stage, string IncName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAIncrementName(int uID, int Stage, int Increment, StringBuilder IncName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertNLAIncrement(int uID, int Stage, int Increment, string IncName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteNLAIncrement(int uID, int Stage, int Increment);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumNLAIncrements(int uID, int Stage, ref int NumIncrements);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNLALoadIncrementFactor(int uID, int Stage, int Increment, int CaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLALoadIncrementFactor(int uID, int Stage, int Increment, int CaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNLAFreedomIncrementFactor(int uID, int Stage, int Increment, int CaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAFreedomIncrementFactor(int uID, int Stage, int Increment, int CaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableNLALoadCase(int uID, int Stage, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableNLALoadCase(int uID, int Stage, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableNLAFreedomCase(int uID, int Stage, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableNLAFreedomCase(int uID, int Stage, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLALoadCaseState(int uID, int Stage, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAFreedomCaseState(int uID, int Stage, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNLAInitial(int uID, string FileName, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAInitial(int uID, StringBuilder FileName, ref int CaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNLAPseudoTime(int uID, int Stage, int Increment, double Time);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAPseudoTime(int uID, int Stage, int Increment, ref double Time);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableNLAPseudoTime(int uID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableNLAPseudoTime(int uID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAPseudoTimeState(int uID, int Stage, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNLAResetAtIncrement(int uID, int Increment, byte Reset);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNLAResetAtIncrement(int uID, int Increment, ref byte Reset);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetQSAInitial(int uID, string FileName, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetQSAInitial(int uID, StringBuilder FileName, ref int CaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNFAInitial(int uID, string FileName, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNFAInitial(int uID, StringBuilder FileName, ref int CaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNFANumModes(int uID, int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNFANumModes(int uID, ref int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNFAShift(int uID, double Shift);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNFAShift(int uID, ref double Shift);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNFAModeParticipationCalculate(int uID, byte Calculate);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNFAModeParticipationCalculate(int uID, ref byte Calculate);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNFAModeParticipationVectors(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNFAModeParticipationVectors(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRARange(int uID, int NumSteps, double F1, double F2, byte AutoInsert);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRARange(int uID, ref int NumSteps, ref double F1, ref double F2, ref byte AutoInsert);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRABaseVector(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRABaseVector(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRALoadCase(int uID, int CaseNum, int TableID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRALoadCase(int uID, int CaseNum, ref int TableID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRALoadType(int uID, int LType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRALoadType(int uID, ref int LType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRAMode(int uID, int MType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRAMode(int uID, ref int MType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRALoadExcitation(int uID, byte Load);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRALoadExcitation(int uID, ref byte Load);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddSRALoadCase(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertSRALoadCase(int uID, int SRACase, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteSRALoadCase(int uID, int SRACase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumSRALoadCases(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRALoadCaseTable(int uID, int SRACase, int CaseNum, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRALoadCaseTable(int uID, int SRACase, int CaseNum, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRALoadCaseName(int uID, int SRACase, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRALoadCaseName(int uID, int SRACase, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableSRALoadCase(int uID, int SRACase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableSRALoadCase(int uID, int SRACase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRALoadCaseState(int uID, int SRACase, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRABaseExcitation(int uID, byte Base);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRABaseExcitation(int uID, ref byte Base);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddSRABaseCase(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertSRABaseCase(int uID, int SRACase, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteSRABaseCase(int uID, int SRACase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumSRABaseCases(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRABaseCaseTable(int uID, int SRACase, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRABaseCaseTable(int uID, int SRACase, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRABaseCaseType(int uID, int SRACase, int VectType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRABaseCaseType(int uID, int SRACase, ref int VectType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRABaseCaseFactors(int uID, int SRACase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRABaseCaseFactors(int uID, int SRACase, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRABaseCaseName(int uID, int SRACase, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRABaseCaseName(int uID, int SRACase, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableSRABaseCase(int uID, int SRACase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableSRABaseCase(int uID, int SRACase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRABaseCaseState(int uID, int SRACase, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRAResultModal(int uID, byte Modal);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRAResultModal(int uID, ref byte Modal);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRAResultSRSS(int uID, byte SRSS);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRAResultSRSS(int uID, ref byte SRSS);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRAResultCQC(int uID, byte CQC);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRAResultCQC(int uID, ref byte CQC);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRAType(int uID, int SpectrumType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRAType(int uID, ref int SpectrumType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSRAResultsSign(int uID, int ResultsSign);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSRAResultsSign(int uID, ref int ResultsSign);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLTAInitial(int uID, string FileName, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLTAInitial(int uID, StringBuilder FileName, ref int CaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLTAMethod(int uID, int Method);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLTAMethod(int uID, ref int Method);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLTASolutionType(int uID, int SolutionType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLTASolutionType(int uID, ref int SolutionType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNTAInitial(int uID, string FileName, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNTAInitial(int uID, StringBuilder FileName, ref int CaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTHAInitial(int uID, string FileName, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTHAInitial(int uID, StringBuilder FileName, ref int CaseNum, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTHATemperatureLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTHATemperatureLoadCase(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTHAInitialAttributeOverride(int uID, byte Active);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTHAInitialAttributeOverride(int uID, ref byte Active);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetModalSuperpositionFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModalSuperpositionFile(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumModesInModalFile(int uID, ref int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumModesInNFAFile(int uID, string FileName, ref int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableMode(int uID, int ModeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableMode(int uID, int ModeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModeState(int uID, int ModeNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetModeDampingRatio(int uID, int ModeNum, double Ratio);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModeDampingRatio(int uID, int ModeNum, ref double Ratio);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientInitialConditionsType(int uID, int InitialType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientInitialConditionsType(int uID, ref int InitialType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientInitialConditionsVectors(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientInitialConditionsVectors(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientInitialConditionsNodalVelocity(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientInitialConditionsNodalVelocity(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientBaseExcitation(int uID, int BaseType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientBaseExcitation(int uID, ref int BaseType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientBaseVector(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientBaseVector(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientBaseAcceleration(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientBaseAcceleration(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientBaseVelocity(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientBaseVelocity(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientBaseDisplacement(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientBaseDisplacement(int uID, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientBaseTables(int uID, int BaseType, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientBaseTables(int uID, int BaseType, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddTransientNodeHistoryCase(int uID, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertTransientNodeHistoryCase(int uID, int Pos, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteTransientNodeHistoryCase(int uID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumTransientNodeHistoryCases(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientNodeHistoryCaseData(int uID, int Pos, int NodeNum, byte[] Logicals);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientNodeHistoryCaseData(int uID, int Pos, ref int NodeNum, byte[] Logicals);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientTemperatureInputType(int uID, int InputType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientTemperatureInputType(int uID, ref int InputType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientHeatFile(int uID, string FileName, double RefTemp);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientHeatFile(int uID, StringBuilder FileName, int MaxStringLen, ref double RefTemp);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientLoadPositionTable(int uID, int CaseNum, int TableID, int UCSId, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientLoadPositionTable(int uID, int CaseNum, ref int TableID, ref int UCSId, ref int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientFreedomPositionTable(int uID, int CaseNum, int TableID, int UCSId, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientFreedomPositionTable(int uID, int CaseNum, ref int TableID, ref int UCSId, ref int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInitialTemperatureInTHAFile(int uID, string FileName, ref double InitialTemp);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableTransientLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableTransientLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableTransientFreedomCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableTransientFreedomCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientLoadCaseState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientFreedomCaseState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientLoadTimeTable(int uID, int CaseNum, int TableID, byte AddTimeSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientLoadTimeTable(int uID, int CaseNum, ref int TableID, ref byte AddTimeSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTransientFreedomTimeTable(int uID, int CaseNum, int TableID, byte AddTimeSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTransientFreedomTimeTable(int uID, int CaseNum, ref int TableID, ref byte AddTimeSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNumTimeStepRows(int uID, int NumRows);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumTimeStepRows(int uID, ref int NumRows);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTimeStepData(int uID, int Row, int NumSteps, int SaveEvery, double TimeStep);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTimeStepData(int uID, int Row, ref int NumSteps, ref int SaveEvery, ref double TimeStep);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetTimeStepUnit(int uID, int TimeUnit);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetTimeStepUnit(int uID, ref int TimeUnit);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableMovingLoad(int uID, int LoadPathID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableMovingLoad(int uID, int LoadPathID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMovingLoadState(int uID, int LoadPathID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMovingLoadTimeTable(int uID, int LoadPathID, int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMovingLoadTimeTable(int uID, int LoadPathID, ref int TableID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetMovingLoadAutoDivisions(int uID, int LoadPathID, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMovingLoadAutoDivisions(int uID, int LoadPathID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverHeatNonlinear(int uID, byte Nonlinear);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableHeatLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableHeatLoadCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHeatLoadCaseState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverFontName(int uID, string FontName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverFontName(int uID, StringBuilder FontName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverNumCPU(int uID, int NumCPU);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverNumCPU(int uID, ref int NumCPU);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverScheme(int uID, int Scheme);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverScheme(int uID, ref int Scheme);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverSort(int uID, int Sort);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverSort(int uID, ref int Sort);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverTreeStartNumber(int uID, int Start);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverTreeStartNumber(int uID, ref int Start);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverActiveStage(int uID, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverActiveStage(int uID, ref int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverTemperatureDependence(int uID, int TempType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverTemperatureDependence(int uID, ref int TempType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverLoadCaseTemperatureDependence(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverLoadCaseTemperatureDependence(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverLoadCaseCableInertia(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverLoadCaseCableInertia(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverLoadCaseCablePreLoad(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverLoadCaseCablePreLoad(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverFreedomCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverFreedomCase(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetDampingType(int uID, int DampType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDampingType(int uID, ref int DampType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetRayleighFactors(int uID, int RayleighMode, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetRayleighFactors(int uID, ref int RayleighMode, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSoilFluidOptions(int uID, int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSoilFluidOptions(int uID, ref int CaseNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSoilAutoDrained(int uID, byte Active);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSoilAutoDrained(int uID, ref byte Active);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSturmCheck(int uID, byte DoSturm);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSturmCheck(int uID, ref byte DoSturm);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverNonlinearGeometry(int uID, byte NonlinearGeometry);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverNonlinearGeometry(int uID, ref byte NonlinearGeometry);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverNonlinearMaterial(int uID, byte NonlinearMaterial);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverNonlinearMaterial(int uID, ref byte NonlinearMaterial);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverCreep(int uID, byte Creep);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverCreep(int uID, ref byte Creep);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverIncludeKG(int uID, byte IncludeKG);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverIncludeKG(int uID, ref byte IncludeKG);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverStressStiffening(int uID, byte AddStressStiffening);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverStressStiffening(int uID, ref byte AddStressStiffening);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEntityResult(int uID, int Result, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEntityResult(int uID, int Result, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableResultGroup(int uID, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableResultGroup(int uID, int GroupID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultGroupState(int uID, int GroupID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableResultProperty(int uID, int Entity, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableResultProperty(int uID, int Entity, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultPropertyState(int uID, int Entity, int PropNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultFileName(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultLogFileName(int uID, string LogName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetStaticRestartFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetStaticRestartFile(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetDynamicRestartFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetDynamicRestartFile(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetQuasiStaticRestartFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetQuasiStaticRestartFile(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetNodeHistoryFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeHistoryFile(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableSaveRestart(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableSaveRestart(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableSaveLastRestartStep(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableSaveLastRestartStep(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetAppendSRA(int uID, byte Append);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetAppendSRA(int uID, ref byte Append);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableNSMassCaseInMassMatrix(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableNSMassCaseInMassMatrix(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNSMassCaseInMassMatrixState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverDefaultsLogical(int uID, int Parameter, byte Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverDefaultsLogical(int uID, int Parameter, ref byte Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverDefaultsInteger(int uID, int Parameter, int Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverDefaultsInteger(int uID, int Parameter, ref int Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverDefaultsDouble(int uID, int Parameter, double Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetSolverDefaultsDouble(int uID, int Parameter, ref double Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetUseSolverDLL(byte UseDLL);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetUseSolverDLL(ref byte UseDLL);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CheckSolverRunning(int ProcessID, ref byte IsRunning);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSolverWindowPos(int L, int T, int W, int H);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearSolverWindowPos();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RunSolver(int uID, int Solver, int Mode, int Wait);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RunSolverProcess(int uID, int Solver, int Mode, int Wait, ref int ProcessID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7StopSolverProcess(int ProcessID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultOptions(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultOptions(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEnvelopeAveragingOrder(int uID, int Order);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEnvelopeAveragingOrder(int uID, ref int Order);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetEnvelopeAdditionalBeamSlices(int uID, byte Additional);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetEnvelopeAdditionalBeamSlices(int uID, ref byte Additional);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetBeamResultPosMode(int uID, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamResultPosMode(int uID, ref int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableModelStrainUnit(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableModelStrainUnit(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableModelRotationUnit(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableModelRotationUnit(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableModelRCUnit(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableModelRCUnit(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseName(int uID, int CaseNum, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultFreedomCaseName(int uID, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseStage(int uID, int CaseNum, ref int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseConvergence(int uID, int CaseNum, ref byte Converged);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModalConvergence(int uID, int Mode, ref byte EigvalConverged, ref byte EigvectConverged);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseReset(int uID, int CaseNum, ref byte Reset);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseTime(int uID, int CaseNum, ref double Time);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseFactor(int uID, int CaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseKineticEnergy(int uID, int CaseNum, ref double Energy);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumIterations(int uID, ref int NumIterations);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFrequency(int uID, int Mode, ref double Freq);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumModes(int uID, ref int NumModes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumSRACases(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModalResultsNFA(int uID, int Mode, double[] ModalResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModalResultsNodeDofNFA(int uID, int Mode, ref int NodeNum, ref int Dof);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetExcitationTypeSRA(int uID, int CaseNum, ref int ExcitationType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModalResultsSRA(int uID, int CaseNum, int Mode, double[] ModalResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetModalResultsHRA(int uID, int CaseNum, int Mode, double[] ModalResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInertiaReliefResults(int uID, int CaseNum, double[] InertiaResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBucklingFactor(int uID, int Mode, ref double Fact);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultCaseInfluenceVariable(int uID, int CaseNum, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInitialTemperatureTHA(int uID, ref double InitialTemp);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementResultState(int uID, int Entity, int EntityNum, int ResultCase, int[] State);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeResult(int uID, int ResultType, int NodeNum, int ResultCase, double[] NodeResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeResultEx(int uID, int ResultType, int NodeNum, int ResultCase, double[] NodeResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeResultUCS(int uID, int ResultType, int UCSId, int NodeNum, int ResultCase, double[] NodeResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeResultExUCS(int uID, int ResultType, int UCSId, int NodeNum, int ResultCase, double[] NodeResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamResultArray(int uID, int ResultType, int ResultSubType, int BeamNum, int MinStations, int ResultCase, ref int NumStations, ref int NumColumns, double[] BeamPos, double[] BeamResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamResultArrayPos(int uID, int ResultType, int ResultSubType, int BeamNum, int ResultCase, int NumStations, double[] BeamPos, ref int NumColumns, double[] BeamResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamResultEndPos(int uID, int ResultType, int ResultSubType, int BeamNum, int ResultCase, ref int NumColumns, double[] BeamResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamResultSinglePos(int uID, int ResultType, int ResultSubType, int BeamNum, int ResultCase, double BeamPos, ref int NumColumns, double[] BeamResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamSectionResult(int uID, int ResultType, int BeamNum, int ResultCase, double BeamPos, double x, double y, double[] BeamResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBeamReleaseResult(int uID, int BeamNum, int ResultCase, byte[] BeamReleased, double[] ReleaseValue);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateResultArray(int uID, int ResultType, int ResultSubType, int PlateNum, int ResultCase, int SampleLocation, int Surface, int Layer, ref int NumPoints, ref int NumColumns, double[] PlateResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPlateResultMaxJunctionAngle(int uID, double MaxJunctionAngle, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateResultMaxJunctionAngle(int uID, ref double MaxJunctionAngle, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateResultGaussPoints(int uID, int PlateNum, int ResultCase, ref int NumGauss, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickResultArray(int uID, int ResultType, int ResultSubType, int BrickNum, int ResultCase, int SampleLocation, ref int NumPoints, ref int NumColumns, double[] BrickResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLinkResultArray(int uID, int ResultType, int UCSId, int LinkNum, int ResultCase, ref int NumPoints, ref int NumColumns, double[] LinkResult, int ArrayDim);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMultiPointLinkReactionSum(int uID, int LinkNum, int UCSId, int ResultCase, double[] Reaction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMultiPointLinkFluxSum(int uID, int LinkNum, int ResultCase, ref double Flux);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMultiPointLinkNodeReaction(int uID, int LinkNum, int UCSId, int ResultCase, double[] Reaction, int MaxNodes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetMultiPointLinkNodeFlux(int uID, int LinkNum, int ResultCase, double[] Flux, int MaxNodes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickResultGaussPoints(int uID, int BrickNum, int ResultCase, ref int NumGauss, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetReferenceDisplacement(int uID, int RefCase, byte ApplyToDisplay);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeReactionSum(int uID, int UCSId, int ResultCase, double[] Origin, int NodeState, double[] ReactionSum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementNodeForceSum(int uID, int UCSId, int ResultCase, double[] Origin, int[] EntityState, double[] ReactionSum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNodeFluxSum(int uID, int ResultCase, int NodeState, ref double FluxSum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetElementNodeFluxSum(int uID, int ResultCase, int[] EntityState, ref double FluxSum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnablePlyPropertyResults(int uID, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisablePlyPropertyResults(int uID, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlyPropertyResultsState(int uID, int PropNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultUserEquation(int uID, int Entity, string Equation, int TrigType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultUserEquation(int uID, int Entity, StringBuilder Equation, int MaxStringLen, ref int TrigType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7StoreResultUserEquation(int uID, int Entity, string Name, string Equation, int TrigType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteStoredResultUserEquation(int uID, int Entity, int Number);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ReplaceStoredResultUserEquation(int uID, int Entity, int Number, string Name, string Equation, int TrigType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RetrieveStoredResultUserEquation(int uID, int Entity, int Number, StringBuilder Name, StringBuilder Equation, int MaxStringLen, ref int TrigType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumStoredResultUserEquations(int uID, int Entity, ref int NumEquations);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetStoredResultUserEquation(int uID, int Entity, int Number);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GeneratePlateContourFile(int uID, int ResultCase, int[] Integers, ref int FileIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateBrickContourFile(int uID, int ResultCase, int[] Integers, ref int FileIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7LoadPlateContourFile(int uID, int FileIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7LoadBrickContourFile(int uID, int FileIndex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetPlateContourFileResult(int uID, int PlateNum, double[] PlateResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetBrickContourFileResult(int uID, int BrickNum, double[] BrickResult);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumLSACombinations(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLSACombinationName(int uID, int CaseNum, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLSACombinationName(int uID, int CaseNum, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLSACombinationSRAName(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLSACombinationSRAName(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLSACombination(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLSACombination(int uID, int Pos, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLSACombination(int uID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLSACombinationFactor(int uID, int LType, int Pos, int LoadCaseNum, int FreedomCaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLSACombinationFactor(int uID, int LType, int Pos, int LoadCaseNum, int FreedomCaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLSACombinationState(int uID, int CaseNum, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLSACombinationState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumCombinedLSACombinations(int uID, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCombinedLSACombinationName(int uID, int CaseNum, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCombinedLSACombinationName(int uID, int CaseNum, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCombinedLSACombinationState(int uID, int CaseNum, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCombinedLSACombinationState(int uID, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddCombinedLSACombination(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertCombinedLSACombination(int uID, int Pos, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteCombinedLSACombination(int uID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCombinedLSACombinationFactor(int uID, int Pos, int CaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCombinedLSACombinationFactor(int uID, int Pos, int CaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRACombinationLSAName(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRACombinationLSAName(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRABaseCombinationFactor(int uID, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRABaseCombinationFactor(int uID, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRACaseCombinationFactor(int uID, int CaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRACaseCombinationFactor(int uID, int CaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetHRACombinationFactorLSA(int uID, int LoadCaseNum, int FreedomCaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetHRACombinationFactorLSA(int uID, int LoadCaseNum, int FreedomCaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceFileName(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceFileName(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumInfluenceVariables(int uID, ref int NumVariables);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumInfluenceMultiVariableCases(int uID, ref int NumMultiVariableCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceVariable(int uID, int VariableID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceMinVariableState(int uID, int MinVariableID, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceMinVariableState(int uID, int MinVariableID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceMaxVariableState(int uID, int MaxVariableID, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceMaxVariableState(int uID, int MaxVariableID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceMultiVariableState(int uID, int MultiVariableID, int MultiVariableCaseID, byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceMultiVariableState(int uID, int MultiVariableID, int MultiVariableCaseID, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceMultiVariableType(int uID, int MultiVariableCaseID, int MultiVariableType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceMultiVariableType(int uID, int MultiVariableCaseID, ref int MultiVariableType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddInfluenceMultiVariableCase(int uID, int MultiVariableType, string MultiVariableName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteInfluenceMultiVariableCase(int uID, int MultiVariableCaseID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceMultiVariableName(int uID, int MultiVariableCaseID, string MultiVariableName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceMultiVariableName(int uID, int MultiVariableCaseID, StringBuilder MultiVariableName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceGroupState(int uID, int GroupID, byte Included);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceGroupState(int uID, int GroupID, ref byte Included);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluencePropertyState(int uID, int Entity, int PropNum, byte Included);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluencePropertyState(int uID, int Entity, int PropNum, ref byte Included);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetInfluenceCombinationOptions(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInfluenceCombinationOptions(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateInfluenceCases(int uID, byte RemoveExisting, byte AllowStop, byte WriteLog, int Mode, ref int NumCasesDeleted, ref int NumCasesGenerated, ref int WarningCode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumEnvelopes(int uID, ref int NumLimitEnvelopes, ref int NumCombinationEnvelopes, ref int NumFactorsEnvelopes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumEnvelopesSolver(int uID, int Solver, int SolverMode, ref int NumLimitEnvelopes, ref int NumCombinationEnvelopes, ref int NumFactorsEnvelopes);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddLimitEnvelope(int uID, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertLimitEnvelope(int uID, int Envelope, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteLimitEnvelope(int uID, int Envelope);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7EnableLimitEnvelopeCase(int uID, int Envelope, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DisableLimitEnvelopeCase(int uID, int Envelope, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLimitEnvelopeCaseState(int uID, int Envelope, int CaseNum, ref byte Enabled);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetLimitEnvelopeData(int uID, int Envelope, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetLimitEnvelopeData(int uID, int Envelope, ref int EnvType, StringBuilder EnvName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddCombinationEnvelope(int uID, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertCombinationEnvelope(int uID, int Envelope, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteCombinationEnvelope(int uID, int Envelope);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCombinationEnvelopeCase(int uID, int Envelope, int CaseNum, int State);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCombinationEnvelopeCase(int uID, int Envelope, int CaseNum, ref int State);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCombinationEnvelopeData(int uID, int Envelope, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCombinationEnvelopeData(int uID, int Envelope, ref int EnvType, StringBuilder EnvName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddFactorsEnvelope(int uID, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertFactorsEnvelope(int uID, int Envelope, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteFactorsEnvelope(int uID, int Envelope);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFactorsEnvelopeData(int uID, int Envelope, int EnvType, string EnvName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFactorsEnvelopeData(int uID, int Envelope, ref int EnvType, StringBuilder EnvName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddFactorsEnvelopeCase(int uID, int Envelope);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertFactorsEnvelopeCase(int uID, int Envelope, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteFactorsEnvelopeCase(int uID, int Envelope, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFactorsEnvelopeCaseData(int uID, int Envelope, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFactorsEnvelopeCaseData(int uID, int Envelope, int Pos, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddFactorsEnvelopeSet(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertFactorsEnvelopeSet(int uID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteFactorsEnvelopeSet(int uID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumFactorsEnvelopeSets(int uID, ref int NumSets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumFactorsEnvelopeCases(int uID, int Envelope, ref int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetFactorsEnvelopeSetData(int uID, int Pos, int SetType, string SetName, string SetGroup);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetFactorsEnvelopeSetData(int uID, int Pos, ref int SetType, StringBuilder SetName, StringBuilder SetGroup, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultFileCombTargetFileName(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultFileCombTargetFileName(int uID, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddResultFileCombFileName(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteResultFileCombFileName(int uID, int FileNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultFileCombFileName(int uID, int FileNum, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultFileCombFileName(int uID, int FileNum, StringBuilder FileName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AddResultFileCombCase(int uID, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteResultFileCombCase(int uID, int Pos);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultFileCombCaseData(int uID, int FileNum, int Pos, int CaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultFileCombCaseData(int uID, int FileNum, int Pos, ref int CaseNum, ref double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResultFileCombCaseName(int uID, int Pos, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResultFileCombCaseName(int uID, int Pos, StringBuilder CaseName, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateResultFileComb(int uID, int Method);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RetrieveResultFileComb(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GenerateHRATimeHistory(int uID, double StartTime, double EndTime, int NumSteps, ref int WarningCode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearHRATimeHistory(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7NewResFile(int uID, string FileName, int ResultType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileUnits(int uID, int[] Units);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7OpenResFile(int uID, string FileName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CloseResFile(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileDescription(int uID, string Name);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileDescription(int uID, StringBuilder Name, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileNumCases(int uID, int NumCases);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileCaseName(int uID, int CaseNum, string CaseName);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssociateResFileCase(int uID, int CaseNum, int LoadCase, int FreedomCase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssociateResFileStage(int uID, int CaseNum, int Stage);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AssociateResFileNSMassCase(int uID, int CaseNum, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileMode(int uID, int CaseNum, double Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileMode(int uID, int CaseNum, ref double Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileTime(int uID, int CaseNum, double Time);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileTime(int uID, int CaseNum, ref double Time);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileTimeUnit(int uID, int TimeUnit);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileTimeUnit(int uID, ref int TimeUnit);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileQuantity(int uID, int CaseNum, int Entity, int Quantity);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileFreedomCase(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileFreedomCase(int uID, ref int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearResFileQuantity(int uID, int CaseNum, int Entity, int Quantity);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileQuantityState(int uID, int CaseNum, int Entity, int Quantity, ref byte Included);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileNodeResult(int uID, int CaseNum, int NodeNum, int Quantity, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileNodeResult(int uID, int CaseNum, int NodeNum, int Quantity, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileBeamResult(int uID, int CaseNum, int BeamNum, int Quantity, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileBeamResult(int uID, int CaseNum, int BeamNum, int Quantity, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileBeamReleaseResult(int uID, int CaseNum, int BeamNum, byte[] BeamReleased, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileBeamReleaseResult(int uID, int CaseNum, int BeamNum, byte[] BeamReleased, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileBeamStations(int uID, int CaseNum, int Stations);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileBeamStations(int uID, int CaseNum, ref int Stations);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFilePlateResult(int uID, int CaseNum, int PlateNum, int Quantity, byte NonlinearMaterial, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFilePlateResult(int uID, int CaseNum, int PlateNum, int Quantity, ref byte NonlinearMaterial, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFilePlatePressureResult(int uID, int CaseNum, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFilePlatePressureResult(int uID, int CaseNum, int PlateNum, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetResFileBrickResult(int uID, int CaseNum, int BrickNum, int Quantity, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetResFileBrickResult(int uID, int CaseNum, int BrickNum, int Quantity, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetToolOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetToolOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCleanMeshOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetCleanMeshOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CleanMesh(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SurfaceMesh(int uID, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SolidTetMesh(int uID, int[] Integers, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DirectSolidTetMesh(int uID, int[] Integers, double[] Doubles, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MeshFromLoops(int uID, int[] Integers, double[] Doubles, int[] Loops, double[] Points, int Mode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteUnusedNodes(int uID, ref int NumDeleted);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InvalidateElement(int uID, int Entity, int EntityNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteInvalidElements(int uID, int Entity, ref int NumDeleted);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPasteOptions(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyToSt7Clipboard(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CutToSt7Clipboard(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PasteFromSt7ClipboardByIncrements(int uID, double[] Rotation, double[] Translation, double Scaling);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PasteFromSt7ClipboardByAnchors(int uID, int[] SourceAnchorType, int[] SourceAnchorID, int[] TargetAnchorType, int[] TargetAnchorID, double[] Rotation, double[] Translation, double Scaling);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetProjectDirectionAsSource(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetProjectDirectionAsTarget(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetProjectDirectionAsConical(int uID, double[] Apex);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetProjectDirectionAsParallel(int uID, double[] P1, double[] P2);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPropertyIncrement(int uID, int PropInc);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetKeepSelect(int uID, byte KeepSelect);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetCopyFlags(int uID, int[] Flags);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetExtrudeFlags(int uID, int[] Flags);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetExtrudeTargets(int uID, int[] Targets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetSourceAction(int uID, int SourceAction);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SetPLTarget(int uID, int Target, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefineLineN2(int uID, int NodeNum1, int NodeNum2, ref int LineID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefineLineV2(int uID, int VertexNum1, int VertexNum2, ref int LineID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefineLineNV(int uID, int NodeNum, int VertexNum, byte Reversed, ref int LineID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefineLineP2(int uID, double[] P1, double[] P2, ref int LineID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefinePlaneGlobalN(int uID, int NodeNum, int Plane, ref int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefinePlaneGlobalV(int uID, int VertexNum, int Plane, ref int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefinePlaneP3(int uID, double[] P1, double[] P2, double[] P3, ref int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefinePlaneUCS(int uID, int UCSId, int UCSPlane, ref int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DefineEntityCollection(int uID, ref int CollectionID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByIncrement(int uID, double[] DXYZ, int UCSId, int NumCopies);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByRotation(int uID, int UCSId, int Axis, double Angle, double[] Origin, int NumCopies);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByProjectionToLine(int uID, int LineID, byte EquiSpace);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByProjectionToPlane(int uID, int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByProjectionToUCS(int uID, int UCSId, int UCSPlane, double Ordinate);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByProjectionToEntityFace(int uID, int CollectionID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByThickness(int uID, double Thickness, int BeamDir, int PlateSurface, int FaceSurface, byte UsePlateThickness, byte UseFaceThickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyByMirror(int uID, int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CopyToAbsolute(int uID, double Value, int UCSId, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByIncrement(int uID, double[] DXYZ, int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByRotation(int uID, int UCSId, int Axis, double Angle, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByProjectionToLine(int uID, int LineID, byte EquiSpace);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByProjectionToPlane(int uID, int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByProjectionToUCS(int uID, int UCSId, int UCSPlane, double Ordinate);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByProjectionToEntityFace(int uID, int CollectionID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByThickness(int uID, double Thickness, int BeamDir, int PlateSurface, int FaceSurface, byte UsePlateThickness, byte UseFaceThickness);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveByMirror(int uID, int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveBySkew(int uID, double[] Origin, double[] Skew, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveToAbsolute(int uID, double Value, int UCSId, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveToUCSIntersection(int uID, int UCSId1, int UCSId2, double Ordinate1, double Ordinate2);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveToOriginByPoint(int uID, int UCSId, double[] Point);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveToOriginMinXYZ(int uID, int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MoveToPlane(int uID, int SourcePlaneID, int TargetPlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByIncrement(int uID, double[] DXYZ, int UCSId, int NumCopies);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByRotation(int uID, int UCSId, int Axis, double Angle, double[] Origin, int NumCopies);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByProjectionToPoint(int uID, double[] Point);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByProjectionToAveragePoint(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByProjectionToLine(int uID, int LineID, byte EquiSpace);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByProjectionToPlane(int uID, int PlaneID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByProjectionToUCS(int uID, int UCSId, int UCSPlane, double Ordinate);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByProjectionToEntityFace(int uID, int CollectionID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByThickness(int uID, double Thickness, int BeamDir, int PlateSurface, byte UsePlateThickness, byte SourceMidPlane);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeByLine(int uID, int CollectionID, int Divisions, int Direction, double RotationAngle, double RadialScale);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ExtrudeToAbsolute(int uID, double Value, int UCSId, int Axis);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ScaleByCartesianUCS(int uID, int UCSId, int ScaleAbout, double[] Factors, double[] Point);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ScaleByCylindricalUCS(int uID, int UCSId, int ScaleAbout, double[] Factors, double[] Point, double AngularCentre);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ScaleBySphericalUCS(int uID, int UCSId, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ScaleByToroidalUCS(int uID, int UCSId, double Factor);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ScaleByTaper(int uID, int UCSId, int LineID, int Axis, double Scale1, double Scale2);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GraftEdgesToFaces(int uID, int DistanceType, double Distance);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7IntersectEdges(int uID, int DistanceType, double Distance, byte SplitFaces);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MorphEdges(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SplitFaceByVertices(int uID, int NumVertexSets, int[] VertexSetData);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SplitFaceByPlane(int uID, int PlaneID, int NumCutFaces, int NumRepeats, double Increment);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FaceFromPlate(int uID, byte NodeAttribToVertices, byte PlateAttribToFaces, byte CircularFaceEdges);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FaceFromBeamPolygon(int uID, int FaceNum, int PropNum, double EdgeTol, byte BeamPropAsLoop, byte BeamGroupAsLoop);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FaceFromCavity(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RebuildFaces(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RebuildFacesUV(int uID, int DegreeU, int DegreeV, int ControlPointsU, int ControlPointsV);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertToNURBS(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MidPlaneThinSolids(int uID, double NormalsTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DeleteCavityLoops(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DetachFaces(int uID, int DetachMode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsertVerticesOnEdge(int uID, int EdgeID, int NumVertex, int VertexType, double[] Positions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SubdivideEdges(int uID, int Divisions, int VertexType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7Subdivide(int uID, int DivsA, int DivsB, int DivsC, int PlateTarget, int BrickTarget);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7Grade(int uID, int GradeType, double GradeRatio);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CutElementsByLine(int uID, int LineID, int EdgeTol, int BeamPropNum, int PlatePropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CutElementsByPlane(int uID, int PlaneID, int EdgeTol, int BeamPropNum, int PlatePropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CutElementsByUCS(int uID, int UCSId, int EdgeTol, int BeamPropNum, int PlatePropNum, double Radius);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SplitBeams(int uID, double SplitRatio, int SplitType);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SubdivideBeams(int uID, double Length);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InterpolateBeamSections(int uID, int PropNum1, int PropNum2, int Divisions);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7IntersectBeamsAndLinks(int uID, double MaxGap, double MinAngle, byte SplitBeams, byte SplitLinks, byte ConsiderEdgeMidsideNode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7LoftBeams(int uID, int CrossBeamPropNum, int PlatePropNum, int NumSteps, int NumSubSteps, byte MakeCrossBeams, byte MakePlates);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SliceOnPlane(int uID, int PlaneID, int PropNum, int NumRepeats, double Increment, byte DoBeams, byte DoPlates);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FilletPlates(int uID, double Radius, byte StitchPlates);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MidPlanePlateProjection(int uID, int PlateNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RepairTri3Mesh(int uID, double MaxAngle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7DetachElements(int uID, int[] Integers);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLLine2(int uID, double[] P1, double[] P2, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLParabola3(int uID, double[] P1, double[] P2, double[] P3, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLNormal3(int uID, double[] P1, double[] P2, double[] P3);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLNormal3R(int uID, double[] P1, double[] P2, double[] P3, double Radius, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLExtend2R(int uID, double[] P1, double[] P2, double Radius, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLAverage2(int uID, double[] P1, double[] P2, int UCSId);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLFillet3R(int uID, double[] P1, double[] P2, double[] P3, double Radius, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLFillet4R(int uID, double[] P1, double[] P2, double[] P3, double[] P4, double Radius, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleO3(int uID, double[] P1, double[] P2, double[] P3, int NumSteps, byte FullCircle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLEllipseO3(int uID, double[] P1, double[] P2, double[] P3, int NumSteps, byte FullCircle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCurve3(int uID, double[] P1, double[] P2, double[] P3, int NumSteps);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleC3(int uID, double[] P1, double[] P2, double[] P3, int NumSteps, byte FullCircle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCirclesTangent3R(int uID, double[] P1, double[] P2, double[] P3, double R1, double R2);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLIntersect4(int uID, double[] P1, double[] P2, double[] P3, double[] P4);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleTangent3R(int uID, double[] P1, double[] P2, double[] P3, double Radius);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleCentre3(int uID, double[] P1, double[] P2, double[] P3);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCirclesIntersect3R(int uID, double[] P1, double[] P2, double[] P3, double R1, double R2);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleLineInnerFillet3R(int uID, double[] P1, double[] P2, double[] P3, double R1, double R2, int NumSteps, byte FullCircle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleLineOuterFillet3R(int uID, double[] P1, double[] P2, double[] P3, double R1, double R2, int NumSteps, byte FullCircle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCircleLineIntersect3(int uID, double[] P1, double[] P2, double[] P3, double Radius);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PLCirclesFillet3R(int uID, double[] P1, double[] P2, double[] P3, double R1, double R2, double R3, int NumSteps, byte FullCircle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateRigidLinkCluster(int uID, int UCSId, int Axis, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreatePinnedLinkCluster(int uID, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateMasterSlaveLinkCluster(int uID, int UCSId, int DoFBits, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateSectorSymmetryLinkCluster(int uID, int Axis, double Plane1, double Plane2, double RadialTol, double AngularTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateInterpolatedMultiPointLink(int uID, int Couple, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateRigidMultiPointLink(int uID, int UCSId, int Axis, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreatePinnedMultiPointLink(int uID, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateMasterSlaveMultiPointLink(int uID, int UCSId, int DoFBits, int NodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateReactionMultiPointLink(int uID, int SetNum, int OriginCode, double[] Origin);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateLinksFromMultiPointLink(int uID, byte DeleteMPL);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateBeamsOnElementEdges(int uID, int PropNum, int QuadraticAs, int BasedOn, double FacetAngle, byte FreeEdges, byte TJunctions, byte PropBoundary, byte GroupBoundary, byte InternalBricks);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateBeamsOnGeometryEdges(int uID, int PropNum, int GeometryAs);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreatePlatesOnBricks(int uID, byte FreeFacesOnly, byte AllowDuplicates);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateEntityUCS(int uID, int CurvedPipeAxis, int BeamAxis, int OriginLocation, byte OriginNode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateLoadPatches(int uID, double PlaneTol, byte TriangularLoad, byte UseBeamGroup);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateAttachments(int uID, int BrickTarget, double AngleDelta, byte DeleteExisting);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateCartesianSymmetryRestraints(int uID, int FreedomCase);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CreateCylindricalSymmetryRestraints(int uID, int Axis, int FreedomCase, double Theta1, double Theta2, double AngularTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MergeElementPairs(int uID, byte Quadratic);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MergeLineOfBeams(int uID, double AngleTol, int AngleMode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7MergeTriToQuad(int uID, double MinInternalAngle, double MaxInternalAngle, double MaxNormalAngle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertBeamsToLinks(int uID, int LinkType, int LinkOption, int CaseID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertLinksToBeams(int uID, int PropNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertBeamOffsetsToRigidLinks(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertPatchLoads(int uID, int CaseNum, byte Overwrite);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CheckPatchLoads(int uID, int CaseNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertLoadPathsToLoadCases(int uID, byte PointForces, byte DistributedForces, byte HeatSources);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertBeamPolygonsToPlates(int uID, double MinInternalAngle, double MaxInternalAngle, double MaxNormalAngle, byte CreateQuad4);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AdjustMidsideNodes(int uID, byte MakeStraight);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7SmoothPlates(int uID, int UCSId, byte SmoothBoundary);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ReorderNodesTree(int uID, int StartNodeNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ReorderNodesGeometry(int uID, double[] DXYZ);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ReorderNodesAMD(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7CorrectAttachmentLinkGroups(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7TrimMultiPointLinks(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7BeamOffsetsByCrossSection(int uID, int[] Offsets);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignBeamAxesToUCS(int uID, int BeamAxis, int BeamAxisType, int UCSAxis, int UCSId, double AngleTol, byte KeepEndAttributeLocation);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignBeamAxesToFramework(int uID, int BeamAxis, int BeamAxisType, byte PositiveDir);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignBeamAxesToPlate(int uID, int BeamAxis, int BeamAxisType, byte PositiveDir);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignBeamAxisToVector(int uID, int BeamAxis, int BeamAxisType, double AngleTol, double[] Vector);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RemoveBeamReferenceNode(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7PlateOffsetByThickness(int uID, int Surface);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignPlateAxesToUCS(int uID, int PlateAxis, int UCSAxis, int UCSId, double AngleTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignPlateNormalByConnection(int uID, int PlateNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignPlateRCDirectionsToUCS(int uID, int RCLayers, int UCSAxis, int UCSId, double AngleTol);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignFaceNormalByConnection(int uID, int FaceNum);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignBeam3AxisByConnection(int uID, byte KeepEndAttributeLocation);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7AlignPlateAxesByConnection(int uID, int PlateNum, double MaxShearAngle);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RotatePlateConnections(int uID, byte Clockwise);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7FlipEntity(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InvertPathNormal(int uID);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetInsituStressOptions(int uID, int[] Integers, double[] Doubles);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7InsituStress(int uID, int Mode, int Wait, int[] Integers, double[] Doubles, ref int ProcessID, ref int WarningCode);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGlobalIntegerValue(int Index, ref int Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGlobalLogicalValue(int Index, ref byte Value);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetGlobalStringValue(int Index, StringBuilder Value, int MaxStringLen);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearGlobalIntegerValues();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearGlobalLogicalValues();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ClearGlobalStringValues();
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7RGBToColour(double Red, double Green, double Blue, ref int Colour);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ColourToRGB(int Colour, ref double Red, ref double Green, ref double Blue);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7GetNumElementResultGaussPoints(int Entity, int NumNodes, ref int NumGauss);
-        [DllImport("St7API.dll")]
+        [DllImport(_strausProxy)]
         public static extern int St7ConvertElementResultNodeToGaussPoint(int Entity, int NumNodes, int NumColumns, double[] NodeDoubles, ref int NumGauss, double[] GaussDoubles);
     }
 }

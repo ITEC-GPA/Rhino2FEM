@@ -386,9 +386,16 @@ namespace Rhino2Fem.Core.Models
                         for (int j = 0; j < element.Groups.Count; j++)
                         {
                             ElementGroupModel newGroup = element.Groups[j];
-                            newGroup.Id = idGroup;
-                            idGroup++;
-                            Groups.Add(element.Groups[j]);
+                            if (Groups.ContainsKey(newGroup.Name))
+                            {
+                                element.Groups[j] = Groups[newGroup.Name];
+                            }
+                            else
+                            {
+                                newGroup.Id = idGroup;
+                                idGroup++;
+                                Groups.Add(element.Groups[j]);
+                            }
                         }
                     }
                 }
@@ -404,9 +411,16 @@ namespace Rhino2Fem.Core.Models
                         for (int j = 0; j < element.Groups.Count; j++)
                         {
                             ElementGroupModel newGroup = element.Groups[j];
-                            newGroup.Id = idGroup;
-                            idGroup++;
-                            Groups.Add(element.Groups[j]);
+                            if (Groups.ContainsKey(newGroup.Name))
+                            {
+                                element.Groups[j] = Groups[newGroup.Name];
+                            }
+                            else
+                            {
+                                newGroup.Id = idGroup;
+                                idGroup++;
+                                Groups.Add(element.Groups[j]);
+                            }
                         }
                     }
                 }
@@ -422,9 +436,16 @@ namespace Rhino2Fem.Core.Models
                         for (int j = 0; j < element.Groups.Count; j++)
                         {
                             ElementGroupModel newGroup = element.Groups[j];
-                            newGroup.Id = idGroup;
-                            idGroup++;
-                            Groups.Add(element.Groups[j]);
+                            if (Groups.ContainsKey(newGroup.Name))
+                            {
+                                element.Groups[j] = Groups[newGroup.Name];
+                            }
+                            else
+                            {
+                                newGroup.Id = idGroup;
+                                idGroup++;
+                                Groups.Add(element.Groups[j]);
+                            }
                         }
                     }
                 }
@@ -577,7 +598,7 @@ namespace Rhino2Fem.Core.Models
                 {
                     if (fp.Id == ModelObjectId.UNASSIGNED)
                         fp.Id = NewId(usedAreaPropertyIds, idAreaProperty);
-                    usedAreaSectionIds.Add(fp.Id);
+                    usedAreaPropertyIds.Add(fp.Id);
                     AreaProperties.Add(fp);
                     areasBuffer[i].AreaProperty = AreaProperties[fp.Id];
                 }
