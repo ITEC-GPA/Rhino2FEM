@@ -190,14 +190,15 @@ namespace Rhino2Fem.Core.Elements
             Vector3d BBoxDiagonal = boundingBox.Diagonal;
             if (FrameSection.Type != FrameSectionModel.Types.COMPOSITE_I)
             {
+                double h = FrameSection.Dimension1;
                 switch (FrameSection.Offset)
                 {
                     case FrameSectionModel.OffsetTypes.LT:
-                        return new Vector3d(-BBoxDiagonal.X / 2.0, -BBoxDiagonal.Y / 2.0, 0);
+                        return new Vector3d(-BBoxDiagonal.X / 2.0, -h + FrameSection.Centroid.Y, 0);
                     case FrameSectionModel.OffsetTypes.CT:
-                        return new Vector3d(0, -BBoxDiagonal.Y / 2.0, 0);
+                        return new Vector3d(0, -h + FrameSection.Centroid.Y, 0);
                     case FrameSectionModel.OffsetTypes.RT:
-                        return new Vector3d(BBoxDiagonal.X / 2.0, -BBoxDiagonal.Y / 2.0, 0);
+                        return new Vector3d(BBoxDiagonal.X / 2.0, -h + FrameSection.Centroid.Y, 0);
                     case FrameSectionModel.OffsetTypes.LC:
                         return new Vector3d(-BBoxDiagonal.X / 2.0, 0, 0);
                     case FrameSectionModel.OffsetTypes.CC:
@@ -205,11 +206,11 @@ namespace Rhino2Fem.Core.Elements
                     case FrameSectionModel.OffsetTypes.RC:
                         return new Vector3d(BBoxDiagonal.X / 2.0, 0, 0);
                     case FrameSectionModel.OffsetTypes.LB:
-                        return new Vector3d(-BBoxDiagonal.X / 2.0, BBoxDiagonal.Y / 2.0, 0);
+                        return new Vector3d(-BBoxDiagonal.X / 2.0, FrameSection.Centroid.Y, 0);
                     case FrameSectionModel.OffsetTypes.CB:
-                        return new Vector3d(0, BBoxDiagonal.Y / 2.0, 0);
+                        return new Vector3d(0, FrameSection.Centroid.Y, 0);
                     case FrameSectionModel.OffsetTypes.RB:
-                        return new Vector3d(BBoxDiagonal.X / 2.0, BBoxDiagonal.Y / 2.0, 0);
+                        return new Vector3d(BBoxDiagonal.X / 2.0, FrameSection.Centroid.Y, 0);
                 }
             }
             else if (FrameSection.Type == FrameSectionModel.Types.COMPOSITE_I)
