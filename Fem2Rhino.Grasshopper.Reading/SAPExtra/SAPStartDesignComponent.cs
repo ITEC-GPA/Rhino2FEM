@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Rhino2Fem.Core.Helper;
 
-namespace FeMM.Grasshopper.Components.SAPExtra
+namespace Rhino2Fem .Grasshopper.Components.SAPExtra
 {
     public class SAPStartDesignComponent : GH_Component
     {

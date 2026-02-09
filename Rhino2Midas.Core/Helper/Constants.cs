@@ -28,6 +28,7 @@
 
         public static string SUBCATEGORY_CHECKS_SAPEXTRA = "SAP Extra";
         public static string SUBCATEGORY_CHECKS_SAPCHECKS = "SAP Checks";
+        public static string SUBCATEGORY_CHECKS_CONCRETECHECKER = "Concrete Checker";
         public static string SUBCATEGORY_CHECKS_TODO = "";
     }
 }

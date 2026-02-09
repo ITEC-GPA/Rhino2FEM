@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Grasshopper", "Rh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhino2Fem.Grasshopper.Straus", "Rhino2Fem.Grasshopper.Straus\Rhino2Fem.Grasshopper.Straus.csproj", "{E3A48578-101B-4C8E-A410-091CED3D365F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Grasshopper.Reading", "Fem2Rhino.Grasshopper.Reading\Fem2Rhino.Grasshopper.Reading.csproj", "{ADE7A59A-C6B1-4650-B445-82E231990DBA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fem2Rhino.Grasshopper.Checkers", "Fem2Rhino.Grasshopper.Reading\Fem2Rhino.Grasshopper.Checkers.csproj", "{ADE7A59A-C6B1-4650-B445-82E231990DBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

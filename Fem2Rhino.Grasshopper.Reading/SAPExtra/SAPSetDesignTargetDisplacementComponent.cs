@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Rhino2Fem.Core.Helper;
 
-namespace FeMM.Grasshopper.Components.SAPExtra
+namespace Rhino2Fem.Grasshopper.Components.SAPExtra
 {
     public class SAPSetDesignTargetDisplacementComponent : GH_Component
     {

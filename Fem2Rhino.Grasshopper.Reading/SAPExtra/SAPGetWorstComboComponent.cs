@@ -5,7 +5,7 @@ using SAP2000v1;
 using System;
 using System.Collections.Generic;
 
-namespace FeMM.Grasshopper.Components.SAPExtra
+namespace Rhino2Fem.Grasshopper.Components.SAPExtra
 {
     public class SAPSetDesignComboComponent : GH_Component
     {
