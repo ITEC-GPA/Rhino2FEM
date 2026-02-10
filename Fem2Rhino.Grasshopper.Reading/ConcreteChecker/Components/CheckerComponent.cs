@@ -1,4 +1,6 @@
 ﻿using Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Datatypes;
+using GPC.Checkers.Concrete.Attributes;
+using GPC.Checkers.Concrete.Checkers;
 using GPC.Checkers.Concrete.SectionSolvers;
 using GPC.Geometry;
 using GPC.Model.Data.Steel;
@@ -14,10 +16,10 @@ using System.Collections.Generic;
 
 namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 {
-    public class SolverComponent : GH_Component
+    public class CheckerComponent : GH_Component
     {
-        public SolverComponent()
-            : base("Concrete Solver", "CS", "Concrete Solver", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER   )
+        public CheckerComponent()
+            : base("Concrete Checker", "CC", "Concrete Checker", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER   )
         {
         }
 
@@ -30,25 +32,28 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Concrete Solver", "CS", "Concrete Solver", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Concrete Checker", "CC", "Concrete Checker", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             GH_ReinforcedConcreteSection gH_ReinforcedConcreteSection = null;
             GH_Standard gH_Standard = null;
+            GH_CheckerOptions gH_SolverOptions = null;
 
-            if (DA.GetData(0, ref gH_ReinforcedConcreteSection) && DA.GetData(1, ref gH_Standard) && DA.GetData(0, ref location))
+            if (DA.GetData(0, ref gH_ReinforcedConcreteSection) && DA.GetData(1, ref gH_Standard) && DA.GetData(2, ref gH_SolverOptions))
             {
+                SectionCheckerAttribute sectionCheckerAttribute = new SectionCheckerAttribute(gH_ReinforcedConcreteSection.Value);
+                var checker = new SectionCheckerModelCode2010(sectionCheckerAttribute, gH_SolverOptions.Value, gH_Standard.Value);
 
-                var solver = new SectionSolverModelCode2010(gH_ReinforcedConcreteSection.Value, options, gH_Standard.Value, gH_ReinforcedConcreteSection.Value.Centroid, considerTensileConcrete);
-
-                DA.SetData(0, new GH_Rebar(reinforcedConcreteRebar));
+                DA.SetData(0, new GH_SectionChecker(checker));
             }
         }
 
         //protected override Bitmap Icon => Resources.material;
         
-        public override Guid ComponentGuid => new Guid("411284c2-923a-4475-94a5-8405ece71ce0");
+        public override Guid ComponentGuid => new Guid("c485957b-3d8e-4f19-8176-f30ffcda952e");
+
+        public override GH_Exposure Exposure => GH_Exposure.primary;
     }
 }

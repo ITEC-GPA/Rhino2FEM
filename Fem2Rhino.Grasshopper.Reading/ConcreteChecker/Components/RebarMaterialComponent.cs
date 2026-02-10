@@ -19,6 +19,11 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             { 4, "B500C" },
         };
 
+        protected Dictionary<int, string> _hardeningType = new Dictionary<int, string>() {
+            { 0, "Elasto-Plastic" },
+            { 1, "Elasto-Hardening" },
+        };
+
         public RebarMaterialComponent()
             : base("Database Rebar Steel", "RS", "Database Rebar Steel", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER   )
         {
@@ -30,6 +35,10 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             Param_Integer mtParam = pManager[i] as Param_Integer;
             foreach (KeyValuePair<int, string> v in _steelList)
                 mtParam.AddNamedValue(v.Value, v.Key);
+            int j = pManager.AddIntegerParameter("Behaviour", "B", "The behaviour type", GH_ParamAccess.item, 0);
+            Param_Integer mtParamj = pManager[j] as Param_Integer;
+            foreach (KeyValuePair<int, string> v in _hardeningType)
+                mtParamj.AddNamedValue(v.Value, v.Key);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -40,34 +49,43 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             int type = 0;
+            int hard = 0;
 
-            if (DA.GetData(0, ref type))
+            if (DA.GetData(0, ref type) && DA.GetData(1, ref hard))
             {
                 if (!_steelList.ContainsKey(type))
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid type");
                     return;
                 }
+                SteelMaterialEN1992 steelMaterialEN1992 = null;
                 if (type == 0)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.B450A));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.B450A;
                 else if (type == 1)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.B450C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.B450C;
                 else if (type == 2)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.B500A));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.B500A;
                 else if (type == 3)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.B500B));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.B500B;
                 else if (type == 4)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.B500C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.B500C;
                 else
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Failed to get data");
                     return;
                 }
+
+                if(hard  == 1)
+                    steelMaterialEN1992.StressStrainCurve = SteelMaterial.StressStrainCurveType.ElasticHardening;
+
+                DA.SetData(0, new GH_SteelMaterial(steelMaterialEN1992));
             }
         }
 
         //protected override Bitmap Icon => Resources.material;
         
         public override Guid ComponentGuid => new Guid("606ebfd0-d9e7-407e-aaa3-eb8579fe2f6b");
+
+        public override GH_Exposure Exposure => GH_Exposure.primary;
     }
 }

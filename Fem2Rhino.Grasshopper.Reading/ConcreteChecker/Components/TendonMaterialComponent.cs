@@ -24,6 +24,11 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             { 9, "Y2360C" },
         };
 
+        protected Dictionary<int, string> _hardeningType = new Dictionary<int, string>() {
+            { 0, "Elasto-Plastic" },
+            { 1, "Elasto-Hardening" },
+        };
+
         public TendonMaterialComponent()
             : base("Database Tendon Steel", "Database Tendon Steel", "Database Tendon Steel", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER   )
         {
@@ -35,6 +40,10 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             Param_Integer mtParam = pManager[i] as Param_Integer;
             foreach (KeyValuePair<int, string> v in _steelList)
                 mtParam.AddNamedValue(v.Value, v.Key);
+            int j = pManager.AddIntegerParameter("Behaviour", "B", "The behaviour type", GH_ParamAccess.item, 0);
+            Param_Integer mtParamj = pManager[j] as Param_Integer;
+            foreach (KeyValuePair<int, string> v in _hardeningType)
+                mtParamj.AddNamedValue(v.Value, v.Key);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -45,44 +54,54 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             int type = 0;
+            int hard = 0;
 
-            if (DA.GetData(0, ref type))
+            if (DA.GetData(0, ref type) && DA.GetData(1, ref hard))
             {
                 if (!_steelList.ContainsKey(type))
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid type");
                     return;
                 }
+
+                SteelMaterialEN1992 steelMaterialEN1992 = null;
+
                 if (type == 0)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y1570C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y1570C;
                 else if (type == 1)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y1620C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y1620C;
                 else if (type == 2)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y1670C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y1670C;
                 else if (type == 3)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y1770C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y1770C;
                 else if (type == 4)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y1860C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y1860C;
                 else if (type == 5)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y1960C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y1960C;
                 else if (type == 6)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y2060C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y2060C;
                 else if (type == 7)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y2160C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y2160C;
                 else if (type == 8)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y2260C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y2260C;
                 else if (type == 9)
-                    DA.SetData(0, new GH_SteelMaterial(SteelMaterialEN1992Data.Y2360C));
+                    steelMaterialEN1992 = SteelMaterialEN1992Data.Y2360C;
                 else
                 {
                     AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Failed to get data");
                     return;
                 }
+                if (hard == 1)
+                    steelMaterialEN1992.StressStrainCurve = SteelMaterial.StressStrainCurveType.ElasticHardening;
+
+                DA.SetData(0, new GH_SteelMaterial(steelMaterialEN1992));
             }
         }
 
         //protected override Bitmap Icon => Resources.material;
         
         public override Guid ComponentGuid => new Guid("c709c2fa-5e63-4cf6-b3a2-bd505a149a4d");
+
+        public override GH_Exposure Exposure => GH_Exposure.primary;
     }
 }

@@ -128,5 +128,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
         //protected override Bitmap Icon => Resources.material;
 
         public override Guid ComponentGuid => new Guid("f247cd41-e5cb-4a35-b9b8-e06b4c43afc6");
+
+        public override GH_Exposure Exposure => GH_Exposure.primary;
     }
 }

@@ -23,7 +23,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            int i = pManager.AddIntegerParameter("Type", "T", "The standard", GH_ParamAccess.item);
+            int i = pManager.AddIntegerParameter("Type", "T", "The standard", GH_ParamAccess.item, 0);
             Param_Integer mtParam = pManager[i] as Param_Integer;
             foreach (KeyValuePair<int, string> v in _standardList)
                 mtParam.AddNamedValue(v.Value.ToString(), v.Key);
@@ -37,10 +37,8 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             int type = 0;
-            GH_SteelMaterial rebarMaterial = null;
-            Rhino.Geometry.Point3d location = Rhino.Geometry.Point3d.Unset;
 
-            if (DA.GetData(1, ref type) && DA.GetData(2, ref rebarMaterial) && DA.GetData(0, ref location))
+            if (DA.GetData(0, ref type))
             {
                 if (!_standardList.ContainsKey(type))
                 {
@@ -60,5 +58,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
         //protected override Bitmap Icon => Resources.material;
 
         public override Guid ComponentGuid => new Guid("3def8fa3-e056-4075-8661-bd51575c00ee");
+
+        public override GH_Exposure Exposure => GH_Exposure.primary;
     }
 }

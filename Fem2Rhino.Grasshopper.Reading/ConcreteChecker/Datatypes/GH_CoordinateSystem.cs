@@ -1,0 +1,40 @@
+﻿using Grasshopper.Kernel.Types;
+using Rhino2Fem.Core.ElementProperties;
+using GPC.Model.Materials;
+using GPC.Geometry;
+
+namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Datatypes
+{
+    public class GH_CoordinateSystem : GH_Goo<CoordinateSystem>
+    {
+        public GH_CoordinateSystem(CoordinateSystem model)
+        {
+            Value = model;
+        }
+
+        public GH_CoordinateSystem()
+        {
+
+        }
+
+        public override bool IsValid => true;
+
+        public override string TypeName => "CoordinateSystem";
+
+        public override string TypeDescription => "CoordinateSystem";
+
+        public override IGH_Goo Duplicate()
+        {
+            return null;
+        }
+
+        public override string ToString()
+        {
+            return "Name: " + Value.Name + ", \r\n" +
+                "Origin: " + Value.Origin + ", \r\n" +
+                "X vector: " + Value.V1 + ", \r\n" +
+                "Y vector: " + Value.V2 + ", \r\n" +
+                "Z vector: " + Value.V3 + ", \r\n";
+        }
+    }
+}

@@ -36,7 +36,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Datatypes
                 "Strain at maximum strength: " + Value.StrainUTension + "‰" + ", \r\n" +
                 "Strain at yielding: " + Value.StrainYTension + "‰" + ", \r\n" +
                 "Density: " + Value.Density + "kg/m3" + ", \r\n" +
-                "Thermal expansion coefficient: " + Value.AlfaThermalExpansion + "1/°C";
+                "Thermal expansion coefficient: " + Value.AlfaThermalExpansion + " 1/°C";
         }
     }
 }
