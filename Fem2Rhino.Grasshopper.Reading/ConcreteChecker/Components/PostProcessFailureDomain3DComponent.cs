@@ -25,6 +25,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
+            pManager.AddTextParameter("To Excel", "TE", "To Excel", GH_ParamAccess.list);
             pManager.AddPointParameter("External Force", "EF", "External Force", GH_ParamAccess.list);
             pManager.AddPointParameter("Resistance Force", "RF", "Resistance Force", GH_ParamAccess.list);
             pManager.AddNumberParameter("Working Ratio", "wR", "Working Ratio", GH_ParamAccess.list);
@@ -39,27 +40,36 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             {
                 ResultBeamForces[] resultBeamForces = new ResultBeamForces[gH_ResultBeamForces.Count];
                 List<Point3d> externalPointsRhino = new List<Point3d>();
+                string[] toExcelBuffer = new string[gH_ResultBeamForces.Count];
+
                 for (int i = 0; i < gH_ResultBeamForces.Count; i++)
                 {
-                    resultBeamForces[i] = new(gH_ResultBeamForces[i].Value.N, gH_ResultBeamForces[i].Value.V1,
+                    resultBeamForces[i] = new ResultBeamForces(gH_ResultBeamForces[i].Value.N, gH_ResultBeamForces[i].Value.V1,
                         gH_ResultBeamForces[i].Value.V2, gH_ResultBeamForces[i].Value.T, gH_ResultBeamForces[i].Value.M1, gH_ResultBeamForces[i].Value.M2,
                         gH_ResultBeamForces[i].Value.CoordinateSystem, i, gH_ResultBeamForces[i].Value.Name);
                     externalPointsRhino.Add(new Point3d(gH_ResultBeamForces[i].Value.M1 / 1000000.0, gH_ResultBeamForces[i].Value.M2 / 1000000.0, gH_ResultBeamForces[i].Value.N / 1000.0));
+                    toExcelBuffer[i] = $"{i};{gH_ResultBeamForces[i].Value.Name};{gH_ResultBeamForces[i].Value.N / 1000};{gH_ResultBeamForces[i].Value.M1 / 1000000};{gH_ResultBeamForces[i].Value.M2 / 1000000};";
                 }
 
                 GPC.Checkers.Concrete.Results.FailureDomain.FailureDomainPoint[] points = gH_FailureDomain3DResult.Value.AddForces(resultBeamForces);
                 GH_Point[] resistancePointsRhino = new GH_Point[points.Length];
                 for (int i = 0; i < points.Length; i++)
+                {
                     resistancePointsRhino[i] = new GH_Point(new Point3d(points[i].Point.X / 1000000, points[i].Point.Y / 1000000, points[i].Point.Z / 1000));
-                
-                for(int i = 0; i < points.Length; i++)                
+                    toExcelBuffer[i] = string.Concat(toExcelBuffer[i], $"{Math.Round(resistancePointsRhino[i].Value.Z, 2)};{Math.Round(resistancePointsRhino[i].Value.X, 2)};{Math.Round(resistancePointsRhino[i].Value.Y, 2)};");
+                }
+                for (int i = 0; i < points.Length; i++)
+                {
                     points[i].CalculateWorkingRatio(gH_FailureDomain3DResult.Value.FailureAnalysisType, gH_ResultBeamForces[i].Value, 1000000, 1000);
-                
+                    toExcelBuffer[i] = string.Concat(toExcelBuffer[i], $"{Math.Round(points[i].WorkingRatio, 3)}");
+                }
+
                 double[] wr = points.Select(p => p.WorkingRatio).ToArray();
 
-                DA.SetDataList(0, externalPointsRhino);
-                DA.SetDataList(1, resistancePointsRhino);
-                DA.SetDataList(2, wr);
+                DA.SetDataList(0, toExcelBuffer);
+                DA.SetDataList(1, externalPointsRhino);
+                DA.SetDataList(2, resistancePointsRhino);
+                DA.SetDataList(3, wr);
             }
         }
 

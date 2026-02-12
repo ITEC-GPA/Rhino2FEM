@@ -86,9 +86,9 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
             ResultBeamForces beamForceResultModel = null;
             if (units == 0)
-                beamForceResultModel = new ResultBeamForces(N, V2, V3, T, M2, M3, gH_CoordinateSystem.Value);
+                beamForceResultModel = new ResultBeamForces(N, V2, V3, T, M2, M3, gH_CoordinateSystem.Value, -1, name);
             else
-                beamForceResultModel = new ResultBeamForces(N * 1000, V2 * 1000, V3 * 1000, T * 1000000, M2 * 1000000, M3 * 1000000, gH_CoordinateSystem.Value);
+                beamForceResultModel = new ResultBeamForces(N * 1000, V2 * 1000, V3 * 1000, T * 1000000, M2 * 1000000, M3 * 1000000, gH_CoordinateSystem.Value, -1, name);
 
             DA.SetData(0, new GH_ResultBeamForces(beamForceResultModel));
         }
