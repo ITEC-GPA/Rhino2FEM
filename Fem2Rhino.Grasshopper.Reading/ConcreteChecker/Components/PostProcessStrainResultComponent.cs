@@ -10,7 +10,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
     public class PostProcessStrainResultComponent : GH_Component
     {
         public PostProcessStrainResultComponent()
-            : base("Inspect Strain Analysis Results", "ISAR", "Strain Analysis Results", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER)
+            : base("Print Stress Analysis Results", "ISAR", "Print Stress Analysis Results", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER)
         {
         }
 
@@ -21,6 +21,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
+            pManager.AddTextParameter("To Excel Header", "TEH", "To Excel Header", GH_ParamAccess.item);
             pManager.AddTextParameter("To Excel", "TE", "To Excel", GH_ParamAccess.item);
             pManager.AddNumberParameter("Id", "Id", "Id", GH_ParamAccess.item);
             pManager.AddTextParameter("Name", "Name", "Name", GH_ParamAccess.item);
@@ -90,33 +91,36 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                 List<string> j1 =  new List<string> { stressPlaneResult.ResultBeamForce.Id.ToString(), stressPlaneResult.ResultBeamForce.Name };
                 j1.AddRange(valueToExport.Select(i => i.ToString()));
                 var toExcel = string.Join(";", j1);
+                string toExcelHearder = "Id;Name;N [kN];Mx [kNm];My [kNm];σc min [Mpa];σc max [Mpa];σs min [Mpa];σs max [Mpa];σsp min [Mpa];" +
+                    "σsp max [Mpa];σss min[Mpa];σss max[Mpa];εc min;εc max;εs min;εs max;εsp min;εsp max;εss min;εss max;d [mm];x [mm];θ [°]";
 
                 var count = 0;
+                DA.SetData(count++, toExcelHearder);
                 DA.SetData(count++, toExcel);
                 DA.SetData(count++, j1[0]);
                 DA.SetData(count++, j1[1]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
-                DA.SetData(count++, valueToExport[count - 4]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
+                DA.SetData(count++, valueToExport[count - 5]);
             }
         }
 

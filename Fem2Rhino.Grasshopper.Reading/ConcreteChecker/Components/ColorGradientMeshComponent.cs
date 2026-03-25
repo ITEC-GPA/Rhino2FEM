@@ -6,38 +6,35 @@ using Rhino.Geometry;
 using Rhino2Fem.Core.Helper;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 {
-    public class ViewStressAnalysisResultComponent : GH_Component
+    public class ColorGradientMeshComponent : GH_Component
     {
-        public ViewStressAnalysisResultComponent()
-            : base("View Strain Analysis Results", "ISAR", "Strain Analysis Results", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER)
+        public ColorGradientMeshComponent()
+            : base("Result Color Mesh", "CM", "Color Mesh", Constants.CATEGORY_CHECKS, Constants.SUBCATEGORY_CHECKS_CONCRETECHECKER)
         {
         }
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Stress Analysis Results", "SA", "Stress Analysis Results", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Smooth", "s", "Boolean for smooth gradient", GH_ParamAccess.item, true);            
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddPointParameter("Concrete Points", "CP", "Concrete Points", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Concrete Values", "CV", "Concrete Values", GH_ParamAccess.list);
-            pManager.AddPointParameter("Rebar Points", "RP", "Rebar Points", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Rebar Values", "RV", "Rebar Values", GH_ParamAccess.list);
-            pManager.AddCurveParameter("Neutral Axis", "NA", "Neutral Axis", GH_ParamAccess.item);
-            pManager.AddTextParameter("Combo Name", "CN", "Combo Name", GH_ParamAccess.item);
-            pManager.AddMeshParameter("Mesh", "M", "Mesh", GH_ParamAccess.item);
+            pManager.AddMeshParameter("Mesh", "msh", "Output mesh", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             GH_StressAnalysisResult gH_StressAnalysisResult = null;
+            bool smooth = true;
 
-            if (DA.GetData(0, ref gH_StressAnalysisResult))
+            if (DA.GetData(0, ref gH_StressAnalysisResult) && DA.GetData(1, ref smooth))
             {
                 ReinforcedConcreteSection section = (ReinforcedConcreteSection)gH_StressAnalysisResult.Value.ConcreteSection;
                 GPC.Checkers.Concrete.Results.StressAnalysisResult result = gH_StressAnalysisResult.Value;
@@ -88,19 +85,83 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
                 mesh.Cut(cutLine);
                 mesh.Clean();
-                //mesh.Refine();
+                mesh.Refine();
 
                 Mesh rhinoMesh = ConvertToRhinoMesh(mesh);
-                rhinoMesh.CollapseFacesByArea(1, double.MaxValue);
+                if (!smooth)
+                {
+                    rhinoMesh.Unweld(0.0, true); // duplica vertici per faccia
+                    rhinoMesh.Normals.ComputeNormals();
+                }
 
-                var count = 0;
-                DA.SetDataList(count++, concretePoints);
-                DA.SetDataList(count++, concreteValues);
-                DA.SetDataList(count++, rebarPoints);
-                DA.SetDataList(count++, rebarValues);
-                DA.SetData(count++, new GH_Curve(lineCurve));
-                DA.SetData(count++, $"{result.Force.Name}");
-                DA.SetData(count++, new GH_Mesh(rhinoMesh));
+                Mesh outMesh = new Mesh();
+                int num = 0;
+                for (int j = 0; j < rhinoMesh.Faces.Count; j++)
+                {
+                    int num2 = num;
+                    int[] verticesIds = new int[4];
+                    MeshFace face = rhinoMesh.Faces.GetFace(j);
+                    verticesIds[0] = face.A;
+                    verticesIds[1] = face.B;
+                    verticesIds[2] = face.C;
+                    verticesIds[3] = face.D;
+                    int numberOfVertices = (!face.IsQuad) ? 3 : 4;
+                    Point3d centroid = Point3d.Unset;
+                    try
+                    {
+                        centroid = rhinoMesh.Faces.GetFaceCenter(j);
+                    }
+                    catch (Exception)
+                    { continue; }
+
+                    for (int k = 0; k < numberOfVertices; k++)
+                    {
+                        Point3d verticesPoint = rhinoMesh.Vertices[verticesIds[k]];
+                        outMesh.Vertices.Add(verticesPoint.X, verticesPoint.Y, verticesPoint.Z);
+                        num++;
+
+                        Color cc = Color.Black;
+                        GPC.Geometry.Point2d point = null;
+
+                        if (smooth)                        
+                            point = new GPC.Geometry.Point2d(verticesPoint.X, verticesPoint.Y);                        
+                        else                        
+                            point = new GPC.Geometry.Point2d(centroid.X, centroid.Y);
+                        
+                        double concreteStress = 0;
+                        if (result.LinearElasticAnalysis)
+                            concreteStress = result.GetConcreteTension(result.PsiRebar.Value, point);
+                        else
+                            concreteStress = result.GetConcreteTension(point);
+
+                        if (smooth)
+                        {
+                            cc = GetColor(concreteStress, section.ConcreteMaterial.CalculateDesignCompressiveStrength(result.Standard), 
+                                section.ConcreteMaterial.CalculateDesignTensileStrength(result.Standard));
+                        }
+                        else
+                        {
+                            if (concreteStress == 0)
+                                cc = Color.White;
+                            else if (concreteStress < 0)
+                                cc = Color.Red;
+                            else if (concreteStress > 0)
+                                cc = Color.Blue;
+                        }
+
+                        outMesh.VertexColors.Add(cc);
+                    }
+
+                    face = rhinoMesh.Faces[j];
+
+                    if (face.IsQuad)
+                        outMesh.Faces.AddFace(num2, num2 + 1, num2 + 2, num2 + 3);
+                    else
+                        outMesh.Faces.AddFace(num2, num2 + 1, num2 + 2);
+                }
+
+
+                DA.SetData(0, new GH_Mesh(outMesh));
             }
         }
 
@@ -146,9 +207,53 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             return rhinoMesh;
         }
 
+
+        public Color GetColor(double currentValue, double maxCompression, double maxTension)
+        {
+            // Definizione punti chiave
+            double v00 = maxTension;
+            double v01 = 0.0;
+            double v02 = maxCompression / 3.0;
+            double v03 = 2.0 * maxCompression / 3.0;
+            double v04 = maxCompression;
+
+            Color c01 = Color.White;
+            Color c00 = Color.Blue;
+            Color c02 = Color.Orange;
+            Color c03 = Color.Red;
+            Color c04 = Color.Magenta;
+
+            // Pezzature
+            if (currentValue <= v00 && currentValue >= v01)
+                return LerpColor(c01, c00, (currentValue - v01) / (v00 - v01));
+
+            else if (currentValue <= v01 && currentValue >= v02)
+                return LerpColor(c02, c01, (currentValue - v02) / (v01 - v02));
+
+            else if (currentValue <= v02 && currentValue >= v03)
+                return LerpColor(c03, c02, (currentValue - v03) / (v02 - v03));
+
+            else if (currentValue <= v03 && currentValue >= v04)
+                return LerpColor(c04, c03, (currentValue - v04) / (v03 - v04));
+
+            return Color.Black;
+        }
+
+        static Color LerpColor(Color a, Color b, double t)
+        {
+            t = Math.Max(0.0, Math.Min(1.0, t));
+
+            int r = (int)(a.R + (b.R - a.R) * t);
+            int g = (int)(a.G + (b.G - a.G) * t);
+            int bC = (int)(a.B + (b.B - a.B) * t);
+
+            return Color.FromArgb(r, g, bC);
+        }
+
+
         //protected override Bitmap Icon => Resources.material;
 
-        public override Guid ComponentGuid => new Guid("65801921-575b-466e-8001-a7e833dbacb6");
+        public override Guid ComponentGuid => new Guid("b62a91c6-b7bb-4e99-800f-1fafb45707ad");
 
         public override GH_Exposure Exposure => GH_Exposure.primary;
     }

@@ -32,9 +32,9 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Datatypes
         {
             return "Name: " + Value.Name + ", \r\n" +
                 "Origin: " + Value.Origin + ", \r\n" +
-                "X vector: " + Value.V1 + ", \r\n" +
-                "Y vector: " + Value.V2 + ", \r\n" +
-                "Z vector: " + Value.V3 + ", \r\n";
+                "X " + Value.V1 + ", \r\n" +
+                "Y " + Value.V2 + ", \r\n" +
+                "Z " + Value.V3 + ", \r\n";
         }
     }
 }

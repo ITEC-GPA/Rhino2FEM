@@ -37,7 +37,8 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("To Excel", "TE", "To Excel", GH_ParamAccess.list);
+            pManager.AddTextParameter("To Excel Header", "TEH", "To Excel Header", GH_ParamAccess.item);
+            pManager.AddTextParameter("To Excel", "TE", "To Excel", GH_ParamAccess.item);
             pManager.AddPointParameter("Concrete Points", "CP", "Concrete Points", GH_ParamAccess.list);
             pManager.AddNumberParameter("Concrete Values", "CV", "Concrete Values", GH_ParamAccess.list);
             pManager.AddNumberParameter("Concrete Working Ratio", "CWR", "Concrete Working Ratio", GH_ParamAccess.list);
@@ -55,7 +56,10 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
             {
                 GPC.Checkers.Concrete.Results.StressAnalysisResult analysisresult = gH_StressAnalysisResult.Value;
 
-                List<string> toExcel = new List<string>();
+                string toExcelHeader = "σcQP min[Mpa];0.45 fck[Mpa];σc min/ 0.45 fck;σcR min[Mpa];0.60 fck[Mpa];σc min/ 0.60 fck;" +
+                    "σsR max[Mpa];0.8 fyk[Mpa];σs max/ 0.8 fyk;σsp max[Mpa];0.75 fpyk[Mpa];σsp max/ 0.75 fyk";
+
+                string toExcel = string.Empty;
                 List<Point2d> concretePoints = new List<Point2d>();
                 List<double> concreteValues = new List<double>();
                 List<double> concreteWR = new List<double>();
@@ -67,7 +71,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                 List<double> presWR = new List<double>();
 
                 int cifresignificativeStress = 2;
-                int cifresignificativeWr = 2;
+                int cifresignificativeWr = 3;
 
                 if (type == 0) // QUASI-PERMANENT  
                 {
@@ -89,9 +93,9 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                     {
                         rebarPoints.Add(new Point2d(analysisresult.ConcreteSection.Rebars.ElementAt(i).Position.X, analysisresult.ConcreteSection.Rebars.ElementAt(i).Position.Y));
                         rebarValues.Add(Math.Round(0.0, cifresignificativeStress));
-                        rebarWR.Add(Math.Round(0.0, cifresignificativeStress));
+                        rebarWR.Add(Math.Round(0.0, cifresignificativeWr));
                     }
-                    toExcel.Add($"{Math.Abs(Math.Round(concreteValues.Min(), cifresignificativeStress))};{Math.Abs(limit)};{Math.Round(concreteWR.Max(), cifresignificativeWr)};0;0;0;0;0;0;0;0;0");
+                    toExcel = $"{Math.Abs(Math.Round(concreteValues.Min(), cifresignificativeStress))};{Math.Abs(limit)};{Math.Round(concreteWR.Max(), cifresignificativeWr)};0;0;0;0;0;0;0;0;0";
                 }
                 else if(type == 1) // FREQUENT
                 {
@@ -106,9 +110,9 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                     {
                         rebarPoints.Add(new Point2d(analysisresult.ConcreteSection.Rebars.ElementAt(i).Position.X, analysisresult.ConcreteSection.Rebars.ElementAt(i).Position.Y));
                         rebarValues.Add(Math.Round(0.0, cifresignificativeStress));
-                        rebarWR.Add(Math.Round(0.0, cifresignificativeStress));
+                        rebarWR.Add(Math.Round(0.0, cifresignificativeWr));
                     }
-                    toExcel.Add($"0;0;0;0;0;0;0;0;0;0;0;0");
+                    toExcel = $"0;0;0;0;0;0;0;0;0;0;0;0";
                 }
                 else if (type == 2) // CHARACTERISTIC
                 {
@@ -142,7 +146,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                         {
                             rebarPoints.Add(new Point2d(steelResult[i].rebar.Position.X, steelResult[i].rebar.Position.Y));
                             rebarValues.Add(Math.Round(steelResult[i].tension, cifresignificativeStress));
-                            rebarWR.Add(Math.Round(steelResult[i].workingRatio, cifresignificativeStress));
+                            rebarWR.Add(Math.Round(steelResult[i].workingRatio, cifresignificativeWr));
                             presPoints.Add(Point2d.Unset);
                             presValues.Add(0.0);
                             presWR.Add(0.0);
@@ -154,14 +158,15 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                             rebarWR.Add(0.0);
                             presPoints.Add(new Point2d(steelResult[i].rebar.Position.X, steelResult[i].rebar.Position.Y));
                             presValues.Add(Math.Round(steelResult[i].tension, cifresignificativeStress));
-                            presWR.Add(Math.Round(steelResult[i].workingRatio, cifresignificativeStress));
+                            presWR.Add(Math.Round(steelResult[i].workingRatio, cifresignificativeWr));
                         }
                     }
-                    toExcel.Add($"0;0;0;{Math.Abs(concreteValues.Min())};{Math.Abs(limitconcrete)};{concreteWR.Max()};{Math.Abs(rebarValues.Max())};{limitSteel};{rebarWR.Max()};0;0;0");
+                    toExcel = $"0;0;0;{Math.Abs(concreteValues.Min())};{Math.Abs(limitconcrete)};{concreteWR.Max()};{Math.Abs(rebarValues.Max())};{limitSteel};{rebarWR.Max()};0;0;0";
                 }
 
                 var count = 0;
-                DA.SetDataList(count++, toExcel);
+                DA.SetData(count++, toExcelHeader);
+                DA.SetData(count++, toExcel);
                 DA.SetDataList(count++, concretePoints);
                 DA.SetDataList(count++, concreteValues);
                 DA.SetDataList(count++, concreteWR);
