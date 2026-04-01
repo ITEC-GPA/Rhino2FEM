@@ -4,7 +4,6 @@ using Grasshopper.Kernel;
 using Rhino2Fem.Core.Helper;
 using System;
 using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 {
@@ -94,14 +93,21 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                 double vrcd = 0.75 * hUtile * diameter * alphaC * ni * fcd * (1.0 / Math.Tan(double.DegreesToRadians(stirrupSlope)) + cotTeta) / (1 + Math.Pow(cotTeta, 2));
 
                 double vrd = Math.Min(vrsd, vrcd);
-
                 double wr = Math.Abs(Math.Sqrt(Math.Pow(gH_ResultBeamForces.Value.V1, 2) + Math.Pow(gH_ResultBeamForces.Value.V2, 2)) / vrd);
 
-                string toExcelHeader = "Classe di calcestruzzo di progetto;Rck;fck;fcd;fyk;fyd;ϕlong;ϕst;s;n°;α;Asw;" +
-                    "D;A;c;d;σcp;αc;ν;Cotg ϑx;ϑx;VRsdx;Vrcdx;VRdx;WRx;WRlim;" +
-                    "h;bw;c;d;Ac;σcp;αc;ν;Cotg ϑy;ϑy;VRsdy;Vrcdy;VRdy;WRy;WRlim";
-                string toExcel = $"{concreteMaterial.Name};{concreteMaterial.Rck};{concreteMaterial.Fck};{fcd};{fyk};{fyd};{longitudinalRebarDiameter};{stirrupDiameter};{spacing};" +
-                    $"{numberOfLegs};{stirrupSlope};{stirrupArea};{diameter};{area};{concreteCover};{hUtile};{sigmaCP};{alphaC};{ni};{cotTeta};{teta};{vrsd / 1000.0};{vrcd / 1000.0};{vrd / 1000.0};{wr};{1}";
+                string toExcelHeader = "ss_Classe di calcestruzzo di progetto;ss_Rck[MPa];ss_fck[MPa];ss_fcd[MPa];ss_fyk[MPa];ss_fyd[MPa];" +
+                    "ss_ϕlongx[mm];ss_ρlx[-];ss_Aswx[mm2];ss_b[mm];ss_hw[mm];ss_cx[mm];ss_dx[mm];ss_Acx[mm2];ss_σcpx[MPa];ss_αcx[-];ss_VRsdx[kN];ss_Vrcdx[kN];ss_VRdx[kN];ss_WRvx;ss_WRvLimx;" +
+                    "ss_ϕlongy[mm];ss_ρly[-];ss_Aswy[mm2];ss_bw[mm];ss_h[mm];ss_cy[mm];ss_dy[mm];ss_Acy[mm2];ss_σcpy[MPa];ss_αcy[-];ss_VRsdy[kN];ss_Vrcdy[kN];ss_VRdy[kN];ss_WRvy;ss_WRvLimy; " +
+                    "Classe di calcestruzzo di progetto;Rck [MPa];fck [MPa];fcd [MPa];fyk [MPa];fyd [MPa];ϕlong [mm];ϕst [mm];s [mm];" +
+                    "n°x;αx [°];Aswx [mm2];b [mm];hw [mm];cx [mm];dx [mm];Acx [mm2];σcpx [MPa];αcx [°];νx;Cotg ϑx;ϑx [°];VRsdx [kN];Vrcdx [kN];VRdx [kN];WRvx;WRvxLim;" +
+                    "n°y;αy [°];Aswy [mm2];h [mm];bw [mm];cy [mm];dy [mm];Acy [mm2];σcpy [MPa];αcy [°];νy;Cotg ϑy;ϑy [°];VRsdy [kN];Vrcdy [kN];VRdy [kN];WRvy;WRvyLim";
+
+                string toExcel = $"0;0;0;0;0;0;" +
+                    "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;" +
+                    "0;0;0;0;0;0;0;0;0;0;0;0;0;0;0; " +
+                    $"{concreteMaterial.Name};{concreteMaterial.Rck};{concreteMaterial.Fck};{fcd};{fyk};{fyd};{longitudinalRebarDiameter};{stirrupDiameter};{spacing};" +
+                    $"{numberOfLegs};{stirrupSlope};{stirrupArea};{diameter};{hUtile};{concreteCover};;{area};{sigmaCP};{alphaC};{ni};{cotTeta};{teta};{vrsd / 1000.0};{vrcd / 1000.0};{vrd / 1000.0};{wr};{1}" +
+                    $"0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0";
 
                 int cc = 0;
                 DA.SetData(cc++, toExcelHeader);

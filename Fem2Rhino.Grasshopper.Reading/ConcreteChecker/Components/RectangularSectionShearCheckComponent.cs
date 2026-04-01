@@ -85,12 +85,12 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                 && DA.GetData(count++, ref concreteCover) && DA.GetData(count++, ref concreteArea))
             {
                 int cc = 0;
-                string toExcelHeader = "ss_Classe di calcestruzzo di progetto ss_Rck[MPa];ss_fck[MPa];ss_fcd[MPa];ss_fyk[MPa];ss_fyd[MPa];" +
-                    "ss_ϕlongx[mm];ss_ρlx[-];ss_Aswx[mm2];ss_b[mm];ss_hw[mm];ss_cx[mm];ss_dx[mm];ss_Acx[mm2];ss_σcpx[MPa];ss_αcx[-];ss_VRsdx[kN];ss_Vrcdx[kN];ss_VRdx[kN];ss_WRvx;ss_WRvLimx;" +
-                    "ss_ϕlongy[mm];ss_ρly[-];ss_Aswy[mm2];ss_bw[mm];ss_h[mm];ss_cy[mm];ss_dy[mm];ss_Acy[mm2];ss_σcpy[MPa];ss_αcy[-];ss_VRsdy[kN];ss_Vrcdy[kN];ss_VRdy[kN];ss_WRvy;ss_WRvLimy; " +
+                string toExcelHeader = "ss_Classe di calcestruzzo di progetto;ss_Rck [MPa];ss_fck [MPa];ss_fcd [MPa];ss_fyk [MPa];ss_fyd [MPa];" +
+                    "ss_ϕlongx [mm];ss_ρlx [-];ss_Aswx [mm2];ss_b [mm];ss_hw [mm];ss_cx [mm];ss_dx [mm];ss_Acx [mm2];ss_σcpx [MPa];ss_αcx [-];ss_VRsdx [kN];ss_Vrcdx [kN];ss_VRdx [kN];ss_WRvx;ss_WRvLimx;" +
+                    "ss_ϕlongy [mm];ss_ρly [-];ss_Aswy [mm2];ss_bw [mm];ss_h [mm];ss_cy [mm];ss_dy [mm];ss_Acy [mm2];ss_σcpy [MPa];ss_αcy [-];ss_VRsdy [kN];ss_Vrcdy [kN];ss_VRdy [kN];ss_WRvy;ss_WRvLimy;" +
                     "Classe di calcestruzzo di progetto;Rck [MPa];fck [MPa];fcd [MPa];fyk [MPa];fyd [MPa];ϕlong [mm];ϕst [mm];s [mm];" +
-                    "n°x;αx [°];Aswx [mm2];b [mm];hw [mm];cx [mm];dx [mm];Acx [mm2];σcpx [MPa];αcx [°];νx;Cotg ϑx;ϑx [°];VRsdx [kN];Vrcdx [kN];VRdx [kN];WRvx;WRvxLim;" +
-                    "n°y;αy [°];Aswy [mm2];h [mm];bw [mm];cy [mm];dy [mm];Acy [mm2];σcpy [MPa];αcy [°];νy;Cotg ϑy;ϑy [°];VRsdy [kN];Vrcdy [kN];VRdy [kN];WRvy;WRvyLim";
+                    "n°x;αx [°];Aswx [mm2];b [mm];hw [mm];cx [mm];dx [mm];Acx [mm2];σcpx [MPa];αcx [-];νx;Cotg ϑx;ϑx [°];VRsdx [kN];Vrcdx [kN];VRdx [kN];WRvx;WRvxLim;" +
+                    "n°y;αy [°];Aswy [mm2];h [mm];bw [mm];cy [mm];dy [mm];Acy [mm2];σcpy [MPa];αcy [-];νy;Cotg ϑy;ϑy [°];VRsdy [kN];Vrcdy [kN];VRdy [kN];WRvy;WRvyLim;";
 
                 GPC.Model.Standards.StandardModelCode2010 standard = gH_SectionChecker.Value.StandardModelCode2010;
                 ConcreteMaterialEuropeanCommon concreteMaterial = (ConcreteMaterialEuropeanCommon)gH_SectionChecker.Value.SectionCheckerAttribute.Section.ConcreteMaterial;
@@ -127,10 +127,10 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
                 double ns_wrY = Math.Abs(gH_ResultBeamForces.Value.V2) / ns_vrdY;
 
                 string toExcel = $"{concreteMaterial.Name};{concreteMaterial.Rck};{concreteMaterial.Fck};{fcd};{fyk};{fyd};" +
-                    $"{longitudinalRebarDiameterX};{rholX};{numberOfRebarX};{areaLongitudinalRebarsX};{baseSection};{height};{concreteCover};" +
+                    $"{longitudinalRebarDiameterX};{rholX};{areaLongitudinalRebarsX};{baseSection};{height};{concreteCover};" +
                     $"{bUtile};{concreteArea};{sigmaCP};1;{ns_vrdsX / 1000.0};{ns_vrdcX / 1000.0};{ns_vrdX / 1000.0};{ns_wrX};{1};" +
-                    $"{longitudinalRebarDiameterY};{rholY};{numberOfRebarY};{areaLongitudinalRebarsY};{baseSection};{height};{concreteCover};" +
-                    $"{hUtile};{concreteArea};{sigmaCP};1;{ns_vrdsY / 1000.0};{ns_vrdcY / 1000.0};{ns_vrdY / 1000.0};{ns_wrY};{1}";
+                    $"{longitudinalRebarDiameterY};{rholY};{areaLongitudinalRebarsY};{baseSection};{height};{concreteCover};" +
+                    $"{hUtile};{concreteArea};{sigmaCP};1;{ns_vrdsY / 1000.0};{ns_vrdcY / 1000.0};{ns_vrdY / 1000.0};{ns_wrY};{1};";
 
                 if (stirrupDiameter > 0)
                 {
@@ -188,7 +188,7 @@ namespace Fem2Rhino.Grasshopper.Checkers.ConcreteChecker.Components
 
                     toExcel += ($"{concreteMaterial.Name};{concreteMaterial.Rck};{concreteMaterial.Fck};{fcd};{fyk};{fyd};{longitudinalRebarDiameterX};{stirrupDiameter};{spacing};" +
                         $"{numberOfLegsX};{stirrupSlopeY};{stirrupAreaX};{baseSection};{height};{concreteCover};{bUtile};{concreteArea};{sigmaCP};{alphaC};{ni};{cotTetaX};{tetaX};{vrsdX / 1000.0};{vrcdX / 1000.0};{vrdX / 1000.0};{wrX};{1};" +
-                        $"{numberOfLegsY};{stirrupSlopeX};{stirrupAreaY};{height};{baseSection};{concreteCover};{hUtile};{concreteArea};{sigmaCP};{alphaC};{ni};{cotTetaY};{tetaY};{vrsdY / 1000.0};{vrcdY / 1000.0};{vrdY / 1000.0};{wrY};{1}");
+                        $"{numberOfLegsY};{stirrupSlopeX};{stirrupAreaY};{height};{baseSection};{concreteCover};{hUtile};{concreteArea};{sigmaCP};{alphaC};{ni};{cotTetaY};{tetaY};{vrsdY / 1000.0};{vrcdY / 1000.0};{vrdY / 1000.0};{wrY};{1};");
 
                     DA.SetData(cc++, toExcelHeader);
                     DA.SetData(cc++, toExcel);
