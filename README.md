@@ -18,11 +18,11 @@ I sorgenti legacy e i vecchi binari sono rimossi dalla cartella di lavoro. I det
 Rhino2Straus conserva il proprio repository come sottomodulo. Per scaricare tutti i sorgenti:
 
 ```powershell
-git clone --recurse-submodules https://github.com/ITEC-GPA/Rhino2Midas.git Rhino2FEM
+git clone --recurse-submodules https://github.com/ITEC-GPA/Rhino2FEM.git
 # Per un clone già esistente:
 git submodule update --init --recursive
 ```
 
-Il nome locale della cartella principale è **Rhino2FEM**; il repository GitHub mantiene il nome **Rhino2Midas**. I pacchetti compilati in `artifacts` sono generati dai rispettivi `build.ps1` e non vengono versionati.
+La cartella principale e il repository GitHub si chiamano **Rhino2FEM**. Il repository è privato: per clonarlo occorre autenticarsi con un account autorizzato. I pacchetti compilati in `artifacts` sono generati dai rispettivi `build.ps1` e non vengono versionati.
 
 Il controllo congiunto del 27 settembre 2026 copre **1.634 componenti e 10.850 ingressi**, con tutti i plugin caricati nella stessa sessione Rhino/Grasshopper. Inventari, default e limiti delle prove: [Straus](Rhino2Straus/docs/INPUT-AUDIT.md), [SAP](Rhino2SAP/docs/INPUT-AUDIT.md), [Civil](Rhino2Midas/docs/INPUT-AUDIT.md), [GEN](Rhino2MidasGen/docs/INPUT-AUDIT.md).
