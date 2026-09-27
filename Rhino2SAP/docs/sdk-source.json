@@ -1,0 +1,8 @@
+{
+  "Product": "SAP2000 26",
+  "Assembly": "SAP2000v1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=453d728ef24c6f5e",
+  "SDK": "C:\\Program Files\\Computers and Structures\\SAP2000 26\\SAP2000v1.dll",
+  "Sha256": "86503DBD22533193D30AE08BE67B92601FD58559E7BA5AB3800A382FB418A522",
+  "Documentation": "C:\\Program Files\\Computers and Structures\\SAP2000 26\\CSI_OAPI_Documentation.chm",
+  "MethodCount": 2047
+}

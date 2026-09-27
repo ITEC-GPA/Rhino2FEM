@@ -1,0 +1,10 @@
+bin/
+obj/
+artifacts/
+.local/
+.vs/
+*.user
+*.suo
+*.sdb
+*.sdb.*
+*.log

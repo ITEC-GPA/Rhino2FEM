@@ -1,0 +1,4474 @@
+[
+  {
+    "Class": "AlignFrameComponent",
+    "Name": "Align SAP Frame Local Axis",
+    "Category": "09 Assi e offset",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "d7d556b7-1dd8-e1d8-8ab5-451c78f3c0b0"
+  },
+  {
+    "Class": "AlignFrameToPointComponent",
+    "Name": "Align SAP Frame Axis To Point",
+    "Category": "09 Assi e offset",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "6efd667f-6c4c-c331-e48b-a5bbe2e304d8"
+  },
+  {
+    "Class": "AlignAreaComponent",
+    "Name": "Align SAP Area Local Axis",
+    "Category": "09 Assi e offset",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "74ec0da0-e048-9c1c-f97e-6043276c33fa"
+  },
+  {
+    "Class": "AlignAreaToPlaneComponent",
+    "Name": "Align SAP Area Axis To Plane",
+    "Category": "09 Assi e offset",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "210804ec-02e9-89e3-5020-9f724e7db26e"
+  },
+  {
+    "Class": "AlignModelComponent",
+    "Name": "Align SAP Model Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "6e0ebebf-8465-35b8-3b62-dab6dda62055"
+  },
+  {
+    "Class": "ClearResultsComponent",
+    "Name": "Clear SAP Model Results",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "ff1b6618-1e82-e4c7-6f10-f8de8a618662"
+  },
+  {
+    "Class": "DefinitionInfoComponent",
+    "Name": "SAP Definition Info",
+    "Category": "34 Utility",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/AlignmentComponents.cs",
+    "Guid": "0221b486-b934-12af-ded0-fa4edf886b85"
+  },
+  {
+    "Class": "MaterialComponent",
+    "Name": "SAP Isotropic Material",
+    "Category": "02 Materiali",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "b444d20b-0064-3871-78a2-a4a54e789783"
+  },
+  {
+    "Class": "LoadPatternComponent",
+    "Name": "SAP Load Pattern",
+    "Category": "12 Load pattern",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "e7606c2a-32f8-b972-1018-b219eec16d74"
+  },
+  {
+    "Class": "LinearCaseComponent",
+    "Name": "SAP Linear Static Case",
+    "Category": "19 Casi statici",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "7ea36228-da71-34c2-47ab-d3d251f6f645"
+  },
+  {
+    "Class": "NonlinearCaseComponent",
+    "Name": "SAP Nonlinear Static Case",
+    "Category": "20 Casi non lineari",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "79a4f60d-1f90-45ab-02a5-0a5c82ec55b7"
+  },
+  {
+    "Class": "BucklingCaseComponent",
+    "Name": "SAP Buckling Case",
+    "Category": "19 Casi statici",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "14607c34-cb37-7652-4b0d-9d9744a3b40f"
+  },
+  {
+    "Class": "CombinationComponent",
+    "Name": "SAP Load Combination",
+    "Category": "25 Combinazioni",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "7c1ac436-f5fd-ab42-dd39-4ed7a943c58a"
+  },
+  {
+    "Class": "ExampleModelComponent",
+    "Name": "SAP Axial Verification Example",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ConvenienceComponents.cs",
+    "Guid": "1c05c7d4-0869-ef68-83e2-8bf34e69ab00"
+  },
+  {
+    "Class": "DisplaySettingsComponent",
+    "Name": "SAP Display Settings",
+    "Category": "33 Preview e bake",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/DisplaySettings.cs",
+    "Guid": "41a99cd4-746b-c0e9-0556-62a5d99e050b"
+  },
+  {
+    "Class": "DisplayPanelComponent",
+    "Name": "Rhino2SAP Panel",
+    "Category": "33 Preview e bake",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/DisplaySettings.cs",
+    "Guid": "c29e23b3-ab64-4e58-c9c2-2254ae720eb4"
+  },
+  {
+    "Class": "NodeElementComponent",
+    "Name": "SAP Node Element",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+  },
+  {
+    "Class": "FrameElementComponent",
+    "Name": "SAP Frame Element",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "c78dc482-03ca-fb8c-596f-894219f00e86"
+  },
+  {
+    "Class": "AreaElementComponent",
+    "Name": "SAP Area Element",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "ae369f17-a152-823c-3ccb-aa5c9b1ce23a"
+  },
+  {
+    "Class": "SolidElementComponent",
+    "Name": "SAP Solid Element",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "81ba9ed5-8734-0b0e-f213-8bb748410af9"
+  },
+  {
+    "Class": "LinkElementComponent",
+    "Name": "SAP Link Element",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "78907f95-af96-fdfc-1426-73363e3a1c31"
+  },
+  {
+    "Class": "CableElementComponent",
+    "Name": "SAP Cable Element",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "4f421842-405d-63ae-eae0-70793f901f68"
+  },
+  {
+    "Class": "MeshAreasComponent",
+    "Name": "Mesh to SAP Areas",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "4f5f133c-2818-8359-aff3-eccaf49e23fc"
+  },
+  {
+    "Class": "PolylineFramesComponent",
+    "Name": "Polyline to SAP Frames",
+    "Category": "07 Elementi",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "ec8b42c3-4f09-32d8-cdb7-55f38fe31296"
+  },
+  {
+    "Class": "ElementInfoComponent",
+    "Name": "SAP Element Info",
+    "Category": "34 Utility",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "c7f5b8f7-bad8-ed55-0be6-f677885241be"
+  },
+  {
+    "Class": "ElementFilterComponent",
+    "Name": "Filter SAP Elements",
+    "Category": "34 Utility",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementComponents.cs",
+    "Guid": "de394c36-b234-87c6-8e18-1617a86e0ec1"
+  },
+  {
+    "Class": "DecomposeBeamComponent",
+    "Name": "Decompose SAP Beam",
+    "Category": "28 Risultati beam",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "bc241b1c-8a74-127d-7e2a-37e05700a44b"
+  },
+  {
+    "Class": "DecomposePlateComponent",
+    "Name": "Decompose SAP Plate",
+    "Category": "29 Risultati plate",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "74c0ea90-7c07-8992-c92a-dd1c63e57fac"
+  },
+  {
+    "Class": "QueryElementResultsComponent",
+    "Name": "Query SAP Element Results",
+    "Category": "32 Risultati e query",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "d02777db-5757-f1e2-82db-12330c398d4c"
+  },
+  {
+    "Class": "BeamActionsComponent",
+    "Name": "SAP Beam Results N V T M",
+    "Category": "28 Risultati beam",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "7402e921-34fd-0a4f-b519-261e92906017"
+  },
+  {
+    "Class": "PlateActionsComponent",
+    "Name": "SAP Plate Results Forces and Moments",
+    "Category": "29 Risultati plate",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "e841c314-d42a-3747-7297-a240c0622357"
+  },
+  {
+    "Class": "PlateStressComponent",
+    "Name": "SAP Plate Results Stresses",
+    "Category": "29 Risultati plate",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "1c8caba3-3a4d-9513-84f1-d0629cb0bf01"
+  },
+  {
+    "Class": "PlateStrainComponent",
+    "Name": "SAP Plate Results Strains",
+    "Category": "29 Risultati plate",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ElementResultComponents.cs",
+    "Guid": "58d75c87-2f45-f036-9d87-4fa5719bb7ef"
+  },
+  {
+    "Class": "AreaObj_SetAutoMeshComponent",
+    "Name": "SAP Area Auto Mesh",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetAutoMesh",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetAutoMeshComponent.cs",
+    "Guid": "be97aacd-c5e5-d47c-4abf-0cbc216ee4ed"
+  },
+  {
+    "Class": "AreaObj_SetEdgeConstraintComponent",
+    "Name": "SAP Area Edge Constraint",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetEdgeConstraint",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetEdgeConstraintComponent.cs",
+    "Guid": "487afecf-2caa-e3b2-2288-26f66aa05fd8"
+  },
+  {
+    "Class": "AreaObj_SetGroupAssignComponent",
+    "Name": "SAP Area Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetGroupAssignComponent.cs",
+    "Guid": "c3f88c28-6f0d-2317-840e-1796da51be48"
+  },
+  {
+    "Class": "AreaObj_SetLoadGravityComponent",
+    "Name": "SAP Area Load Gravity",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadGravity",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadGravityComponent.cs",
+    "Guid": "25be1ca3-042d-13e6-8c73-ee34f00ec604"
+  },
+  {
+    "Class": "AreaObj_SetLoadPorePressureComponent",
+    "Name": "SAP Area Load Pore Pressure",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadPorePressure",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadPorePressureComponent.cs",
+    "Guid": "d48dfbb0-3d25-8fd6-0d96-94224d48c29a"
+  },
+  {
+    "Class": "AreaObj_SetLoadRotateComponent",
+    "Name": "SAP Area Load Rotate",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadRotate",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadRotateComponent.cs",
+    "Guid": "3e806320-663c-4776-e9b7-a3539f54f08c"
+  },
+  {
+    "Class": "AreaObj_SetLoadStrainComponent",
+    "Name": "SAP Area Load Strain",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadStrain",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadStrainComponent.cs",
+    "Guid": "960a8c94-31fe-4944-7ca7-59995536b3a5"
+  },
+  {
+    "Class": "AreaObj_SetLoadSurfacePressureComponent",
+    "Name": "SAP Area Load Surface Pressure",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadSurfacePressure",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadSurfacePressureComponent.cs",
+    "Guid": "1005a524-93ea-4c7d-246a-3c1bf534eeff"
+  },
+  {
+    "Class": "AreaObj_SetLoadTemperatureComponent",
+    "Name": "SAP Area Load Temperature",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadTemperature",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadTemperatureComponent.cs",
+    "Guid": "20db16a7-55b8-f7de-7e9d-7cc9f6e565d7"
+  },
+  {
+    "Class": "AreaObj_SetLoadUniformComponent",
+    "Name": "SAP Area Load Uniform",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadUniform",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadUniformComponent.cs",
+    "Guid": "99318b91-de2c-4a87-75fb-c0a8003db638"
+  },
+  {
+    "Class": "AreaObj_SetLoadUniformToFrameComponent",
+    "Name": "SAP Area Load Uniform To Frame",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadUniformToFrame",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadUniformToFrameComponent.cs",
+    "Guid": "8ced6a7d-113e-100f-35f9-d928865842a9"
+  },
+  {
+    "Class": "AreaObj_SetLoadWindPressureComponent",
+    "Name": "SAP Area Load Wind Pressure",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadWindPressure",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadWindPressureComponent.cs",
+    "Guid": "52fa65dc-1db3-ca10-3026-2d8ffefc7b14"
+  },
+  {
+    "Class": "AreaObj_SetLoadWindPressure_1Component",
+    "Name": "SAP Area Load Wind Pressure 1",
+    "Category": "15 Carichi plate",
+    "Api": "AreaObj.SetLoadWindPressure_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLoadWindPressure_1Component.cs",
+    "Guid": "bbe00400-5e88-f967-7376-06eac3c1bbc0"
+  },
+  {
+    "Class": "AreaObj_SetLocalAxesAdvancedComponent",
+    "Name": "SAP Area Local Axes Advanced",
+    "Category": "09 Assi e offset",
+    "Api": "AreaObj.SetLocalAxesAdvanced",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLocalAxesAdvancedComponent.cs",
+    "Guid": "66436502-4b77-dd86-7c0e-06070918a5ce"
+  },
+  {
+    "Class": "AreaObj_SetLocalAxesComponent",
+    "Name": "SAP Area Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "AreaObj.SetLocalAxes",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetLocalAxesComponent.cs",
+    "Guid": "6a04a095-9d3b-254f-9a4c-f985380ec6b8"
+  },
+  {
+    "Class": "AreaObj_SetMassComponent",
+    "Name": "SAP Area Mass",
+    "Category": "11 Masse",
+    "Api": "AreaObj.SetMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetMassComponent.cs",
+    "Guid": "5dc26f43-1092-973c-2b59-bfe7843ed775"
+  },
+  {
+    "Class": "AreaObj_SetMaterialOverwriteComponent",
+    "Name": "SAP Area Material Overwrite",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetMaterialOverwrite",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetMaterialOverwriteComponent.cs",
+    "Guid": "52751848-9efb-47c6-3836-b90dbdb5deb6"
+  },
+  {
+    "Class": "AreaObj_SetMatTempComponent",
+    "Name": "SAP Area Mat Temp",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetMatTemp",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetMatTempComponent.cs",
+    "Guid": "39d06c3e-9aaa-573b-05da-2666bcf9da63"
+  },
+  {
+    "Class": "AreaObj_SetModifiersComponent",
+    "Name": "SAP Area Modifiers",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetModifiers",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetModifiersComponent.cs",
+    "Guid": "2109c328-cdb3-7d7d-f503-28aff9675731"
+  },
+  {
+    "Class": "AreaObj_SetOffsetsComponent",
+    "Name": "SAP Area Offsets",
+    "Category": "09 Assi e offset",
+    "Api": "AreaObj.SetOffsets",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetOffsetsComponent.cs",
+    "Guid": "875b11d1-6e63-a56c-9dbc-d28236f115ca"
+  },
+  {
+    "Class": "AreaObj_SetOpeningComponent",
+    "Name": "SAP Area Opening",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetOpening",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetOpeningComponent.cs",
+    "Guid": "a668ea09-c544-6550-ff98-1e684394d6e0"
+  },
+  {
+    "Class": "AreaObj_SetPropertyComponent",
+    "Name": "SAP Area Property",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetProperty",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetPropertyComponent.cs",
+    "Guid": "9f6fcb9a-e9f5-c904-69f6-451e88a60767"
+  },
+  {
+    "Class": "AreaObj_SetSpringComponent",
+    "Name": "SAP Area Spring",
+    "Category": "08 Vincoli e molle",
+    "Api": "AreaObj.SetSpring",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetSpringComponent.cs",
+    "Guid": "6f2d2e26-54ca-6b77-f91d-688fee6f5f46"
+  },
+  {
+    "Class": "AreaObj_SetThicknessComponent",
+    "Name": "SAP Area Thickness",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "AreaObj.SetThickness",
+    "File": "Rhino2SAP.Grasshopper/Generated/AreaObj_SetThicknessComponent.cs",
+    "Guid": "f1be2470-c3cc-7617-3411-aac12da3e2b8"
+  },
+  {
+    "Class": "CableObj_SetCableDataComponent",
+    "Name": "SAP Cable Obj Cable Data",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetCableData",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetCableDataComponent.cs",
+    "Guid": "1bc2bc0e-e969-1af5-30ff-d7b203637b6d"
+  },
+  {
+    "Class": "CableObj_SetGroupAssignComponent",
+    "Name": "SAP Cable Obj Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetGroupAssignComponent.cs",
+    "Guid": "48cb7354-7ef0-59d0-c16f-42a490bffbef"
+  },
+  {
+    "Class": "CableObj_SetInsertionPointComponent",
+    "Name": "SAP Cable Obj Insertion Point",
+    "Category": "09 Assi e offset",
+    "Api": "CableObj.SetInsertionPoint",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetInsertionPointComponent.cs",
+    "Guid": "3316142a-e15f-4ceb-bf9f-cc9abd5808dc"
+  },
+  {
+    "Class": "CableObj_SetLoadDeformationComponent",
+    "Name": "SAP Cable Obj Load Deformation",
+    "Category": "16 Altri carichi",
+    "Api": "CableObj.SetLoadDeformation",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetLoadDeformationComponent.cs",
+    "Guid": "f752ee3a-1161-e16d-02e4-c47b5997b35d"
+  },
+  {
+    "Class": "CableObj_SetLoadDistributedComponent",
+    "Name": "SAP Cable Obj Load Distributed",
+    "Category": "16 Altri carichi",
+    "Api": "CableObj.SetLoadDistributed",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetLoadDistributedComponent.cs",
+    "Guid": "69b7120f-9654-4ae5-7697-9bb29bdb736f"
+  },
+  {
+    "Class": "CableObj_SetLoadGravityComponent",
+    "Name": "SAP Cable Obj Load Gravity",
+    "Category": "16 Altri carichi",
+    "Api": "CableObj.SetLoadGravity",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetLoadGravityComponent.cs",
+    "Guid": "7b02947e-0c52-6b61-8485-fef89b92466d"
+  },
+  {
+    "Class": "CableObj_SetLoadStrainComponent",
+    "Name": "SAP Cable Obj Load Strain",
+    "Category": "16 Altri carichi",
+    "Api": "CableObj.SetLoadStrain",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetLoadStrainComponent.cs",
+    "Guid": "3bdecfd8-58ae-ce40-c277-4afab412fee3"
+  },
+  {
+    "Class": "CableObj_SetLoadTargetForceComponent",
+    "Name": "SAP Cable Obj Load Target Force",
+    "Category": "16 Altri carichi",
+    "Api": "CableObj.SetLoadTargetForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetLoadTargetForceComponent.cs",
+    "Guid": "e5e64cd4-e4aa-0a17-0ec9-a6948df758e7"
+  },
+  {
+    "Class": "CableObj_SetLoadTemperatureComponent",
+    "Name": "SAP Cable Obj Load Temperature",
+    "Category": "16 Altri carichi",
+    "Api": "CableObj.SetLoadTemperature",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetLoadTemperatureComponent.cs",
+    "Guid": "f7f917ec-c477-09e5-747d-9faaf1c91e4a"
+  },
+  {
+    "Class": "CableObj_SetMassComponent",
+    "Name": "SAP Cable Obj Mass",
+    "Category": "11 Masse",
+    "Api": "CableObj.SetMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetMassComponent.cs",
+    "Guid": "017ce29b-b688-32a7-19dc-4a4c807b77a2"
+  },
+  {
+    "Class": "CableObj_SetMaterialOverwriteComponent",
+    "Name": "SAP Cable Obj Material Overwrite",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetMaterialOverwrite",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetMaterialOverwriteComponent.cs",
+    "Guid": "369ef160-abec-fbaa-00dc-f423a8802c90"
+  },
+  {
+    "Class": "CableObj_SetMatTempComponent",
+    "Name": "SAP Cable Obj Mat Temp",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetMatTemp",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetMatTempComponent.cs",
+    "Guid": "3ae92fcc-86fe-5e52-d6e2-2e923ea23a07"
+  },
+  {
+    "Class": "CableObj_SetModifiersComponent",
+    "Name": "SAP Cable Obj Modifiers",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetModifiers",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetModifiersComponent.cs",
+    "Guid": "a0145968-63dd-173e-7a3c-f0c335af6288"
+  },
+  {
+    "Class": "CableObj_SetOutputStationsComponent",
+    "Name": "SAP Cable Obj Output Stations",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetOutputStations",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetOutputStationsComponent.cs",
+    "Guid": "a543dbfe-dcab-73c4-6089-cfc540d3a3d7"
+  },
+  {
+    "Class": "CableObj_SetPropertyComponent",
+    "Name": "SAP Cable Obj Property",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "CableObj.SetProperty",
+    "File": "Rhino2SAP.Grasshopper/Generated/CableObj_SetPropertyComponent.cs",
+    "Guid": "d6bc3ae1-3693-f9fd-48db-9e8f2e105096"
+  },
+  {
+    "Class": "ConstraintDef_SetBeamComponent",
+    "Name": "SAP Constraint Def Beam",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetBeam",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetBeamComponent.cs",
+    "Guid": "21d750fe-fae3-0327-39e5-d0ac466b835a"
+  },
+  {
+    "Class": "ConstraintDef_SetBodyComponent",
+    "Name": "SAP Constraint Def Body",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetBody",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetBodyComponent.cs",
+    "Guid": "9ae4d634-91e2-e21b-bb0c-995a25905bec"
+  },
+  {
+    "Class": "ConstraintDef_SetDiaphragmComponent",
+    "Name": "SAP Constraint Def Diaphragm",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetDiaphragm",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetDiaphragmComponent.cs",
+    "Guid": "09fcbe71-a2c5-2b28-9a62-9446eb4bb68b"
+  },
+  {
+    "Class": "ConstraintDef_SetEqualComponent",
+    "Name": "SAP Constraint Def Equal",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetEqual",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetEqualComponent.cs",
+    "Guid": "f915e443-571d-c867-0977-42ddcd2fdc0e"
+  },
+  {
+    "Class": "ConstraintDef_SetLineComponent",
+    "Name": "SAP Constraint Def Line",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetLine",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetLineComponent.cs",
+    "Guid": "a6afeb10-cf1c-5194-4082-ba59cc6ff70f"
+  },
+  {
+    "Class": "ConstraintDef_SetLocalComponent",
+    "Name": "SAP Constraint Def Local",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetLocal",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetLocalComponent.cs",
+    "Guid": "0c52fca7-225a-afd9-da04-9616882c3b3e"
+  },
+  {
+    "Class": "ConstraintDef_SetPlateComponent",
+    "Name": "SAP Constraint Def Plate",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetPlate",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetPlateComponent.cs",
+    "Guid": "0f1b528a-3000-ec78-6e3d-f3eafa78b5da"
+  },
+  {
+    "Class": "ConstraintDef_SetRodComponent",
+    "Name": "SAP Constraint Def Rod",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetRod",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetRodComponent.cs",
+    "Guid": "d2186d5d-9266-d35d-14dd-49e006d4ba2f"
+  },
+  {
+    "Class": "ConstraintDef_SetWeldComponent",
+    "Name": "SAP Constraint Def Weld",
+    "Category": "08 Vincoli e molle",
+    "Api": "ConstraintDef.SetWeld",
+    "File": "Rhino2SAP.Grasshopper/Generated/ConstraintDef_SetWeldComponent.cs",
+    "Guid": "8a4be182-af8f-42c6-59d5-4f32564c70ba"
+  },
+  {
+    "Class": "CoordSys_SetCoordSysComponent",
+    "Name": "SAP Coord Sys Coord Sys",
+    "Category": "09 Assi e offset",
+    "Api": "CoordSys.SetCoordSys",
+    "File": "Rhino2SAP.Grasshopper/Generated/CoordSys_SetCoordSysComponent.cs",
+    "Guid": "b055e9f9-c8e6-eaea-9e61-8ebc5f43c318"
+  },
+  {
+    "Class": "FrameObj_SetAutoMeshComponent",
+    "Name": "SAP Frame Auto Mesh",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetAutoMesh",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetAutoMeshComponent.cs",
+    "Guid": "3254d40c-7748-7cc3-70d6-4ddc3916b90f"
+  },
+  {
+    "Class": "FrameObj_SetCurvedComponent",
+    "Name": "SAP Frame Curved",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetCurved",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetCurvedComponent.cs",
+    "Guid": "0e852168-cdb3-7b23-33e9-4c77fac0f885"
+  },
+  {
+    "Class": "FrameObj_SetDesignProcedureComponent",
+    "Name": "SAP Frame Design Procedure",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetDesignProcedure",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetDesignProcedureComponent.cs",
+    "Guid": "48d239a6-9dd8-6fa7-0a23-8de92c8b25e5"
+  },
+  {
+    "Class": "FrameObj_SetEndLengthOffsetComponent",
+    "Name": "SAP Frame End Length Offset",
+    "Category": "09 Assi e offset",
+    "Api": "FrameObj.SetEndLengthOffset",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetEndLengthOffsetComponent.cs",
+    "Guid": "f62caf4f-3098-a818-cbf8-16a30a5350ac"
+  },
+  {
+    "Class": "FrameObj_SetEndSkewComponent",
+    "Name": "SAP Frame End Skew",
+    "Category": "09 Assi e offset",
+    "Api": "FrameObj.SetEndSkew",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetEndSkewComponent.cs",
+    "Guid": "3fc139ce-32c9-ad19-0a4b-1f503635b065"
+  },
+  {
+    "Class": "FrameObj_SetFireproofingComponent",
+    "Name": "SAP Frame Fireproofing",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetFireproofing",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetFireproofingComponent.cs",
+    "Guid": "c476d7b1-314c-ff02-0e39-07f72149a82b"
+  },
+  {
+    "Class": "FrameObj_SetFireproofing_1Component",
+    "Name": "SAP Frame Fireproofing 1",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetFireproofing_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetFireproofing_1Component.cs",
+    "Guid": "992abc22-455d-ae9f-d8f6-c02804794340"
+  },
+  {
+    "Class": "FrameObj_SetGroupAssignComponent",
+    "Name": "SAP Frame Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetGroupAssignComponent.cs",
+    "Guid": "ffc450ac-7604-0f2f-327a-a1127a342397"
+  },
+  {
+    "Class": "FrameObj_SetInsertionPointComponent",
+    "Name": "SAP Frame Insertion Point",
+    "Category": "09 Assi e offset",
+    "Api": "FrameObj.SetInsertionPoint",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetInsertionPointComponent.cs",
+    "Guid": "72ab5f1a-cf80-d334-9bd3-c46ad26227a0"
+  },
+  {
+    "Class": "FrameObj_SetInsertionPoint_1Component",
+    "Name": "SAP Frame Insertion Point 1",
+    "Category": "09 Assi e offset",
+    "Api": "FrameObj.SetInsertionPoint_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetInsertionPoint_1Component.cs",
+    "Guid": "683b8d7d-2ec0-89c6-a1e6-b53450e0016c"
+  },
+  {
+    "Class": "FrameObj_SetLateralBracingComponent",
+    "Name": "SAP Frame Lateral Bracing",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetLateralBracing",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLateralBracingComponent.cs",
+    "Guid": "12acf04d-42fc-acbf-e6d0-b8b3af6eae28"
+  },
+  {
+    "Class": "FrameObj_SetLoadDeformationComponent",
+    "Name": "SAP Frame Load Deformation",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadDeformation",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadDeformationComponent.cs",
+    "Guid": "0fdceac8-1103-8a89-63fc-0062b3695eca"
+  },
+  {
+    "Class": "FrameObj_SetLoadDistributedComponent",
+    "Name": "SAP Frame Load Distributed",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadDistributed",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadDistributedComponent.cs",
+    "Guid": "27436dda-4743-c042-b07a-e00632f0f7cc"
+  },
+  {
+    "Class": "FrameObj_SetLoadGravityComponent",
+    "Name": "SAP Frame Load Gravity",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadGravity",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadGravityComponent.cs",
+    "Guid": "2b8fa533-1b6c-7bd0-90b4-6b69e83b2554"
+  },
+  {
+    "Class": "FrameObj_SetLoadPointComponent",
+    "Name": "SAP Frame Load Point",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadPoint",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadPointComponent.cs",
+    "Guid": "00eb53de-309d-e257-d7b5-65dd882e89cb"
+  },
+  {
+    "Class": "FrameObj_SetLoadStrainComponent",
+    "Name": "SAP Frame Load Strain",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadStrain",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadStrainComponent.cs",
+    "Guid": "6fdc0b2d-ed83-1cbe-2448-0c4a5983cc00"
+  },
+  {
+    "Class": "FrameObj_SetLoadTargetForceComponent",
+    "Name": "SAP Frame Load Target Force",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadTargetForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadTargetForceComponent.cs",
+    "Guid": "56e1a7a1-064f-bcfd-aab8-a88a09b7d27d"
+  },
+  {
+    "Class": "FrameObj_SetLoadTemperatureComponent",
+    "Name": "SAP Frame Load Temperature",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadTemperature",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadTemperatureComponent.cs",
+    "Guid": "8f9b5244-ce6d-138d-cbe0-ab699cb75e46"
+  },
+  {
+    "Class": "FrameObj_SetLoadTransferComponent",
+    "Name": "SAP Frame Load Transfer",
+    "Category": "14 Carichi beam",
+    "Api": "FrameObj.SetLoadTransfer",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLoadTransferComponent.cs",
+    "Guid": "6a118f24-dcaa-c4ee-6b99-ea02e3ee7d10"
+  },
+  {
+    "Class": "FrameObj_SetLocalAxesAdvancedComponent",
+    "Name": "SAP Frame Local Axes Advanced",
+    "Category": "09 Assi e offset",
+    "Api": "FrameObj.SetLocalAxesAdvanced",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLocalAxesAdvancedComponent.cs",
+    "Guid": "88217643-b554-d3ff-e67c-97461fae87ab"
+  },
+  {
+    "Class": "FrameObj_SetLocalAxesComponent",
+    "Name": "SAP Frame Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "FrameObj.SetLocalAxes",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetLocalAxesComponent.cs",
+    "Guid": "5f3004ed-1007-f373-1dd5-41dff5b43421"
+  },
+  {
+    "Class": "FrameObj_SetMassComponent",
+    "Name": "SAP Frame Mass",
+    "Category": "11 Masse",
+    "Api": "FrameObj.SetMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetMassComponent.cs",
+    "Guid": "1d9397d7-2262-2b47-a6a4-e694401b23d5"
+  },
+  {
+    "Class": "FrameObj_SetMaterialOverwriteComponent",
+    "Name": "SAP Frame Material Overwrite",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetMaterialOverwrite",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetMaterialOverwriteComponent.cs",
+    "Guid": "471a64af-15c9-7177-101d-c2bf25e0da8a"
+  },
+  {
+    "Class": "FrameObj_SetMatTempComponent",
+    "Name": "SAP Frame Mat Temp",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetMatTemp",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetMatTempComponent.cs",
+    "Guid": "65994873-2cc3-6c63-613d-881071a69c96"
+  },
+  {
+    "Class": "FrameObj_SetModifiersComponent",
+    "Name": "SAP Frame Modifiers",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetModifiers",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetModifiersComponent.cs",
+    "Guid": "10e105fb-4364-203d-7a96-9ce9e2fb7181"
+  },
+  {
+    "Class": "FrameObj_SetOutputStationsComponent",
+    "Name": "SAP Frame Output Stations",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetOutputStations",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetOutputStationsComponent.cs",
+    "Guid": "119e5665-8711-2ba8-e685-928bb736ccba"
+  },
+  {
+    "Class": "FrameObj_SetPDeltaForceComponent",
+    "Name": "SAP Frame PDelta Force",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetPDeltaForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetPDeltaForceComponent.cs",
+    "Guid": "f7991d22-9798-6cbb-b0fa-6ac6414543c6"
+  },
+  {
+    "Class": "FrameObj_SetReleasesComponent",
+    "Name": "SAP Frame Releases",
+    "Category": "08 Vincoli e molle",
+    "Api": "FrameObj.SetReleases",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetReleasesComponent.cs",
+    "Guid": "88c991be-adc4-543f-9bd3-b245b12f2799"
+  },
+  {
+    "Class": "FrameObj_SetSectionComponent",
+    "Name": "SAP Frame Section",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetSection",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetSectionComponent.cs",
+    "Guid": "bc5c8fba-34b4-36db-bc6a-5d02dc2a9231"
+  },
+  {
+    "Class": "FrameObj_SetSpringComponent",
+    "Name": "SAP Frame Spring",
+    "Category": "08 Vincoli e molle",
+    "Api": "FrameObj.SetSpring",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetSpringComponent.cs",
+    "Guid": "e2e6aec0-34e7-652e-0538-4a95ffec360b"
+  },
+  {
+    "Class": "FrameObj_SetStraightComponent",
+    "Name": "SAP Frame Straight",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "FrameObj.SetStraight",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetStraightComponent.cs",
+    "Guid": "fa0d63ee-e7c1-3164-4bcf-9b33117a7fa6"
+  },
+  {
+    "Class": "FrameObj_SetTCLimitsComponent",
+    "Name": "SAP Frame TCLimits",
+    "Category": "08 Vincoli e molle",
+    "Api": "FrameObj.SetTCLimits",
+    "File": "Rhino2SAP.Grasshopper/Generated/FrameObj_SetTCLimitsComponent.cs",
+    "Guid": "33aa3e07-7375-c096-036a-1a17c006661a"
+  },
+  {
+    "Class": "GroupDef_SetGroupComponent",
+    "Name": "SAP Group Def Group",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "GroupDef.SetGroup",
+    "File": "Rhino2SAP.Grasshopper/Generated/GroupDef_SetGroupComponent.cs",
+    "Guid": "9d9bc16f-c57c-69da-5354-6163ff9f3195"
+  },
+  {
+    "Class": "LinkObj_SetGroupAssignComponent",
+    "Name": "SAP Link Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "LinkObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetGroupAssignComponent.cs",
+    "Guid": "6bcd0ae7-d1ce-fc10-d74e-11ec0a8503ef"
+  },
+  {
+    "Class": "LinkObj_SetLoadDeformationComponent",
+    "Name": "SAP Link Load Deformation",
+    "Category": "16 Altri carichi",
+    "Api": "LinkObj.SetLoadDeformation",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetLoadDeformationComponent.cs",
+    "Guid": "8aaa871b-c227-d374-8bae-af4fa2e85d4e"
+  },
+  {
+    "Class": "LinkObj_SetLoadGravityComponent",
+    "Name": "SAP Link Load Gravity",
+    "Category": "16 Altri carichi",
+    "Api": "LinkObj.SetLoadGravity",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetLoadGravityComponent.cs",
+    "Guid": "873f8707-7d77-a085-e9f4-4dda5774a75d"
+  },
+  {
+    "Class": "LinkObj_SetLoadTargetForceComponent",
+    "Name": "SAP Link Load Target Force",
+    "Category": "16 Altri carichi",
+    "Api": "LinkObj.SetLoadTargetForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetLoadTargetForceComponent.cs",
+    "Guid": "abf07b62-1098-d0ff-2c3e-d30d7022ed89"
+  },
+  {
+    "Class": "LinkObj_SetLocalAxesAdvancedComponent",
+    "Name": "SAP Link Local Axes Advanced",
+    "Category": "09 Assi e offset",
+    "Api": "LinkObj.SetLocalAxesAdvanced",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetLocalAxesAdvancedComponent.cs",
+    "Guid": "f221ee56-4672-3740-f91d-4a5d0a1d02ea"
+  },
+  {
+    "Class": "LinkObj_SetLocalAxesComponent",
+    "Name": "SAP Link Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "LinkObj.SetLocalAxes",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetLocalAxesComponent.cs",
+    "Guid": "41a10f5e-a441-5118-6588-69ba90d91876"
+  },
+  {
+    "Class": "LinkObj_SetPropertyComponent",
+    "Name": "SAP Link Property",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "LinkObj.SetProperty",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetPropertyComponent.cs",
+    "Guid": "c9ba50d9-e613-d71b-eb53-04bbddeb3271"
+  },
+  {
+    "Class": "LinkObj_SetPropertyFDComponent",
+    "Name": "SAP Link Property FD",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "LinkObj.SetPropertyFD",
+    "File": "Rhino2SAP.Grasshopper/Generated/LinkObj_SetPropertyFDComponent.cs",
+    "Guid": "02cd38d2-90b8-5fe6-397b-af389c451283"
+  },
+  {
+    "Class": "LoadCases_Buckling_SetCaseComponent",
+    "Name": "SAP Load Cases Buckling Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.Buckling.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Buckling_SetCaseComponent.cs",
+    "Guid": "a2ff2dd6-76d8-efe2-5f12-90d1232b5273"
+  },
+  {
+    "Class": "LoadCases_Buckling_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Buckling Initial Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.Buckling.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Buckling_SetInitialCaseComponent.cs",
+    "Guid": "d2c797d0-4de0-ed51-5ed9-231789ff95d9"
+  },
+  {
+    "Class": "LoadCases_Buckling_SetLoadsComponent",
+    "Name": "SAP Load Cases Buckling Loads",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.Buckling.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Buckling_SetLoadsComponent.cs",
+    "Guid": "14c00288-a909-2667-5903-aef0a926c86f"
+  },
+  {
+    "Class": "LoadCases_Buckling_SetParametersComponent",
+    "Name": "SAP Load Cases Buckling Parameters",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.Buckling.SetParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Buckling_SetParametersComponent.cs",
+    "Guid": "a35ec666-6740-db90-f131-8ba2f75b092c"
+  },
+  {
+    "Class": "LoadCases_DirHistLinear_SetCaseComponent",
+    "Name": "SAP Load Cases Dir Hist Linear Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistLinear.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistLinear_SetCaseComponent.cs",
+    "Guid": "6814cc1e-4a0d-86b7-ff3f-c8dd406bf46a"
+  },
+  {
+    "Class": "LoadCases_DirHistLinear_SetDampProportionalComponent",
+    "Name": "SAP Load Cases Dir Hist Linear Damp Proportional",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistLinear.SetDampProportional",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistLinear_SetDampProportionalComponent.cs",
+    "Guid": "3f3ddd94-2141-dfc1-b1ab-0630ccbda3db"
+  },
+  {
+    "Class": "LoadCases_DirHistLinear_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Dir Hist Linear Initial Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistLinear.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistLinear_SetInitialCaseComponent.cs",
+    "Guid": "d08a6974-c373-d5fd-ac1b-05b339696a60"
+  },
+  {
+    "Class": "LoadCases_DirHistLinear_SetLoadsComponent",
+    "Name": "SAP Load Cases Dir Hist Linear Loads",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistLinear.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistLinear_SetLoadsComponent.cs",
+    "Guid": "0b332215-6512-676b-7ef7-38a574303194"
+  },
+  {
+    "Class": "LoadCases_DirHistLinear_SetTimeIntegrationComponent",
+    "Name": "SAP Load Cases Dir Hist Linear Time Integration",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistLinear.SetTimeIntegration",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistLinear_SetTimeIntegrationComponent.cs",
+    "Guid": "8aa83f7c-060b-1d60-1f33-7f92fc4f302e"
+  },
+  {
+    "Class": "LoadCases_DirHistLinear_SetTimeStepComponent",
+    "Name": "SAP Load Cases Dir Hist Linear Time Step",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistLinear.SetTimeStep",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistLinear_SetTimeStepComponent.cs",
+    "Guid": "9859f080-fa47-dcc8-9a46-f9e19e9bda9c"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetCaseComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetCaseComponent.cs",
+    "Guid": "e8934f7c-49c6-9ada-7f23-0528539dd623"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetDampProportionalComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Damp Proportional",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetDampProportional",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetDampProportionalComponent.cs",
+    "Guid": "6814488a-9eb2-f3f7-cb44-bd937dd076f7"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetGeometricNonlinearityComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Geometric Nonlinearity",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetGeometricNonlinearity",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetGeometricNonlinearityComponent.cs",
+    "Guid": "c998bb9d-7ff0-ef87-0bf6-9c23e0456706"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Initial Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetInitialCaseComponent.cs",
+    "Guid": "97262f01-fac5-2995-ac80-8e8c71531b63"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetLoadsComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Loads",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetLoadsComponent.cs",
+    "Guid": "113fa8cd-b128-2ae4-23e3-c8064fbd4397"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetMassSourceComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Mass Source",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetMassSource",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetMassSourceComponent.cs",
+    "Guid": "66f6e276-9c9b-732a-539b-f1f758df5a8a"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetSolControlParametersComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Sol Control Parameters",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetSolControlParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetSolControlParametersComponent.cs",
+    "Guid": "cadfc197-5cab-e6d5-4bd5-b0d2588ce70d"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetTimeIntegrationComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Time Integration",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetTimeIntegration",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetTimeIntegrationComponent.cs",
+    "Guid": "bd7ce63f-da57-93f9-8ac1-0d70c41c53df"
+  },
+  {
+    "Class": "LoadCases_DirHistNonlinear_SetTimeStepComponent",
+    "Name": "SAP Load Cases Dir Hist Nonlinear Time Step",
+    "Category": "23 Time history",
+    "Api": "LoadCases.DirHistNonlinear.SetTimeStep",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_DirHistNonlinear_SetTimeStepComponent.cs",
+    "Guid": "d706fd7a-ab77-3485-bbf7-e07e5cb10083"
+  },
+  {
+    "Class": "LoadCases_ExternalResults_SetCaseComponent",
+    "Name": "SAP Load Cases External Results Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.ExternalResults.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ExternalResults_SetCaseComponent.cs",
+    "Guid": "63063f65-7e14-ca79-deca-e95c3eb6a203"
+  },
+  {
+    "Class": "LoadCases_ExternalResults_SetNumberStepsComponent",
+    "Name": "SAP Load Cases External Results Number Steps",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.ExternalResults.SetNumberSteps",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ExternalResults_SetNumberStepsComponent.cs",
+    "Guid": "83440af9-9638-182f-bde8-5293c21ce4c0"
+  },
+  {
+    "Class": "LoadCases_HyperStatic_SetBaseCaseComponent",
+    "Name": "SAP Load Cases Hyper Static Base Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.HyperStatic.SetBaseCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_HyperStatic_SetBaseCaseComponent.cs",
+    "Guid": "79d8f6d2-6144-b670-328d-aecfce0d275a"
+  },
+  {
+    "Class": "LoadCases_HyperStatic_SetCaseComponent",
+    "Name": "SAP Load Cases Hyper Static Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.HyperStatic.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_HyperStatic_SetCaseComponent.cs",
+    "Guid": "c5799e49-9688-2236-65f4-0a11a5762f98"
+  },
+  {
+    "Class": "LoadCases_ModalEigen_SetCaseComponent",
+    "Name": "SAP Load Cases Modal Eigen Case",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalEigen.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalEigen_SetCaseComponent.cs",
+    "Guid": "ebb6a7f1-3111-25b0-68d6-80245b6d3e9e"
+  },
+  {
+    "Class": "LoadCases_ModalEigen_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Modal Eigen Initial Case",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalEigen.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalEigen_SetInitialCaseComponent.cs",
+    "Guid": "684c4789-6a25-eeac-dd46-7c0f3bc5a17b"
+  },
+  {
+    "Class": "LoadCases_ModalEigen_SetLoadsComponent",
+    "Name": "SAP Load Cases Modal Eigen Loads",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalEigen.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalEigen_SetLoadsComponent.cs",
+    "Guid": "5c8a3969-21fb-e9fb-df08-c27e05f89f94"
+  },
+  {
+    "Class": "LoadCases_ModalEigen_SetNumberModesComponent",
+    "Name": "SAP Load Cases Modal Eigen Number Modes",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalEigen.SetNumberModes",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalEigen_SetNumberModesComponent.cs",
+    "Guid": "9cfaa301-216d-d95c-ec8a-4215d72ac6cc"
+  },
+  {
+    "Class": "LoadCases_ModalEigen_SetParametersComponent",
+    "Name": "SAP Load Cases Modal Eigen Parameters",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalEigen.SetParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalEigen_SetParametersComponent.cs",
+    "Guid": "7c8179f1-ad18-ebbb-3cd6-258d6f35375f"
+  },
+  {
+    "Class": "LoadCases_ModalRitz_SetCaseComponent",
+    "Name": "SAP Load Cases Modal Ritz Case",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalRitz.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalRitz_SetCaseComponent.cs",
+    "Guid": "6596b052-dd85-9907-8fe0-e4669cf90d31"
+  },
+  {
+    "Class": "LoadCases_ModalRitz_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Modal Ritz Initial Case",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalRitz.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalRitz_SetInitialCaseComponent.cs",
+    "Guid": "f2cbe2ed-6e3a-5c78-b2a6-b5291f17cc55"
+  },
+  {
+    "Class": "LoadCases_ModalRitz_SetLoadsComponent",
+    "Name": "SAP Load Cases Modal Ritz Loads",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalRitz.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalRitz_SetLoadsComponent.cs",
+    "Guid": "733c1030-e238-b869-fba4-8456657dff35"
+  },
+  {
+    "Class": "LoadCases_ModalRitz_SetNumberModesComponent",
+    "Name": "SAP Load Cases Modal Ritz Number Modes",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ModalRitz.SetNumberModes",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModalRitz_SetNumberModesComponent.cs",
+    "Guid": "6ad10e45-f5e7-7ad0-07c6-59c0530325d1"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetCaseComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetCaseComponent.cs",
+    "Guid": "2c689ebe-6f01-34de-7749-445463399dc4"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetDampConstantComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Damp Constant",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetDampConstant",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetDampConstantComponent.cs",
+    "Guid": "097ff1c6-7e78-1d8b-81db-19e4c09cec75"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetDampInterpolatedComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Damp Interpolated",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetDampInterpolated",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetDampInterpolatedComponent.cs",
+    "Guid": "67514285-1e46-e534-c44b-ec5d598ae4b9"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetDampOverridesComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Damp Overrides",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetDampOverrides",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetDampOverridesComponent.cs",
+    "Guid": "a526be77-7c48-e4eb-0f7b-c77bfedcb788"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetDampProportionalComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Damp Proportional",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetDampProportional",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetDampProportionalComponent.cs",
+    "Guid": "3cc98a4e-2f5a-5c7f-3359-4a79598df07e"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetLoadsComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Loads",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetLoadsComponent.cs",
+    "Guid": "f6d73004-51d6-a3b5-1ad2-63d1570e1819"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetModalCaseComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Modal Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetModalCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetModalCaseComponent.cs",
+    "Guid": "a9300c28-5891-72bb-ff13-5bca35cae8c6"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetMotionTypeComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Motion Type",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetMotionType",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetMotionTypeComponent.cs",
+    "Guid": "d30281ad-b2db-75b3-fe53-e82723564f1f"
+  },
+  {
+    "Class": "LoadCases_ModHistLinear_SetTimeStepComponent",
+    "Name": "SAP Load Cases Mod Hist Linear Time Step",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistLinear.SetTimeStep",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistLinear_SetTimeStepComponent.cs",
+    "Guid": "a5b2cd1b-32a2-a555-c5f0-e9eefa9bbc6c"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetCaseComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetCaseComponent.cs",
+    "Guid": "6e4c6989-e4b9-373a-4608-ae492ce80832"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetDampConstantComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Damp Constant",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetDampConstant",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetDampConstantComponent.cs",
+    "Guid": "eccfb31b-1f5e-423d-cdaf-ce7907afd8ec"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetDampInterpolatedComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Damp Interpolated",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetDampInterpolated",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetDampInterpolatedComponent.cs",
+    "Guid": "ce43f4cf-a8ca-8137-cd96-f2d44d50f99c"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetDampOverridesComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Damp Overrides",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetDampOverrides",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetDampOverridesComponent.cs",
+    "Guid": "6fe331bf-9f18-8dfe-3cd5-196d11890ffd"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetDampProportionalComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Damp Proportional",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetDampProportional",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetDampProportionalComponent.cs",
+    "Guid": "7dd512db-266a-6d1f-e4d1-f3bb3500e9aa"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Initial Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetInitialCaseComponent.cs",
+    "Guid": "9a7ba3f0-ed8c-828a-f2e6-8d0a89ed7892"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetLoadsComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Loads",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetLoadsComponent.cs",
+    "Guid": "1537b30c-9d15-4c37-709f-b1238a505823"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetModalCaseComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Modal Case",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetModalCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetModalCaseComponent.cs",
+    "Guid": "1786d50b-eb3d-6d47-8d37-6d7dad67b5e9"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetSolControlParametersComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Sol Control Parameters",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetSolControlParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetSolControlParametersComponent.cs",
+    "Guid": "e76f1ba7-3a6a-615c-5421-4579c2cf186e"
+  },
+  {
+    "Class": "LoadCases_ModHistNonlinear_SetTimeStepComponent",
+    "Name": "SAP Load Cases Mod Hist Nonlinear Time Step",
+    "Category": "23 Time history",
+    "Api": "LoadCases.ModHistNonlinear.SetTimeStep",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetTimeStepComponent.cs",
+    "Guid": "2d5cf9af-33f2-1d66-3d16-01e95425a15d"
+  },
+  {
+    "Class": "LoadCases_Moving_SetCaseComponent",
+    "Name": "SAP Load Cases Moving Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.Moving.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Moving_SetCaseComponent.cs",
+    "Guid": "f4448116-8492-5da4-7314-2a54af17c4be"
+  },
+  {
+    "Class": "LoadCases_Moving_SetDirectionalFactorsComponent",
+    "Name": "SAP Load Cases Moving Directional Factors",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.Moving.SetDirectionalFactors",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Moving_SetDirectionalFactorsComponent.cs",
+    "Guid": "5cf62ade-e843-54cc-6985-b977f487b980"
+  },
+  {
+    "Class": "LoadCases_Moving_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Moving Initial Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.Moving.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Moving_SetInitialCaseComponent.cs",
+    "Guid": "fad19602-e093-0b74-99a3-a17f083b4bc5"
+  },
+  {
+    "Class": "LoadCases_Moving_SetLanesLoadedComponent",
+    "Name": "SAP Load Cases Moving Lanes Loaded",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.Moving.SetLanesLoaded",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Moving_SetLanesLoadedComponent.cs",
+    "Guid": "1fe63862-4b5e-0a7e-77c5-8c7d5f643f34"
+  },
+  {
+    "Class": "LoadCases_Moving_SetLoadsComponent",
+    "Name": "SAP Load Cases Moving Loads",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.Moving.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Moving_SetLoadsComponent.cs",
+    "Guid": "b2d5eba5-d7c8-c2e8-7d54-784f315fe0e6"
+  },
+  {
+    "Class": "LoadCases_Moving_SetMultiLaneSFComponent",
+    "Name": "SAP Load Cases Moving Multi Lane SF",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.Moving.SetMultiLaneSF",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_Moving_SetMultiLaneSFComponent.cs",
+    "Guid": "ecdaed82-0cc8-3670-1398-c05bf438f527"
+  },
+  {
+    "Class": "LoadCases_PSD_SetCaseComponent",
+    "Name": "SAP Load Cases PSD Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.PSD.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_PSD_SetCaseComponent.cs",
+    "Guid": "989a44fc-930b-78f2-5d7a-91e9562f91b0"
+  },
+  {
+    "Class": "LoadCases_PSD_SetDampConstantComponent",
+    "Name": "SAP Load Cases PSD Damp Constant",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.PSD.SetDampConstant",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_PSD_SetDampConstantComponent.cs",
+    "Guid": "e0348a1f-08dc-6dda-4b39-87f4e401d3f7"
+  },
+  {
+    "Class": "LoadCases_PSD_SetDampInterpolatedComponent",
+    "Name": "SAP Load Cases PSD Damp Interpolated",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.PSD.SetDampInterpolated",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_PSD_SetDampInterpolatedComponent.cs",
+    "Guid": "b08c31db-4fd2-aa23-a5ac-07c7b88a778e"
+  },
+  {
+    "Class": "LoadCases_PSD_SetFreqDataComponent",
+    "Name": "SAP Load Cases PSD Freq Data",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.PSD.SetFreqData",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_PSD_SetFreqDataComponent.cs",
+    "Guid": "ab0174d6-f180-ff03-b8de-e5847dc400fd"
+  },
+  {
+    "Class": "LoadCases_PSD_SetInitialCaseComponent",
+    "Name": "SAP Load Cases PSD Initial Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.PSD.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_PSD_SetInitialCaseComponent.cs",
+    "Guid": "fff711a2-503f-0807-baea-569b81197c62"
+  },
+  {
+    "Class": "LoadCases_PSD_SetLoadsComponent",
+    "Name": "SAP Load Cases PSD Loads",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.PSD.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_PSD_SetLoadsComponent.cs",
+    "Guid": "3e29a035-6dcd-83dd-6dcd-636d619a5149"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetCaseComponent",
+    "Name": "SAP Load Cases Response Spectrum Case",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetCaseComponent.cs",
+    "Guid": "d2013499-d142-302f-22d5-48a3fb95d075"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetDampConstantComponent",
+    "Name": "SAP Load Cases Response Spectrum Damp Constant",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetDampConstant",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetDampConstantComponent.cs",
+    "Guid": "dbfe32f5-ed9c-05e9-f556-a2670aafd288"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetDampInterpolatedComponent",
+    "Name": "SAP Load Cases Response Spectrum Damp Interpolated",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetDampInterpolated",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetDampInterpolatedComponent.cs",
+    "Guid": "e2bdca67-eee7-d1e5-f2e3-050a98264ea5"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetDampOverridesComponent",
+    "Name": "SAP Load Cases Response Spectrum Damp Overrides",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetDampOverrides",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetDampOverridesComponent.cs",
+    "Guid": "18a1b317-6619-3d1a-8a41-ced6cb57445c"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetDampProportionalComponent",
+    "Name": "SAP Load Cases Response Spectrum Damp Proportional",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetDampProportional",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetDampProportionalComponent.cs",
+    "Guid": "9917bc1f-243d-2cbf-66a4-ce4b723d230b"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetDiaphragmEccentricityOverrideComponent",
+    "Name": "SAP Load Cases Response Spectrum Diaphragm Eccentricity Override",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetDiaphragmEccentricityOverride",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetDiaphragmEccentricityOverrideComponent.cs",
+    "Guid": "5911d411-ac47-4374-fa82-88b03305ec18"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetDirCombComponent",
+    "Name": "SAP Load Cases Response Spectrum Dir Comb",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetDirComb",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetDirCombComponent.cs",
+    "Guid": "454fd964-2397-14cd-43c1-1424b9c10597"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetEccentricityComponent",
+    "Name": "SAP Load Cases Response Spectrum Eccentricity",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetEccentricity",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetEccentricityComponent.cs",
+    "Guid": "9346bb79-8ddf-309b-eba7-e2adf28f2bf6"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetLoadsComponent",
+    "Name": "SAP Load Cases Response Spectrum Loads",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetLoadsComponent.cs",
+    "Guid": "04ca0955-a562-fc54-fcbb-0dd289752728"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetModalCaseComponent",
+    "Name": "SAP Load Cases Response Spectrum Modal Case",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetModalCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetModalCaseComponent.cs",
+    "Guid": "6b3b9f19-bb69-01a1-4a6b-0bff4721d53e"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetModalCombComponent",
+    "Name": "SAP Load Cases Response Spectrum Modal Comb",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetModalComb",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetModalCombComponent.cs",
+    "Guid": "a11a4de6-5f6e-130c-d683-56cd72b5eb28"
+  },
+  {
+    "Class": "LoadCases_ResponseSpectrum_SetModalComb_1Component",
+    "Name": "SAP Load Cases Response Spectrum Modal Comb 1",
+    "Category": "22 Modale e spettri",
+    "Api": "LoadCases.ResponseSpectrum.SetModalComb_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetModalComb_1Component.cs",
+    "Guid": "bcd7cd55-c098-e126-641c-b8da3979c7e9"
+  },
+  {
+    "Class": "LoadCases_StaticLinearMultistep_SetCaseComponent",
+    "Name": "SAP Load Cases Static Linear Multistep Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinearMultistep.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinearMultistep_SetCaseComponent.cs",
+    "Guid": "a426e01b-9c88-e685-154f-9a9198557522"
+  },
+  {
+    "Class": "LoadCases_StaticLinearMultistep_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Static Linear Multistep Initial Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinearMultistep.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinearMultistep_SetInitialCaseComponent.cs",
+    "Guid": "b10b27cc-37df-8e98-737f-682bc6663131"
+  },
+  {
+    "Class": "LoadCases_StaticLinearMultistep_SetLoadsComponent",
+    "Name": "SAP Load Cases Static Linear Multistep Loads",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinearMultistep.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinearMultistep_SetLoadsComponent.cs",
+    "Guid": "fe9cf577-6ee6-5f3a-bd31-f3991aef6fa7"
+  },
+  {
+    "Class": "LoadCases_StaticLinearMultistep_SetLoads_1Component",
+    "Name": "SAP Load Cases Static Linear Multistep Loads 1",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinearMultistep.SetLoads_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinearMultistep_SetLoads_1Component.cs",
+    "Guid": "cce709b6-e561-aab1-c87b-377d85661868"
+  },
+  {
+    "Class": "LoadCases_StaticLinear_SetCaseComponent",
+    "Name": "SAP Load Cases Static Linear Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinear.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinear_SetCaseComponent.cs",
+    "Guid": "a78e3e32-10c5-bdd2-a75b-4c79f0daac03"
+  },
+  {
+    "Class": "LoadCases_StaticLinear_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Static Linear Initial Case",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinear.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinear_SetInitialCaseComponent.cs",
+    "Guid": "9b12cb3b-5931-9f21-ebac-272009e62625"
+  },
+  {
+    "Class": "LoadCases_StaticLinear_SetLoadsComponent",
+    "Name": "SAP Load Cases Static Linear Loads",
+    "Category": "19 Casi statici",
+    "Api": "LoadCases.StaticLinear.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticLinear_SetLoadsComponent.cs",
+    "Guid": "0a9f9db9-c5a6-55f3-3a61-bd8441e969e0"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearMultistep_SetCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Multistep Case",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinearMultistep.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearMultistep_SetCaseComponent.cs",
+    "Guid": "af0d40a3-6d6e-495d-3ae5-a20258de266e"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearMultistep_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Multistep Initial Case",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinearMultistep.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearMultistep_SetInitialCaseComponent.cs",
+    "Guid": "167296da-2403-3480-cdf8-cf3392f06a2d"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearMultistep_SetLoadsComponent",
+    "Name": "SAP Load Cases Static Nonlinear Multistep Loads",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinearMultistep.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearMultistep_SetLoadsComponent.cs",
+    "Guid": "c225fd94-1cd8-0688-d220-44537e0c8b5a"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Case",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetCaseComponent.cs",
+    "Guid": "bd160c92-f8be-29cb-0390-c87b6aa55f2c"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetGeometricNonlinearityComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Geometric Nonlinearity",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetGeometricNonlinearity",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetGeometricNonlinearityComponent.cs",
+    "Guid": "6786fc70-1b08-c6bd-25ba-298911500ddc"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetHingeUnloadingComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Hinge Unloading",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetHingeUnloading",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetHingeUnloadingComponent.cs",
+    "Guid": "d9ec63fe-a728-cb53-1b7e-b198f5f5fee9"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Initial Case",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetInitialCaseComponent.cs",
+    "Guid": "4b59a489-a683-c04e-3241-88aa3ecea23f"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetMassSourceComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Mass Source",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetMassSource",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetMassSourceComponent.cs",
+    "Guid": "bcb54c00-15a7-96db-bd2f-4c66cc7e6c01"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetMaterialNonlinearityComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Material Nonlinearity",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetMaterialNonlinearity",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetMaterialNonlinearityComponent.cs",
+    "Guid": "7b289fd2-f3c9-98d0-d731-cf60ca0ce767"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetResultsSavedComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Results Saved",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetResultsSaved",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetResultsSavedComponent.cs",
+    "Guid": "b489808e-4c0b-a479-dafa-0bb01f9d46a3"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetSolControlParametersComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Sol Control Parameters",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetSolControlParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetSolControlParametersComponent.cs",
+    "Guid": "0705a832-fb47-0bbd-6809-a931c1dd2b4c"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetStageDataComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Stage Data",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetStageData",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetStageDataComponent.cs",
+    "Guid": "b68a6d7a-235b-5202-7b35-d353a7e2dc30"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetStageData_1Component",
+    "Name": "SAP Load Cases Static Nonlinear Staged Stage Data 1",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetStageData_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetStageData_1Component.cs",
+    "Guid": "7feb2e72-15a1-c676-ef46-866d53cde629"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetStageData_2Component",
+    "Name": "SAP Load Cases Static Nonlinear Staged Stage Data 2",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetStageData_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetStageData_2Component.cs",
+    "Guid": "5eab492d-6439-7c36-0ea8-2683ebd4fa2e"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetStageDefinitionsComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Stage Definitions",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetStageDefinitions",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetStageDefinitionsComponent.cs",
+    "Guid": "c633d730-ddd6-f287-e0b1-130d383cbb62"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetStageDefinitions_1Component",
+    "Name": "SAP Load Cases Static Nonlinear Staged Stage Definitions 1",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetStageDefinitions_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetStageDefinitions_1Component.cs",
+    "Guid": "ce7bdaee-5134-5f1b-1353-b7b603de1faa"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetStageDefinitions_2Component",
+    "Name": "SAP Load Cases Static Nonlinear Staged Stage Definitions 2",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetStageDefinitions_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetStageDefinitions_2Component.cs",
+    "Guid": "64209038-c714-0a8d-fc03-8fb585991482"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinearStaged_SetTargetForceParametersComponent",
+    "Name": "SAP Load Cases Static Nonlinear Staged Target Force Parameters",
+    "Category": "21 Fasi costruttive",
+    "Api": "LoadCases.StaticNonlinearStaged.SetTargetForceParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinearStaged_SetTargetForceParametersComponent.cs",
+    "Guid": "774940ff-93a8-7675-1302-8416e8a0e42e"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Case",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetCaseComponent.cs",
+    "Guid": "82dd4b04-745b-bb22-7180-a49d4ceb24e3"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetGeometricNonlinearityComponent",
+    "Name": "SAP Load Cases Static Nonlinear Geometric Nonlinearity",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetGeometricNonlinearity",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetGeometricNonlinearityComponent.cs",
+    "Guid": "acd12db7-ecce-dcf1-14a4-6824d6ba514b"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetHingeUnloadingComponent",
+    "Name": "SAP Load Cases Static Nonlinear Hinge Unloading",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetHingeUnloading",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetHingeUnloadingComponent.cs",
+    "Guid": "c2cea691-f7a0-e60b-e3f4-b83a38f729af"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Initial Case",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetInitialCaseComponent.cs",
+    "Guid": "b404ad84-a006-6f4f-ab01-c120b1b950f0"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetLoadApplicationComponent",
+    "Name": "SAP Load Cases Static Nonlinear Load Application",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetLoadApplication",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetLoadApplicationComponent.cs",
+    "Guid": "fe5fc615-ef50-e6be-1e84-e0d3d129407f"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetLoadsComponent",
+    "Name": "SAP Load Cases Static Nonlinear Loads",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetLoadsComponent.cs",
+    "Guid": "a109cdbc-6a5c-6f06-c4f2-0b3fb46dd179"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetMassSourceComponent",
+    "Name": "SAP Load Cases Static Nonlinear Mass Source",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetMassSource",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetMassSourceComponent.cs",
+    "Guid": "78d4b720-26dd-787d-d4a1-af2b5aa1c8c7"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetModalCaseComponent",
+    "Name": "SAP Load Cases Static Nonlinear Modal Case",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetModalCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetModalCaseComponent.cs",
+    "Guid": "df9e4ac6-9da9-3879-4276-fbf08f771429"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetResultsSavedComponent",
+    "Name": "SAP Load Cases Static Nonlinear Results Saved",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetResultsSaved",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetResultsSavedComponent.cs",
+    "Guid": "b634e90a-a74c-0b6c-33c8-4e25e271a5b7"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetSolControlParametersComponent",
+    "Name": "SAP Load Cases Static Nonlinear Sol Control Parameters",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetSolControlParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetSolControlParametersComponent.cs",
+    "Guid": "86760643-f3a6-e729-7e45-c1dc3f8bb866"
+  },
+  {
+    "Class": "LoadCases_StaticNonlinear_SetTargetForceParametersComponent",
+    "Name": "SAP Load Cases Static Nonlinear Target Force Parameters",
+    "Category": "20 Casi non lineari",
+    "Api": "LoadCases.StaticNonlinear.SetTargetForceParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_StaticNonlinear_SetTargetForceParametersComponent.cs",
+    "Guid": "06760607-5ba7-9787-e3cf-b7e2a903ae50"
+  },
+  {
+    "Class": "LoadCases_SteadyState_SetCaseComponent",
+    "Name": "SAP Load Cases Steady State Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.SteadyState.SetCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetCaseComponent.cs",
+    "Guid": "94119f14-06f2-9f76-a261-fa928732b85e"
+  },
+  {
+    "Class": "LoadCases_SteadyState_SetDampConstantComponent",
+    "Name": "SAP Load Cases Steady State Damp Constant",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.SteadyState.SetDampConstant",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetDampConstantComponent.cs",
+    "Guid": "58fc3cb5-a8e2-ace6-498b-3b0395bbc657"
+  },
+  {
+    "Class": "LoadCases_SteadyState_SetDampInterpolatedComponent",
+    "Name": "SAP Load Cases Steady State Damp Interpolated",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.SteadyState.SetDampInterpolated",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetDampInterpolatedComponent.cs",
+    "Guid": "8c7e1210-0b1f-0e93-6703-0e02451a28c4"
+  },
+  {
+    "Class": "LoadCases_SteadyState_SetFreqDataComponent",
+    "Name": "SAP Load Cases Steady State Freq Data",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.SteadyState.SetFreqData",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetFreqDataComponent.cs",
+    "Guid": "5832119f-e73f-0a02-38c4-ecbb2c5cc058"
+  },
+  {
+    "Class": "LoadCases_SteadyState_SetInitialCaseComponent",
+    "Name": "SAP Load Cases Steady State Initial Case",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.SteadyState.SetInitialCase",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetInitialCaseComponent.cs",
+    "Guid": "c7d1685a-90ec-6879-3a0e-b80da1d4875e"
+  },
+  {
+    "Class": "LoadCases_SteadyState_SetLoadsComponent",
+    "Name": "SAP Load Cases Steady State Loads",
+    "Category": "24 Altri casi dinamici",
+    "Api": "LoadCases.SteadyState.SetLoads",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetLoadsComponent.cs",
+    "Guid": "f812dd7c-9598-01e0-8236-afce7a454cc1"
+  },
+  {
+    "Class": "LoadPatterns_AddComponent",
+    "Name": "SAP Load Patterns Add",
+    "Category": "12 Load pattern",
+    "Api": "LoadPatterns.Add",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AddComponent.cs",
+    "Guid": "1cf26adc-2a4c-7df4-1c4f-36d35c603615"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeastate_SetAutoComponent",
+    "Name": "SAP Load Patterns Auto Seastate Auto",
+    "Category": "16 Altri carichi",
+    "Api": "LoadPatterns.AutoSeastate.SetAuto",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeastate_SetAutoComponent.cs",
+    "Guid": "97705491-8eb5-6e5b-661f-038e80a81e48"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeastate_SetNoneComponent",
+    "Name": "SAP Load Patterns Auto Seastate None",
+    "Category": "16 Altri carichi",
+    "Api": "LoadPatterns.AutoSeastate.SetNone",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeastate_SetNoneComponent.cs",
+    "Guid": "c8a73349-14af-98d7-4eb6-4999c843b336"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetAS11702007Component",
+    "Name": "SAP Load Patterns Auto Seismic AS11702007",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetAS11702007",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetAS11702007Component.cs",
+    "Guid": "a3c1212c-7de1-79ff-277a-2f2fd8f6863c"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetASCE716Component",
+    "Name": "SAP Load Patterns Auto Seismic ASCE716",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetASCE716",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetASCE716Component.cs",
+    "Guid": "18aedbaa-0788-6245-e0a3-6bd6afae44bd"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetASCE716_1Component",
+    "Name": "SAP Load Patterns Auto Seismic ASCE716 1",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetASCE716_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetASCE716_1Component.cs",
+    "Guid": "d57c0914-b438-d2c8-80b9-f5446a698fc0"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetBOCA96Component",
+    "Name": "SAP Load Patterns Auto Seismic BOCA96",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetBOCA96",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetBOCA96Component.cs",
+    "Guid": "81161fb2-5ca1-db2d-e8ea-e54a7673ff9c"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetChinese2002Component",
+    "Name": "SAP Load Patterns Auto Seismic Chinese2002",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetChinese2002",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetChinese2002Component.cs",
+    "Guid": "2529e5d7-ac49-2e11-7e3f-7acc798d6c98"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetChinese2010Component",
+    "Name": "SAP Load Patterns Auto Seismic Chinese2010",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetChinese2010",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetChinese2010Component.cs",
+    "Guid": "e192041d-ac93-8e8c-be39-54bd0fa03f17"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetDiaphragmEccentricityOverrideComponent",
+    "Name": "SAP Load Patterns Auto Seismic Diaphragm Eccentricity Override",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetDiaphragmEccentricityOverride",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetDiaphragmEccentricityOverrideComponent.cs",
+    "Guid": "6bbe033e-ae9d-690e-b2e3-eff7489bc4c3"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetEurocode82004Component",
+    "Name": "SAP Load Patterns Auto Seismic Eurocode82004",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetEurocode82004",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetEurocode82004Component.cs",
+    "Guid": "5d12954d-0f9e-1d40-39d3-bde20a147801"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetEurocode82004_1Component",
+    "Name": "SAP Load Patterns Auto Seismic Eurocode82004 1",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetEurocode82004_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetEurocode82004_1Component.cs",
+    "Guid": "f806e596-c4fc-e1f8-4ffd-091697e7324b"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetIBC2003Component",
+    "Name": "SAP Load Patterns Auto Seismic IBC2003",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetIBC2003",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetIBC2003Component.cs",
+    "Guid": "0f11141a-b242-55ff-22dd-1f104740b083"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetIBC2006Component",
+    "Name": "SAP Load Patterns Auto Seismic IBC2006",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetIBC2006",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetIBC2006Component.cs",
+    "Guid": "30d489fb-8f4a-3019-fabc-382e840287fc"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetIBC2009Component",
+    "Name": "SAP Load Patterns Auto Seismic IBC2009",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetIBC2009",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetIBC2009Component.cs",
+    "Guid": "92119ef8-bc49-821f-eedb-af11c653b638"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetIBC2012Component",
+    "Name": "SAP Load Patterns Auto Seismic IBC2012",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetIBC2012",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetIBC2012Component.cs",
+    "Guid": "6226753f-3a12-6629-ca5b-80e80f0ba97a"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetIS1893_2002Component",
+    "Name": "SAP Load Patterns Auto Seismic IS1893 2002",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetIS1893_2002",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetIS1893_2002Component.cs",
+    "Guid": "360b17d7-b22a-6339-3c08-984950219825"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNBCC2005Component",
+    "Name": "SAP Load Patterns Auto Seismic NBCC2005",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNBCC2005",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNBCC2005Component.cs",
+    "Guid": "c3fdd7a5-72f8-4ecb-fba9-e63d91f77811"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNBCC2010Component",
+    "Name": "SAP Load Patterns Auto Seismic NBCC2010",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNBCC2010",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNBCC2010Component.cs",
+    "Guid": "488f3710-ab50-2e3d-2f6b-62fcb9968f88"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNBCC2015Component",
+    "Name": "SAP Load Patterns Auto Seismic NBCC2015",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNBCC2015",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNBCC2015Component.cs",
+    "Guid": "c19d076b-610d-e867-c3b3-178b51ce7b0f"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNBCC95Component",
+    "Name": "SAP Load Patterns Auto Seismic NBCC95",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNBCC95",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNBCC95Component.cs",
+    "Guid": "4bb091e2-114c-f6e4-d303-927c4a90e472"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNEHRP97Component",
+    "Name": "SAP Load Patterns Auto Seismic NEHRP97",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNEHRP97",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNEHRP97Component.cs",
+    "Guid": "9a4d7317-1949-45ef-363e-a9a1fe046e11"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNoneComponent",
+    "Name": "SAP Load Patterns Auto Seismic None",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNone",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNoneComponent.cs",
+    "Guid": "588c44d1-6343-32b2-c35f-8af1537cad55"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNTC2008Component",
+    "Name": "SAP Load Patterns Auto Seismic NTC2008",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNTC2008",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNTC2008Component.cs",
+    "Guid": "93a79985-0a54-3a11-70a8-898ef072033d"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNTC2018Component",
+    "Name": "SAP Load Patterns Auto Seismic NTC2018",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNTC2018",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNTC2018Component.cs",
+    "Guid": "85b1be49-62f6-9f68-4f19-9d71fb945d94"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNZS11702004Component",
+    "Name": "SAP Load Patterns Auto Seismic NZS11702004",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNZS11702004",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNZS11702004Component.cs",
+    "Guid": "e4d42899-4447-2643-2081-cdbd8cf3bfb5"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNZS11702004_1Component",
+    "Name": "SAP Load Patterns Auto Seismic NZS11702004 1",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNZS11702004_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNZS11702004_1Component.cs",
+    "Guid": "3d47ee81-40e3-9089-4d16-9a7119eb17bb"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetNZS11702004_2Component",
+    "Name": "SAP Load Patterns Auto Seismic NZS11702004 2",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetNZS11702004_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetNZS11702004_2Component.cs",
+    "Guid": "5aebd015-06b0-833b-5446-10b358be21a2"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetUBC94Component",
+    "Name": "SAP Load Patterns Auto Seismic UBC94",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetUBC94",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetUBC94Component.cs",
+    "Guid": "a973cc1f-d1e3-838e-149d-62f9c0853b81"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetUBC97Component",
+    "Name": "SAP Load Patterns Auto Seismic UBC97",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetUBC97",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetUBC97Component.cs",
+    "Guid": "6c40ae33-084e-7f67-4b3e-87625676ae14"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetUBC97IsoComponent",
+    "Name": "SAP Load Patterns Auto Seismic UBC97 Iso",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetUBC97Iso",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetUBC97IsoComponent.cs",
+    "Guid": "733572df-269d-e9d1-28e5-12e6628f0e2b"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetUserCoefficientComponent",
+    "Name": "SAP Load Patterns Auto Seismic User Coefficient",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetUserCoefficient",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetUserCoefficientComponent.cs",
+    "Guid": "5c8ac5ed-25ff-f8c9-f9c6-a8587a48a0bf"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetUserLoadComponent",
+    "Name": "SAP Load Patterns Auto Seismic User Load",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetUserLoad",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetUserLoadComponent.cs",
+    "Guid": "a521571f-5677-e000-056e-e9356f090305"
+  },
+  {
+    "Class": "LoadPatterns_AutoSeismic_SetUserLoadValueComponent",
+    "Name": "SAP Load Patterns Auto Seismic User Load Value",
+    "Category": "18 Sisma",
+    "Api": "LoadPatterns.AutoSeismic.SetUserLoadValue",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoSeismic_SetUserLoadValueComponent.cs",
+    "Guid": "8afa3748-78e7-41ec-d722-751418abd472"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetAPI4F2008Component",
+    "Name": "SAP Load Patterns Auto Wind API4 F2008",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetAPI4F2008",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetAPI4F2008Component.cs",
+    "Guid": "692967d6-440c-5d6f-68dd-a9413a1541d0"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetAPI4F2008_1Component",
+    "Name": "SAP Load Patterns Auto Wind API4 F2008 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetAPI4F2008_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetAPI4F2008_1Component.cs",
+    "Guid": "06d1f161-4465-0a20-e7b7-c0386905db43"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetAPI4F2013Component",
+    "Name": "SAP Load Patterns Auto Wind API4 F2013",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetAPI4F2013",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetAPI4F2013Component.cs",
+    "Guid": "bb5e7a90-88f5-5020-aa4b-184c53bf878d"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASCE702Component",
+    "Name": "SAP Load Patterns Auto Wind ASCE702",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASCE702",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASCE702Component.cs",
+    "Guid": "d464c7f2-6ad3-e278-0edf-a7f5b46a43d7"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASCE705Component",
+    "Name": "SAP Load Patterns Auto Wind ASCE705",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASCE705",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASCE705Component.cs",
+    "Guid": "3390abd9-cb06-172d-1c1f-300c24c840dd"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASCE710Component",
+    "Name": "SAP Load Patterns Auto Wind ASCE710",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASCE710",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASCE710Component.cs",
+    "Guid": "c2845b7b-ba4d-e96a-86d9-5156dc7e7138"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASCE716Component",
+    "Name": "SAP Load Patterns Auto Wind ASCE716",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASCE716",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASCE716Component.cs",
+    "Guid": "33c9d7a9-2dfd-673c-999f-02097987c154"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASCE788Component",
+    "Name": "SAP Load Patterns Auto Wind ASCE788",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASCE788",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASCE788Component.cs",
+    "Guid": "0c5795b4-960c-5885-4a39-f5e94e5ba559"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASCE795Component",
+    "Name": "SAP Load Patterns Auto Wind ASCE795",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASCE795",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASCE795Component.cs",
+    "Guid": "ddb06b1e-992d-e819-39b9-15bae03ce158"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASNZS117022002Component",
+    "Name": "SAP Load Patterns Auto Wind ASNZS117022002",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASNZS117022002",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASNZS117022002Component.cs",
+    "Guid": "31e63191-af41-877c-63e7-4782e64f765c"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetASNZS117022011Component",
+    "Name": "SAP Load Patterns Auto Wind ASNZS117022011",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetASNZS117022011",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetASNZS117022011Component.cs",
+    "Guid": "3e6cacfc-c28f-6b54-4416-73a4ab0608a4"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetBOCA96Component",
+    "Name": "SAP Load Patterns Auto Wind BOCA96",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetBOCA96",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetBOCA96Component.cs",
+    "Guid": "bfbb8836-2df4-ba72-a89b-8c2ab24d3978"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetBS639995Component",
+    "Name": "SAP Load Patterns Auto Wind BS639995",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetBS639995",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetBS639995Component.cs",
+    "Guid": "ee154bfd-46d2-9a80-e87a-5c9302858004"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetChinese2002Component",
+    "Name": "SAP Load Patterns Auto Wind Chinese2002",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetChinese2002",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetChinese2002Component.cs",
+    "Guid": "742bffa7-8d4b-5b14-423e-adf85339f42e"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetChinese2002_1Component",
+    "Name": "SAP Load Patterns Auto Wind Chinese2002 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetChinese2002_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetChinese2002_1Component.cs",
+    "Guid": "3e243073-daf7-be9b-7b06-5cfdfee844a6"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetChinese2010Component",
+    "Name": "SAP Load Patterns Auto Wind Chinese2010",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetChinese2010",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetChinese2010Component.cs",
+    "Guid": "d89229d5-9c86-4ef9-253c-b0b042df2250"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetEurocode12005Component",
+    "Name": "SAP Load Patterns Auto Wind Eurocode12005",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetEurocode12005",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetEurocode12005Component.cs",
+    "Guid": "da267d6b-e803-19fb-9b34-4e2dca854111"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetEurocode12005_1Component",
+    "Name": "SAP Load Patterns Auto Wind Eurocode12005 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetEurocode12005_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetEurocode12005_1Component.cs",
+    "Guid": "549ee7d9-1023-cfab-3ad1-b232611c1fc3"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetExposureComponent",
+    "Name": "SAP Load Patterns Auto Wind Exposure",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetExposure",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetExposureComponent.cs",
+    "Guid": "c52c76d9-17a8-31f1-48ac-de7165ff67c1"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetExposure_1Component",
+    "Name": "SAP Load Patterns Auto Wind Exposure 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetExposure_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetExposure_1Component.cs",
+    "Guid": "12d7ba58-cf8b-5658-14ef-a182387b6f39"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetIS8751987Component",
+    "Name": "SAP Load Patterns Auto Wind IS8751987",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetIS8751987",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetIS8751987Component.cs",
+    "Guid": "b89a2f6b-87a2-68b7-e721-80e0fe80de2d"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetIS8752015Component",
+    "Name": "SAP Load Patterns Auto Wind IS8752015",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetIS8752015",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetIS8752015Component.cs",
+    "Guid": "1549b325-10e5-6258-a0f2-11cfd5e74ef6"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetMexicanComponent",
+    "Name": "SAP Load Patterns Auto Wind Mexican",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetMexican",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetMexicanComponent.cs",
+    "Guid": "ebfd9d10-cf56-dec7-b0ba-9f637e9a1a45"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNBCC2005Component",
+    "Name": "SAP Load Patterns Auto Wind NBCC2005",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNBCC2005",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNBCC2005Component.cs",
+    "Guid": "e6429d0d-6590-1fe5-fa94-d321c4d59f59"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNBCC2010Component",
+    "Name": "SAP Load Patterns Auto Wind NBCC2010",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNBCC2010",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNBCC2010Component.cs",
+    "Guid": "8b33b49c-a6ee-984a-714b-9c8c3e2bc5ce"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNBCC2010_1Component",
+    "Name": "SAP Load Patterns Auto Wind NBCC2010 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNBCC2010_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNBCC2010_1Component.cs",
+    "Guid": "e375ee45-8426-cdc8-969c-b3bab9a1aa2f"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNBCC2015Component",
+    "Name": "SAP Load Patterns Auto Wind NBCC2015",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNBCC2015",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNBCC2015Component.cs",
+    "Guid": "dc97c78f-6159-df2a-54c4-997fc248d56a"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNBCC95Component",
+    "Name": "SAP Load Patterns Auto Wind NBCC95",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNBCC95",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNBCC95Component.cs",
+    "Guid": "77b1a70c-ab29-6280-5cb5-d2c6fa238191"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNoneComponent",
+    "Name": "SAP Load Patterns Auto Wind None",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNone",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNoneComponent.cs",
+    "Guid": "bdb41437-e0ce-7629-7b9b-753f46f7fbce"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNTC2008Component",
+    "Name": "SAP Load Patterns Auto Wind NTC2008",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNTC2008",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNTC2008Component.cs",
+    "Guid": "c5a10572-4f52-c884-742f-9db5244e6494"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNTC2008_1Component",
+    "Name": "SAP Load Patterns Auto Wind NTC2008 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNTC2008_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNTC2008_1Component.cs",
+    "Guid": "5f744a75-ca4c-cc36-49c9-33213b6b11f2"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNTC2018Component",
+    "Name": "SAP Load Patterns Auto Wind NTC2018",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNTC2018",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNTC2018Component.cs",
+    "Guid": "a888d3e1-1136-8f96-eb66-cc60b1d6c219"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetNTC2018_1Component",
+    "Name": "SAP Load Patterns Auto Wind NTC2018 1",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetNTC2018_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetNTC2018_1Component.cs",
+    "Guid": "030183a7-3117-a2e1-0abb-03f5dff7acf5"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetSP20133302016Component",
+    "Name": "SAP Load Patterns Auto Wind SP20133302016",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetSP20133302016",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetSP20133302016Component.cs",
+    "Guid": "04948f89-b789-1540-663a-fb85f3bad831"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetUBC94Component",
+    "Name": "SAP Load Patterns Auto Wind UBC94",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetUBC94",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetUBC94Component.cs",
+    "Guid": "a01de680-d3cc-5f51-8cd0-c397711bc1ce"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetUBC97Component",
+    "Name": "SAP Load Patterns Auto Wind UBC97",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetUBC97",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetUBC97Component.cs",
+    "Guid": "0070499a-9449-af06-a8a9-78b275389c5b"
+  },
+  {
+    "Class": "LoadPatterns_AutoWind_SetUserLoadComponent",
+    "Name": "SAP Load Patterns Auto Wind User Load",
+    "Category": "17 Vento",
+    "Api": "LoadPatterns.AutoWind.SetUserLoad",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_AutoWind_SetUserLoadComponent.cs",
+    "Guid": "1e877959-7e6f-6634-64d1-33b8a3086dff"
+  },
+  {
+    "Class": "LoadPatterns_SetLoadTypeComponent",
+    "Name": "SAP Load Patterns Load Type",
+    "Category": "12 Load pattern",
+    "Api": "LoadPatterns.SetLoadType",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_SetLoadTypeComponent.cs",
+    "Guid": "7f43706e-203f-1060-3e56-fc9c8ae9483f"
+  },
+  {
+    "Class": "LoadPatterns_SetSelfWTMultiplierComponent",
+    "Name": "SAP Load Patterns Self WTMultiplier",
+    "Category": "12 Load pattern",
+    "Api": "LoadPatterns.SetSelfWTMultiplier",
+    "File": "Rhino2SAP.Grasshopper/Generated/LoadPatterns_SetSelfWTMultiplierComponent.cs",
+    "Guid": "9fb38d8a-8c22-4dd4-d692-55ee20a05f88"
+  },
+  {
+    "Class": "PointObj_SetConstraintComponent",
+    "Name": "SAP Node Constraint",
+    "Category": "08 Vincoli e molle",
+    "Api": "PointObj.SetConstraint",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetConstraintComponent.cs",
+    "Guid": "edd6e69d-c8b0-08bd-c76b-ed769ba4dfe4"
+  },
+  {
+    "Class": "PointObj_SetGroupAssignComponent",
+    "Name": "SAP Node Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "PointObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetGroupAssignComponent.cs",
+    "Guid": "c6731891-ef95-f198-87b4-320643e7f420"
+  },
+  {
+    "Class": "PointObj_SetLoadDisplComponent",
+    "Name": "SAP Node Load Displ",
+    "Category": "13 Carichi nodali",
+    "Api": "PointObj.SetLoadDispl",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetLoadDisplComponent.cs",
+    "Guid": "81beda82-fb82-423c-5173-0d66e5855c35"
+  },
+  {
+    "Class": "PointObj_SetLoadForceComponent",
+    "Name": "SAP Node Load Force",
+    "Category": "13 Carichi nodali",
+    "Api": "PointObj.SetLoadForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetLoadForceComponent.cs",
+    "Guid": "6bc91a60-3d89-7dd7-9517-50c6de1d5d79"
+  },
+  {
+    "Class": "PointObj_SetLocalAxesAdvancedComponent",
+    "Name": "SAP Node Local Axes Advanced",
+    "Category": "09 Assi e offset",
+    "Api": "PointObj.SetLocalAxesAdvanced",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetLocalAxesAdvancedComponent.cs",
+    "Guid": "f79b5054-a50b-cd64-a172-9e3d48562a80"
+  },
+  {
+    "Class": "PointObj_SetLocalAxesComponent",
+    "Name": "SAP Node Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "PointObj.SetLocalAxes",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetLocalAxesComponent.cs",
+    "Guid": "d025e78c-58b8-20a4-5bb6-19da5757bf76"
+  },
+  {
+    "Class": "PointObj_SetMassByVolumeComponent",
+    "Name": "SAP Node Mass By Volume",
+    "Category": "11 Masse",
+    "Api": "PointObj.SetMassByVolume",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetMassByVolumeComponent.cs",
+    "Guid": "64fb3147-cc96-05bc-33e0-9182bd23301d"
+  },
+  {
+    "Class": "PointObj_SetMassByWeightComponent",
+    "Name": "SAP Node Mass By Weight",
+    "Category": "11 Masse",
+    "Api": "PointObj.SetMassByWeight",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetMassByWeightComponent.cs",
+    "Guid": "f8bcd3aa-64a6-06aa-013e-512cdc113f91"
+  },
+  {
+    "Class": "PointObj_SetMassComponent",
+    "Name": "SAP Node Mass",
+    "Category": "11 Masse",
+    "Api": "PointObj.SetMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetMassComponent.cs",
+    "Guid": "58cce562-a73c-9a40-5e8f-b875c62f94ac"
+  },
+  {
+    "Class": "PointObj_SetMergeNumberComponent",
+    "Name": "SAP Node Merge Number",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "PointObj.SetMergeNumber",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetMergeNumberComponent.cs",
+    "Guid": "00c4d883-d1a6-16df-7dce-7e73d27a5320"
+  },
+  {
+    "Class": "PointObj_SetPanelZoneComponent",
+    "Name": "SAP Node Panel Zone",
+    "Category": "08 Vincoli e molle",
+    "Api": "PointObj.SetPanelZone",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetPanelZoneComponent.cs",
+    "Guid": "2da85343-0878-f284-e7cf-89cdf139815a"
+  },
+  {
+    "Class": "PointObj_SetPatternByPressureComponent",
+    "Name": "SAP Node Pattern By Pressure",
+    "Category": "12 Load pattern",
+    "Api": "PointObj.SetPatternByPressure",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetPatternByPressureComponent.cs",
+    "Guid": "901e3b3e-2153-6c7a-b505-c19817d9a06e"
+  },
+  {
+    "Class": "PointObj_SetPatternByXYZComponent",
+    "Name": "SAP Node Pattern By XYZ",
+    "Category": "12 Load pattern",
+    "Api": "PointObj.SetPatternByXYZ",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetPatternByXYZComponent.cs",
+    "Guid": "e3b3e4d5-e452-a209-6dfb-59846341b74a"
+  },
+  {
+    "Class": "PointObj_SetRestraintComponent",
+    "Name": "SAP Node Restraint",
+    "Category": "08 Vincoli e molle",
+    "Api": "PointObj.SetRestraint",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetRestraintComponent.cs",
+    "Guid": "867e952f-7139-6350-f087-3fbd1d061bdc"
+  },
+  {
+    "Class": "PointObj_SetSpecialPointComponent",
+    "Name": "SAP Node Special Point",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "PointObj.SetSpecialPoint",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetSpecialPointComponent.cs",
+    "Guid": "8574aba5-a004-3869-6200-6b248ccf9aa3"
+  },
+  {
+    "Class": "PointObj_SetSpringComponent",
+    "Name": "SAP Node Spring",
+    "Category": "08 Vincoli e molle",
+    "Api": "PointObj.SetSpring",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetSpringComponent.cs",
+    "Guid": "c837d2dd-2320-9e82-860e-8bf6825a7ca9"
+  },
+  {
+    "Class": "PointObj_SetSpringCoupledComponent",
+    "Name": "SAP Node Spring Coupled",
+    "Category": "08 Vincoli e molle",
+    "Api": "PointObj.SetSpringCoupled",
+    "File": "Rhino2SAP.Grasshopper/Generated/PointObj_SetSpringCoupledComponent.cs",
+    "Guid": "6e0ae747-9eec-2647-413f-0dd725e1574f"
+  },
+  {
+    "Class": "PropArea_SetAsolidComponent",
+    "Name": "SAP Area Property Asolid",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetAsolid",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetAsolidComponent.cs",
+    "Guid": "d0301c08-3d61-c530-2f9f-65340de16bae"
+  },
+  {
+    "Class": "PropArea_SetModifiersComponent",
+    "Name": "SAP Area Property Modifiers",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetModifiers",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetModifiersComponent.cs",
+    "Guid": "8b3c4740-a501-a9e3-01bb-b10a6ef16b5a"
+  },
+  {
+    "Class": "PropArea_SetNotionalSizeComponent",
+    "Name": "SAP Area Property Notional Size",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetNotionalSize",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetNotionalSizeComponent.cs",
+    "Guid": "d2b1d99b-c45c-6069-a6f5-2949b96ed154"
+  },
+  {
+    "Class": "PropArea_SetPlaneComponent",
+    "Name": "SAP Area Property Plane",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetPlane",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetPlaneComponent.cs",
+    "Guid": "02c17a07-1ae1-85f3-1b49-cc49914a4a84"
+  },
+  {
+    "Class": "PropArea_SetShellComponent",
+    "Name": "SAP Area Property Shell",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetShell",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetShellComponent.cs",
+    "Guid": "40607287-34c2-4b3e-837e-1eaabf11851d"
+  },
+  {
+    "Class": "PropArea_SetShellDesignComponent",
+    "Name": "SAP Area Property Shell Design",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetShellDesign",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetShellDesignComponent.cs",
+    "Guid": "7dc0aa45-880a-7a8a-65b6-71b096605e6e"
+  },
+  {
+    "Class": "PropArea_SetShellLayerComponent",
+    "Name": "SAP Area Property Shell Layer",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetShellLayer",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetShellLayerComponent.cs",
+    "Guid": "30e9a2ca-ab7b-9ad5-5a76-031be74c3c5b"
+  },
+  {
+    "Class": "PropArea_SetShellLayer_1Component",
+    "Name": "SAP Area Property Shell Layer 1",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetShellLayer_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetShellLayer_1Component.cs",
+    "Guid": "b9db6a2c-aaa9-4ec4-f6d5-4ef26e6d7875"
+  },
+  {
+    "Class": "PropArea_SetShellLayer_2Component",
+    "Name": "SAP Area Property Shell Layer 2",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetShellLayer_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetShellLayer_2Component.cs",
+    "Guid": "ab8151a5-a2ec-4e14-7fb0-7a6d1b668a0b"
+  },
+  {
+    "Class": "PropArea_SetShell_1Component",
+    "Name": "SAP Area Property Shell 1",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropArea.SetShell_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropArea_SetShell_1Component.cs",
+    "Guid": "24db1a4d-abdb-0b65-06be-e528e442c275"
+  },
+  {
+    "Class": "PropCable_SetModifiersComponent",
+    "Name": "SAP Prop Cable Modifiers",
+    "Category": "06 Link e cavi",
+    "Api": "PropCable.SetModifiers",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropCable_SetModifiersComponent.cs",
+    "Guid": "236814a6-4295-0fb3-6528-c84ad99796a5"
+  },
+  {
+    "Class": "PropCable_SetPropComponent",
+    "Name": "SAP Prop Cable Prop",
+    "Category": "06 Link e cavi",
+    "Api": "PropCable.SetProp",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropCable_SetPropComponent.cs",
+    "Guid": "d4722017-b7fa-014c-4482-1e9aeae61cab"
+  },
+  {
+    "Class": "PropFrame_ImportPropComponent",
+    "Name": "SAP Frame Section Import Prop",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.ImportProp",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_ImportPropComponent.cs",
+    "Guid": "1ed7656d-b112-e2e5-6960-34a7dfbea189"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetAngleComponent",
+    "Name": "SAP Prop Frame SDShape Angle",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetAngle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetAngleComponent.cs",
+    "Guid": "45df2479-e6dc-db1d-1681-e3ee9675bc63"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetChannelComponent",
+    "Name": "SAP Prop Frame SDShape Channel",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetChannel",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetChannelComponent.cs",
+    "Guid": "1eb70e9e-c85a-3dab-3e43-2204db8d9f33"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetDblAngleComponent",
+    "Name": "SAP Prop Frame SDShape Dbl Angle",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetDblAngle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetDblAngleComponent.cs",
+    "Guid": "45812525-1ff4-568a-e1d3-16468971ce09"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetISectionComponent",
+    "Name": "SAP Prop Frame SDShape ISection",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetISection",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetISectionComponent.cs",
+    "Guid": "9b772363-85d0-46c8-8944-7b54a9845cea"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetPipeComponent",
+    "Name": "SAP Prop Frame SDShape Pipe",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetPipe",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetPipeComponent.cs",
+    "Guid": "9db97259-5429-b64a-24c8-e1121a29752a"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetPlateComponent",
+    "Name": "SAP Prop Frame SDShape Plate",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetPlate",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetPlateComponent.cs",
+    "Guid": "60a3d6fe-b611-0044-d868-c1a2c182fba0"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetPolygonComponent",
+    "Name": "SAP Prop Frame SDShape Polygon",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetPolygon",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetPolygonComponent.cs",
+    "Guid": "e228cc97-6aae-e7fb-681b-88cc3f8ba841"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetRefCircleComponent",
+    "Name": "SAP Prop Frame SDShape Ref Circle",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetRefCircle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetRefCircleComponent.cs",
+    "Guid": "d35e4031-1e0f-c2ab-b5b5-98350acf7cab"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetRefLineComponent",
+    "Name": "SAP Prop Frame SDShape Ref Line",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetRefLine",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetRefLineComponent.cs",
+    "Guid": "139d8d1b-789e-b4c7-6f0e-fd85f26e59aa"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetReinfCircleComponent",
+    "Name": "SAP Prop Frame SDShape Reinf Circle",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetReinfCircle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetReinfCircleComponent.cs",
+    "Guid": "57965142-c188-6bde-4329-41b0c3ca4803"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetReinfCornerComponent",
+    "Name": "SAP Prop Frame SDShape Reinf Corner",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetReinfCorner",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetReinfCornerComponent.cs",
+    "Guid": "c1e3030c-9609-c813-d259-7d377beef3cf"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetReinfEdgeComponent",
+    "Name": "SAP Prop Frame SDShape Reinf Edge",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetReinfEdge",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetReinfEdgeComponent.cs",
+    "Guid": "1514823c-cb26-b6bb-50da-4dc031cd4eac"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetReinfLineComponent",
+    "Name": "SAP Prop Frame SDShape Reinf Line",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetReinfLine",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetReinfLineComponent.cs",
+    "Guid": "6f3e39d2-f746-5da5-3025-4a1d0bd6687f"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetReinfRectangularComponent",
+    "Name": "SAP Prop Frame SDShape Reinf Rectangular",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetReinfRectangular",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetReinfRectangularComponent.cs",
+    "Guid": "540c0384-adc3-f49d-d4f5-9ee487e70a44"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetReinfSingleComponent",
+    "Name": "SAP Prop Frame SDShape Reinf Single",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetReinfSingle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetReinfSingleComponent.cs",
+    "Guid": "84689f73-9ea3-5a9e-cd0b-85f6315076a7"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetShapeConcreteModelComponent",
+    "Name": "SAP Prop Frame SDShape Shape Concrete Model",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetShapeConcreteModel",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetShapeConcreteModelComponent.cs",
+    "Guid": "fc1467ca-e028-a257-b19a-c71ce63ccd9f"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetShapeReinforcementComponent",
+    "Name": "SAP Prop Frame SDShape Shape Reinforcement",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetShapeReinforcement",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetShapeReinforcementComponent.cs",
+    "Guid": "aade213b-a54a-f18c-ae4e-16769d8e0b8f"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetSolidCircleComponent",
+    "Name": "SAP Prop Frame SDShape Solid Circle",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetSolidCircle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetSolidCircleComponent.cs",
+    "Guid": "80011904-fcb8-8b69-0dc3-3b607f3356fc"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetSolidRectComponent",
+    "Name": "SAP Prop Frame SDShape Solid Rect",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetSolidRect",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetSolidRectComponent.cs",
+    "Guid": "29da9ee0-fa42-b5b0-4b2a-220ddd6cb5f7"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetSolidSectorComponent",
+    "Name": "SAP Prop Frame SDShape Solid Sector",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetSolidSector",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetSolidSectorComponent.cs",
+    "Guid": "86d8d66f-f866-5fca-170d-3c341f9ffe87"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetSolidSegmentComponent",
+    "Name": "SAP Prop Frame SDShape Solid Segment",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetSolidSegment",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetSolidSegmentComponent.cs",
+    "Guid": "0db31873-68e1-f817-aa23-21a85a4f6b1f"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetTeeComponent",
+    "Name": "SAP Prop Frame SDShape Tee",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetTee",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetTeeComponent.cs",
+    "Guid": "0518df77-cee3-a705-8f0d-ab204efa316d"
+  },
+  {
+    "Class": "PropFrame_SDShape_SetTubeComponent",
+    "Name": "SAP Prop Frame SDShape Tube",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SDShape.SetTube",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SDShape_SetTubeComponent.cs",
+    "Guid": "ffed8364-447a-18eb-ba85-21fc12b01f80"
+  },
+  {
+    "Class": "PropFrame_SetAngleComponent",
+    "Name": "SAP Frame Section Angle",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetAngle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetAngleComponent.cs",
+    "Guid": "ca54825f-1510-c7e6-e45b-27f0592fa058"
+  },
+  {
+    "Class": "PropFrame_SetAngle_1Component",
+    "Name": "SAP Frame Section Angle 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetAngle_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetAngle_1Component.cs",
+    "Guid": "9942cf1b-3ca8-2255-266c-b1464988b995"
+  },
+  {
+    "Class": "PropFrame_SetAutoSelectAluminumComponent",
+    "Name": "SAP Frame Section Auto Select Aluminum",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetAutoSelectAluminum",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetAutoSelectAluminumComponent.cs",
+    "Guid": "9799fb17-570e-e9ef-3fe2-66bcca10071a"
+  },
+  {
+    "Class": "PropFrame_SetAutoSelectColdFormedComponent",
+    "Name": "SAP Frame Section Auto Select Cold Formed",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetAutoSelectColdFormed",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetAutoSelectColdFormedComponent.cs",
+    "Guid": "0fd35021-36e4-4b85-da5e-35b5ae369f13"
+  },
+  {
+    "Class": "PropFrame_SetAutoSelectSteelComponent",
+    "Name": "SAP Frame Section Auto Select Steel",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetAutoSelectSteel",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetAutoSelectSteelComponent.cs",
+    "Guid": "7928f10f-e815-02fc-6c61-60435d1d6c9b"
+  },
+  {
+    "Class": "PropFrame_SetChannelComponent",
+    "Name": "SAP Frame Section Channel",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetChannel",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetChannelComponent.cs",
+    "Guid": "c1922760-8513-f35f-8179-07e50e5b4b07"
+  },
+  {
+    "Class": "PropFrame_SetChannel_2Component",
+    "Name": "SAP Frame Section Channel 2",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetChannel_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetChannel_2Component.cs",
+    "Guid": "df091917-a42d-ee8d-a860-f45bea7c34e3"
+  },
+  {
+    "Class": "PropFrame_SetCircleComponent",
+    "Name": "SAP Frame Section Circle",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetCircle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetCircleComponent.cs",
+    "Guid": "ddb75bf7-9879-a17d-85f7-0b3f51afb804"
+  },
+  {
+    "Class": "PropFrame_SetColdBoxComponent",
+    "Name": "SAP Frame Section Cold Box",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdBox",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdBoxComponent.cs",
+    "Guid": "f5c61576-3a50-507c-f7a2-22f4f3b17fa6"
+  },
+  {
+    "Class": "PropFrame_SetColdCComponent",
+    "Name": "SAP Frame Section Cold C",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdC",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdCComponent.cs",
+    "Guid": "bd74966c-7188-f442-af59-2885c10a9f9c"
+  },
+  {
+    "Class": "PropFrame_SetColdHatComponent",
+    "Name": "SAP Frame Section Cold Hat",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdHat",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdHatComponent.cs",
+    "Guid": "003655e5-ce9e-2115-aa7a-da2b1bd7b970"
+  },
+  {
+    "Class": "PropFrame_SetColdIComponent",
+    "Name": "SAP Frame Section Cold I",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdI",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdIComponent.cs",
+    "Guid": "cdb852ab-c85b-eba3-0832-ca52785a7cd1"
+  },
+  {
+    "Class": "PropFrame_SetColdLComponent",
+    "Name": "SAP Frame Section Cold L",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdL",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdLComponent.cs",
+    "Guid": "79bc6326-8d77-ad8e-5c87-93c41e58457e"
+  },
+  {
+    "Class": "PropFrame_SetColdPipeComponent",
+    "Name": "SAP Frame Section Cold Pipe",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdPipe",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdPipeComponent.cs",
+    "Guid": "71dbed4d-6b82-b498-4ad2-ec6b9f182cd4"
+  },
+  {
+    "Class": "PropFrame_SetColdTComponent",
+    "Name": "SAP Frame Section Cold T",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdT",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdTComponent.cs",
+    "Guid": "e1468b94-c2f3-3f26-b250-5a479ef4db7c"
+  },
+  {
+    "Class": "PropFrame_SetColdZComponent",
+    "Name": "SAP Frame Section Cold Z",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetColdZ",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetColdZComponent.cs",
+    "Guid": "658df657-fa40-d31e-fec2-8c1f5e5555bf"
+  },
+  {
+    "Class": "PropFrame_SetCoverPlatedIComponent",
+    "Name": "SAP Frame Section Cover Plated I",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetCoverPlatedI",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetCoverPlatedIComponent.cs",
+    "Guid": "1864ccc5-b49c-7880-7006-3bfa362880e3"
+  },
+  {
+    "Class": "PropFrame_SetDblAngleComponent",
+    "Name": "SAP Frame Section Dbl Angle",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetDblAngle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetDblAngleComponent.cs",
+    "Guid": "ed9e3eea-55eb-f333-3ec0-1ebd0fe5ad9c"
+  },
+  {
+    "Class": "PropFrame_SetDblAngle_2Component",
+    "Name": "SAP Frame Section Dbl Angle 2",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetDblAngle_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetDblAngle_2Component.cs",
+    "Guid": "9ca11ce9-2918-1dd4-ba89-a7d0ad66e328"
+  },
+  {
+    "Class": "PropFrame_SetDblChannelComponent",
+    "Name": "SAP Frame Section Dbl Channel",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetDblChannel",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetDblChannelComponent.cs",
+    "Guid": "e5bd943e-2783-9090-d570-bc534da59947"
+  },
+  {
+    "Class": "PropFrame_SetDblChannel_1Component",
+    "Name": "SAP Frame Section Dbl Channel 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetDblChannel_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetDblChannel_1Component.cs",
+    "Guid": "2b0da3cd-3552-66be-f47b-2d263a060591"
+  },
+  {
+    "Class": "PropFrame_SetGeneralComponent",
+    "Name": "SAP Frame Section General",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetGeneral",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetGeneralComponent.cs",
+    "Guid": "476baf32-3101-dd5b-2251-1e6d7e5d8f9b"
+  },
+  {
+    "Class": "PropFrame_SetGeneral_1Component",
+    "Name": "SAP Frame Section General 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetGeneral_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetGeneral_1Component.cs",
+    "Guid": "3a67638d-11e6-b4f4-cbc2-0060c04c82aa"
+  },
+  {
+    "Class": "PropFrame_SetHybridISectionComponent",
+    "Name": "SAP Frame Section Hybrid ISection",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetHybridISection",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetHybridISectionComponent.cs",
+    "Guid": "728463e9-2e23-3bf8-fa9a-6064e56f80b3"
+  },
+  {
+    "Class": "PropFrame_SetHybridUSectionComponent",
+    "Name": "SAP Frame Section Hybrid USection",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetHybridUSection",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetHybridUSectionComponent.cs",
+    "Guid": "1681d683-9e57-7c76-55af-d62e93bebaf7"
+  },
+  {
+    "Class": "PropFrame_SetISectionComponent",
+    "Name": "SAP Frame Section ISection",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetISection",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetISectionComponent.cs",
+    "Guid": "71096223-0c5f-67c8-7376-f98af0e1bc21"
+  },
+  {
+    "Class": "PropFrame_SetISection_1Component",
+    "Name": "SAP Frame Section ISection 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetISection_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetISection_1Component.cs",
+    "Guid": "21655310-1cf4-9bbc-2711-7aa0a77ed898"
+  },
+  {
+    "Class": "PropFrame_SetMaterialComponent",
+    "Name": "SAP Frame Section Material",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetMaterial",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetMaterialComponent.cs",
+    "Guid": "9a8e1a02-99ef-b90c-2a52-3ed947af22bf"
+  },
+  {
+    "Class": "PropFrame_SetModifiersComponent",
+    "Name": "SAP Frame Section Modifiers",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetModifiers",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetModifiersComponent.cs",
+    "Guid": "a66a28b0-b3c4-8cb0-21b9-3198f83c3a3b"
+  },
+  {
+    "Class": "PropFrame_SetNonPrismaticComponent",
+    "Name": "SAP Frame Section Non Prismatic",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetNonPrismatic",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetNonPrismaticComponent.cs",
+    "Guid": "c4347a73-232b-6bf0-7a2e-30e181be7c1e"
+  },
+  {
+    "Class": "PropFrame_SetNotionalSizeComponent",
+    "Name": "SAP Frame Section Notional Size",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetNotionalSize",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetNotionalSizeComponent.cs",
+    "Guid": "9e174bb1-ff18-421a-a973-0d652e2f8a37"
+  },
+  {
+    "Class": "PropFrame_SetPipeComponent",
+    "Name": "SAP Frame Section Pipe",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetPipe",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetPipeComponent.cs",
+    "Guid": "313774bd-ba68-ea5e-a61e-2a4239b0a142"
+  },
+  {
+    "Class": "PropFrame_SetPrecastBoxComponent",
+    "Name": "SAP Frame Section Precast Box",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetPrecastBox",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetPrecastBoxComponent.cs",
+    "Guid": "be865610-e6e3-7940-70c9-c8dd43038fc9"
+  },
+  {
+    "Class": "PropFrame_SetPrecastIComponent",
+    "Name": "SAP Frame Section Precast I",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetPrecastI",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetPrecastIComponent.cs",
+    "Guid": "31d6a040-0f62-02dc-ee59-7ee653b63061"
+  },
+  {
+    "Class": "PropFrame_SetPrecastI_1Component",
+    "Name": "SAP Frame Section Precast I 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetPrecastI_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetPrecastI_1Component.cs",
+    "Guid": "17031519-1474-c2a7-df24-eca0115889a6"
+  },
+  {
+    "Class": "PropFrame_SetPrecastSuperTComponent",
+    "Name": "SAP Frame Section Precast Super T",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetPrecastSuperT",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetPrecastSuperTComponent.cs",
+    "Guid": "abf33559-bc18-ebda-66a8-757ae038b05d"
+  },
+  {
+    "Class": "PropFrame_SetPrecastUComponent",
+    "Name": "SAP Frame Section Precast U",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetPrecastU",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetPrecastUComponent.cs",
+    "Guid": "d09d34b4-72da-fefd-6652-2a50c9ff3a5d"
+  },
+  {
+    "Class": "PropFrame_SetRebarBeamComponent",
+    "Name": "SAP Frame Section Rebar Beam",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetRebarBeam",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetRebarBeamComponent.cs",
+    "Guid": "92d65d04-5600-7f9e-a280-f19fc78c707b"
+  },
+  {
+    "Class": "PropFrame_SetRebarColumnComponent",
+    "Name": "SAP Frame Section Rebar Column",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetRebarColumn",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetRebarColumnComponent.cs",
+    "Guid": "557bc9f4-f76b-ba1b-79aa-8b31d9a7d19a"
+  },
+  {
+    "Class": "PropFrame_SetRectangleComponent",
+    "Name": "SAP Frame Section Rectangle",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetRectangle",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetRectangleComponent.cs",
+    "Guid": "9298dcc1-6610-0328-ca87-96c9be0a4bc0"
+  },
+  {
+    "Class": "PropFrame_SetSDSectionComponent",
+    "Name": "SAP Frame Section SDSection",
+    "Category": "04 Section Designer",
+    "Api": "PropFrame.SetSDSection",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetSDSectionComponent.cs",
+    "Guid": "60426950-a296-54b9-426e-f52fddd6ebba"
+  },
+  {
+    "Class": "PropFrame_SetTeeComponent",
+    "Name": "SAP Frame Section Tee",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetTee",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetTeeComponent.cs",
+    "Guid": "b3ffea79-f0dd-ff33-0463-f34a8d6c2ee2"
+  },
+  {
+    "Class": "PropFrame_SetTee_1Component",
+    "Name": "SAP Frame Section Tee 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetTee_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetTee_1Component.cs",
+    "Guid": "7d209895-38b4-25c0-804c-98bf90be1db6"
+  },
+  {
+    "Class": "PropFrame_SetTrapezoidalComponent",
+    "Name": "SAP Frame Section Trapezoidal",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetTrapezoidal",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetTrapezoidalComponent.cs",
+    "Guid": "03fea4e7-118b-64b9-1e9d-6bcaee682712"
+  },
+  {
+    "Class": "PropFrame_SetTubeComponent",
+    "Name": "SAP Frame Section Tube",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetTube",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetTubeComponent.cs",
+    "Guid": "05c832b7-2c48-bac0-f102-52c08028a727"
+  },
+  {
+    "Class": "PropFrame_SetTube_1Component",
+    "Name": "SAP Frame Section Tube 1",
+    "Category": "03 Sezioni beam",
+    "Api": "PropFrame.SetTube_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropFrame_SetTube_1Component.cs",
+    "Guid": "7234ebf1-86d3-88e8-6f8e-92e28e262982"
+  },
+  {
+    "Class": "PropLink_SetDamperBilinearComponent",
+    "Name": "SAP Link Property Damper Bilinear",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetDamperBilinear",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetDamperBilinearComponent.cs",
+    "Guid": "6a37334a-c9d0-0587-4ae4-6e59ab851ed7"
+  },
+  {
+    "Class": "PropLink_SetDamperComponent",
+    "Name": "SAP Link Property Damper",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetDamper",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetDamperComponent.cs",
+    "Guid": "529800c2-d5f8-37aa-8d5b-93ee25d3beff"
+  },
+  {
+    "Class": "PropLink_SetDamperFrictionSpringComponent",
+    "Name": "SAP Link Property Damper Friction Spring",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetDamperFrictionSpring",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetDamperFrictionSpringComponent.cs",
+    "Guid": "0e80ea6c-342c-5a4f-cb72-b9745629b6ee"
+  },
+  {
+    "Class": "PropLink_SetDamperLinearExponentialComponent",
+    "Name": "SAP Link Property Damper Linear Exponential",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetDamperLinearExponential",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetDamperLinearExponentialComponent.cs",
+    "Guid": "cd792d80-86f1-58bf-5a80-cd51a3cef272"
+  },
+  {
+    "Class": "PropLink_SetFrictionIsolatorComponent",
+    "Name": "SAP Link Property Friction Isolator",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetFrictionIsolator",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetFrictionIsolatorComponent.cs",
+    "Guid": "df2963db-d505-ac77-ca59-3f9b7537fd63"
+  },
+  {
+    "Class": "PropLink_SetGapComponent",
+    "Name": "SAP Link Property Gap",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetGap",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetGapComponent.cs",
+    "Guid": "f08bf8ae-2257-acc4-7629-edac284a22ff"
+  },
+  {
+    "Class": "PropLink_SetHookComponent",
+    "Name": "SAP Link Property Hook",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetHook",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetHookComponent.cs",
+    "Guid": "d8c67824-c5c0-dd83-92db-2e3951e3a135"
+  },
+  {
+    "Class": "PropLink_SetLinearComponent",
+    "Name": "SAP Link Property Linear",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetLinear",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetLinearComponent.cs",
+    "Guid": "468220a9-d716-4f96-57f0-0d165a7cf18e"
+  },
+  {
+    "Class": "PropLink_SetMultiLinearElasticComponent",
+    "Name": "SAP Link Property Multi Linear Elastic",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetMultiLinearElastic",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetMultiLinearElasticComponent.cs",
+    "Guid": "2f59f6f4-257b-aa25-e74f-acbdfb5ab85c"
+  },
+  {
+    "Class": "PropLink_SetMultiLinearPlasticComponent",
+    "Name": "SAP Link Property Multi Linear Plastic",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetMultiLinearPlastic",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetMultiLinearPlasticComponent.cs",
+    "Guid": "5787b6b9-6401-f826-c495-f29cc9cec529"
+  },
+  {
+    "Class": "PropLink_SetMultiLinearPointsComponent",
+    "Name": "SAP Link Property Multi Linear Points",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetMultiLinearPoints",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetMultiLinearPointsComponent.cs",
+    "Guid": "9448dd5a-1563-d3df-4b08-06e79e033c98"
+  },
+  {
+    "Class": "PropLink_SetPDeltaComponent",
+    "Name": "SAP Link Property PDelta",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetPDelta",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetPDeltaComponent.cs",
+    "Guid": "41160b73-6395-61d3-7ccf-7145c1ccdd92"
+  },
+  {
+    "Class": "PropLink_SetPlasticWenComponent",
+    "Name": "SAP Link Property Plastic Wen",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetPlasticWen",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetPlasticWenComponent.cs",
+    "Guid": "169bf694-9611-61ea-5568-b1d2d6b5a020"
+  },
+  {
+    "Class": "PropLink_SetRubberIsolatorComponent",
+    "Name": "SAP Link Property Rubber Isolator",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetRubberIsolator",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetRubberIsolatorComponent.cs",
+    "Guid": "98dfc2d2-c594-a21f-9b28-84c1d8679a8b"
+  },
+  {
+    "Class": "PropLink_SetSpringDataComponent",
+    "Name": "SAP Link Property Spring Data",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetSpringData",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetSpringDataComponent.cs",
+    "Guid": "1f4a6ec2-2273-7735-70fd-9aadb397b6a0"
+  },
+  {
+    "Class": "PropLink_SetTCFrictionIsolatorComponent",
+    "Name": "SAP Link Property TCFriction Isolator",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetTCFrictionIsolator",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetTCFrictionIsolatorComponent.cs",
+    "Guid": "3005d60c-639a-8667-5fb7-6cb750b0a2f9"
+  },
+  {
+    "Class": "PropLink_SetTriplePendulumIsolatorComponent",
+    "Name": "SAP Link Property Triple Pendulum Isolator",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetTriplePendulumIsolator",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetTriplePendulumIsolatorComponent.cs",
+    "Guid": "cc28c485-c237-07ae-c3da-8eca0d68860e"
+  },
+  {
+    "Class": "PropLink_SetWeightAndMassComponent",
+    "Name": "SAP Link Property Weight And Mass",
+    "Category": "06 Link e cavi",
+    "Api": "PropLink.SetWeightAndMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropLink_SetWeightAndMassComponent.cs",
+    "Guid": "fdfe9f98-ba5c-87f8-2396-331f164bf3bd"
+  },
+  {
+    "Class": "PropMaterial_SetCoupledModelTypeComponent",
+    "Name": "SAP Material Coupled Model Type",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetCoupledModelType",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetCoupledModelTypeComponent.cs",
+    "Guid": "177b4425-a992-3609-029d-131ba510062e"
+  },
+  {
+    "Class": "PropMaterial_SetDampingComponent",
+    "Name": "SAP Material Damping",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetDamping",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetDampingComponent.cs",
+    "Guid": "24ce7099-f272-b78b-9932-28b55a11951e"
+  },
+  {
+    "Class": "PropMaterial_SetMassSourceComponent",
+    "Name": "SAP Material Mass Source",
+    "Category": "11 Masse",
+    "Api": "PropMaterial.SetMassSource",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetMassSourceComponent.cs",
+    "Guid": "c13c4710-42d9-75b3-e5ff-92a3d55160c3"
+  },
+  {
+    "Class": "PropMaterial_SetMaterialComponent",
+    "Name": "SAP Material Material",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetMaterial",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetMaterialComponent.cs",
+    "Guid": "ca33cef5-17ee-c5b6-2b78-cbb11fede052"
+  },
+  {
+    "Class": "PropMaterial_SetMPAnisotropicComponent",
+    "Name": "SAP Material MPAnisotropic",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetMPAnisotropic",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetMPAnisotropicComponent.cs",
+    "Guid": "8a9b7a6d-ee10-7ca2-79f2-3a4544161e37"
+  },
+  {
+    "Class": "PropMaterial_SetMPIsotropicComponent",
+    "Name": "SAP Material MPIsotropic",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetMPIsotropic",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetMPIsotropicComponent.cs",
+    "Guid": "cf3af7f5-660a-30b8-b721-bba6f23639a7"
+  },
+  {
+    "Class": "PropMaterial_SetMPOrthotropicComponent",
+    "Name": "SAP Material MPOrthotropic",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetMPOrthotropic",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetMPOrthotropicComponent.cs",
+    "Guid": "7616bdf5-8bef-3b14-0709-e93403f28bea"
+  },
+  {
+    "Class": "PropMaterial_SetMPUniaxialComponent",
+    "Name": "SAP Material MPUniaxial",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetMPUniaxial",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetMPUniaxialComponent.cs",
+    "Guid": "bdda469a-072d-c251-1eef-5913ef01ec83"
+  },
+  {
+    "Class": "PropMaterial_SetOAluminumComponent",
+    "Name": "SAP Material OAluminum",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOAluminum",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOAluminumComponent.cs",
+    "Guid": "ca1d2267-d947-f17e-401d-4e8d059d26b4"
+  },
+  {
+    "Class": "PropMaterial_SetOColdFormedComponent",
+    "Name": "SAP Material OCold Formed",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOColdFormed",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOColdFormedComponent.cs",
+    "Guid": "590c9ed3-6aca-665c-8b87-64bbd2403e4b"
+  },
+  {
+    "Class": "PropMaterial_SetOConcreteComponent",
+    "Name": "SAP Material OConcrete",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOConcrete",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOConcreteComponent.cs",
+    "Guid": "27574a38-521b-4fab-2658-73252916301a"
+  },
+  {
+    "Class": "PropMaterial_SetOConcrete_1Component",
+    "Name": "SAP Material OConcrete 1",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOConcrete_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOConcrete_1Component.cs",
+    "Guid": "902b8590-4c6f-0526-4b19-023ff70c2309"
+  },
+  {
+    "Class": "PropMaterial_SetOConcrete_2Component",
+    "Name": "SAP Material OConcrete 2",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOConcrete_2",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOConcrete_2Component.cs",
+    "Guid": "22c12f4c-89a8-c1a4-8593-62a5b5ef801e"
+  },
+  {
+    "Class": "PropMaterial_SetONoDesignComponent",
+    "Name": "SAP Material ONo Design",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetONoDesign",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetONoDesignComponent.cs",
+    "Guid": "4a1b78d4-5185-a1f4-1ade-7a64ad5c03e2"
+  },
+  {
+    "Class": "PropMaterial_SetORebarComponent",
+    "Name": "SAP Material ORebar",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetORebar",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetORebarComponent.cs",
+    "Guid": "fcb0cf72-54d3-8838-caab-9a017ecdf0f6"
+  },
+  {
+    "Class": "PropMaterial_SetORebar_1Component",
+    "Name": "SAP Material ORebar 1",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetORebar_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetORebar_1Component.cs",
+    "Guid": "c8685d68-8dfb-6e4b-4a69-61f91717d7db"
+  },
+  {
+    "Class": "PropMaterial_SetOSteelComponent",
+    "Name": "SAP Material OSteel",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOSteel",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOSteelComponent.cs",
+    "Guid": "07475982-bfa7-ef56-38a1-33f95a10643d"
+  },
+  {
+    "Class": "PropMaterial_SetOSteel_1Component",
+    "Name": "SAP Material OSteel 1",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOSteel_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOSteel_1Component.cs",
+    "Guid": "2023817a-932b-5f33-012a-14ba0e9ad68f"
+  },
+  {
+    "Class": "PropMaterial_SetOTendonComponent",
+    "Name": "SAP Material OTendon",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOTendon",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOTendonComponent.cs",
+    "Guid": "5ebfacef-6293-eaf3-433a-90f7984c1477"
+  },
+  {
+    "Class": "PropMaterial_SetOTendon_1Component",
+    "Name": "SAP Material OTendon 1",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetOTendon_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetOTendon_1Component.cs",
+    "Guid": "6aa1635f-fc60-1897-69ef-b57fbeeb5a21"
+  },
+  {
+    "Class": "PropMaterial_SetSSCurveComponent",
+    "Name": "SAP Material SSCurve",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetSSCurve",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetSSCurveComponent.cs",
+    "Guid": "ff415f25-cadb-a8f2-9a04-c0ac98070736"
+  },
+  {
+    "Class": "PropMaterial_SetTempComponent",
+    "Name": "SAP Material Temp",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetTemp",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetTempComponent.cs",
+    "Guid": "db34df7a-2309-6fbc-d2f4-4e237c90d3d9"
+  },
+  {
+    "Class": "PropMaterial_SetVonMisesPlasticityParametersComponent",
+    "Name": "SAP Material Von Mises Plasticity Parameters",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetVonMisesPlasticityParameters",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetVonMisesPlasticityParametersComponent.cs",
+    "Guid": "54fa8c0a-6ce0-27c4-5d6b-aa7cf0239022"
+  },
+  {
+    "Class": "PropMaterial_SetWeightAndMassComponent",
+    "Name": "SAP Material Weight And Mass",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.SetWeightAndMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_SetWeightAndMassComponent.cs",
+    "Guid": "e40a71b7-1e10-1ee7-f440-bc73f8d7b9b2"
+  },
+  {
+    "Class": "PropMaterial_TimeDep_SetConcreteCEBFIP90Component",
+    "Name": "SAP Prop Material Time Dep Concrete CEBFIP90",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.TimeDep.SetConcreteCEBFIP90",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_TimeDep_SetConcreteCEBFIP90Component.cs",
+    "Guid": "5f596c4e-1971-8d74-f392-055267de99f6"
+  },
+  {
+    "Class": "PropMaterial_TimeDep_SetConcreteScaleFactorsComponent",
+    "Name": "SAP Prop Material Time Dep Concrete Scale Factors",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.TimeDep.SetConcreteScaleFactors",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_TimeDep_SetConcreteScaleFactorsComponent.cs",
+    "Guid": "477aab30-f573-90d3-afb2-183e5847b0ad"
+  },
+  {
+    "Class": "PropMaterial_TimeDep_SetTendonCEBFIP90Component",
+    "Name": "SAP Prop Material Time Dep Tendon CEBFIP90",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.TimeDep.SetTendonCEBFIP90",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_TimeDep_SetTendonCEBFIP90Component.cs",
+    "Guid": "357352ec-d186-a889-78a6-8a96dad50253"
+  },
+  {
+    "Class": "PropMaterial_TimeDep_SetTendonScaleFactorsComponent",
+    "Name": "SAP Prop Material Time Dep Tendon Scale Factors",
+    "Category": "02 Materiali",
+    "Api": "PropMaterial.TimeDep.SetTendonScaleFactors",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropMaterial_TimeDep_SetTendonScaleFactorsComponent.cs",
+    "Guid": "6060b6e8-d49f-341a-7b7d-9b5f0d668fa8"
+  },
+  {
+    "Class": "PropSolid_SetPropComponent",
+    "Name": "SAP Prop Solid Prop",
+    "Category": "05 Piastre e solidi",
+    "Api": "PropSolid.SetProp",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropSolid_SetPropComponent.cs",
+    "Guid": "a2eb53fd-457a-0f1a-c184-e4dbf770209b"
+  },
+  {
+    "Class": "PropTendon_SetPropComponent",
+    "Name": "SAP Prop Tendon Prop",
+    "Category": "06 Link e cavi",
+    "Api": "PropTendon.SetProp",
+    "File": "Rhino2SAP.Grasshopper/Generated/PropTendon_SetPropComponent.cs",
+    "Guid": "f282cae0-0724-420d-5186-4f5a85676e68"
+  },
+  {
+    "Class": "RespCombo_AddComponent",
+    "Name": "SAP Resp Combo Add",
+    "Category": "25 Combinazioni",
+    "Api": "RespCombo.Add",
+    "File": "Rhino2SAP.Grasshopper/Generated/RespCombo_AddComponent.cs",
+    "Guid": "66848c41-3bb5-9d94-66be-d8c8fcb06a67"
+  },
+  {
+    "Class": "RespCombo_SetCaseListComponent",
+    "Name": "SAP Resp Combo Case List",
+    "Category": "25 Combinazioni",
+    "Api": "RespCombo.SetCaseList",
+    "File": "Rhino2SAP.Grasshopper/Generated/RespCombo_SetCaseListComponent.cs",
+    "Guid": "3ed3eeaa-bc58-d0ba-4fb6-5965e0bff07e"
+  },
+  {
+    "Class": "RespCombo_SetCaseList_1Component",
+    "Name": "SAP Resp Combo Case List 1",
+    "Category": "25 Combinazioni",
+    "Api": "RespCombo.SetCaseList_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/RespCombo_SetCaseList_1Component.cs",
+    "Guid": "c1b15fde-4af0-eef7-3a20-372e12c77924"
+  },
+  {
+    "Class": "RespCombo_SetNoteComponent",
+    "Name": "SAP Resp Combo Note",
+    "Category": "25 Combinazioni",
+    "Api": "RespCombo.SetNote",
+    "File": "Rhino2SAP.Grasshopper/Generated/RespCombo_SetNoteComponent.cs",
+    "Guid": "e35db071-fd98-4527-17dd-ced943e600fa"
+  },
+  {
+    "Class": "RespCombo_SetTypeComponent",
+    "Name": "SAP Resp Combo Type",
+    "Category": "25 Combinazioni",
+    "Api": "RespCombo.SetType",
+    "File": "Rhino2SAP.Grasshopper/Generated/RespCombo_SetTypeComponent.cs",
+    "Guid": "f1fce7c9-7fd5-de64-452e-335a6bdfd9f3"
+  },
+  {
+    "Class": "RespCombo_SetTypeOAPIComponent",
+    "Name": "SAP Resp Combo Type OAPI",
+    "Category": "25 Combinazioni",
+    "Api": "RespCombo.SetTypeOAPI",
+    "File": "Rhino2SAP.Grasshopper/Generated/RespCombo_SetTypeOAPIComponent.cs",
+    "Guid": "69b23bae-8afe-9175-f1fe-4bf9b42bddf8"
+  },
+  {
+    "Class": "Results_AreaForceShellComponent",
+    "Name": "SAP Model Area Force Shell",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaForceShell",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaForceShellComponent.cs",
+    "Guid": "f4154e26-33ce-4eca-f3b0-68c481b4ea8b"
+  },
+  {
+    "Class": "Results_AreaJointForcePlaneComponent",
+    "Name": "SAP Model Area Joint Force Plane",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaJointForcePlane",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaJointForcePlaneComponent.cs",
+    "Guid": "89565f31-2f44-e863-411e-893816ca550e"
+  },
+  {
+    "Class": "Results_AreaJointForceShellComponent",
+    "Name": "SAP Model Area Joint Force Shell",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaJointForceShell",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaJointForceShellComponent.cs",
+    "Guid": "757a0b7a-b25e-99cb-3f96-141ee2b5d0ea"
+  },
+  {
+    "Class": "Results_AreaStrainShellComponent",
+    "Name": "SAP Model Area Strain Shell",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaStrainShell",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaStrainShellComponent.cs",
+    "Guid": "d8dbd01a-2c30-f686-eb7c-653aa9e8a282"
+  },
+  {
+    "Class": "Results_AreaStrainShellLayeredComponent",
+    "Name": "SAP Model Area Strain Shell Layered",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaStrainShellLayered",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaStrainShellLayeredComponent.cs",
+    "Guid": "f851f273-1ccc-4fe9-22da-27ef934058bc"
+  },
+  {
+    "Class": "Results_AreaStressPlaneComponent",
+    "Name": "SAP Model Area Stress Plane",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaStressPlane",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaStressPlaneComponent.cs",
+    "Guid": "7e622a1f-a34e-ce5a-801e-95d484b81cff"
+  },
+  {
+    "Class": "Results_AreaStressShellComponent",
+    "Name": "SAP Model Area Stress Shell",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaStressShell",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaStressShellComponent.cs",
+    "Guid": "ad9ca11e-99a7-d91b-659b-79874caedee1"
+  },
+  {
+    "Class": "Results_AreaStressShellLayeredComponent",
+    "Name": "SAP Model Area Stress Shell Layered",
+    "Category": "29 Risultati plate",
+    "Api": "Results.AreaStressShellLayered",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AreaStressShellLayeredComponent.cs",
+    "Guid": "715e0fac-1780-6bcd-0be9-569e84a6c5fd"
+  },
+  {
+    "Class": "Results_AssembledJointMassComponent",
+    "Name": "SAP Model Assembled Joint Mass",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.AssembledJointMass",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AssembledJointMassComponent.cs",
+    "Guid": "2b405fa3-a655-b90a-1a84-7d4193a022fc"
+  },
+  {
+    "Class": "Results_AssembledJointMass_1Component",
+    "Name": "SAP Model Assembled Joint Mass 1",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.AssembledJointMass_1",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_AssembledJointMass_1Component.cs",
+    "Guid": "337aa9a1-0035-73db-107e-9c83dc5de239"
+  },
+  {
+    "Class": "Results_BaseReactComponent",
+    "Name": "SAP Model Base React",
+    "Category": "32 Risultati e query",
+    "Api": "Results.BaseReact",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_BaseReactComponent.cs",
+    "Guid": "bd3db924-0d30-4e0a-2341-5589b2ffd338"
+  },
+  {
+    "Class": "Results_BaseReactWithCentroidComponent",
+    "Name": "SAP Model Base React With Centroid",
+    "Category": "32 Risultati e query",
+    "Api": "Results.BaseReactWithCentroid",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_BaseReactWithCentroidComponent.cs",
+    "Guid": "f8952f54-7236-4561-9526-6c40fd6f348f"
+  },
+  {
+    "Class": "Results_BucklingFactorComponent",
+    "Name": "SAP Model Buckling Factor",
+    "Category": "31 Risultati modali",
+    "Api": "Results.BucklingFactor",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_BucklingFactorComponent.cs",
+    "Guid": "d58beaae-5e63-0b49-62d4-02a0e97ff0a9"
+  },
+  {
+    "Class": "Results_FrameForceComponent",
+    "Name": "SAP Model Frame Force",
+    "Category": "28 Risultati beam",
+    "Api": "Results.FrameForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_FrameForceComponent.cs",
+    "Guid": "3ba29730-e12f-156f-4517-e88669dd6de7"
+  },
+  {
+    "Class": "Results_FrameJointForceComponent",
+    "Name": "SAP Model Frame Joint Force",
+    "Category": "28 Risultati beam",
+    "Api": "Results.FrameJointForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_FrameJointForceComponent.cs",
+    "Guid": "04bffc9d-2ee9-ba61-5916-c8ff3a2b6b71"
+  },
+  {
+    "Class": "Results_GeneralizedDisplComponent",
+    "Name": "SAP Model Generalized Displ",
+    "Category": "32 Risultati e query",
+    "Api": "Results.GeneralizedDispl",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_GeneralizedDisplComponent.cs",
+    "Guid": "185719ef-5387-a8b1-e16c-8dfb3fbd5cbe"
+  },
+  {
+    "Class": "Results_JointAccAbsComponent",
+    "Name": "SAP Model Joint Acc Abs",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointAccAbs",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointAccAbsComponent.cs",
+    "Guid": "831ae3d6-a36b-c367-764b-cf43fef3a6ca"
+  },
+  {
+    "Class": "Results_JointAccComponent",
+    "Name": "SAP Model Joint Acc",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointAcc",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointAccComponent.cs",
+    "Guid": "8282d4aa-2528-c1ef-7d92-25854fca3f67"
+  },
+  {
+    "Class": "Results_JointDisplAbsComponent",
+    "Name": "SAP Model Joint Displ Abs",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointDisplAbs",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointDisplAbsComponent.cs",
+    "Guid": "15738a3a-6732-3730-88cd-a943faeb796d"
+  },
+  {
+    "Class": "Results_JointDisplComponent",
+    "Name": "SAP Model Joint Displ",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointDispl",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointDisplComponent.cs",
+    "Guid": "ece9bda8-b7cb-9107-9f4a-f438a3f48767"
+  },
+  {
+    "Class": "Results_JointReactComponent",
+    "Name": "SAP Model Joint React",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointReact",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointReactComponent.cs",
+    "Guid": "777b7ffb-137a-32ac-e045-0c35d9619f0f"
+  },
+  {
+    "Class": "Results_JointRespSpecComponent",
+    "Name": "SAP Model Joint Resp Spec",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointRespSpec",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointRespSpecComponent.cs",
+    "Guid": "fac4ea09-8d64-44ef-3f02-9219b72a372d"
+  },
+  {
+    "Class": "Results_JointVelAbsComponent",
+    "Name": "SAP Model Joint Vel Abs",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointVelAbs",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointVelAbsComponent.cs",
+    "Guid": "aac32cda-ba7f-e180-2875-7a6f3833b82d"
+  },
+  {
+    "Class": "Results_JointVelComponent",
+    "Name": "SAP Model Joint Vel",
+    "Category": "27 Risultati nodali",
+    "Api": "Results.JointVel",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_JointVelComponent.cs",
+    "Guid": "78129749-d5f5-a984-2651-975240f937f9"
+  },
+  {
+    "Class": "Results_LinkDeformationComponent",
+    "Name": "SAP Model Link Deformation",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.LinkDeformation",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_LinkDeformationComponent.cs",
+    "Guid": "d0af43be-bbf5-115d-a136-2ff7ee49d007"
+  },
+  {
+    "Class": "Results_LinkForceComponent",
+    "Name": "SAP Model Link Force",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.LinkForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_LinkForceComponent.cs",
+    "Guid": "a042f22f-a631-e32f-6c6f-820cccfdc2b2"
+  },
+  {
+    "Class": "Results_LinkJointForceComponent",
+    "Name": "SAP Model Link Joint Force",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.LinkJointForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_LinkJointForceComponent.cs",
+    "Guid": "68cd9fe8-66c5-fcc4-b944-4c3492af119d"
+  },
+  {
+    "Class": "Results_ModalLoadParticipationRatiosComponent",
+    "Name": "SAP Model Modal Load Participation Ratios",
+    "Category": "31 Risultati modali",
+    "Api": "Results.ModalLoadParticipationRatios",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_ModalLoadParticipationRatiosComponent.cs",
+    "Guid": "bf0dbaf1-2fc3-9e73-e845-9b24e55e6578"
+  },
+  {
+    "Class": "Results_ModalParticipatingMassRatiosComponent",
+    "Name": "SAP Model Modal Participating Mass Ratios",
+    "Category": "31 Risultati modali",
+    "Api": "Results.ModalParticipatingMassRatios",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_ModalParticipatingMassRatiosComponent.cs",
+    "Guid": "0fb9d63c-d2de-6fcc-4adc-9625aa7b06c6"
+  },
+  {
+    "Class": "Results_ModalParticipationFactorsComponent",
+    "Name": "SAP Model Modal Participation Factors",
+    "Category": "31 Risultati modali",
+    "Api": "Results.ModalParticipationFactors",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_ModalParticipationFactorsComponent.cs",
+    "Guid": "7db53189-35f0-6369-6427-37a6d1c6a4f7"
+  },
+  {
+    "Class": "Results_ModalPeriodComponent",
+    "Name": "SAP Model Modal Period",
+    "Category": "31 Risultati modali",
+    "Api": "Results.ModalPeriod",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_ModalPeriodComponent.cs",
+    "Guid": "e2bbacea-b165-e0b0-93d9-e1e8cccd4033"
+  },
+  {
+    "Class": "Results_ModeShapeComponent",
+    "Name": "SAP Model Mode Shape",
+    "Category": "31 Risultati modali",
+    "Api": "Results.ModeShape",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_ModeShapeComponent.cs",
+    "Guid": "b2adebe0-8855-9b34-0205-77b8572745fb"
+  },
+  {
+    "Class": "Results_PanelZoneDeformationComponent",
+    "Name": "SAP Model Panel Zone Deformation",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.PanelZoneDeformation",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_PanelZoneDeformationComponent.cs",
+    "Guid": "dccddda9-59f4-0612-0a24-01e9279ce019"
+  },
+  {
+    "Class": "Results_PanelZoneForceComponent",
+    "Name": "SAP Model Panel Zone Force",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.PanelZoneForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_PanelZoneForceComponent.cs",
+    "Guid": "70047327-9c7d-ef0b-49de-181ef1ad0988"
+  },
+  {
+    "Class": "Results_SectionCutAnalysisComponent",
+    "Name": "SAP Model Section Cut Analysis",
+    "Category": "32 Risultati e query",
+    "Api": "Results.SectionCutAnalysis",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_SectionCutAnalysisComponent.cs",
+    "Guid": "36bf0039-870d-5db2-49bf-42f9f3d2ea53"
+  },
+  {
+    "Class": "Results_SectionCutDesignComponent",
+    "Name": "SAP Model Section Cut Design",
+    "Category": "32 Risultati e query",
+    "Api": "Results.SectionCutDesign",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_SectionCutDesignComponent.cs",
+    "Guid": "06802060-c1be-7ed7-21b4-91767dbcea53"
+  },
+  {
+    "Class": "Results_SolidJointForceComponent",
+    "Name": "SAP Model Solid Joint Force",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.SolidJointForce",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_SolidJointForceComponent.cs",
+    "Guid": "b6ef9789-e4c0-c708-14ec-f68253d4979a"
+  },
+  {
+    "Class": "Results_SolidStrainComponent",
+    "Name": "SAP Model Solid Strain",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.SolidStrain",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_SolidStrainComponent.cs",
+    "Guid": "b9ae786e-c245-239f-04d7-06a96de5de77"
+  },
+  {
+    "Class": "Results_SolidStressComponent",
+    "Name": "SAP Model Solid Stress",
+    "Category": "30 Risultati solidi-link",
+    "Api": "Results.SolidStress",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_SolidStressComponent.cs",
+    "Guid": "719d181a-88ab-0e63-f6f3-64aa5ffe656c"
+  },
+  {
+    "Class": "Results_StepLabelComponent",
+    "Name": "SAP Model Step Label",
+    "Category": "32 Risultati e query",
+    "Api": "Results.StepLabel",
+    "File": "Rhino2SAP.Grasshopper/Generated/Results_StepLabelComponent.cs",
+    "Guid": "88b993c1-135f-048e-c157-8cd25c2586ff"
+  },
+  {
+    "Class": "SolidObj_SetAutoMeshComponent",
+    "Name": "SAP Solid Auto Mesh",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "SolidObj.SetAutoMesh",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetAutoMeshComponent.cs",
+    "Guid": "6620a131-fcc5-5e33-66fa-4f8a78b8b6cf"
+  },
+  {
+    "Class": "SolidObj_SetEdgeConstraintComponent",
+    "Name": "SAP Solid Edge Constraint",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "SolidObj.SetEdgeConstraint",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetEdgeConstraintComponent.cs",
+    "Guid": "723b3846-a8a9-d4a3-f7c5-1bb301ca4cc8"
+  },
+  {
+    "Class": "SolidObj_SetGroupAssignComponent",
+    "Name": "SAP Solid Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "SolidObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetGroupAssignComponent.cs",
+    "Guid": "d2ea2eeb-6c73-c04b-039c-5fc299c275ba"
+  },
+  {
+    "Class": "SolidObj_SetLoadGravityComponent",
+    "Name": "SAP Solid Load Gravity",
+    "Category": "16 Altri carichi",
+    "Api": "SolidObj.SetLoadGravity",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLoadGravityComponent.cs",
+    "Guid": "6b91c020-79fd-b14c-7f18-af0428b6d8b2"
+  },
+  {
+    "Class": "SolidObj_SetLoadPorePressureComponent",
+    "Name": "SAP Solid Load Pore Pressure",
+    "Category": "16 Altri carichi",
+    "Api": "SolidObj.SetLoadPorePressure",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLoadPorePressureComponent.cs",
+    "Guid": "bae64ef0-8d29-0453-bbd9-94171d783ed0"
+  },
+  {
+    "Class": "SolidObj_SetLoadStrainComponent",
+    "Name": "SAP Solid Load Strain",
+    "Category": "16 Altri carichi",
+    "Api": "SolidObj.SetLoadStrain",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLoadStrainComponent.cs",
+    "Guid": "58c274c2-a150-b3f0-a316-62cec1cd2ac4"
+  },
+  {
+    "Class": "SolidObj_SetLoadSurfacePressureComponent",
+    "Name": "SAP Solid Load Surface Pressure",
+    "Category": "16 Altri carichi",
+    "Api": "SolidObj.SetLoadSurfacePressure",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLoadSurfacePressureComponent.cs",
+    "Guid": "8a4af64f-c8b3-2da2-7378-99fb8045b829"
+  },
+  {
+    "Class": "SolidObj_SetLoadTemperatureComponent",
+    "Name": "SAP Solid Load Temperature",
+    "Category": "16 Altri carichi",
+    "Api": "SolidObj.SetLoadTemperature",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLoadTemperatureComponent.cs",
+    "Guid": "7d167f06-c4e1-fcfe-8850-e7334c75a1c6"
+  },
+  {
+    "Class": "SolidObj_SetLocalAxesAdvancedComponent",
+    "Name": "SAP Solid Local Axes Advanced",
+    "Category": "09 Assi e offset",
+    "Api": "SolidObj.SetLocalAxesAdvanced",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLocalAxesAdvancedComponent.cs",
+    "Guid": "bb253fc5-8593-2420-eb33-78c09e4a3e09"
+  },
+  {
+    "Class": "SolidObj_SetLocalAxesComponent",
+    "Name": "SAP Solid Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "SolidObj.SetLocalAxes",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetLocalAxesComponent.cs",
+    "Guid": "90801f5c-e01c-5185-c945-087e1a4fb88d"
+  },
+  {
+    "Class": "SolidObj_SetMatTempComponent",
+    "Name": "SAP Solid Mat Temp",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "SolidObj.SetMatTemp",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetMatTempComponent.cs",
+    "Guid": "e3132a47-4a68-07d3-8923-4c193f7b73d5"
+  },
+  {
+    "Class": "SolidObj_SetPropertyComponent",
+    "Name": "SAP Solid Property",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "SolidObj.SetProperty",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetPropertyComponent.cs",
+    "Guid": "7996b1cc-89df-dd44-938f-953390f66dc9"
+  },
+  {
+    "Class": "SolidObj_SetSpringComponent",
+    "Name": "SAP Solid Spring",
+    "Category": "08 Vincoli e molle",
+    "Api": "SolidObj.SetSpring",
+    "File": "Rhino2SAP.Grasshopper/Generated/SolidObj_SetSpringComponent.cs",
+    "Guid": "6fae8f01-c8c5-7f06-5dd5-9ed57e24c619"
+  },
+  {
+    "Class": "SourceMass_SetDefaultComponent",
+    "Name": "SAP Source Mass Default",
+    "Category": "11 Masse",
+    "Api": "SourceMass.SetDefault",
+    "File": "Rhino2SAP.Grasshopper/Generated/SourceMass_SetDefaultComponent.cs",
+    "Guid": "8cd23abb-34f5-abb9-8dd2-cdc454f376b7"
+  },
+  {
+    "Class": "SourceMass_SetMassSourceComponent",
+    "Name": "SAP Source Mass Mass Source",
+    "Category": "11 Masse",
+    "Api": "SourceMass.SetMassSource",
+    "File": "Rhino2SAP.Grasshopper/Generated/SourceMass_SetMassSourceComponent.cs",
+    "Guid": "70500d4e-e5c8-623b-4e8c-39d6de82fb3a"
+  },
+  {
+    "Class": "TendonObj_SetDiscretizationComponent",
+    "Name": "SAP Tendon Obj Discretization",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "TendonObj.SetDiscretization",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetDiscretizationComponent.cs",
+    "Guid": "2801c437-d091-55d6-5f28-68b476261665"
+  },
+  {
+    "Class": "TendonObj_SetGroupAssignComponent",
+    "Name": "SAP Tendon Obj Group Assign",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "TendonObj.SetGroupAssign",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetGroupAssignComponent.cs",
+    "Guid": "d613f955-5944-1561-982d-d45de1714c32"
+  },
+  {
+    "Class": "TendonObj_SetLoadDeformationComponent",
+    "Name": "SAP Tendon Obj Load Deformation",
+    "Category": "16 Altri carichi",
+    "Api": "TendonObj.SetLoadDeformation",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLoadDeformationComponent.cs",
+    "Guid": "a56e6f37-adc8-c24f-1eac-5ef3ec164a7c"
+  },
+  {
+    "Class": "TendonObj_SetLoadedGroupComponent",
+    "Name": "SAP Tendon Obj Loaded Group",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "TendonObj.SetLoadedGroup",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLoadedGroupComponent.cs",
+    "Guid": "355d61a4-88b2-1768-703d-3b1f5f9e3a68"
+  },
+  {
+    "Class": "TendonObj_SetLoadForceStressComponent",
+    "Name": "SAP Tendon Obj Load Force Stress",
+    "Category": "16 Altri carichi",
+    "Api": "TendonObj.SetLoadForceStress",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLoadForceStressComponent.cs",
+    "Guid": "4f036fe7-0afe-9ad0-07ab-501f10a50007"
+  },
+  {
+    "Class": "TendonObj_SetLoadGravityComponent",
+    "Name": "SAP Tendon Obj Load Gravity",
+    "Category": "16 Altri carichi",
+    "Api": "TendonObj.SetLoadGravity",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLoadGravityComponent.cs",
+    "Guid": "9b106fa5-1786-0667-f0ba-bce7be157325"
+  },
+  {
+    "Class": "TendonObj_SetLoadStrainComponent",
+    "Name": "SAP Tendon Obj Load Strain",
+    "Category": "16 Altri carichi",
+    "Api": "TendonObj.SetLoadStrain",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLoadStrainComponent.cs",
+    "Guid": "1305a3ae-dbcd-32ce-e74d-827e3f98ce5f"
+  },
+  {
+    "Class": "TendonObj_SetLoadTemperatureComponent",
+    "Name": "SAP Tendon Obj Load Temperature",
+    "Category": "16 Altri carichi",
+    "Api": "TendonObj.SetLoadTemperature",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLoadTemperatureComponent.cs",
+    "Guid": "5680ce28-96f6-ce26-dd6f-c68356bf929a"
+  },
+  {
+    "Class": "TendonObj_SetLocalAxesComponent",
+    "Name": "SAP Tendon Obj Local Axes",
+    "Category": "09 Assi e offset",
+    "Api": "TendonObj.SetLocalAxes",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetLocalAxesComponent.cs",
+    "Guid": "4c3c32ba-c32d-2edb-cb8c-ee2f0f0ee282"
+  },
+  {
+    "Class": "TendonObj_SetMatTempComponent",
+    "Name": "SAP Tendon Obj Mat Temp",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "TendonObj.SetMatTemp",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetMatTempComponent.cs",
+    "Guid": "8540c6ba-cd12-63cf-e076-e497f41c1101"
+  },
+  {
+    "Class": "TendonObj_SetPropertyComponent",
+    "Name": "SAP Tendon Obj Property",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "TendonObj.SetProperty",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetPropertyComponent.cs",
+    "Guid": "fea6d9d5-d391-2b3c-eacd-e7ea00548c65"
+  },
+  {
+    "Class": "TendonObj_SetTCLimitsComponent",
+    "Name": "SAP Tendon Obj TCLimits",
+    "Category": "08 Vincoli e molle",
+    "Api": "TendonObj.SetTCLimits",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetTCLimitsComponent.cs",
+    "Guid": "82eb9b95-9446-5594-a8d5-f6651f483498"
+  },
+  {
+    "Class": "TendonObj_SetTendonDataComponent",
+    "Name": "SAP Tendon Obj Tendon Data",
+    "Category": "10 Mesh e assegnazioni",
+    "Api": "TendonObj.SetTendonData",
+    "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetTendonDataComponent.cs",
+    "Guid": "eae6bc2c-25f0-cd50-7a5e-9516a13e98b2"
+  },
+  {
+    "Class": "BuildModelComponent",
+    "Name": "Build SAP Model",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "448661f3-127a-0113-e6c8-5495e3279d16"
+  },
+  {
+    "Class": "MergeModelsComponent",
+    "Name": "Merge SAP Models",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "824422e5-1a40-bbe1-b6f8-116335f38cd5"
+  },
+  {
+    "Class": "ValidateModelComponent",
+    "Name": "Validate SAP Model",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "fd2fe5dd-6f47-76c9-aa49-b7609bd6f1fc"
+  },
+  {
+    "Class": "DecomposeModelComponent",
+    "Name": "Decompose SAP Model",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+  },
+  {
+    "Class": "PreviewModelComponent",
+    "Name": "Preview SAP Model",
+    "Category": "33 Preview e bake",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "5d900d76-f926-632a-d1d3-fb28a22cf597"
+  },
+  {
+    "Class": "ModelGeometryComponent",
+    "Name": "SAP Model Geometry",
+    "Category": "33 Preview e bake",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "94b96dec-0346-96a3-85dc-5f51ae37dce2"
+  },
+  {
+    "Class": "ModelSummaryComponent",
+    "Name": "SAP Model Summary",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "4e3b3a4b-c0e1-f86f-1d85-41bac30ffe75"
+  },
+  {
+    "Class": "UnitsComponent",
+    "Name": "SAP Model Units",
+    "Category": "01 Modello",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "00c9be09-e659-c3b2-9905-35dd4c8fd578"
+  },
+  {
+    "Class": "ExportModelComponent",
+    "Name": "Export SAP2000 Model",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "48dac3fc-51da-c71e-f400-9fcf94acdf69"
+  },
+  {
+    "Class": "RunModelComponent",
+    "Name": "Run SAP Model Cases and Combinations",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "0cc4bc3b-55c0-f5ea-f59e-83fa53443c15"
+  },
+  {
+    "Class": "AnalyzeAndEmbedComponent",
+    "Name": "SAP Analyze and Embed Results",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "ff2f9822-13a5-1543-0de2-ed0b7161a0c9"
+  },
+  {
+    "Class": "ReadResultArchiveComponent",
+    "Name": "Read SAP Results Into Model",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "94cd1281-01ef-ac48-efc6-9244444e6912"
+  },
+  {
+    "Class": "ResultCatalogueComponent",
+    "Name": "SAP Result Quantities",
+    "Category": "32 Risultati e query",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ModelComponents.cs",
+    "Guid": "eebeaae1-99dc-cc87-1aa1-48a09b6232f1"
+  },
+  {
+    "Class": "PhysicalGeometryComponent",
+    "Name": "SAP Model Physical Geometry",
+    "Category": "33 Preview e bake",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/PhysicalGeometry.cs",
+    "Guid": "4b01f40c-1243-f13f-c744-3f33a26dfb61"
+  },
+  {
+    "Class": "BakeGeometryComponent",
+    "Name": "Bake SAP Geometry",
+    "Category": "33 Preview e bake",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/PhysicalGeometry.cs",
+    "Guid": "e5622690-89ad-be16-d3ff-61775628e4d6"
+  },
+  {
+    "Class": "ReadGeometryComponent",
+    "Name": "Read SAP Geometry",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ReadComponents.cs",
+    "Guid": "ad91d381-8e9a-d707-e79c-0b282f201597"
+  },
+  {
+    "Class": "ReadApiTableComponent",
+    "Name": "Read SAP API Table",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ReadComponents.cs",
+    "Guid": "d9c8bc59-0db0-e4ac-44e7-e5b260c786f5"
+  },
+  {
+    "Class": "MaterialLibraryComponent",
+    "Name": "SAP Material Library",
+    "Category": "02 Materiali",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ReadComponents.cs",
+    "Guid": "9fb7fb0b-5869-46a0-5efb-fe51e1439f7f"
+  },
+  {
+    "Class": "DatabaseMaterialComponent",
+    "Name": "SAP Database Material",
+    "Category": "02 Materiali",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ReadComponents.cs",
+    "Guid": "f71506f7-ee18-7f5c-fd62-197e268133f5"
+  },
+  {
+    "Class": "ApiHelpComponent",
+    "Name": "SAP API Signature",
+    "Category": "34 Utility",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ReadComponents.cs",
+    "Guid": "e447c070-00c3-9556-795c-30dcbaca9bc2"
+  },
+  {
+    "Class": "ResultCasesComponent",
+    "Name": "SAP Model Result Cases",
+    "Category": "32 Risultati e query",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ResultTools.cs",
+    "Guid": "81dfa489-7de1-6ec6-370b-77a34f278483"
+  },
+  {
+    "Class": "ResultEnvelopeComponent",
+    "Name": "SAP Model Result Extrema",
+    "Category": "32 Risultati e query",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ResultTools.cs",
+    "Guid": "7ae1df3f-cd2a-26f9-3b09-b3a959cc2e0a"
+  },
+  {
+    "Class": "DeformedGeometryComponent",
+    "Name": "SAP Model Deformed Geometry",
+    "Category": "32 Risultati e query",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ResultTools.cs",
+    "Guid": "c24b84ec-d4bd-cd1d-0da2-a48272cb6851"
+  },
+  {
+    "Class": "FrameDiagramComponent",
+    "Name": "SAP Model Frame Force Diagram",
+    "Category": "28 Risultati beam",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ResultTools.cs",
+    "Guid": "d87d967b-ec35-26ee-85fb-7e76ae69460f"
+  },
+  {
+    "Class": "VerificationDataComponent",
+    "Name": "SAP Model Verification Data",
+    "Category": "32 Risultati e query",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ResultTools.cs",
+    "Guid": "a9fe3386-3c19-5b41-775c-08aeea148256"
+  }
+]

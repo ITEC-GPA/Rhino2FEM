@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><ProjectReference Include="../Rhino2MidasGen.Core/Rhino2MidasGen.Core.csproj" /></ItemGroup></Project>

@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType></PropertyGroup><ItemGroup><ProjectReference Include="../Rhino2MidasGen.Api/Rhino2MidasGen.Api.csproj" /></ItemGroup></Project>

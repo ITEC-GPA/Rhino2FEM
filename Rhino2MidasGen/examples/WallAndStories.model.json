@@ -1,0 +1,271 @@
+{
+  "Definition": {
+    "Elements": [
+      {
+        "Id": 1,
+        "Kind": 0,
+        "Points": [
+          {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+          }
+        ],
+        "Material": 0,
+        "Property": 0,
+        "Angle": 0,
+        "NodeIds": [],
+        "Extra": "",
+        "Results": []
+      },
+      {
+        "Id": 2,
+        "Kind": 0,
+        "Points": [
+          {
+            "X": 4,
+            "Y": 0,
+            "Z": 0
+          }
+        ],
+        "Material": 0,
+        "Property": 0,
+        "Angle": 0,
+        "NodeIds": [],
+        "Extra": "",
+        "Results": []
+      },
+      {
+        "Id": 3,
+        "Kind": 0,
+        "Points": [
+          {
+            "X": 4,
+            "Y": 0,
+            "Z": 3
+          }
+        ],
+        "Material": 0,
+        "Property": 0,
+        "Angle": 0,
+        "NodeIds": [],
+        "Extra": "",
+        "Results": []
+      },
+      {
+        "Id": 4,
+        "Kind": 0,
+        "Points": [
+          {
+            "X": 0,
+            "Y": 0,
+            "Z": 3
+          }
+        ],
+        "Material": 0,
+        "Property": 0,
+        "Angle": 0,
+        "NodeIds": [],
+        "Extra": "",
+        "Results": []
+      },
+      {
+        "Id": 101,
+        "Kind": 8,
+        "Points": [
+          {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+          },
+          {
+            "X": 4,
+            "Y": 0,
+            "Z": 0
+          },
+          {
+            "X": 4,
+            "Y": 0,
+            "Z": 3
+          },
+          {
+            "X": 0,
+            "Y": 0,
+            "Z": 3
+          }
+        ],
+        "Material": 1,
+        "Property": 1,
+        "Angle": 0,
+        "NodeIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Extra": "{\u0022STYPE\u0022:2,\u0022WALL\u0022:7,\u0022W_CON\u0022:0,\u0022W_TYPE\u0022:0}",
+        "Results": []
+      }
+    ],
+    "Entries": [
+      {
+        "Identity": "456c8676-64c8-4aca-bc04-3e2752e76008",
+        "Endpoint": "MATL",
+        "Id": 1,
+        "Data": {
+          "TYPE": "CONC",
+          "NAME": "Concrete",
+          "HE_SPEC": 0,
+          "HE_COND": 0,
+          "PLMT": 0,
+          "P_NAME": "",
+          "bMASS_DENS": false,
+          "DAMP_RAT": 0.02,
+          "PARAM": [
+            {
+              "P_TYPE": 2,
+              "ELAST": 30000000,
+              "POISN": 0.2,
+              "THERMAL": 1.2E-05,
+              "DEN": 25,
+              "MASS": 0
+            }
+          ]
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "d6e443e4-f85c-46e4-9684-a38567076a4b",
+        "Endpoint": "THIK",
+        "Id": 1,
+        "Data": {
+          "NAME": "1",
+          "TYPE": "VALUE",
+          "bINOUT": false,
+          "T_IN": 0.2,
+          "T_OUT": 0,
+          "OFFSET": 0,
+          "O_VALUE": 0
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "509e69ef-ab1e-4114-9e27-62b49f4ab12c",
+        "Endpoint": "STOR",
+        "Id": 1,
+        "Data": {
+          "STORY_NAME": "Base",
+          "STORY_LEVEL": 0,
+          "bFLOOR_DIAPHRAGM": false,
+          "WIND_FLOOR_WIDTH_X": 0,
+          "WIND_FLOOR_WIDTH_Y": 0,
+          "WIND_CENTER_X": 0,
+          "WIND_CENTER_Y": 0,
+          "WIND_ECCENT_X": 0,
+          "WIND_ECCENT_Y": 0,
+          "SEIS_ACC_ECCENT_X": 0,
+          "SEIS_ACC_ECCENT_Y": 0,
+          "SEIS_INHERENT_ECCENT_X": 0,
+          "SEIS_INHERENT_ECCENT_Y": 0,
+          "SEIS_TORSIONAL_AMP_FACTOR_X": 1,
+          "SEIS_TORSIONAL_AMP_FACTOR_Y": 1
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "af25e7ba-7b0d-4a85-a515-616b790274a1",
+        "Endpoint": "STOR",
+        "Id": 2,
+        "Data": {
+          "STORY_NAME": "Roof",
+          "STORY_LEVEL": 3,
+          "bFLOOR_DIAPHRAGM": false,
+          "WIND_FLOOR_WIDTH_X": 0,
+          "WIND_FLOOR_WIDTH_Y": 0,
+          "WIND_CENTER_X": 0,
+          "WIND_CENTER_Y": 0,
+          "WIND_ECCENT_X": 0,
+          "WIND_ECCENT_Y": 0,
+          "SEIS_ACC_ECCENT_X": 0,
+          "SEIS_ACC_ECCENT_Y": 0,
+          "SEIS_INHERENT_ECCENT_X": 0,
+          "SEIS_INHERENT_ECCENT_Y": 0,
+          "SEIS_TORSIONAL_AMP_FACTOR_X": 1,
+          "SEIS_TORSIONAL_AMP_FACTOR_Y": 1
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "0af4042f-1ced-4cc1-9bd7-85435d5ff559",
+        "Endpoint": "STLD",
+        "Id": 1,
+        "Data": {
+          "NAME": "Lateral",
+          "TYPE": "USER",
+          "DESC": ""
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "64258531-549c-4fe5-b407-3df049f30f00",
+        "Endpoint": "CONS",
+        "Id": 1,
+        "Data": {
+          "CONSTRAINT": "1111110",
+          "GROUP_NAME": ""
+        },
+        "IsItem": true
+      },
+      {
+        "Identity": "a1803755-a650-4bf8-989b-3b05d6444f8c",
+        "Endpoint": "CONS",
+        "Id": 2,
+        "Data": {
+          "CONSTRAINT": "1111110",
+          "GROUP_NAME": ""
+        },
+        "IsItem": true
+      },
+      {
+        "Identity": "5456a95f-e26d-46b4-9947-de4e8fd07c5a",
+        "Endpoint": "CNLD",
+        "Id": 3,
+        "Data": {
+          "LCNAME": "Lateral",
+          "FX": 5,
+          "FY": 0,
+          "FZ": 0,
+          "MX": 0,
+          "MY": 0,
+          "MZ": 0,
+          "GROUP_NAME": ""
+        },
+        "IsItem": true
+      },
+      {
+        "Identity": "5155275d-e1e7-4a64-8924-ac7d65506dad",
+        "Endpoint": "CNLD",
+        "Id": 4,
+        "Data": {
+          "LCNAME": "Lateral",
+          "FX": 5,
+          "FY": 0,
+          "FZ": 0,
+          "MX": 0,
+          "MY": 0,
+          "MZ": 0,
+          "GROUP_NAME": ""
+        },
+        "IsItem": true
+      }
+    ]
+  },
+  "Units": {
+    "Force": "KN",
+    "Length": "M",
+    "Heat": "KJ",
+    "Temperature": "C"
+  },
+  "Tolerance": 1E-06,
+  "Results": null
+}

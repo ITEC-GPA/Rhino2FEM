@@ -1,5 +1,8 @@
-/.git/
-/.vs/
-*/bin/
-*/obj/
-*/package/
+**/.vs/
+**/.local/
+**/bin/
+**/obj/
+**/package/
+**/artifacts/
+*.user
+*.suo

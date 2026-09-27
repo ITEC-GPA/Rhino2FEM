@@ -1,0 +1,175 @@
+{
+  "Definition": {
+    "Elements": [
+      {
+        "Id": 1,
+        "Kind": 0,
+        "Points": [
+          {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+          }
+        ],
+        "Material": 0,
+        "Property": 0,
+        "Angle": 0,
+        "NodeIds": [],
+        "Extra": "",
+        "Results": []
+      },
+      {
+        "Id": 2,
+        "Kind": 0,
+        "Points": [
+          {
+            "X": 3,
+            "Y": 0,
+            "Z": 0
+          }
+        ],
+        "Material": 0,
+        "Property": 0,
+        "Angle": 0,
+        "NodeIds": [],
+        "Extra": "",
+        "Results": []
+      },
+      {
+        "Id": 1,
+        "Kind": 1,
+        "Points": [
+          {
+            "X": 0,
+            "Y": 0,
+            "Z": 0
+          },
+          {
+            "X": 3,
+            "Y": 0,
+            "Z": 0
+          }
+        ],
+        "Material": 1,
+        "Property": 1,
+        "Angle": 0,
+        "NodeIds": [
+          1,
+          2
+        ],
+        "Extra": "",
+        "Results": []
+      }
+    ],
+    "Entries": [
+      {
+        "Identity": "520b26d9-1ede-48f5-b9bc-4e832e8c2cb4",
+        "Endpoint": "MATL",
+        "Id": 1,
+        "Data": {
+          "TYPE": "STEEL",
+          "NAME": "Steel",
+          "HE_SPEC": 0,
+          "HE_COND": 0,
+          "PLMT": 0,
+          "P_NAME": "",
+          "bMASS_DENS": false,
+          "DAMP_RAT": 0.02,
+          "PARAM": [
+            {
+              "P_TYPE": 2,
+              "ELAST": 210000000,
+              "POISN": 0.3,
+              "THERMAL": 1.2E-05,
+              "DEN": 78.5,
+              "MASS": 0
+            }
+          ]
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "8c927111-0dc2-40ad-8cb9-638b68951592",
+        "Endpoint": "SECT",
+        "Id": 1,
+        "Data": {
+          "SECTTYPE": "DBUSER",
+          "SECT_NAME": "R200x300",
+          "SECT_BEFORE": {
+            "OFFSET_PT": "CC",
+            "OFFSET_CENTER": 0,
+            "USER_OFFSET_REF": 0,
+            "HORZ_OFFSET_OPT": 0,
+            "USERDEF_OFFSET_YI": 0,
+            "VERT_OFFSET_OPT": 0,
+            "USERDEF_OFFSET_ZI": 0,
+            "USE_SHEAR_DEFORM": true,
+            "USE_WARPING_EFFECT": false,
+            "SHAPE": "SB",
+            "DATATYPE": 2,
+            "SECT_I": {
+              "vSIZE": [
+                0.3,
+                0.2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "eae8aca3-f380-4c52-825d-12ea59116512",
+        "Endpoint": "STLD",
+        "Id": 1,
+        "Data": {
+          "NAME": "LC1",
+          "TYPE": "USER",
+          "DESC": ""
+        },
+        "IsItem": false
+      },
+      {
+        "Identity": "27f4d80a-6601-4a7c-93d7-448c508c58d0",
+        "Endpoint": "CONS",
+        "Id": 1,
+        "Data": {
+          "CONSTRAINT": "1111110",
+          "GROUP_NAME": ""
+        },
+        "IsItem": true
+      },
+      {
+        "Identity": "bcbf3078-ddad-4bc7-ab4d-99141f71a4e6",
+        "Endpoint": "CNLD",
+        "Id": 2,
+        "Data": {
+          "LCNAME": "LC1",
+          "GROUP_NAME": "",
+          "FX": 0,
+          "FY": 0,
+          "FZ": -10,
+          "MX": 0,
+          "MY": 0,
+          "MZ": 0
+        },
+        "IsItem": true
+      }
+    ]
+  },
+  "Units": {
+    "Force": "KN",
+    "Length": "M",
+    "Heat": "KJ",
+    "Temperature": "C"
+  },
+  "Tolerance": 1E-06,
+  "Results": null
+}

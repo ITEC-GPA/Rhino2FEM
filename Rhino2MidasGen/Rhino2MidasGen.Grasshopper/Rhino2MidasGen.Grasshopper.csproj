@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><EnableDynamicLoading>true</EnableDynamicLoading><UseWindowsForms>true</UseWindowsForms><TargetExt>.gha</TargetExt></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Rhino2MidasGen.Core/Rhino2MidasGen.Core.csproj" />
+    <ProjectReference Include="../Rhino2MidasGen.Api/Rhino2MidasGen.Api.csproj" />
+    <PackageReference Include="Grasshopper" Version="$(RhinoVersion)" />
+    <PackageReference Include="RhinoCommon" Version="$(RhinoVersion)" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup><ProjectReference Include="../Rhino2SAP.Core/Rhino2SAP.Core.csproj" /></ItemGroup>
+</Project>
