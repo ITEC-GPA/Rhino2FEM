@@ -1,0 +1,312 @@
+{
+  "Plugin": "Rhino2Midas",
+  "File": "FEM_03_Civil_Trave.gh",
+  "PluginComponents": 20,
+  "Objects": 34,
+  "Nodes": 2,
+  "Elements": 1,
+  "PhysicalVolume": 0.9,
+  "RoundTripGh": true,
+  "RoundTripGhx": true,
+  "ParametricLengthChange": true,
+  "SolverExecuted": false,
+  "Connections": [
+    {
+      "FromId": "e909b4a5-bda7-4dee-9d65-6117db16a639",
+      "From": "L [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "5e87802c-0e4c-4787-804c-d16b812ba7c8",
+      "To": "Construct Point",
+      "Input": "X coordinate"
+    },
+    {
+      "FromId": "9d204443-7e8c-4278-95e9-ef54a874f8c7",
+      "From": "h [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "533bc8ad-6724-4e46-a372-1dfc45c4661e",
+      "To": "Midas Rectangle Section",
+      "Input": "Height"
+    },
+    {
+      "FromId": "fcd17c1b-1dcc-496e-ba86-d8c4bd5a44f1",
+      "From": "b [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "533bc8ad-6724-4e46-a372-1dfc45c4661e",
+      "To": "Midas Rectangle Section",
+      "Input": "Width"
+    },
+    {
+      "FromId": "d6c566d6-bdb9-4f85-96c5-df4c715c012b",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "e10458c9-5cf5-48f1-85d2-25d54e8f0e4f",
+      "To": "Midas Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "5e87802c-0e4c-4787-804c-d16b812ba7c8",
+      "From": "B",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "e10458c9-5cf5-48f1-85d2-25d54e8f0e4f",
+      "To": "Midas Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "d6c566d6-bdb9-4f85-96c5-df4c715c012b",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "a7234901-7aa8-4329-801b-f2817929c2b1",
+      "To": "Midas Beam",
+      "Input": "Points"
+    },
+    {
+      "FromId": "5e87802c-0e4c-4787-804c-d16b812ba7c8",
+      "From": "B",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "a7234901-7aa8-4329-801b-f2817929c2b1",
+      "To": "Midas Beam",
+      "Input": "Points"
+    },
+    {
+      "FromId": "e10458c9-5cf5-48f1-85d2-25d54e8f0e4f",
+      "From": "Node",
+      "Component": "Midas Node",
+      "Output": "Node",
+      "ToId": "a7234901-7aa8-4329-801b-f2817929c2b1",
+      "To": "Midas Beam",
+      "Input": "Nodes"
+    },
+    {
+      "FromId": "555df4cd-5f28-4252-998d-e98230e2331f",
+      "From": "Material",
+      "Component": "Midas Isotropic Material",
+      "Output": "Material",
+      "ToId": "a7234901-7aa8-4329-801b-f2817929c2b1",
+      "To": "Midas Beam",
+      "Input": "Material"
+    },
+    {
+      "FromId": "533bc8ad-6724-4e46-a372-1dfc45c4661e",
+      "From": "Rectangle",
+      "Component": "Midas Rectangle Section",
+      "Output": "Section",
+      "ToId": "a7234901-7aa8-4329-801b-f2817929c2b1",
+      "To": "Midas Beam",
+      "Input": "Property"
+    },
+    {
+      "FromId": "d6c566d6-bdb9-4f85-96c5-df4c715c012b",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "c100387f-f6ba-4067-bb07-319adbc66cbe",
+      "To": "Midas Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "c100387f-f6ba-4067-bb07-319adbc66cbe",
+      "From": "Node",
+      "Component": "Midas Node",
+      "Output": "Node",
+      "ToId": "bd7377b1-5044-40b1-9471-114dd9aa89f8",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "FromId": "bb5ad7b8-b406-49dc-ab9c-ffd545c48f9f",
+      "From": "Load Case",
+      "Component": "Midas Static Load Case",
+      "Output": "Name",
+      "ToId": "6ddd6b69-e03e-46e2-bff1-d03b479544b6",
+      "To": "Midas Self Weight",
+      "Input": "Case"
+    },
+    {
+      "FromId": "a7234901-7aa8-4329-801b-f2817929c2b1",
+      "From": "Beam",
+      "Component": "Midas Beam",
+      "Output": "Element",
+      "ToId": "fa7ff68f-998e-4c5d-b9fd-163a10b76c36",
+      "To": "Midas Beam Distributed Load",
+      "Input": "Beam"
+    },
+    {
+      "FromId": "06d22b4e-a316-4536-ac5a-67d4ff7c68c7",
+      "From": "Load Case",
+      "Component": "Midas Static Load Case",
+      "Output": "Name",
+      "ToId": "fa7ff68f-998e-4c5d-b9fd-163a10b76c36",
+      "To": "Midas Beam Distributed Load",
+      "Input": "Case"
+    },
+    {
+      "FromId": "d70458a6-d646-4721-9e8b-fc84858a1db2",
+      "From": "q GZ [kN/m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "fa7ff68f-998e-4c5d-b9fd-163a10b76c36",
+      "To": "Midas Beam Distributed Load",
+      "Input": "Start value"
+    },
+    {
+      "FromId": "d70458a6-d646-4721-9e8b-fc84858a1db2",
+      "From": "q GZ [kN/m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "fa7ff68f-998e-4c5d-b9fd-163a10b76c36",
+      "To": "Midas Beam Distributed Load",
+      "Input": "End value"
+    },
+    {
+      "FromId": "bb5ad7b8-b406-49dc-ab9c-ffd545c48f9f",
+      "From": "Load Case",
+      "Component": "Midas Static Load Case",
+      "Output": "Name",
+      "ToId": "c41bcdcc-9c60-4952-81e1-9b936051ce77",
+      "To": "Midas Load Combination",
+      "Input": "Cases"
+    },
+    {
+      "FromId": "06d22b4e-a316-4536-ac5a-67d4ff7c68c7",
+      "From": "Load Case",
+      "Component": "Midas Static Load Case",
+      "Output": "Name",
+      "ToId": "c41bcdcc-9c60-4952-81e1-9b936051ce77",
+      "To": "Midas Load Combination",
+      "Input": "Cases"
+    },
+    {
+      "FromId": "dcc809dd-df34-46cf-90bc-8b351ebe3c68",
+      "From": "Units",
+      "Component": "Midas Model Units",
+      "Output": "Units",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Units"
+    },
+    {
+      "FromId": "fa7ff68f-998e-4c5d-b9fd-163a10b76c36",
+      "From": "Beam Distributed Load",
+      "Component": "Midas Beam Distributed Load",
+      "Output": "Beam",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "bd7377b1-5044-40b1-9471-114dd9aa89f8",
+      "From": "Support",
+      "Component": "Midas Node Support",
+      "Output": "Nodes",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "bb5ad7b8-b406-49dc-ab9c-ffd545c48f9f",
+      "From": "Load Case",
+      "Component": "Midas Static Load Case",
+      "Output": "Case",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "06d22b4e-a316-4536-ac5a-67d4ff7c68c7",
+      "From": "Load Case",
+      "Component": "Midas Static Load Case",
+      "Output": "Case",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "6ddd6b69-e03e-46e2-bff1-d03b479544b6",
+      "From": "Self Weight",
+      "Component": "Midas Self Weight",
+      "Output": "Load",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "c41bcdcc-9c60-4952-81e1-9b936051ce77",
+      "From": "Combination",
+      "Component": "Midas Load Combination",
+      "Output": "Combination",
+      "ToId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "From": "Model",
+      "Component": "Build Midas Model",
+      "Output": "Model",
+      "ToId": "74f94fd5-9bd2-491c-aedb-499a95ee3e2c",
+      "To": "Validate Midas Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "From": "Model",
+      "Component": "Build Midas Model",
+      "Output": "Model",
+      "ToId": "920c93c8-245b-4961-b987-b5db1bfa8b45",
+      "To": "Midas Model Summary",
+      "Input": "Model"
+    },
+    {
+      "FromId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "From": "Model",
+      "Component": "Build Midas Model",
+      "Output": "Model",
+      "ToId": "b96b7197-0dd9-4927-b87b-895758934bcd",
+      "To": "Preview Midas Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "61a79239-9e17-4d45-9b1c-e86cc5ebec19",
+      "From": "Display Settings",
+      "Component": "Midas Display Settings",
+      "Output": "Settings",
+      "ToId": "b96b7197-0dd9-4927-b87b-895758934bcd",
+      "To": "Preview Midas Model",
+      "Input": "Settings"
+    },
+    {
+      "FromId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "From": "Model",
+      "Component": "Build Midas Model",
+      "Output": "Model",
+      "ToId": "bdbf2738-b583-4027-8fe3-44800f9ede7d",
+      "To": "Midas Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "FromId": "1dfe8669-904c-40d0-a932-6f505e97c55c",
+      "From": "Model",
+      "Component": "Build Midas Model",
+      "Output": "Model",
+      "ToId": "719cd297-78d7-491c-a4e6-4ed3b7fd4022",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "719cd297-78d7-491c-a4e6-4ed3b7fd4022",
+      "From": "Decompose",
+      "Component": "Decompose Midas Model",
+      "Output": "Beam",
+      "ToId": "6e3f4e07-19fb-45e5-888d-585719ddf429",
+      "To": "Decompose Midas Beam",
+      "Input": "Element"
+    }
+  ]
+}

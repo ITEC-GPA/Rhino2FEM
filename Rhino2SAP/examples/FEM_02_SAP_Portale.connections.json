@@ -1,0 +1,339 @@
+{
+  "Plugin": "Rhino2SAP",
+  "File": "FEM_02_SAP_Portale.gh",
+  "PluginComponents": 17,
+  "Objects": 38,
+  "Nodes": 4,
+  "Elements": 3,
+  "PhysicalVolume": 1.05,
+  "RoundTripGh": true,
+  "RoundTripGhx": true,
+  "ParametricLengthChange": true,
+  "SolverExecuted": false,
+  "Connections": [
+    {
+      "FromId": "f8cdecbc-9967-4c24-b591-e4ae3d462855",
+      "From": "H [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "1b0306ac-56ea-4462-a17d-d166ad5a168f",
+      "To": "Construct Point",
+      "Input": "Z coordinate"
+    },
+    {
+      "FromId": "4add5608-2d7b-4cca-b297-478fab86a95c",
+      "From": "L [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "064e7420-77ec-46c0-b902-2e8cc7e187ec",
+      "To": "Construct Point",
+      "Input": "X coordinate"
+    },
+    {
+      "FromId": "f8cdecbc-9967-4c24-b591-e4ae3d462855",
+      "From": "H [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "064e7420-77ec-46c0-b902-2e8cc7e187ec",
+      "To": "Construct Point",
+      "Input": "Z coordinate"
+    },
+    {
+      "FromId": "4add5608-2d7b-4cca-b297-478fab86a95c",
+      "From": "L [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "a64334e1-d5e3-46a0-9cb9-fb77172b22fc",
+      "To": "Construct Point",
+      "Input": "X coordinate"
+    },
+    {
+      "FromId": "88260ae6-68af-447f-8def-c12e96ec6b23",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "ad9dc8a6-53fa-452b-a5b3-dc3264409067",
+      "To": "Line",
+      "Input": "Start Point"
+    },
+    {
+      "FromId": "1b0306ac-56ea-4462-a17d-d166ad5a168f",
+      "From": "B",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "ad9dc8a6-53fa-452b-a5b3-dc3264409067",
+      "To": "Line",
+      "Input": "End Point"
+    },
+    {
+      "FromId": "1b0306ac-56ea-4462-a17d-d166ad5a168f",
+      "From": "B",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "1a664cfa-82e6-4e98-acd5-e5061edc3b00",
+      "To": "Line",
+      "Input": "Start Point"
+    },
+    {
+      "FromId": "064e7420-77ec-46c0-b902-2e8cc7e187ec",
+      "From": "C",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "1a664cfa-82e6-4e98-acd5-e5061edc3b00",
+      "To": "Line",
+      "Input": "End Point"
+    },
+    {
+      "FromId": "064e7420-77ec-46c0-b902-2e8cc7e187ec",
+      "From": "C",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "ba0cf212-f212-47cc-b1b7-5a08020f056d",
+      "To": "Line",
+      "Input": "Start Point"
+    },
+    {
+      "FromId": "a64334e1-d5e3-46a0-9cb9-fb77172b22fc",
+      "From": "D",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "ba0cf212-f212-47cc-b1b7-5a08020f056d",
+      "To": "Line",
+      "Input": "End Point"
+    },
+    {
+      "FromId": "5ee3854d-61dd-4fa8-98ae-c79c26c873cd",
+      "From": "Material",
+      "Component": "SAP Isotropic Material",
+      "Output": "Material",
+      "ToId": "8f45812f-07b7-4e21-88f5-c48daed516e1",
+      "To": "SAP Frame Section Rectangle",
+      "Input": "MatProp"
+    },
+    {
+      "FromId": "20671ca0-991a-4490-b317-5a5cf0920185",
+      "From": "h sezione [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "8f45812f-07b7-4e21-88f5-c48daed516e1",
+      "To": "SAP Frame Section Rectangle",
+      "Input": "T3"
+    },
+    {
+      "FromId": "ae470f4e-806c-48ec-b427-78cc4fd2c361",
+      "From": "b sezione [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "8f45812f-07b7-4e21-88f5-c48daed516e1",
+      "To": "SAP Frame Section Rectangle",
+      "Input": "T2"
+    },
+    {
+      "FromId": "ad9dc8a6-53fa-452b-a5b3-dc3264409067",
+      "From": "Asse",
+      "Component": "Line",
+      "Output": "Line",
+      "ToId": "861c1adb-2e6d-4654-9309-57c4192eeaca",
+      "To": "SAP Frame Element",
+      "Input": "Line"
+    },
+    {
+      "FromId": "1a664cfa-82e6-4e98-acd5-e5061edc3b00",
+      "From": "Asse",
+      "Component": "Line",
+      "Output": "Line",
+      "ToId": "861c1adb-2e6d-4654-9309-57c4192eeaca",
+      "To": "SAP Frame Element",
+      "Input": "Line"
+    },
+    {
+      "FromId": "ba0cf212-f212-47cc-b1b7-5a08020f056d",
+      "From": "Asse",
+      "Component": "Line",
+      "Output": "Line",
+      "ToId": "861c1adb-2e6d-4654-9309-57c4192eeaca",
+      "To": "SAP Frame Element",
+      "Input": "Line"
+    },
+    {
+      "FromId": "8f45812f-07b7-4e21-88f5-c48daed516e1",
+      "From": "SAP Frame Section Rectangle",
+      "Component": "SAP Frame Section Rectangle",
+      "Output": "Definition",
+      "ToId": "861c1adb-2e6d-4654-9309-57c4192eeaca",
+      "To": "SAP Frame Element",
+      "Input": "Property"
+    },
+    {
+      "FromId": "88260ae6-68af-447f-8def-c12e96ec6b23",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "a1501632-4305-4213-bcb8-a78657783f26",
+      "To": "SAP Node Element",
+      "Input": "Point"
+    },
+    {
+      "FromId": "a64334e1-d5e3-46a0-9cb9-fb77172b22fc",
+      "From": "D",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "a1501632-4305-4213-bcb8-a78657783f26",
+      "To": "SAP Node Element",
+      "Input": "Point"
+    },
+    {
+      "FromId": "a1501632-4305-4213-bcb8-a78657783f26",
+      "From": "SAP Node Element",
+      "Component": "SAP Node Element",
+      "Output": "Element",
+      "ToId": "bd97b1e9-8c4f-47e9-8f07-df342d42fe77",
+      "To": "SAP Node Restraint",
+      "Input": "Name"
+    },
+    {
+      "FromId": "861c1adb-2e6d-4654-9309-57c4192eeaca",
+      "From": "SAP Frame Element",
+      "Component": "SAP Frame Element",
+      "Output": "Element",
+      "ToId": "630ae756-1fbd-41e9-8834-dab9396c6580",
+      "To": "SAP Frame Load Distributed",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "ae583d49-7c34-4095-9000-8fea905d9d79",
+      "From": "Pattern",
+      "Component": "SAP Load Pattern",
+      "Output": "Pattern",
+      "ToId": "630ae756-1fbd-41e9-8834-dab9396c6580",
+      "To": "SAP Frame Load Distributed",
+      "Input": "LoadPat"
+    },
+    {
+      "FromId": "7628ca53-e681-4c7e-93a3-5917671b6b9c",
+      "From": "q GZ [kN/m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "630ae756-1fbd-41e9-8834-dab9396c6580",
+      "To": "SAP Frame Load Distributed",
+      "Input": "Val1"
+    },
+    {
+      "FromId": "7628ca53-e681-4c7e-93a3-5917671b6b9c",
+      "From": "q GZ [kN/m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "630ae756-1fbd-41e9-8834-dab9396c6580",
+      "To": "SAP Frame Load Distributed",
+      "Input": "Val2"
+    },
+    {
+      "FromId": "e3485730-b4ad-4cf9-bcca-53bd059b446a",
+      "From": "Unita: kN / m / C",
+      "Component": "Value List",
+      "Output": "Value List",
+      "ToId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "To": "Build SAP Model",
+      "Input": "Units"
+    },
+    {
+      "FromId": "630ae756-1fbd-41e9-8834-dab9396c6580",
+      "From": "SAP Frame Load Distributed",
+      "Component": "SAP Frame Load Distributed",
+      "Output": "Definition",
+      "ToId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "bd97b1e9-8c4f-47e9-8f07-df342d42fe77",
+      "From": "SAP Node Restraint",
+      "Component": "SAP Node Restraint",
+      "Output": "Definition",
+      "ToId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "06dbfd37-7fe0-4a66-bc23-8431efbbdad6",
+      "From": "Pattern",
+      "Component": "SAP Load Pattern",
+      "Output": "Pattern",
+      "ToId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "34d97ead-ffaa-4106-8cbd-65ca7e0a78a2",
+      "From": "Combination",
+      "Component": "SAP Load Combination",
+      "Output": "Combination",
+      "ToId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "From": "Model",
+      "Component": "Build SAP Model",
+      "Output": "Model",
+      "ToId": "38dc664d-4c1e-4cfc-9a7b-b9209330d62f",
+      "To": "Validate SAP Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "From": "Model",
+      "Component": "Build SAP Model",
+      "Output": "Model",
+      "ToId": "6c5d2ad2-7228-40dc-9099-0c57925b9d92",
+      "To": "SAP Model Summary",
+      "Input": "Model"
+    },
+    {
+      "FromId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "From": "Model",
+      "Component": "Build SAP Model",
+      "Output": "Model",
+      "ToId": "d2a25e78-091f-411b-afa7-04e3a12fe827",
+      "To": "Preview SAP Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "0fbfa698-67d5-43c5-9b2d-aa69cee396d5",
+      "From": "Display Settings",
+      "Component": "SAP Display Settings",
+      "Output": "Settings",
+      "ToId": "d2a25e78-091f-411b-afa7-04e3a12fe827",
+      "To": "Preview SAP Model",
+      "Input": "Settings"
+    },
+    {
+      "FromId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "From": "Model",
+      "Component": "Build SAP Model",
+      "Output": "Model",
+      "ToId": "bc64b36f-e47c-4d1f-8afa-380f7e9ad65c",
+      "To": "SAP Model Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "FromId": "7a5b3cce-df9c-4527-b065-fb978b9f6e83",
+      "From": "Model",
+      "Component": "Build SAP Model",
+      "Output": "Model",
+      "ToId": "27efbb53-96f3-4dc3-b9df-dfdd05fb4926",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "27efbb53-96f3-4dc3-b9df-dfdd05fb4926",
+      "From": "Decompose",
+      "Component": "Decompose SAP Model",
+      "Output": "Frame",
+      "ToId": "65c82f41-4424-4cda-8fc2-7239d56a6aa4",
+      "To": "Decompose SAP Beam",
+      "Input": "Element"
+    }
+  ]
+}

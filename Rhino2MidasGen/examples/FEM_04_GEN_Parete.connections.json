@@ -1,0 +1,339 @@
+{
+  "Plugin": "Rhino2MidasGen",
+  "File": "FEM_04_GEN_Parete.gh",
+  "PluginComponents": 19,
+  "Objects": 35,
+  "Nodes": 4,
+  "Elements": 1,
+  "PhysicalVolume": 2.4,
+  "RoundTripGh": true,
+  "RoundTripGhx": true,
+  "ParametricLengthChange": true,
+  "SolverExecuted": false,
+  "Connections": [
+    {
+      "FromId": "b0bfebf3-0554-4f58-960d-75bf6b0d2fee",
+      "From": "L [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "f02c8709-52ed-4bc9-93c0-49cb8ed7cd10",
+      "To": "Construct Point",
+      "Input": "X coordinate"
+    },
+    {
+      "FromId": "b0bfebf3-0554-4f58-960d-75bf6b0d2fee",
+      "From": "L [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "f5441324-8e45-4088-8ae9-ee5c221fb1cd",
+      "To": "Construct Point",
+      "Input": "X coordinate"
+    },
+    {
+      "FromId": "a5120315-23a7-4047-83e5-e13401402ad5",
+      "From": "h [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "f5441324-8e45-4088-8ae9-ee5c221fb1cd",
+      "To": "Construct Point",
+      "Input": "Z coordinate"
+    },
+    {
+      "FromId": "a5120315-23a7-4047-83e5-e13401402ad5",
+      "From": "h [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "6aa46268-9631-4661-8a10-f5cda2cff59b",
+      "To": "Construct Point",
+      "Input": "Z coordinate"
+    },
+    {
+      "FromId": "4575e077-6857-459b-ac99-4d08ca2664ad",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "cc30dff9-ce2d-49ec-a26a-55f66076837e",
+      "To": "Midas GEN Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "f02c8709-52ed-4bc9-93c0-49cb8ed7cd10",
+      "From": "B",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "cc30dff9-ce2d-49ec-a26a-55f66076837e",
+      "To": "Midas GEN Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "f5441324-8e45-4088-8ae9-ee5c221fb1cd",
+      "From": "C",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "04e5299e-b14c-4e3a-8bcd-b5535b0de57f",
+      "To": "Midas GEN Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "6aa46268-9631-4661-8a10-f5cda2cff59b",
+      "From": "D",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "04e5299e-b14c-4e3a-8bcd-b5535b0de57f",
+      "To": "Midas GEN Node",
+      "Input": "Point"
+    },
+    {
+      "FromId": "7a57ac2f-47c9-4b85-8fdb-e218f092f99f",
+      "From": "t [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "205d136e-5442-434a-a75b-dbd52b82aa1b",
+      "To": "Midas GEN Plate Thickness",
+      "Input": "Thickness"
+    },
+    {
+      "FromId": "4575e077-6857-459b-ac99-4d08ca2664ad",
+      "From": "A",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Points"
+    },
+    {
+      "FromId": "f02c8709-52ed-4bc9-93c0-49cb8ed7cd10",
+      "From": "B",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Points"
+    },
+    {
+      "FromId": "f5441324-8e45-4088-8ae9-ee5c221fb1cd",
+      "From": "C",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Points"
+    },
+    {
+      "FromId": "6aa46268-9631-4661-8a10-f5cda2cff59b",
+      "From": "D",
+      "Component": "Construct Point",
+      "Output": "Point",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Points"
+    },
+    {
+      "FromId": "cc30dff9-ce2d-49ec-a26a-55f66076837e",
+      "From": "Node",
+      "Component": "Midas GEN Node",
+      "Output": "Node",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Nodes"
+    },
+    {
+      "FromId": "04e5299e-b14c-4e3a-8bcd-b5535b0de57f",
+      "From": "Node",
+      "Component": "Midas GEN Node",
+      "Output": "Node",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Nodes"
+    },
+    {
+      "FromId": "6fa93fbc-240e-4973-bee3-a491795ef8a9",
+      "From": "Material",
+      "Component": "Midas GEN Isotropic Material",
+      "Output": "Material",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Material"
+    },
+    {
+      "FromId": "205d136e-5442-434a-a75b-dbd52b82aa1b",
+      "From": "Thickness",
+      "Component": "Midas GEN Plate Thickness",
+      "Output": "Thickness",
+      "ToId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "To": "Midas GEN Wall",
+      "Input": "Property"
+    },
+    {
+      "FromId": "cc30dff9-ce2d-49ec-a26a-55f66076837e",
+      "From": "Node",
+      "Component": "Midas GEN Node",
+      "Output": "Node",
+      "ToId": "0c76456a-3424-4c7d-a298-c9db7872d3ce",
+      "To": "Midas GEN Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "FromId": "04e5299e-b14c-4e3a-8bcd-b5535b0de57f",
+      "From": "Node",
+      "Component": "Midas GEN Node",
+      "Output": "Node",
+      "ToId": "05abc33c-d15c-4b83-9564-99ad269eda12",
+      "To": "Midas GEN Nodal Load",
+      "Input": "Nodes"
+    },
+    {
+      "FromId": "d6a117b1-481b-41da-8728-d489a492d04c",
+      "From": "Load Case",
+      "Component": "Midas GEN Static Load Case",
+      "Output": "Name",
+      "ToId": "05abc33c-d15c-4b83-9564-99ad269eda12",
+      "To": "Midas GEN Nodal Load",
+      "Input": "Case"
+    },
+    {
+      "FromId": "a5120315-23a7-4047-83e5-e13401402ad5",
+      "From": "h [m]",
+      "Component": "Number Slider",
+      "Output": "Number Slider",
+      "ToId": "358657e1-7cc7-4258-a0bc-b26e742f1632",
+      "To": "Midas GEN Story",
+      "Input": "Level"
+    },
+    {
+      "FromId": "09298b99-9223-4ead-95c1-7a0867c2f9a3",
+      "From": "Diaframma Roof",
+      "Component": "Boolean Toggle",
+      "Output": "Boolean Toggle",
+      "ToId": "358657e1-7cc7-4258-a0bc-b26e742f1632",
+      "To": "Midas GEN Story",
+      "Input": "Rigid diaphragm"
+    },
+    {
+      "FromId": "31626058-7c36-49eb-86a7-af7252cdccc1",
+      "From": "Units",
+      "Component": "Midas GEN Model Units",
+      "Output": "Units",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Units"
+    },
+    {
+      "FromId": "9ba8f0f3-a0ef-4e1a-981c-68f86ccb3c54",
+      "From": "Wall",
+      "Component": "Midas GEN Wall",
+      "Output": "Element",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "0c76456a-3424-4c7d-a298-c9db7872d3ce",
+      "From": "Support",
+      "Component": "Midas GEN Node Support",
+      "Output": "Nodes",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "05abc33c-d15c-4b83-9564-99ad269eda12",
+      "From": "Nodal Load",
+      "Component": "Midas GEN Nodal Load",
+      "Output": "Nodes",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "d6a117b1-481b-41da-8728-d489a492d04c",
+      "From": "Load Case",
+      "Component": "Midas GEN Static Load Case",
+      "Output": "Case",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "c0d56767-16b6-45a8-b044-6cfffbf88fb2",
+      "From": "Story",
+      "Component": "Midas GEN Story",
+      "Output": "Story",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "358657e1-7cc7-4258-a0bc-b26e742f1632",
+      "From": "Story",
+      "Component": "Midas GEN Story",
+      "Output": "Story",
+      "ToId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "FromId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "From": "Model",
+      "Component": "Build Midas GEN Model",
+      "Output": "Model",
+      "ToId": "3ab58ba3-2971-41c2-b763-0d5ab5862f78",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "From": "Model",
+      "Component": "Build Midas GEN Model",
+      "Output": "Model",
+      "ToId": "79cbac22-9f6c-45f0-a24e-bc860cc249e8",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "FromId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "From": "Model",
+      "Component": "Build Midas GEN Model",
+      "Output": "Model",
+      "ToId": "7ee87d7e-2316-413e-a2d2-37e7e0d606c0",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "1c9a7111-d436-4259-9c1c-6ea4b70104c8",
+      "From": "Display Settings",
+      "Component": "Midas GEN Display Settings",
+      "Output": "Settings",
+      "ToId": "7ee87d7e-2316-413e-a2d2-37e7e0d606c0",
+      "To": "Preview Midas GEN Model",
+      "Input": "Settings"
+    },
+    {
+      "FromId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "From": "Model",
+      "Component": "Build Midas GEN Model",
+      "Output": "Model",
+      "ToId": "188fbe0d-9ba1-41f8-8b07-6115e9b86763",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "FromId": "9c9d264b-5e89-4cd4-8219-8322680a6102",
+      "From": "Model",
+      "Component": "Build Midas GEN Model",
+      "Output": "Model",
+      "ToId": "13652971-642e-48c0-a14c-e270c5305cba",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "FromId": "13652971-642e-48c0-a14c-e270c5305cba",
+      "From": "Decompose",
+      "Component": "Decompose Midas GEN Model",
+      "Output": "Wall",
+      "ToId": "d594ef67-ecc4-4508-9168-c1e9a36d1ae2",
+      "To": "Decompose Midas GEN Wall",
+      "Input": "Element"
+    }
+  ]
+}

@@ -26,3 +26,6 @@ git submodule update --init --recursive
 La cartella principale e il repository GitHub si chiamano **Rhino2FEM**. Il repository è privato: per clonarlo occorre autenticarsi con un account autorizzato. I pacchetti compilati in `artifacts` sono generati dai rispettivi `build.ps1` e non vengono versionati.
 
 Il controllo congiunto del 27 settembre 2026 copre **1.634 componenti e 10.850 ingressi**, con tutti i plugin caricati nella stessa sessione Rhino/Grasshopper. Inventari, default e limiti delle prove: [Straus](Rhino2Straus/docs/INPUT-AUDIT.md), [SAP](Rhino2SAP/docs/INPUT-AUDIT.md), [Civil](Rhino2Midas/docs/INPUT-AUDIT.md), [GEN](Rhino2MidasGen/docs/INPUT-AUDIT.md).
+
+
+Quattro definizioni Grasshopper con slider e componenti collegati sono disponibili nella [guida agli esempi](ESEMPI-GRASSHOPPER.md): mensola Straus, portale SAP2000, trave Civil NX e parete GEN NX. I file .gh/.ghx si trovano nelle cartelle examples dei rispettivi progetti e si possono esplorare senza avviare i solver.
