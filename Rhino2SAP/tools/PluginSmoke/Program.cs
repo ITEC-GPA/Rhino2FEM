@@ -19,7 +19,7 @@ internal static class Program
         try
         {
             using var rhino=new RhinoCore(["/nosplash"],WindowStyle.NoWindow);
-            string root=Environment.CurrentDirectory;string plugin=Path.Combine(root,"Rhino2SAP.Grasshopper","bin","Release","net8.0-windows","Rhino2SAP.Grasshopper.gha");
+            string root=Environment.CurrentDirectory;string plugin=Path.Combine(root,"bin","Rhino2SAP.Grasshopper.gha");
             AssemblyLoadContext.Default.Resolving+=(context,name)=>{string file=Path.Combine(Path.GetDirectoryName(plugin)!,name.Name+".dll");return File.Exists(file)?context.LoadFromAssemblyPath(file):null;};
             var assembly=Assembly.LoadFrom(plugin);var ids=new HashSet<Guid>();int count=0;var catalogue=new List<object>();
             var sources=Directory.GetFiles(Path.Combine(root,"Rhino2SAP.Grasshopper"),"*.cs",SearchOption.AllDirectories).Where(f=>!f.Contains(Path.DirectorySeparatorChar+"obj"+Path.DirectorySeparatorChar)).Select(f=>(File:f,Text:File.ReadAllText(f))).ToArray();

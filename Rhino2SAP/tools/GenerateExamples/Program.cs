@@ -24,7 +24,7 @@ internal static class Program
         try
         {
             using var rhino=new RhinoCore(["/nosplash"],WindowStyle.NoWindow);
-            string plugin=Path.Combine(root,"Rhino2SAP.Grasshopper","bin","Release","net8.0-windows","Rhino2SAP.Grasshopper.gha");
+            string plugin=Path.Combine(root,"bin","Rhino2SAP.Grasshopper.gha");
             AssemblyLoadContext.Default.Resolving+=(context,name)=>{string file=Path.Combine(Path.GetDirectoryName(plugin)!,name.Name+".dll");return File.Exists(file)?context.LoadFromAssemblyPath(file):null;};
             var assembly=Assembly.LoadFrom(plugin);
             // Use a private in-process catalogue so unrelated installed GH plugins are not started.

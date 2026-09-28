@@ -34,7 +34,7 @@ Per il **bake solido**, collegare l'uscita **Breps** di `Preview SAP Model` a un
 ## Installazione
 
 1. Eseguire `./build.ps1` oppure usare `artifacts/Rhino2SAP.zip`.
-2. Copiare **l'intera cartella Rhino2SAP** in Grasshopper → File → Special Folders → Components Folder.
+2. Copiare **il contenuto di bin (o i file nella radice dello ZIP)** in una cartella Rhino2SAP in Grasshopper → File → Special Folders → Components Folder.
 3. Sbloccare i file scaricati, se necessario, e riavviare Rhino 8 in modalità .NET 8.
 4. SAP2000 viene cercato in `C:\Program Files\Computers and Structures\SAP2000 *`. Per un percorso diverso impostare `SAP2000_PATH` alla cartella dell'installazione o a `SAP2000.exe`.
 
@@ -67,7 +67,7 @@ Per rigenerarli dopo una build Release, eseguire `./tools/Generate-Examples.ps1`
 ```powershell
 ./tools/Inspect-Sdk.ps1
 ./tools/Generate-Components.ps1
-dotnet build Rhino2SAP.sln -c Release
+./build.ps1
 dotnet run --project Rhino2SAP.Tests -c Release
 dotnet run --project tools/PluginSmoke -c Release
 ./tools/Update-Catalogue.ps1
@@ -78,3 +78,18 @@ dotnet run --project tools/PluginSmoke -c Release
 `PluginSmoke` aggiorna il catalogo con i nomi, le categorie e i GUID effettivamente caricati in Rhino. `Inspect-Sdk` registra 2.047 firme dalla DLL locale; la provenienza e l'hash sono in `docs/sdk-source.json`. La documentazione usata è `CSI_OAPI_Documentation.chm`, inclusi l'esempio C# 26, le convenzioni di carico, la matrice locale/globale, gli assi avanzati e lo stato dell'analisi.
 
 `ComponentTopics.cs` definisce i pannelli condivisi da componenti API e componenti di uso comune. La rigenerazione dei componenti mantiene questa classificazione. Nomi e GUID restano stabili: i componenti si spostano nel ribbon senza cambiare identità nei file Grasshopper esistenti.
+
+## Compilazione e pulizia
+
+`./build.ps1` crea nella directory di questo progetto una sola cartella **`bin`** pronta per Grasshopper: un file `.gha` e le DLL/runtime necessari. Non cambiare i GUID per risolvere caricamenti doppi.
+
+La build elimina i vecchi `bin/obj` intermedi, ricrea il contenuto di `bin`, esegue i test e rimuove di nuovo gli intermedi anche in caso di errore. Conserva in `artifacts` lo ZIP della versione corrente; elimina i vecchi ZIP del plugin e le vecchie distribuzioni estratte. Gli archivi degli esempi restano disponibili. Documentazione ed esempi sono nei sorgenti e nello ZIP, senza duplicati nella cartella `bin`.
+
+- `./clean.ps1 -WhatIf`: mostra cosa verrebbe rimosso.
+- `./clean.ps1`: pulisce gli intermedi e i vecchi pacchetti, conservando `bin`.
+- `./build.ps1 -KeepBuildOutputs`: conserva gli intermedi per debug/sviluppo; al termine usare `./clean.ps1`.
+- `./build.ps1 -SkipTests`: compila e pulisce saltando i test gestiti.
+
+Caricare **solo questa cartella `bin`** tramite GrasshopperDeveloperSettings, oppure copiarne l'intero contenuto in un'unica cartella delle Libraries di Grasshopper. Usare una sola delle due modalità e sostituire l'installazione precedente: caricare contemporaneamente copie installate, `bin` e vecchi pacchetti genera duplicati. Le DLL accanto al `.gha` sono necessarie. Chiudere Rhino prima di ricompilare se i file sono in uso.
+
+Gli strumenti Rhino.Inside di verifica/generazione esempi leggono il plugin da `bin`: eseguire prima `./build.ps1`. Dopo l'uso dei tool, `./clean.ps1` rimuove anche i loro intermedi.

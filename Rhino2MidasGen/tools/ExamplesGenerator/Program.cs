@@ -31,7 +31,7 @@ internal static class Program
         {
             Root = Path.GetFullPath(args.Length > 0 ? args[0] : "..");
             using var rhino = new RhinoCore(["/nosplash"], WindowStyle.NoWindow);
-            var folders = Projects.Select(p => Path.Combine(Root, p, p + ".Grasshopper", "bin", "Release", "net8.0-windows")).ToArray();
+            var folders = Projects.Select(p => Path.Combine(Root, p, "bin")).ToArray();
             AssemblyLoadContext.Default.Resolving += (context, name) =>
             {
                 var path = folders.Select(f => Path.Combine(f, name.Name + ".dll")).FirstOrDefault(File.Exists);
@@ -48,7 +48,7 @@ internal static class Program
             foreach (var (project, folder) in Projects.Zip(folders))
             {
                 string path = Path.Combine(folder, project + ".Grasshopper.gha");
-                if (!File.Exists(path)) throw new FileNotFoundException("Build all four plugins in Release first.", path);
+                if (!File.Exists(path)) throw new FileNotFoundException("Run build.ps1 for all four plugins first.", path);
                 Assemblies.Add(project, Assembly.LoadFrom(path));
                 files.Add(new GH_ExternalFile(path));
             }

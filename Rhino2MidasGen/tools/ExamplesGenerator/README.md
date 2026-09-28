@@ -2,7 +2,7 @@
 
 Crea quattro definizioni .gh e .ghx nelle cartelle examples dei quattro progetti. Ogni grafo usa componenti Grasshopper nativi e del relativo plugin, con geometria parametrica, proprietà, vincoli, carichi, Model, validazione, preview e decomposizione.
 
-Prerequisiti: Windows, .NET 8, Rhino 8 e build Release di Rhino2Straus, Rhino2SAP, Rhino2Midas e Rhino2MidasGen. Dalla radice Rhino2FEM:
+Prerequisiti: Windows, .NET 8, Rhino 8 e build.ps1 di Rhino2Straus, Rhino2SAP, Rhino2Midas e Rhino2MidasGen (assembly nelle rispettive cartelle bin). Dalla radice Rhino2FEM:
 
 ```powershell
 dotnet run --project Rhino2MidasGen/tools/ExamplesGenerator -c Release -- .

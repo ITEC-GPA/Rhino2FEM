@@ -21,7 +21,7 @@ internal static class Program
         {
             Progress("Starting RhinoCore");using var rhino=new RhinoCore(["/nosplash"],WindowStyle.NoWindow);Progress("RhinoCore ready");
             string root=Environment.CurrentDirectory;
-            string plugin=Path.Combine(root,"Rhino2Midas.Grasshopper","bin","Release","net8.0-windows","Rhino2Midas.Grasshopper.gha");
+            string plugin=Path.Combine(root,"bin","Rhino2Midas.Grasshopper.gha");
             AssemblyLoadContext.Default.Resolving+=(context,name)=>{string file=Path.Combine(Path.GetDirectoryName(plugin)!,name.Name+".dll");return File.Exists(file)?context.LoadFromAssemblyPath(file):null;};
             var assembly=Assembly.LoadFrom(plugin);var ids=new HashSet<Guid>();var catalogue=new List<object>();var components=new List<GH_Component>();
 

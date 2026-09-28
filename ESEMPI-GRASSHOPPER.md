@@ -54,7 +54,7 @@ Controllati in Rhino/Grasshopper reali: calcolo di tutti i componenti, Model val
 
 Volumi iniziali dei solidi separati: Straus **0,18 m³**; SAP **1,05 m³**; Civil **0,90 m³**; GEN **2,40 m³**. Nel portale SAP il valore è la somma dei volumi dei tre elementi, senza unione booleana degli incroci.
 
-Il generatore si trova in [Rhino2MidasGen/tools/ExamplesGenerator](Rhino2MidasGen/tools/ExamplesGenerator/README.md). Dopo la build Release dei quattro plugin, dalla cartella Rhino2FEM:
+Il generatore si trova in [Rhino2MidasGen/tools/ExamplesGenerator](Rhino2MidasGen/tools/ExamplesGenerator/README.md). Dopo aver eseguito build.ps1 per i quattro plugin (assembly nelle rispettive cartelle bin), dalla cartella Rhino2FEM:
 
 ```powershell
 dotnet run --project Rhino2MidasGen/tools/ExamplesGenerator -c Release -- .

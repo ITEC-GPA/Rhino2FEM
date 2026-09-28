@@ -46,6 +46,6 @@ I componenti a valle dell'analisi restano senza dati fino al primo run completat
 Dal repository, per rigenerare file e anteprime con Rhino installato:
 
 ```powershell
-dotnet build Rhino2SAP.sln -c Release
+./build.ps1
 ./tools/Generate-Examples.ps1
 ```

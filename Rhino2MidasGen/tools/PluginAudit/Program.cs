@@ -19,7 +19,7 @@ internal static class Program
     {
         Console.WriteLine("Starting RhinoCore input audit");using var rhino=new RhinoCore(["/nosplash"],WindowStyle.NoWindow);Console.WriteLine("RhinoCore ready");
         string[] projects=["Rhino2Straus","Rhino2SAP","Rhino2Midas","Rhino2MidasGen"];
-        var folders=projects.Select(p=>Path.Combine(root,p,p+".Grasshopper","bin","Release","net8.0-windows")).ToArray();
+        var folders=projects.Select(p=>Path.Combine(root,p,"bin")).ToArray();
         AssemblyLoadContext.Default.Resolving+=(context,name)=>{var path=folders.Select(f=>Path.Combine(f,name.Name+".dll")).FirstOrDefault(File.Exists);return path==null?null:context.LoadFromAssemblyPath(path);};
         var allIds=new HashSet<Guid>();int total=0,inputs=0;var failures=new List<string>();
         foreach(var (project,folder) in projects.Zip(folders))
@@ -56,7 +56,7 @@ internal static class Program
                 File.WriteAllText(Path.Combine(root,project,"docs","INPUT-AUDIT.md"),$"# Controllo ingressi — 27 settembre 2026\n\n{list.Length} componenti e {ports.Length} ingressi ispezionati in Rhino/Grasshopper reali, con tutti e quattro i plugin caricati insieme e nessuna collisione GUID.\n\n"+
                     $"- Ingressi con dati predefiniti: {ports.Count(p=>p.GetProperty("DefaultCount").GetInt32()>0)}.\n- Ingressi marcati opzionali: {ports.Count(p=>p.GetProperty("Optional").GetBoolean())}; possono avere anche un default.\n- Ingressi che richiedono dati del modello o parametri espliciti: {ports.Count(p=>p.GetProperty("RequiresConnection").GetBoolean())}.\n- Componenti eseguiti con soli default/opzioni scollegate: {list.Count(c=>c.GetProperty("DefaultSolve").GetBoolean())}.\n- Sezioni native Straus escluse dal calcolo per dipendenza dalla licenza API: {list.Count(c=>c.GetProperty("SkipReason").ValueKind!=JsonValueKind.Null)}; tutti i loro ingressi sono stati ispezionati.\n\n"+
                     "[Inventario completo per componente e ingresso](INPUT-AUDIT.json). I dati indispensabili — geometria, Model, proprietà, nomi/riferimenti e argomenti obbligatori delle API — richiedono ancora un collegamento. I default geometrici sono esempi modificabili nelle unità del Model.\n\n"+
-                    "Ripetere dalla cartella Rhino2MidasGen: `dotnet run --project tools/PluginAudit -c Release -- ..`, dopo la build Release dei quattro progetti. Il controllo automatico dei default non avvia i solver strutturali.\n");
+                    "Ripetere dalla cartella Rhino2MidasGen: `dotnet run --project tools/PluginAudit -c Release -- ..`, dopo build.ps1 dei quattro progetti (assembly in bin). Il controllo automatico dei default non avvia i solver strutturali.\n");
             }
             Regression(assembly,project,document);
             Console.WriteLine($"PASS {project}: {components.Count} components, valid icons/outputs and no GUID collisions. Input inventory saved.");
