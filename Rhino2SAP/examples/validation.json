@@ -1,0 +1,35 @@
+{
+  "GeneratedUtc": "2026-09-28T05:40:48.6124939+00:00",
+  "Examples": [
+    {
+      "File": "01_Trave_carico_preview_bake.gh",
+      "Objects": 29,
+      "Wires": 22,
+      "SapComponents": 14,
+      "ClosedBreps": 1,
+      "RoundTripGh": true,
+      "RoundTripGhx": true,
+      "AnalysisExecuted": false
+    },
+    {
+      "File": "02_Piastra_mesh_pressione.gh",
+      "Objects": 33,
+      "Wires": 25,
+      "SapComponents": 15,
+      "ClosedBreps": 4,
+      "RoundTripGh": true,
+      "RoundTripGhx": true,
+      "AnalysisExecuted": false
+    },
+    {
+      "File": "03_Analisi_assiale_risultati.gh",
+      "Objects": 45,
+      "Wires": 36,
+      "SapComponents": 21,
+      "ClosedBreps": 1,
+      "RoundTripGh": true,
+      "RoundTripGhx": true,
+      "AnalysisExecuted": false
+    }
+  ]
+}

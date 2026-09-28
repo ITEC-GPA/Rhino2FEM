@@ -29,7 +29,17 @@ public abstract class SafeComponent:GH_Component
     public override Guid ComponentGuid=>Identity.For(GetType().Name);
     protected override Bitmap Icon=>ComponentIcons.Get(Name,SubCategory);
     protected sealed override void SolveInstance(IGH_DataAccess da)
-    {try{Message=null;Solve(da);}catch(Exception ex){AddRuntimeMessage(GH_RuntimeMessageLevel.Error,ex.GetBaseException().Message);}}
+    {
+        try
+        {
+            Message=null;
+            // A connected action component may deliberately emit no data until Run is triggered.
+            if(Params.Input.Any(p=>!p.Optional&&p.SourceCount>0&&(p.VolatileDataCount==0||p.VolatileData.AllData(true).All(v=>v==null))))
+            {Message="Waiting for input";return;}
+            Solve(da);
+        }
+        catch(Exception ex){AddRuntimeMessage(GH_RuntimeMessageLevel.Error,ex.GetBaseException().Message);}
+    }
     protected abstract void Solve(IGH_DataAccess da);
     protected static T Item<T>(IGH_DataAccess da,int index){T value=default!;if(!da.GetData(index,ref value))throw new ArgumentException($"Missing input {index+1}.");return value;}
     public static object? Unwrap(object? value)=>value is IGH_Goo goo?goo.ScriptVariable():value;

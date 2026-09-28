@@ -56,6 +56,12 @@ Le modifiche agli input non rilanciano automaticamente SAP. `Overwrite=false` è
 - `obj` e `Obj` sono trattati allo stesso modo nei risultati, perché l'SDK usa entrambe le grafie. Identificativi e nomi dei casi sono invece conservati.
 - I risultati nodali sono in assi locali del nodo. La deformata li converte in globali con la matrice nativa CSI salvata durante l'analisi.
 
+## Esempi Grasshopper
+
+In [examples](examples/README.md) sono disponibili tre definizioni `.gh` e `.ghx` con note e gruppi sul canvas: trave con carico e bake, piastra mesh con pressione, analisi assiale con combinazione e lettura dei risultati. Geometrie incorporate, anteprime PNG e trigger Run/Bake inizialmente disattivati. Il plugin aggiornato lascia i lettori in attesa quando il componente di analisi non ha ancora prodotto dati.
+
+Per rigenerarli dopo una build Release, eseguire `./tools/Generate-Examples.ps1`. Il generatore riapre entrambi i formati, verifica fili/modelli/Brep e pubblica un rapporto in `examples/validation.json`; non esegue SAP.
+
 ## Sviluppo
 
 ```powershell

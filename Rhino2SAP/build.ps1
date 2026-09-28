@@ -16,5 +16,10 @@ $docsFolder=Join-Path $output 'docs';New-Item -ItemType Directory -Force $docsFo
 Get-ChildItem 'docs' -File | Where-Object { $_.Extension -in '.md','.png' -or $_.Name -in 'components.json','INPUT-AUDIT.json' } | Copy-Item -Destination $docsFolder -Force
 $iconFolder=Join-Path $output 'Icons';New-Item -ItemType Directory -Force $iconFolder | Out-Null
 Get-ChildItem 'Rhino2SAP.Grasshopper\Assets\Icons' -Filter '*.png' -ErrorAction SilentlyContinue | Copy-Item -Destination $iconFolder -Force
+$examplesFolder=Join-Path $PSScriptRoot 'examples'
+if(Test-Path -LiteralPath $examplesFolder){
+    $examplesOutput=Join-Path $output 'examples';New-Item -ItemType Directory -Path $examplesOutput -Force | Out-Null
+    Get-ChildItem -LiteralPath $examplesFolder -File | Copy-Item -Destination $examplesOutput -Force
+}
 Compress-Archive -Path $output -DestinationPath (Join-Path $PSScriptRoot 'artifacts\Rhino2SAP.zip') -Force
 Write-Output "Package: $output"
