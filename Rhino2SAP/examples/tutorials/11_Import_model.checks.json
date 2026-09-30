@@ -1,0 +1,130 @@
+{
+  "Project": "Rhino2SAP",
+  "File": "11_Import_model.gh",
+  "Title": "Modello esistente verso Grasshopper",
+  "Description": "Leggi il modello nativo e ottieni il Model associato. Controlla Issues per conoscere dati importati e limiti.",
+  "Topics": [
+    "Modello esistente verso Grasshopper"
+  ],
+  "Instructions": [],
+  "Fingerprints": [],
+  "PluginComponents": [
+    {
+      "Class": "ImportModelComponent",
+      "Name": "Import SAP Model",
+      "ComponentGuid": "8fb8c2a7-bf0e-eb8e-2e98-274194549376"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate SAP Model",
+      "ComponentGuid": "fd2fe5dd-6f47-76c9-aa49-b7609bd6f1fc"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "SAP Model Summary",
+      "ComponentGuid": "4e3b3a4b-c0e1-f86f-1d85-41bac30ffe75"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview SAP Model",
+      "ComponentGuid": "5d900d76-f926-632a-d1d3-fb28a22cf597"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose SAP Model",
+      "ComponentGuid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "SAP Model Physical Geometry",
+      "ComponentGuid": "4b01f40c-1243-f13f-c744-3f33a26dfb61"
+    }
+  ],
+  "Objects": 20,
+  "Wires": 12,
+  "ModelChecks": 0,
+  "PhysicalChecks": 0,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [
+    {
+      "Component": "Validate SAP Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "SAP Model Summary",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Preview SAP Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Decompose SAP Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "SAP Model Physical Geometry",
+      "Warning": "Input parameter M failed to collect data"
+    }
+  ],
+  "Connections": [
+    {
+      "From": "PATH: percorso locale modificabile",
+      "Output": "Panel",
+      "To": "Import SAP Model",
+      "Input": "Path"
+    },
+    {
+      "From": "READ MODEL",
+      "Output": "Boolean Toggle",
+      "To": "Import SAP Model",
+      "Input": "Run"
+    },
+    {
+      "From": "Import Model",
+      "Output": "Model",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "READ MODEL",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Validate SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "SAP Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Preview SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "SAP Model Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

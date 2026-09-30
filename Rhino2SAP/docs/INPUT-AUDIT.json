@@ -4824,6 +4824,27 @@
     "SkipReason": null
   },
   {
+    "Class": "Rhino2SAP.Grasshopper.FilePathsComponent",
+    "Name": "SAP File Paths",
+    "Guid": "33302df3-52d4-2573-2bd5-40fb57cf8df3",
+    "Inputs": [
+      {
+        "Index": 0,
+        "Name": "Path",
+        "Description": "SAP .sdb path.",
+        "Type": "Text",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      }
+    ],
+    "DefaultSolve": false,
+    "DefaultSolveErrors": [],
+    "DefaultOutputCount": 0,
+    "SkipReason": null
+  },
+  {
     "Class": "Rhino2SAP.Grasshopper.FrameDiagramComponent",
     "Name": "SAP Model Frame Force Diagram",
     "Guid": "d87d967b-ec35-26ee-85fb-7e76ae69460f",
@@ -7789,6 +7810,37 @@
         "Type": "Boolean",
         "Access": "item",
         "Optional": true,
+        "DefaultCount": 1,
+        "RequiresConnection": false
+      }
+    ],
+    "DefaultSolve": false,
+    "DefaultSolveErrors": [],
+    "DefaultOutputCount": 0,
+    "SkipReason": null
+  },
+  {
+    "Class": "Rhino2SAP.Grasshopper.ImportModelComponent",
+    "Name": "Import SAP Model",
+    "Guid": "8fb8c2a7-bf0e-eb8e-2e98-274194549376",
+    "Inputs": [
+      {
+        "Index": 0,
+        "Name": "Path",
+        "Description": "Existing .sdb. Keep the source available for export and analysis.",
+        "Type": "Text",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 1,
+        "Name": "Run",
+        "Description": "False to True imports a private copy. The source is never saved.",
+        "Type": "Boolean",
+        "Access": "item",
+        "Optional": false,
         "DefaultCount": 1,
         "RequiresConnection": false
       }
@@ -29730,6 +29782,67 @@
     "SkipReason": null
   },
   {
+    "Class": "Rhino2SAP.Grasshopper.PowerSpectrumFunctionComponent",
+    "Name": "SAP Power Spectrum Function",
+    "Guid": "1edf9d70-86c8-de1c-3be6-bdd13d64841d",
+    "Inputs": [
+      {
+        "Index": 0,
+        "Name": "Definitions",
+        "Description": "Prior definitions/elements. Connected fragments are carried into the output.",
+        "Type": "Generic Data",
+        "Access": "list",
+        "Optional": true,
+        "DefaultCount": 0,
+        "RequiresConnection": false
+      },
+      {
+        "Index": 1,
+        "Name": "Name",
+        "Description": "Name. Text or one named SAP definition/element.",
+        "Type": "Generic Data",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 2,
+        "Name": "NumberItems",
+        "Description": "NumberItems",
+        "Type": "Integer",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 3,
+        "Name": "Frequency",
+        "Description": "Frequency",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 4,
+        "Name": "Value",
+        "Description": "Value",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      }
+    ],
+    "DefaultSolve": false,
+    "DefaultSolveErrors": [],
+    "DefaultOutputCount": 0,
+    "SkipReason": null
+  },
+  {
     "Class": "Rhino2SAP.Grasshopper.PreviewModelComponent",
     "Name": "Preview SAP Model",
     "Guid": "5d900d76-f926-632a-d1d3-fb28a22cf597",
@@ -48000,6 +48113,138 @@
     "SkipReason": null
   },
   {
+    "Class": "Rhino2SAP.Grasshopper.SpectrumFunctionComponent",
+    "Name": "SAP Response Spectrum Function",
+    "Guid": "f2599b56-bf63-aa4a-aabe-7ac99239b3c5",
+    "Inputs": [
+      {
+        "Index": 0,
+        "Name": "Definitions",
+        "Description": "Prior definitions/elements. Connected fragments are carried into the output.",
+        "Type": "Generic Data",
+        "Access": "list",
+        "Optional": true,
+        "DefaultCount": 0,
+        "RequiresConnection": false
+      },
+      {
+        "Index": 1,
+        "Name": "Name",
+        "Description": "Name. Text or one named SAP definition/element.",
+        "Type": "Generic Data",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 2,
+        "Name": "NumberItems",
+        "Description": "NumberItems",
+        "Type": "Integer",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 3,
+        "Name": "Period",
+        "Description": "Period",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 4,
+        "Name": "Value",
+        "Description": "Value",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 5,
+        "Name": "DampRatio",
+        "Description": "DampRatio",
+        "Type": "Number",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      }
+    ],
+    "DefaultSolve": false,
+    "DefaultSolveErrors": [],
+    "DefaultOutputCount": 0,
+    "SkipReason": null
+  },
+  {
+    "Class": "Rhino2SAP.Grasshopper.SteadyStateFunctionComponent",
+    "Name": "SAP Steady State Function",
+    "Guid": "0ce143f1-aa08-229c-3d48-57aee030a2ce",
+    "Inputs": [
+      {
+        "Index": 0,
+        "Name": "Definitions",
+        "Description": "Prior definitions/elements. Connected fragments are carried into the output.",
+        "Type": "Generic Data",
+        "Access": "list",
+        "Optional": true,
+        "DefaultCount": 0,
+        "RequiresConnection": false
+      },
+      {
+        "Index": 1,
+        "Name": "Name",
+        "Description": "Name. Text or one named SAP definition/element.",
+        "Type": "Generic Data",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 2,
+        "Name": "NumberItems",
+        "Description": "NumberItems",
+        "Type": "Integer",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 3,
+        "Name": "Frequency",
+        "Description": "Frequency",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 4,
+        "Name": "Value",
+        "Description": "Value",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      }
+    ],
+    "DefaultSolve": false,
+    "DefaultSolveErrors": [],
+    "DefaultOutputCount": 0,
+    "SkipReason": null
+  },
+  {
     "Class": "Rhino2SAP.Grasshopper.TendonObj_SetDiscretizationComponent",
     "Name": "SAP Tendon Obj Discretization",
     "Guid": "2801c437-d091-55d6-5f28-68b476261665",
@@ -48975,6 +49220,67 @@
         "Optional": true,
         "DefaultCount": 1,
         "RequiresConnection": false
+      }
+    ],
+    "DefaultSolve": false,
+    "DefaultSolveErrors": [],
+    "DefaultOutputCount": 0,
+    "SkipReason": null
+  },
+  {
+    "Class": "Rhino2SAP.Grasshopper.TimeHistoryFunctionComponent",
+    "Name": "SAP Time History Function",
+    "Guid": "49d2015e-34f3-356f-552b-dcd027a073a4",
+    "Inputs": [
+      {
+        "Index": 0,
+        "Name": "Definitions",
+        "Description": "Prior definitions/elements. Connected fragments are carried into the output.",
+        "Type": "Generic Data",
+        "Access": "list",
+        "Optional": true,
+        "DefaultCount": 0,
+        "RequiresConnection": false
+      },
+      {
+        "Index": 1,
+        "Name": "Name",
+        "Description": "Name. Text or one named SAP definition/element.",
+        "Type": "Generic Data",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 2,
+        "Name": "NumberItems",
+        "Description": "NumberItems",
+        "Type": "Integer",
+        "Access": "item",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 3,
+        "Name": "MyTime",
+        "Description": "MyTime",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
+      },
+      {
+        "Index": 4,
+        "Name": "Value",
+        "Description": "Value",
+        "Type": "Number",
+        "Access": "list",
+        "Optional": false,
+        "DefaultCount": 0,
+        "RequiresConnection": true
       }
     ],
     "DefaultSolve": false,

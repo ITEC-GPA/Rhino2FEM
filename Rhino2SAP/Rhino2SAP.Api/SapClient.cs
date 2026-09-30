@@ -71,9 +71,13 @@ public sealed class SapClient : ISapClient
             else if(p.ParameterType.IsByRef)values[i]=t.IsArray?Array.CreateInstance(t.GetElementType()!,0):t==typeof(string)?"":Activator.CreateInstance(t);
             else throw new ArgumentException($"{key}: missing {p.Name}.");
         }
-        try { Check(key,method.Invoke(target,values)); }
+        object? returned;
+        try { returned=method.Invoke(target,values); Check(key,returned); }
         catch(TargetInvocationException ex){throw new InvalidOperationException($"SAP {key}: {ex.InnerException?.Message}",ex.InnerException);}
-        return parameters.Select((p,i)=>(p,i)).Where(x=>x.p.ParameterType.IsByRef).ToDictionary(x=>x.p.Name!,x=>ApiSchema.Value(values[x.i]));
+        var outputs=parameters.Select((p,i)=>(p,i)).Where(x=>x.p.ParameterType.IsByRef).ToDictionary(x=>x.p.Name!,x=>ApiSchema.Value(values[x.i]));
+        // Unit queries return an enum directly, rather than an integer status code.
+        if(method.ReturnType.IsEnum)outputs["ReturnValue"]=ApiSchema.Value(Convert.ToInt32(returned));
+        return outputs;
     }
     private static object? ConvertValue(JsonElement value,Type t)
     {

@@ -8,6 +8,7 @@ public static class ElementAlignment
 {
     public static Fragment Align(Fragment source,Vector3d direction,ElementKind? kind=null,Point3d? target=null)
     {
+        source.RequireEditable();
         var operations=source.Operations.ToList();
         foreach(var e in source.Elements.Where(e=>(kind==null||e.Kind==kind)&&e.Kind is ElementKind.Frame or ElementKind.Area))
         {

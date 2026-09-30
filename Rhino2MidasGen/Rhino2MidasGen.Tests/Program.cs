@@ -110,6 +110,7 @@ using(var handler=new FakeGenHandler())using(var client=new GenClient("https://m
     try{await GenService.ExecuteAsync(client,example,new(Path.Combine(Path.GetTempPath(),"wrong-product.mcb"),false,true));throw new Exception("Civil extension accepted");}
     catch(ArgumentException){Check(handler.Calls.Count==0,"Civil file extension rejected before document replacement");}
 }
+await ImportChecks.Run(Check);
 Console.WriteLine($"{count} managed checks passed.");
 if(args.Contains("--native"))
 {

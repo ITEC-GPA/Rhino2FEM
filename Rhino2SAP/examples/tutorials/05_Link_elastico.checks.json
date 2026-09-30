@@ -1,0 +1,137 @@
+{
+  "Project": "Rhino2SAP",
+  "File": "05_Link_elastico.gh",
+  "Title": "Link e rigidezze",
+  "Description": "Due nodi distinti collegati da un link elastico. Il primo e vincolato, il secondo e libero. Le prime tre rigidezze sono kN/m, le ultime tre kN m/rad.",
+  "Topics": [
+    "Link e rigidezze"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "25DB091C5158EF4296E1F6A58E67F81156EA47F6D574CD5A4F6A502A0D18CE59"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "PointObj_SetRestraintComponent",
+      "Name": "SAP Node Restraint",
+      "ComponentGuid": "867e952f-7139-6350-f087-3fbd1d061bdc"
+    },
+    {
+      "Class": "PropLink_SetLinearComponent",
+      "Name": "SAP Link Property Linear",
+      "ComponentGuid": "468220a9-d716-4f96-57f0-0d165a7cf18e"
+    },
+    {
+      "Class": "LinkElementComponent",
+      "Name": "SAP Link Element",
+      "ComponentGuid": "78907f95-af96-fdfc-1426-73363e3a1c31"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build SAP Model",
+      "ComponentGuid": "448661f3-127a-0113-e6c8-5495e3279d16"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate SAP Model",
+      "ComponentGuid": "fd2fe5dd-6f47-76c9-aa49-b7609bd6f1fc"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "SAP Model Summary",
+      "ComponentGuid": "4e3b3a4b-c0e1-f86f-1d85-41bac30ffe75"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview SAP Model",
+      "ComponentGuid": "5d900d76-f926-632a-d1d3-fb28a22cf597"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose SAP Model",
+      "ComponentGuid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+    }
+  ],
+  "Objects": 21,
+  "Wires": 12,
+  "ModelChecks": 1,
+  "PhysicalChecks": 0,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "SAP Node Restraint",
+      "Input": "Name"
+    },
+    {
+      "From": "K: TX TY TZ RX RY RZ",
+      "Output": "Panel",
+      "To": "SAP Link Property Linear",
+      "Input": "Ke"
+    },
+    {
+      "From": "SAP Link Property Linear",
+      "Output": "Definition",
+      "To": "SAP Link Element",
+      "Input": "Property"
+    },
+    {
+      "From": "SAP Link Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Restraint",
+      "Output": "Definition",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "SAP Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    }
+  ]
+}

@@ -12,6 +12,7 @@ try
     {
         "Run"=>ModelArchive.Serialize(new AnalysisService().Execute(ModelArchive.Deserialize(request.ModelJson!),request.Options!)),
         "Geometry"=>ModelArchive.Serialize(new SapModel(ReadService.Geometry(request.File!))),
+        "ImportModel"=>ModelArchive.Serialize(new ModelImportService().Read(request.File!)),
         "Query"=>JsonSerializer.Serialize(ReadService.Query(request.File!,request.Method!,request.Arguments??[],request.Cases,request.Combinations)),
         _=>throw new ArgumentException("Unknown worker command.")
     });

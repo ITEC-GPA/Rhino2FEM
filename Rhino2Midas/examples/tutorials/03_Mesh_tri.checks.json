@@ -1,0 +1,182 @@
+{
+  "Project": "Rhino2Midas",
+  "File": "03_Mesh_tri.gh",
+  "Title": "Mesh triangolare",
+  "Description": "La stessa piastra usa 8 Tri3 e conserva 9 nodi. Confronta questo file con 02: la scelta della mesh cambia gli elementi, non l\u0027area e lo spessore.",
+  "Topics": [
+    "Mesh triangolare"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "F2D0505211695D4AB6F74C37E4F6919D6244638164EAB4ED910DC77FFBF5D6DC"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas Isotropic Material",
+      "ComponentGuid": "ff670ff2-427d-96a3-f9fd-908307ef3c1b"
+    },
+    {
+      "Class": "ThicknessComponent",
+      "Name": "Midas Plate Thickness",
+      "ComponentGuid": "ad2f9bc3-da0f-48b3-d9a6-8ba05eff0bb3"
+    },
+    {
+      "Class": "MeshToPlatesComponent",
+      "Name": "Midas Mesh to Plates",
+      "ComponentGuid": "9445f789-53c8-24a7-68fb-51b5413d0466"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas Node Support",
+      "ComponentGuid": "44262e17-b337-06f1-5f06-87fdd1e8d8f8"
+    },
+    {
+      "Class": "LoadCaseComponent",
+      "Name": "Midas Static Load Case",
+      "ComponentGuid": "aa495bae-df6f-cb01-1d6a-19f0b5eb8d73"
+    },
+    {
+      "Class": "PlatePressureComponent",
+      "Name": "Midas Plate Pressure",
+      "ComponentGuid": "849ffdb1-9068-4c13-27b5-1fdb29542713"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas Model",
+      "ComponentGuid": "e50a5053-c65f-9ead-56c0-b590e4180c11"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas Model",
+      "ComponentGuid": "93b33ef7-a831-e8de-c515-ad1b112ffad4"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas Model Summary",
+      "ComponentGuid": "c64a6cc9-799f-bc96-3412-0eff815a14bc"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas Model",
+      "ComponentGuid": "bd713aa6-c112-2638-5b1c-2bf09e6a4c2f"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas Model",
+      "ComponentGuid": "698c14a7-0908-2e23-f900-66cbaf85e602"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas Physical Geometry",
+      "ComponentGuid": "07af8b1b-d006-eb02-9b49-9eea39bf7ba0"
+    }
+  ],
+  "Objects": 24,
+  "Wires": 17,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "Spessore t [m]",
+      "Output": "Number Slider",
+      "To": "Midas Plate Thickness",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Mesh incorporata",
+      "Output": "Mesh",
+      "To": "Midas Mesh to Plates",
+      "Input": "Mesh"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas Mesh to Plates",
+      "Input": "Material"
+    },
+    {
+      "From": "Thickness",
+      "Output": "Thickness",
+      "To": "Midas Mesh to Plates",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Mesh Plates",
+      "Output": "Plates",
+      "To": "Midas Plate Pressure",
+      "Input": "Plate"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Name",
+      "To": "Midas Plate Pressure",
+      "Input": "Case"
+    },
+    {
+      "From": "Pressure",
+      "Output": "Plate",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Case",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

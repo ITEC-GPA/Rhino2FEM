@@ -1,0 +1,198 @@
+{
+  "Project": "Rhino2Midas",
+  "File": "07_Assi_offset_svincoli.gh",
+  "Title": "Assi locali, offset e svincoli",
+  "Description": "Una catena modifica lo stesso elemento: orientamento, eccentricita, rilascio terminale. Build riceve soltanto l\u0027ultima versione.",
+  "Topics": [
+    "Assi locali, offset e svincoli"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "3585558BF2597E2388C67B5465440D1C7C5AB31EECF6F0F92E3A55C810F29D3E"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas Isotropic Material",
+      "ComponentGuid": "ff670ff2-427d-96a3-f9fd-908307ef3c1b"
+    },
+    {
+      "Class": "RectangleSectionComponent",
+      "Name": "Midas Rectangle Section",
+      "ComponentGuid": "408cb7a3-3be5-67ad-eb69-5c65013f62f6"
+    },
+    {
+      "Class": "BeamElementComponent",
+      "Name": "Midas Beam",
+      "ComponentGuid": "568fca52-13ab-e93e-d27c-ff4f2d62c9a8"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas Node Support",
+      "ComponentGuid": "44262e17-b337-06f1-5f06-87fdd1e8d8f8"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas Model",
+      "ComponentGuid": "e50a5053-c65f-9ead-56c0-b590e4180c11"
+    },
+    {
+      "Class": "AlignBeamComponent",
+      "Name": "Align Midas Beam Axis",
+      "ComponentGuid": "6bf77ae5-fdd9-1d73-6087-ab22d5e3ade9"
+    },
+    {
+      "Class": "BeamOffsetComponent",
+      "Name": "Midas Beam End Offset",
+      "ComponentGuid": "ae7ad9de-0b75-bdbb-7c80-a55d948b36a8"
+    },
+    {
+      "Class": "BeamReleaseComponent",
+      "Name": "Midas Beam Releases",
+      "ComponentGuid": "24996d2d-7a2c-0ec9-73ff-3f30049bec6f"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas Model",
+      "ComponentGuid": "93b33ef7-a831-e8de-c515-ad1b112ffad4"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas Model Summary",
+      "ComponentGuid": "c64a6cc9-799f-bc96-3412-0eff815a14bc"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas Model",
+      "ComponentGuid": "bd713aa6-c112-2638-5b1c-2bf09e6a4c2f"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas Model",
+      "ComponentGuid": "698c14a7-0908-2e23-f900-66cbaf85e602"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas Physical Geometry",
+      "ComponentGuid": "07af8b1b-d006-eb02-9b49-9eea39bf7ba0"
+    }
+  ],
+  "Objects": 28,
+  "Wires": 18,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "h [m]",
+      "Output": "Number Slider",
+      "To": "Midas Rectangle Section",
+      "Input": "Height"
+    },
+    {
+      "From": "b [m]",
+      "Output": "Number Slider",
+      "To": "Midas Rectangle Section",
+      "Input": "Width"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas Beam",
+      "Input": "Material"
+    },
+    {
+      "From": "Rectangle",
+      "Output": "Section",
+      "To": "Midas Beam",
+      "Input": "Property"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Releases",
+      "Output": "Beam",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Beam",
+      "Output": "Element",
+      "To": "Align Midas Beam Axis",
+      "Input": "Definition"
+    },
+    {
+      "From": "Align",
+      "Output": "Definition",
+      "To": "Midas Beam End Offset",
+      "Input": "Beam"
+    },
+    {
+      "From": "Offset",
+      "Output": "Beam",
+      "To": "Midas Beam Releases",
+      "Input": "Beam"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

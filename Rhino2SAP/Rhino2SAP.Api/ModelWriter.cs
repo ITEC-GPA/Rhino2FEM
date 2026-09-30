@@ -8,6 +8,7 @@ public static class ModelWriter
     public static IReadOnlyDictionary<string,Position> Write(ISapClient client,SapModel model)
     {
         ModelValidation.RequireValid(model);
+        if(model.NativeSource != null)throw new InvalidOperationException("Use AnalysisService to export an imported native Model without reconstructing or losing its source definitions.");
         client.Call("InitializeNewModel",ApiSchema.Args(("Units",model.Units)));
         client.Call("File.NewBlank");
         client.Call("SetPresentUnits",ApiSchema.Args(("Units",model.Units)));

@@ -1,0 +1,129 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "11_Import_model.gh",
+  "Title": "Modello esistente verso Grasshopper",
+  "Description": "Leggi il modello nativo e ottieni il Model associato. Controlla Issues per conoscere dati importati e limiti.",
+  "Topics": [
+    "Modello esistente verso Grasshopper"
+  ],
+  "Instructions": [],
+  "Fingerprints": [],
+  "PluginComponents": [
+    {
+      "Class": "ReadGenModelComponent",
+      "Name": "Read Active Midas GEN Model",
+      "ComponentGuid": "f1974d23-3407-a23f-6fab-9354b97b4cb8"
+    },
+    {
+      "Class": "ApiConnectionComponent",
+      "Name": "Midas GEN API Connection",
+      "ComponentGuid": "d3c9582f-d0a6-f5d1-5c95-0e802898c3af"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    }
+  ],
+  "Objects": 23,
+  "Wires": 13,
+  "ModelChecks": 0,
+  "PhysicalChecks": 0,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [
+    {
+      "Component": "Validate Midas GEN Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Model Summary",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Preview Midas GEN Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Decompose Midas GEN Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Physical Geometry",
+      "Warning": "Input parameter M failed to collect data"
+    }
+  ],
+  "Connections": [
+    {
+      "From": "READ MODEL",
+      "Output": "Boolean Toggle",
+      "To": "Read Active Midas GEN Model",
+      "Input": "Run"
+    },
+    {
+      "From": "Read GEN",
+      "Output": "Model",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "READ MODEL",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

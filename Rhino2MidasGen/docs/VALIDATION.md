@@ -35,3 +35,7 @@ L'esempio usa E=210 GPa, sezione rettangolare 200×300 mm, L=3 m e forza vertica
 Il preflight controlla dati e riferimenti principali, non la stabilità della struttura né tutte le dipendenze possibili dei JSON avanzati. Le definizioni native rimangono fedeli agli esempi MIDAS. Il catalogo è condiviso Civil/GEN e comprende voci specialistiche non necessariamente supportate da GEN: verificarne disponibilità nella versione e licenza utilizzate. Un errore nativo interrompe la scrittura e viene mostrato, senza tentativi automatici o risultati sintetici. L'import delle tabelle selezionate non equivale a una copia universale di qualunque file GEN.
 
 Fonti: [indice ufficiale API MIDAS](https://support.midasuser.com/hc/en-us/articles/33016922742937-MIDAS-API-Online-Manual), esempi/schema collegati dal catalogo, [manuale GEN NX](https://support.midasuser.com/hc/en-us/articles/49909210848537-MIDAS-GEN-NX-Online-Manual). Ogni componente API espone il proprio riferimento specifico.
+
+## Aggiornamento del 30 settembre 2026
+
+76 controlli gestiti superati. I nuovi test verificano tabelle predefinite, proprietà/carichi/vincoli/unità, gravità nativa, tabelle aggiuntive, GET esclusivi, deduplicazione, tabelle facoltative assenti e arresto su errori di autenticazione, geometria indispensabile o connessione. Verificata anche la lettura di pareti e STOR con livelli/diaframmi. Il trasporto è simulato: non sono prove numeriche del solver.

@@ -2,7 +2,7 @@
 
 Plugin **Grasshopper per Rhino 8 / .NET 8 / Windows x64**, costruito con la stessa organizzazione di Rhino2Straus e con l'API **SAP2000 26** installata sul computer.
 
-**559 componenti**, con icone proprie a 24 px: materiali, sezioni, proprietà, nodi, beam, plate, solidi, link e cable; carichi, attributi, casi e combinazioni; Model, esportazione, analisi, risultati, interrogazione e visualizzazione.
+**565 componenti**, con icone proprie a 24 px: materiali, sezioni, proprietà, nodi, beam, plate, solidi, link e cable; carichi, attributi, casi e combinazioni; Model, esportazione, analisi, risultati, interrogazione e visualizzazione.
 
 La scheda **SAP2000** di Grasshopper è organizzata in **34 pannelli per argomento**, con titoli in italiano e numerazione ordinata. Sezioni beam, Section Designer, piastre/solidi, link/cavi, vincoli, assi/offset e masse hanno gruppi dedicati. Carichi, analisi e risultati sono ulteriormente separati per tipo: carichi nodali/beam/plate, vento e sisma, casi statici/non lineari, fasi costruttive, modale, time history, risultati nodali/beam/plate/solidi-link. **33 Preview e bake** raccoglie visualizzazione, Brep e bake; **26 Analisi e file** raccoglie esecuzione e import/export. Il catalogo seguente rispecchia gli stessi pannelli.
 
@@ -48,6 +48,12 @@ Le modifiche agli input non rilanciano automaticamente SAP. `Overwrite=false` è
 
 **Stato del collaudo nativo:** nell'ambiente attuale SAP si ferma in `ApplicationStart`. Build, test gestiti, caricamento e collegamenti Grasshopper sono verificati; il calcolo numerico nel solver SAP non è ancora stato completato qui. I dettagli sono in [VALIDATION](docs/VALIDATION.md).
 
+## Importare un modello esistente
+
+Per i file esistenti, **Import SAP Model** restituisce un Model associato a un `.sdb`, con unità, geometria, proprietà supportate, casi, combinazioni e hash della sorgente. Preview e decomposizione usano la vista GH; export e analisi conservano tutte le definizioni native lavorando su una copia verificata del file. La sorgente rimane di sola lettura: per modificarla, editarla in SAP e reimportare. [Dettagli e limiti](docs/IMPORT-MODEL.md) · [Esempio 32](examples/32_Import_modello_SAP_associato.gh).
+
+**SAP File Paths** collega automaticamente il file prodotto dal run al suo archivio dei risultati. Sono disponibili anche le nuove definizioni di funzioni utente per spettro, time history, risposta armonica e PSD.
+
 ## Unità e convenzioni
 
 - Tutti i dati dimensionali usano le unità del Model, secondo `SAP2000v1.eUnits`: **6 = kN_m_C**, **9 = N_mm_C**. Le coordinate Rhino non sono convertite implicitamente.
@@ -58,7 +64,7 @@ Le modifiche agli input non rilanciano automaticamente SAP. `Overwrite=false` è
 
 ## Esempi Grasshopper
 
-In [examples](examples/README.md) sono disponibili tre definizioni `.gh` e `.ghx` con note e gruppi sul canvas: trave con carico e bake, piastra mesh con pressione, analisi assiale con combinazione e lettura dei risultati. Geometrie incorporate, anteprime PNG e trigger Run/Bake inizialmente disattivati. Il plugin aggiornato lascia i lettori in attesa quando il componente di analisi non ha ancora prodotto dati.
+In [examples](examples/README.md) sono disponibili **42 definizioni** `.gh` e `.ghx` che coprono tutti i **34 gruppi**: frame, mesh, piastre, solidi, link, cavi, materiali e sezioni, vincoli, assi e offset, masse, carichi, casi statici/non lineari/dinamici, export, import, analisi, risultati, query, preview e bake. Ogni esempio ha una guida, note sul canvas e un PNG. [Galleria ricercabile](examples/index.html). Run/Bake sono inizialmente disattivati e i lettori dei risultati restano in attesa del calcolo. Lo ZIP dedicato è `artifacts/Rhino2SAP_Examples.zip`.
 
 Per rigenerarli dopo una build Release, eseguire `./tools/Generate-Examples.ps1`. Il generatore riapre entrambi i formati, verifica fili/modelli/Brep e pubblica un rapporto in `examples/validation.json`; non esegue SAP.
 

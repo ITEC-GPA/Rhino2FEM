@@ -22,7 +22,7 @@
       <chunks count="5">
         <chunk name="DocumentHeader">
           <items count="5">
-            <item name="DocumentID" type_name="gh_guid" type_code="9">88c3c3db-e7c5-478b-9d30-a96d592849f6</item>
+            <item name="DocumentID" type_name="gh_guid" type_code="9">ff09a237-6e8e-4f0d-80ae-07b7dd771198</item>
             <item name="Preview" type_name="gh_string" type_code="10">Shaded</item>
             <item name="PreviewMeshType" type_name="gh_int32" type_code="3">1</item>
             <item name="PreviewNormal" type_name="gh_drawing_color" type_code="36">
@@ -35,7 +35,7 @@
         </chunk>
         <chunk name="DefinitionProperties">
           <items count="4">
-            <item name="Date" type_name="gh_date" type_code="8">639261780482802004</item>
+            <item name="Date" type_name="gh_date" type_code="8">639263964424409771</item>
             <item name="Description" type_name="gh_string" type_code="10"></item>
             <item name="KeepOpen" type_name="gh_bool" type_code="1">false</item>
             <item name="Name" type_name="gh_string" type_code="10"></item>
@@ -109,7 +109,7 @@
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">eebe6990-57c8-465f-9a14-082eaaa82074</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">4c866a80-d811-4246-9298-c7ced76c3557</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">RHINO2SAP / 02  PIASTRA DISCRETIZZATA</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -171,7 +171,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Define material type, elasticity and weight density in Model force/length/temperature units.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">406a3649-cdc1-408d-a2c7-ac2180aae136</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f30036e8-554e-4150-b7cf-3a1b374f32ed</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Isotropic Material</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Calcestruzzo</item>
                   </items>
@@ -193,7 +193,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Material name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">58688523-2671-4d77-a27a-f52706f3d690</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b1de9830-8185-4a02-b22d-7433659fff07</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -236,7 +236,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">1 Steel, 2 Concrete, 3 NoDesign, 4 Aluminum, 5 ColdFormed, 6 Rebar, 7 Tendon.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">882a7988-398a-4911-a55a-6bd02f93e70e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f98aae59-eaf3-4a29-b350-f31b09b9fe2d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Type</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -278,7 +278,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Elastic modulus [F/L²].</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">972837bc-6400-43df-a1aa-222a0edb9047</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">78c627fd-cebe-4a21-a819-e4e3a995cb2e</item>
                         <item name="Name" type_name="gh_string" type_code="10">E</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -320,7 +320,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Poisson ratio.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">19d60894-5411-45a3-9633-e7ab1c04950c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d7b9bc91-775e-4c0d-ba30-bc055b95f996</item>
                         <item name="Name" type_name="gh_string" type_code="10">Poisson</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ν</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -362,7 +362,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="4">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Thermal coefficient [1/T].</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b87db749-e7d6-4a56-9557-1d5a1669244e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e6a4e915-11c0-437d-abab-fcd7f9afd861</item>
                         <item name="Name" type_name="gh_string" type_code="10">Alpha</item>
                         <item name="NickName" type_name="gh_string" type_code="10">α</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -404,7 +404,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Weight per volume [F/L³], not mass density.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2680ebbe-7a9e-4f54-b7b5-4ea9801b8769</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0ffa06d0-c566-461c-bec9-6636d16e95d7</item>
                         <item name="Name" type_name="gh_string" type_code="10">Weight density</item>
                         <item name="NickName" type_name="gh_string" type_code="10">γ</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -446,7 +446,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Material definition.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0ba89678-9771-4b5c-9bfd-ef50d4428cc9</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ab677604-6f93-48d3-99df-3b152b588188</item>
                         <item name="Name" type_name="gh_string" type_code="10">Material</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -479,7 +479,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                 <chunk name="Container">
                   <items count="6">
                     <item name="Description" type_name="gh_string" type_code="10">Numeric slider for single values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">18949a2f-4303-40c6-9721-e1f6c382709a</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">3b243f49-73c6-4d70-9c88-d5e43c53131d</item>
                     <item name="Name" type_name="gh_string" type_code="10">Number Slider</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Spessore t [m]</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -523,7 +523,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Deferred SAP2000 command: PropArea.SetShell_1. All dimensional values use Model units. Connect named definitions to name/reference sockets to collect their dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">cf2ce645-93cd-42dd-8b47-a1d7f6188633</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0556d2c8-bbed-4398-8178-6b360839c712</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Area Property Shell 1</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Shell sottile</item>
                   </items>
@@ -546,7 +546,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Prior definitions/elements. Connected fragments are carried into the output.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">88961c2e-78f6-451b-b501-53338e0098d5</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8d94fe82-1709-44df-94ce-8e5d381c8586</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -568,7 +568,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Name. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">16ec0f9d-06e1-49e3-98fb-10353844f1cd</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">674dda34-999a-4ef1-8247-3b665c298db4</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Name</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -612,7 +612,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">ShellType</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">56ea6180-1919-4983-9a5f-c9b8a1985dec</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">56fd9d10-9f81-4cdf-83cd-d964a5df752b</item>
                         <item name="Name" type_name="gh_string" type_code="10">ShellType</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ShellType</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -654,7 +654,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">IncludeDrillingDOF</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5d9a8f1e-bc48-479a-982a-6f35df5f5469</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d39a7cd1-39df-43d5-bd80-cc3f714d8009</item>
                         <item name="Name" type_name="gh_string" type_code="10">IncludeDrillingDOF</item>
                         <item name="NickName" type_name="gh_string" type_code="10">IncludeDrillingDOF</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -696,11 +696,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="4">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">MatProp. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cd769ee2-6b49-422e-af8c-4e8853cd753a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ba07a96f-7e82-4836-8f1f-742b626de3ac</item>
                         <item name="Name" type_name="gh_string" type_code="10">MatProp</item>
                         <item name="NickName" type_name="gh_string" type_code="10">MatProp</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">0ba89678-9771-4b5c-9bfd-ef50d4428cc9</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">ab677604-6f93-48d3-99df-3b152b588188</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -719,7 +719,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">MatAng</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f6805591-58f0-4874-bec3-9bb38f906dd1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c2c03758-3c73-4ead-99b3-425d80d98a67</item>
                         <item name="Name" type_name="gh_string" type_code="10">MatAng</item>
                         <item name="NickName" type_name="gh_string" type_code="10">MatAng</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -761,11 +761,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="6">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Thickness</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bf66bed9-dbfd-4326-9805-3c077a323814</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">32b9b58e-34d6-48fc-842f-0ca685158a24</item>
                         <item name="Name" type_name="gh_string" type_code="10">Thickness</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Thickness</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">18949a2f-4303-40c6-9721-e1f6c382709a</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">3b243f49-73c6-4d70-9c88-d5e43c53131d</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -784,11 +784,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="7">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Bending</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">acff4631-458d-4c13-a3b6-785ac906008a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f27658a3-712d-4eb5-9ca9-e67bc7502700</item>
                         <item name="Name" type_name="gh_string" type_code="10">Bending</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Bending</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">18949a2f-4303-40c6-9721-e1f6c382709a</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">3b243f49-73c6-4d70-9c88-d5e43c53131d</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -807,7 +807,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="8">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Color</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1dd2da7b-e0d8-4d43-b916-68d604e69ad0</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">750db2da-f39a-4e33-aa3c-7eeca61042ce</item>
                         <item name="Name" type_name="gh_string" type_code="10">Color</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Color</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -849,7 +849,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="9">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Notes. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f7a50004-6dcc-4149-a6e3-1c33aef84e56</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">20575ed4-51e3-4da9-bcd0-071a6e4bf480</item>
                         <item name="Name" type_name="gh_string" type_code="10">Notes</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Notes</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -893,7 +893,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="10">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">GUID. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c8ad4633-0104-46ab-a5cf-203246b07ae5</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">16a0c679-6e18-4782-a81d-e8d0ea98249a</item>
                         <item name="Name" type_name="gh_string" type_code="10">GUID</item>
                         <item name="NickName" type_name="gh_string" type_code="10">GUID</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -937,7 +937,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragment including dependencies and this operation.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">074b3707-04eb-4398-b7ec-7715855e2827</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">26d5f8f6-ec9d-49c8-9269-2b6e637f8b53</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -959,7 +959,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Primary SAP name, where applicable.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b58405a1-63a8-4a6d-9f28-a202d5fe4c8f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">17cc0905-6988-48e1-8aff-1c8b78e1382b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -996,11 +996,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                       <ARGB>40;70;130;180</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">406a3649-cdc1-408d-a2c7-ac2180aae136</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">18949a2f-4303-40c6-9721-e1f6c382709a</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">cf2ce645-93cd-42dd-8b47-a1d7f6188633</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">f30036e8-554e-4150-b7cf-3a1b374f32ed</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">3b243f49-73c6-4d70-9c88-d5e43c53131d</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">0556d2c8-bbed-4398-8178-6b360839c712</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">3</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a3815c7b-a410-4466-98cb-70f1ee1ea06a</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">201fe108-37fa-4e2f-a623-2b2f37a43f33</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">01  MATERIALE / PROPRIETA SHELL</item>
                   </items>
@@ -1021,7 +1021,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                   <items count="7">
                     <item name="Description" type_name="gh_string" type_code="10">Contains a collection of polygon meshes</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">ef2c1ea5-04b1-4d92-ab08-b94f8117e879</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">caffa34e-5590-466a-a98d-dcbc3cdfa42b</item>
                     <item name="Name" type_name="gh_string" type_code="10">Mesh</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Mesh 2x2</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1082,7 +1082,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Create one area per triangle or quad. Use planar faces.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">38b684a6-5c76-454e-9a4d-0dc489fb3d38</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d1485b32-f815-4490-9a9a-6c0cca3490fc</item>
                     <item name="Name" type_name="gh_string" type_code="10">Mesh to SAP Areas</item>
                     <item name="NickName" type_name="gh_string" type_code="10">4 plate A1-A4</item>
                   </items>
@@ -1104,11 +1104,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Mesh.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">08be32ad-3cbd-4f0e-a36a-230450e0424a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">09f38d7b-293b-4a3c-8150-dbfda3dafe99</item>
                         <item name="Name" type_name="gh_string" type_code="10">Mesh</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">ef2c1ea5-04b1-4d92-ab08-b94f8117e879</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">caffa34e-5590-466a-a98d-dcbc3cdfa42b</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -1127,7 +1127,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Object name prefix.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ddeb2334-7739-4e1a-aa53-d045783f24d5</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bd35f1bb-49b3-4862-9421-fcf5233fdfa2</item>
                         <item name="Name" type_name="gh_string" type_code="10">Prefix</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1170,11 +1170,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Named area property fragment.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1a9ab4a3-f5af-4e1c-bc6d-c53ec4c1437d</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">628419f9-90cc-4f4b-ae79-7eda7abb87a7</item>
                         <item name="Name" type_name="gh_string" type_code="10">Property</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">074b3707-04eb-4398-b7ec-7715855e2827</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">26d5f8f6-ec9d-49c8-9269-2b6e637f8b53</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -1193,7 +1193,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Area elements and property dependencies.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d62a42a8-ecb4-46df-9346-6a0ef406820e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5567c068-4114-46ed-9d54-5685a230cb04</item>
                         <item name="Name" type_name="gh_string" type_code="10">Elements</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1228,7 +1228,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Create a SAP element from Rhino geometry. Connect its named property definition to collect dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">3ee3d627-2690-4411-8778-f5c9be4cdfd6</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">af5e05de-0afe-4b0f-943d-8ab31064330f</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Node Element</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Nodi di bordo</item>
                   </items>
@@ -1250,7 +1250,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Unique SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">24cfbdaa-5701-4c50-a579-053122ef1a7c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c633c26f-7b6c-4167-90b2-2c8391b12407</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1335,7 +1335,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Node point.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f0a485ec-325c-4201-b596-702acd2c4d46</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0a1e9e8e-7a9d-4dc5-9707-f2b536c66d2b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Point</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1452,7 +1452,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Element and dependencies.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">50b34bbc-665d-4662-900a-a958a428d798</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5c92a760-4838-4dc4-a21c-9bc4e2dc252c</item>
                         <item name="Name" type_name="gh_string" type_code="10">Element</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1474,7 +1474,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">fc3956cb-6bcd-4ae3-9b53-1eb231d6fb68</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">69bb06eb-4742-406c-b9e0-41a77d1bdd5d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1509,7 +1509,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Deferred SAP2000 command: PointObj.SetRestraint. All dimensional values use Model units. Connect named definitions to name/reference sockets to collect their dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">84f3ffee-65f4-4307-9159-1b17da6196c9</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8a954341-fb5e-4992-b247-e6c16f05c835</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Node Restraint</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Incastri bordo</item>
                   </items>
@@ -1532,7 +1532,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Prior definitions/elements. Connected fragments are carried into the output.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d5818a38-61c4-4b70-8e36-d9a0590bb8ec</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7ef5a7ef-33a5-48e5-b728-a4346a717300</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -1554,11 +1554,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Name. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">634f5e83-0650-4982-abc2-4d085523d926</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">fe04b796-41d7-4585-a3b3-2eb8b9844b03</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Name</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">50b34bbc-665d-4662-900a-a958a428d798</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">5c92a760-4838-4dc4-a21c-9bc4e2dc252c</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -1578,7 +1578,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Value</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">44fbf9ab-66c4-4c30-9eca-d9ec4afe15bc</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6dfee74e-2972-4ea8-b381-5a14241b7b15</item>
                         <item name="Name" type_name="gh_string" type_code="10">Value</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Value</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1645,7 +1645,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">ItemType: 0=Objects, 1=Group, 2=SelectedObjects</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f4c92d17-586d-4eb2-9161-f32218efe2ff</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c9c9439a-3a82-491a-858c-5b68e749ca9b</item>
                         <item name="Name" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -1687,7 +1687,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragment including dependencies and this operation.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d0e3d56e-d44a-4431-a454-6a16d0f48575</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5187e6b7-4cdc-4ffc-a574-d378aa9eab7c</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1709,7 +1709,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Primary SAP name, where applicable.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0f526e55-26cd-4425-8141-4179677bd964</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">357f2906-4dd3-4ade-86f4-09c7aee78cf0</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1746,12 +1746,12 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                       <ARGB>40;147;112;219</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">ef2c1ea5-04b1-4d92-ab08-b94f8117e879</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">38b684a6-5c76-454e-9a4d-0dc489fb3d38</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">3ee3d627-2690-4411-8778-f5c9be4cdfd6</item>
-                    <item name="ID" index="3" type_name="gh_guid" type_code="9">84f3ffee-65f4-4307-9159-1b17da6196c9</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">caffa34e-5590-466a-a98d-dcbc3cdfa42b</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">d1485b32-f815-4490-9a9a-6c0cca3490fc</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">af5e05de-0afe-4b0f-943d-8ab31064330f</item>
+                    <item name="ID" index="3" type_name="gh_guid" type_code="9">8a954341-fb5e-4992-b247-e6c16f05c835</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">4</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">4e225801-d1e3-4c3c-b3c8-aff44224eb23</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b0a900ba-95fc-45c0-84e7-ab33d5c66b86</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">02  MESH / ELEMENTI / BORDO</item>
                   </items>
@@ -1773,7 +1773,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Define a load pattern and matching linear static analysis case.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">69032283-7ed6-47aa-838b-1816eb0c8f32</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b6807601-1db5-43db-b818-67edb8c8fa32</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Load Pattern</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Pattern Q</item>
                   </items>
@@ -1795,7 +1795,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Load pattern name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c16b096e-2065-48b7-8f67-21299420eb7d</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a5d562d0-3a74-4bfb-aac1-1e78013900e3</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1838,7 +1838,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">1 Dead, 2 SuperDead, 3 Live, 4 ReduceLive, 5 Quake, 6 Wind, 7 Snow, 8 Other.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">58920b69-f42a-472a-9b99-3533a3dd1915</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f8cc3ad1-6a65-45a9-ada6-6d711bf88f79</item>
                         <item name="Name" type_name="gh_string" type_code="10">Type</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1880,7 +1880,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Gravity self-weight multiplier, usually 1 only in DEAD.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">dc1e93dc-66cf-4090-8d7a-15c16ae2018c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ca5b2869-9b79-41b2-a177-4e3a4d5f6b19</item>
                         <item name="Name" type_name="gh_string" type_code="10">Self weight</item>
                         <item name="NickName" type_name="gh_string" type_code="10">W</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1922,7 +1922,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Pattern and linear case.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c59c20c6-f8a6-4031-af8a-5e7f19fd93a7</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">96fbc98c-b722-46ac-b198-d281c0627a44</item>
                         <item name="Name" type_name="gh_string" type_code="10">Pattern</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1955,7 +1955,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                 <chunk name="Container">
                   <items count="6">
                     <item name="Description" type_name="gh_string" type_code="10">Numeric slider for single values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">7753b37c-45ef-4fdf-9fb8-a5feefeaab1a</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">134d8982-9f37-4a8d-9eb8-9ec2d56f3828</item>
                     <item name="Name" type_name="gh_string" type_code="10">Number Slider</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Pressione Z [kN/m2]</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1999,7 +1999,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <item name="Description" type_name="gh_string" type_code="10">Deferred SAP2000 command: AreaObj.SetLoadUniform. All dimensional values use Model units. Connect named definitions to name/reference sockets to collect their dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d6cba053-45a3-444a-99cb-8d66b2a39afe</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b2818165-035d-44bc-b4e0-b03fcf3febfa</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Area Load Uniform</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Pressione sulle shell</item>
                   </items>
@@ -2022,11 +2022,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                       <items count="8">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Prior definitions/elements. Connected fragments are carried into the output.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a4ad17fa-39c6-4349-a342-3b8623e314e6</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">21c54cc1-3c54-42a5-9ced-4cb44eb42526</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">d62a42a8-ecb4-46df-9346-6a0ef406820e</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">5567c068-4114-46ed-9d54-5685a230cb04</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -2045,7 +2045,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Name. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">108e414b-141f-4fa8-a626-e108550139b2</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">54f09d28-d50a-4351-a145-c927f7258bbf</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Name</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2089,11 +2089,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">LoadPat. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5d004fa9-1c25-4d61-a78c-c81582674996</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0dbb8c00-f479-4964-b294-7faa586fe035</item>
                         <item name="Name" type_name="gh_string" type_code="10">LoadPat</item>
                         <item name="NickName" type_name="gh_string" type_code="10">LoadPat</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">c59c20c6-f8a6-4031-af8a-5e7f19fd93a7</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">96fbc98c-b722-46ac-b198-d281c0627a44</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -2112,11 +2112,11 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="3">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Value</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">afab4565-99bd-483f-a8e3-63c7721df643</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5c62c597-4421-4adf-9f7d-e433fef28b48</item>
                         <item name="Name" type_name="gh_string" type_code="10">Value</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Value</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">7753b37c-45ef-4fdf-9fb8-a5feefeaab1a</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">134d8982-9f37-4a8d-9eb8-9ec2d56f3828</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -2135,7 +2135,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="4">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Dir</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">20e693f9-804e-4b95-953d-9d9d297a758f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">278ffbfb-5642-4cab-bbd3-1151df61d2e1</item>
                         <item name="Name" type_name="gh_string" type_code="10">Dir</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Dir</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2177,7 +2177,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Replace</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4cc247af-2af5-44b5-831e-0bae864feecd</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">542c56d0-69d2-4d4f-8f7e-65c4a163569c</item>
                         <item name="Name" type_name="gh_string" type_code="10">Replace</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Replace</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2219,7 +2219,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="6">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">CSys. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c4e9ba27-af85-4dfe-b55a-2eced9819fec</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">44fc3459-7671-4ed1-813a-d4232d59473d</item>
                         <item name="Name" type_name="gh_string" type_code="10">CSys</item>
                         <item name="NickName" type_name="gh_string" type_code="10">CSys</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2263,7 +2263,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_input" index="7">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">ItemType: 0=Objects, 1=Group, 2=SelectedObjects</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2edc50fa-8334-4277-a441-0003467f3c75</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">27adddde-b85f-48d1-a6f6-dd69d3f74b53</item>
                         <item name="Name" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2305,7 +2305,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragment including dependencies and this operation.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8bb16e96-fd6f-447c-a3fd-b747d4a2355a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8f657ce3-d30d-48c2-b50c-03a86d10861c</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2327,7 +2327,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Primary SAP name, where applicable.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a9ca1a3a-ffaf-4053-b279-e0b82fe15f2c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b29f86e9-ed93-4e61-b75a-955f4ff7c594</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2360,7 +2360,7 @@ Mesh volutamente grossolana per illustrare i collegamenti; raffinarla prima di u
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0a9ef78d-47b3-459c-915f-607b5467a6c0</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">110aa49e-a201-4702-9696-412b78c1b6ce</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Assegnazione a tutte le shell</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2423,12 +2423,12 @@ Self weight=0: solo carico assegnato.</item>
                       <ARGB>40;255;140;0</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">69032283-7ed6-47aa-838b-1816eb0c8f32</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">7753b37c-45ef-4fdf-9fb8-a5feefeaab1a</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">d6cba053-45a3-444a-99cb-8d66b2a39afe</item>
-                    <item name="ID" index="3" type_name="gh_guid" type_code="9">0a9ef78d-47b3-459c-915f-607b5467a6c0</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">b6807601-1db5-43db-b818-67edb8c8fa32</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">134d8982-9f37-4a8d-9eb8-9ec2d56f3828</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">b2818165-035d-44bc-b4e0-b03fcf3febfa</item>
+                    <item name="ID" index="3" type_name="gh_guid" type_code="9">110aa49e-a201-4702-9696-412b78c1b6ce</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">4</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">00610816-eb1a-478e-815c-312f37b23bfa</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f24389eb-5917-42e2-a32c-8b27aa89cd84</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">03  CARICO UNIFORME / GRUPPO</item>
                   </items>
@@ -2450,7 +2450,7 @@ Self weight=0: solo carico assegnato.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Collect geometry, properties, loads and cases into one SAP Model.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">09489185-11c0-4ff2-878d-cb3bd4987070</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">773ef995-5505-427b-bc23-ed6544935a7a</item>
                     <item name="Name" type_name="gh_string" type_code="10">Build SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Build Model</item>
                   </items>
@@ -2473,12 +2473,12 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="9">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragments or Models. Shared dependencies are collected once.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6c28781e-aaec-4f05-9d41-da3af69bccf1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9ec71582-2ead-4859-a7bb-973f0653afd8</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">8bb16e96-fd6f-447c-a3fd-b747d4a2355a</item>
-                        <item name="Source" index="1" type_name="gh_guid" type_code="9">d0e3d56e-d44a-4431-a454-6a16d0f48575</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">8f657ce3-d30d-48c2-b50c-03a86d10861c</item>
+                        <item name="Source" index="1" type_name="gh_guid" type_code="9">5187e6b7-4cdc-4ffc-a574-d378aa9eab7c</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">2</item>
                       </items>
                       <chunks count="1">
@@ -2497,7 +2497,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP eUnits (6=kN_m_C, 9=N_mm_C). Coordinates are not converted.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">816c4346-0b67-4fbd-be67-10ab37073258</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">06b7356e-03cb-47f4-9851-b653d5f7b387</item>
                         <item name="Name" type_name="gh_string" type_code="10">Units</item>
                         <item name="NickName" type_name="gh_string" type_code="10">U</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2539,7 +2539,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Node welding distance in Model length units.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6f6d71a1-550c-4e55-91ff-ee4452876a31</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ec900552-a924-4bcd-b7a9-96192a624ac7</item>
                         <item name="Name" type_name="gh_string" type_code="10">Tolerance</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2581,7 +2581,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Unified SAP Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">dc0e2b08-df64-4287-91f2-c90bff97b702</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">79eb497a-4da9-48f7-8359-b9a8b3b8b789</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2604,7 +2604,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Validation errors.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d47e1d4f-9549-4594-a34a-8a0b4c39c1cd</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5b1cd353-1a63-4f86-9753-701589393a41</item>
                         <item name="Name" type_name="gh_string" type_code="10">Issues</item>
                         <item name="NickName" type_name="gh_string" type_code="10">I</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2639,7 +2639,7 @@ Self weight=0: solo carico assegnato.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Per-model preview switches. Connect to Preview SAP Model. Global preferences remain unchanged.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d7bc4cd8-b5da-4261-a160-81e587212773</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">fcf8461c-492d-4cc3-865c-a6efd9297a04</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Display Settings</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Display</item>
                   </items>
@@ -2661,7 +2661,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Enabled.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">01d5d464-dad9-49fe-9667-7945857b5c3d</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7412aa85-1073-4c77-9c17-cff8ba1eb28e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Enabled</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Enabled</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2703,7 +2703,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Geometry.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">68909abc-bd89-4566-8301-e3e93209e4b3</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cb34d7ee-324f-4dbb-ab9a-fca7d5a53b31</item>
                         <item name="Name" type_name="gh_string" type_code="10">Geometry</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Geometry</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2745,7 +2745,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Sections.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">fffb62df-852c-4598-a8ad-2f43c3fc589c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b40092c7-6ebb-4ca0-bb89-7ffae39fc86e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Sections</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Sections</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2787,11 +2787,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="3">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Show Loads.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">217ba572-0d85-4cd6-a7ec-c434e2b55d76</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">517efbaa-b02f-46af-837e-ad9717f8de09</item>
                         <item name="Name" type_name="gh_string" type_code="10">Loads</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Loads</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">6d5ba280-9204-4e26-b42f-b34f976d8696</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">558e3866-ff24-4000-b4c1-196e80695127</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="2">
@@ -2830,7 +2830,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="4">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Supports.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cee5245f-6acf-4b3a-87a5-af2e126ed052</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d9d1faa7-42bc-4eb3-87fe-d4d475e3d49b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Supports</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Supports</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2872,7 +2872,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Springs.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">98fc6da9-f2a9-428f-ae7d-a75bbaac75b4</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f4fff8cb-e539-4187-b815-a226364a04b6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Springs</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Springs</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2914,7 +2914,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="6">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Masses.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a9d5b61c-9e77-41dd-bdfe-c879f94f8a3e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1faf5b29-011b-4d93-a948-be46ed256d7e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Masses</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Masses</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2956,7 +2956,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="7">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Releases.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">51318d0a-5de2-4c69-a485-47e574bc3c2e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5776bc8b-8a0b-4f7c-a897-61ba0bc3a8bd</item>
                         <item name="Name" type_name="gh_string" type_code="10">Releases</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Releases</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2998,7 +2998,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="8">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Offsets.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1d400743-06f2-4ffd-8268-4f8cc42ac713</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">da4a63d5-8ca6-484d-9dd3-531d42660217</item>
                         <item name="Name" type_name="gh_string" type_code="10">Offsets</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Offsets</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3040,7 +3040,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="9">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show OtherAttributes.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bc54c1f8-9257-45e9-93b0-77e650bb9101</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9d4cddb3-beca-44f4-a07f-9c1761729def</item>
                         <item name="Name" type_name="gh_string" type_code="10">OtherAttributes</item>
                         <item name="NickName" type_name="gh_string" type_code="10">OtherAttributes</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3082,7 +3082,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="10">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Axes.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8c3d0163-1cc8-4e3b-9fe1-3239ddedc53d</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f5f00f60-8e48-4aca-a9ca-a9f16cbba75b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Axes</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Axes</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3124,7 +3124,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="11">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Labels.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cefe8e2c-6aaa-4b6b-adf2-9f6bfc2f60d1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cfc3a5c9-ce09-4b81-ac19-26cf71e524a9</item>
                         <item name="Name" type_name="gh_string" type_code="10">Labels</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Labels</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3166,7 +3166,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="12">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Values.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b960adfc-4d69-4100-aebb-f681428a36ab</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">358ed1c2-feb7-4e2f-afc9-3d0b27d5f51b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Values</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Values</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3208,7 +3208,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="13">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Symbol and axis length.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">af12f50d-9d37-43f7-a571-49fe566bdf82</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b05bd361-0091-438e-8919-f29c834fd4bf</item>
                         <item name="Name" type_name="gh_string" type_code="10">Symbol scale</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3250,7 +3250,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="14">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Arrow length per load value.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5036dd9a-4859-4956-87fb-10d6f791db51</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e43051ff-275c-4106-ae92-c714ef4dc683</item>
                         <item name="Name" type_name="gh_string" type_code="10">Load scale</item>
                         <item name="NickName" type_name="gh_string" type_code="10">L</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3292,7 +3292,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="15">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Empty = all patterns.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5854fbd5-0d54-48a1-890c-85d9b09b30f1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">493b9cd8-cc51-42ae-861f-ba07c9b1107d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Load pattern</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3335,7 +3335,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Local preview options.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3e87cfc2-67cf-477d-9bd8-1d09672cc4b4</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">39f839a8-0a2a-43d3-b9c7-338618ab0272</item>
                         <item name="Name" type_name="gh_string" type_code="10">Settings</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3368,7 +3368,7 @@ Self weight=0: solo carico assegnato.</item>
                 <chunk name="Container">
                   <items count="7">
                     <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6d5ba280-9204-4e26-b42f-b34f976d8696</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">558e3866-ff24-4000-b4c1-196e80695127</item>
                     <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Mostra carichi</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3405,7 +3405,7 @@ Self weight=0: solo carico assegnato.</item>
                   <items count="5">
                     <item name="Description" type_name="gh_string" type_code="10">Preview geometry, sections, loads and attributes; output closed physical Breps for downstream geometry operations and solid bake. Display switches do not change Brep output.</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d2737354-9e42-40bc-9583-edb3970b4cfc</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">c6d74736-570f-4b7b-9148-a1673d62ae64</item>
                     <item name="Name" type_name="gh_string" type_code="10">Preview SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview / Brep</item>
                   </items>
@@ -3427,11 +3427,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model, elements or section definition to preview.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d9bacd6f-750b-4021-9413-4f7558460bc5</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1e226084-0d1e-4ec9-90ad-5724c39302ac</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">dc0e2b08-df64-4287-91f2-c90bff97b702</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">79eb497a-4da9-48f7-8359-b9a8b3b8b789</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3450,11 +3450,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="1">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Optional SAP Display Settings. Empty = global Rhino2SAP preferences.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7e927a7f-0443-45b6-b7df-2e6d0069b909</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">961a77bb-954e-42ba-96bd-144a8247043a</item>
                         <item name="Name" type_name="gh_string" type_code="10">Settings</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">3e87cfc2-67cf-477d-9bd8-1d09672cc4b4</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">39f839a8-0a2a-43d3-b9c7-338618ab0272</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3473,7 +3473,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Preview summary.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">faf09d49-d312-4e85-be9d-c32504c085bc</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">026de079-56b9-4ec2-a3a6-57c0871e908d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Status</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3496,7 +3496,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Assignments shown symbolically and elements omitted from solid Breps.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e052b8d7-5d12-4c7c-ab2f-e951593f3978</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cc75f2be-1139-483b-9368-5cecf1e1e19d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Issues</item>
                         <item name="NickName" type_name="gh_string" type_code="10">I</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3519,7 +3519,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Valid closed physical Breps: beam profiles, shell thicknesses and solid elements. Nodes and symbols are excluded. Independent of preview visibility.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a3cd42bb-fdd0-4c41-a88f-d9d9857c0378</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ce743de5-d37d-4345-87ae-35dd26cf8561</item>
                         <item name="Name" type_name="gh_string" type_code="10">Breps</item>
                         <item name="NickName" type_name="gh_string" type_code="10">B</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3542,7 +3542,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">SAP object names matching the Breps output, in the same order.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2109ce7f-109c-497f-a9bf-63c5b9eb780b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1c7629ad-4a1b-4a51-81bc-75d2e929789e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Brep Names</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3576,11 +3576,11 @@ Self weight=0: solo carico assegnato.</item>
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">Contains a collection of Breps (Boundary REPresentations)</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">26974120-a6bf-4f32-bf6f-3252e2bccb66</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">aecba501-72ae-4214-8064-46002a79193e</item>
                     <item name="Name" type_name="gh_string" type_code="10">Brep</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Solidi Brep</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">a3cd42bb-fdd0-4c41-a88f-d9d9857c0378</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">ce743de5-d37d-4345-87ae-35dd26cf8561</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                   </items>
                   <chunks count="1">
@@ -3614,7 +3614,7 @@ Self weight=0: solo carico assegnato.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Check geometry, duplicate definitions and SDK arguments before export.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8027578b-f424-45ab-8ab2-59607b3fcdc0</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">1f889152-5043-4590-bd36-4ea55b7baed5</item>
                     <item name="Name" type_name="gh_string" type_code="10">Validate SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Controllo modello</item>
                   </items>
@@ -3636,11 +3636,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cae52e12-7a25-47be-959b-14a6acf9eee3</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5a632783-6245-4453-9f25-350bd92d0ac0</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">dc0e2b08-df64-4287-91f2-c90bff97b702</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">79eb497a-4da9-48f7-8359-b9a8b3b8b789</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3659,7 +3659,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Managed validation passed; does not certify structural stability.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">785efc22-563a-416a-8817-f7d554a9b928</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">96de67f1-a44f-468d-bf11-dc37df667459</item>
                         <item name="Name" type_name="gh_string" type_code="10">Valid</item>
                         <item name="NickName" type_name="gh_string" type_code="10">V</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3682,7 +3682,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Errors.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a5dcefa0-b7ed-49e5-b152-86da829a6a4f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6957739c-5507-4bf0-bcac-412fad847188</item>
                         <item name="Name" type_name="gh_string" type_code="10">Errors</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3704,7 +3704,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_output" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SHA256 model fingerprint.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5c6997d0-226b-4654-b15b-d1e9b7129cc4</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">be53737c-0f05-4717-9a44-be325a9f8412</item>
                         <item name="Name" type_name="gh_string" type_code="10">Fingerprint</item>
                         <item name="NickName" type_name="gh_string" type_code="10">H</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3737,12 +3737,12 @@ Self weight=0: solo carico assegnato.</item>
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">57071f39-5e0e-4034-afbd-b374b097dfdd</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">bace8790-6958-42ac-8b65-d717f41a4545</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Modello valido</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">785efc22-563a-416a-8817-f7d554a9b928</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">96de67f1-a44f-468d-bf11-dc37df667459</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -3795,12 +3795,12 @@ Self weight=0: solo carico assegnato.</item>
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">9020ae44-1f08-41a7-a63c-81ffaddb73a5</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f0550af0-c7cb-450d-97a0-fc613200e182</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview: limiti / Issues</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">e052b8d7-5d12-4c7c-ab2f-e951593f3978</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">cc75f2be-1139-483b-9368-5cecf1e1e19d</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -3855,7 +3855,7 @@ Self weight=0: solo carico assegnato.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Count objects, properties, cases and results.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6ded246f-bb4c-4763-8ac3-06d9ee872f41</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8b55f09f-282f-43ae-895e-98ee97cda4bf</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Model Summary</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Riepilogo</item>
                   </items>
@@ -3877,11 +3877,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3f020ed7-8691-4c25-bece-5508b164379a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a3ad65dc-9795-4725-9617-aaa138a9e1bc</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">dc0e2b08-df64-4287-91f2-c90bff97b702</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">79eb497a-4da9-48f7-8359-b9a8b3b8b789</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3901,7 +3901,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Summary.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ad1d726c-cbbf-431c-a8d6-40473020c982</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3933d8fa-64fe-4756-9e35-21f6c77fcb9a</item>
                         <item name="Name" type_name="gh_string" type_code="10">Summary</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3934,12 +3934,12 @@ Self weight=0: solo carico assegnato.</item>
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">20c73d83-5fad-46e0-a360-934abcd992bc</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0ac09bbc-4a25-49b1-8e0e-89ec72f8d0ac</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Riepilogo modello</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">ad1d726c-cbbf-431c-a8d6-40473020c982</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">3933d8fa-64fe-4756-9e35-21f6c77fcb9a</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -3994,7 +3994,7 @@ Self weight=0: solo carico assegnato.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Bake analytical or physical geometry into Rhino as one undoable operation. Physical mode defaults to valid closed Breps only, with skipped elements listed in Issues.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">ed695a0b-9e51-49b7-8dda-0007f414f1da</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d91e1f49-78e9-4845-ae74-e550e8a080f2</item>
                     <item name="Name" type_name="gh_string" type_code="10">Bake SAP Geometry</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Bake solidi</item>
                   </items>
@@ -4016,11 +4016,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">SAP Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f4440345-f89b-4258-aab3-40f908a08bce</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">522dbc1f-18c7-46ed-8f55-18022e5e528c</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">dc0e2b08-df64-4287-91f2-c90bff97b702</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">79eb497a-4da9-48f7-8359-b9a8b3b8b789</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -4039,7 +4039,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Use physical section and thickness geometry.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b52b7433-ebfe-49c3-90f4-5b814f0fd52b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cf2a9060-8f06-4a77-8c75-54495ec44eae</item>
                         <item name="Name" type_name="gh_string" type_code="10">Physical</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4081,11 +4081,11 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Rising edge bakes to Rhino.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f9cb8f53-12de-475b-8b75-d55f0c63274b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e446b3af-e8af-414f-b21e-deaa94446106</item>
                         <item name="Name" type_name="gh_string" type_code="10">Bake</item>
                         <item name="NickName" type_name="gh_string" type_code="10">B</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">0c0141e5-f45f-45dd-9167-4aa7d892bb4d</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">a6459f3b-266d-4184-a297-abdf1d2bebe7</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="2">
@@ -4124,7 +4124,7 @@ Self weight=0: solo carico assegnato.</item>
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">In Physical mode, bake only valid closed Breps; omit nodes, symbols and analytical fallbacks. Ignored in analytical mode.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7c94c461-97af-4624-af63-f11ebddd29b1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">08af4cf7-21dc-40ec-84eb-3997b4692754</item>
                         <item name="Name" type_name="gh_string" type_code="10">Solid only</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4167,7 +4167,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Baked Rhino object GUIDs.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a5b4e545-d1df-46b2-b383-0fb1ff2b24cf</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">85117b8c-daa8-490b-a8c5-e6898528c6e4</item>
                         <item name="Name" type_name="gh_string" type_code="10">Object IDs</item>
                         <item name="NickName" type_name="gh_string" type_code="10">I</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4190,7 +4190,7 @@ Self weight=0: solo carico assegnato.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Skipped elements, physical-geometry limitations and bake failures from the last bake.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">db3122c2-232d-4aa3-92e9-a45440c5b556</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3f486de2-d8fe-43df-819d-92ef991f8d07</item>
                         <item name="Name" type_name="gh_string" type_code="10">Issues</item>
                         <item name="NickName" type_name="gh_string" type_code="10">W</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4223,7 +4223,7 @@ Self weight=0: solo carico assegnato.</item>
                 <chunk name="Container">
                   <items count="7">
                     <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0c0141e5-f45f-45dd-9167-4aa7d892bb4d</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a6459f3b-266d-4184-a297-abdf1d2bebe7</item>
                     <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
                     <item name="NickName" type_name="gh_string" type_code="10">BAKE SOLIDI</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4259,7 +4259,7 @@ Self weight=0: solo carico assegnato.</item>
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b62eae9e-8e5c-4366-b703-cdccd9207ed8</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">745dbfb0-b768-44f4-bd66-a38212c016e1</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview e bake</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4324,20 +4324,20 @@ Modificare gli switch nel componente Display.</item>
                       <ARGB>40;60;179;113</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">d7bc4cd8-b5da-4261-a160-81e587212773</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">6d5ba280-9204-4e26-b42f-b34f976d8696</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">d2737354-9e42-40bc-9583-edb3970b4cfc</item>
-                    <item name="ID" index="3" type_name="gh_guid" type_code="9">26974120-a6bf-4f32-bf6f-3252e2bccb66</item>
-                    <item name="ID" index="4" type_name="gh_guid" type_code="9">8027578b-f424-45ab-8ab2-59607b3fcdc0</item>
-                    <item name="ID" index="5" type_name="gh_guid" type_code="9">57071f39-5e0e-4034-afbd-b374b097dfdd</item>
-                    <item name="ID" index="6" type_name="gh_guid" type_code="9">9020ae44-1f08-41a7-a63c-81ffaddb73a5</item>
-                    <item name="ID" index="7" type_name="gh_guid" type_code="9">6ded246f-bb4c-4763-8ac3-06d9ee872f41</item>
-                    <item name="ID" index="8" type_name="gh_guid" type_code="9">20c73d83-5fad-46e0-a360-934abcd992bc</item>
-                    <item name="ID" index="9" type_name="gh_guid" type_code="9">ed695a0b-9e51-49b7-8dda-0007f414f1da</item>
-                    <item name="ID" index="10" type_name="gh_guid" type_code="9">0c0141e5-f45f-45dd-9167-4aa7d892bb4d</item>
-                    <item name="ID" index="11" type_name="gh_guid" type_code="9">b62eae9e-8e5c-4366-b703-cdccd9207ed8</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">fcf8461c-492d-4cc3-865c-a6efd9297a04</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">558e3866-ff24-4000-b4c1-196e80695127</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">c6d74736-570f-4b7b-9148-a1673d62ae64</item>
+                    <item name="ID" index="3" type_name="gh_guid" type_code="9">aecba501-72ae-4214-8064-46002a79193e</item>
+                    <item name="ID" index="4" type_name="gh_guid" type_code="9">1f889152-5043-4590-bd36-4ea55b7baed5</item>
+                    <item name="ID" index="5" type_name="gh_guid" type_code="9">bace8790-6958-42ac-8b65-d717f41a4545</item>
+                    <item name="ID" index="6" type_name="gh_guid" type_code="9">f0550af0-c7cb-450d-97a0-fc613200e182</item>
+                    <item name="ID" index="7" type_name="gh_guid" type_code="9">8b55f09f-282f-43ae-895e-98ee97cda4bf</item>
+                    <item name="ID" index="8" type_name="gh_guid" type_code="9">0ac09bbc-4a25-49b1-8e0e-89ec72f8d0ac</item>
+                    <item name="ID" index="9" type_name="gh_guid" type_code="9">d91e1f49-78e9-4845-ae74-e550e8a080f2</item>
+                    <item name="ID" index="10" type_name="gh_guid" type_code="9">a6459f3b-266d-4184-a297-abdf1d2bebe7</item>
+                    <item name="ID" index="11" type_name="gh_guid" type_code="9">745dbfb0-b768-44f4-bd66-a38212c016e1</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">12</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8ecc0e75-0ab1-4cac-8831-6eae7807524b</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2a120dde-19be-458f-b965-bdf91bd12c96</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">04  CONTROLLO / PREVIEW / BREP / BAKE</item>
                   </items>
@@ -4359,7 +4359,7 @@ Modificare gli switch nel componente Display.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Expose geometry, deferred assignments, units and stored results.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">99b66d11-b27a-40aa-8f27-8f01da9115a9</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">3735c766-8c5c-4ffc-89ec-439178bd573a</item>
                     <item name="Name" type_name="gh_string" type_code="10">Decompose SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Decomponi modello</item>
                   </items>
@@ -4381,11 +4381,11 @@ Modificare gli switch nel componente Display.</item>
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4c952012-0b30-4031-b966-653271c932e9</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cda5e917-85bc-4e4a-b8ae-b7b34b5f66be</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">dc0e2b08-df64-4287-91f2-c90bff97b702</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">79eb497a-4da9-48f7-8359-b9a8b3b8b789</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -4405,7 +4405,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Node elements.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">289129eb-153c-4ef2-bc5e-2685fcf2305a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5d5ebb3e-83f9-4b14-b4a5-ec8383e05fb4</item>
                         <item name="Name" type_name="gh_string" type_code="10">Node</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Node</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4428,7 +4428,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Frame elements.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7d29533f-0519-4cbb-9d0c-492711381bfb</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7b2e8d4c-2247-4ec6-ac9b-0d51aa048532</item>
                         <item name="Name" type_name="gh_string" type_code="10">Frame</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Frame</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4451,7 +4451,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Area elements.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">69938178-b3fc-40b7-8c4c-ba4ea1f08fe6</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">dfd73ed3-b5a2-4955-b5f1-2cf515cc8187</item>
                         <item name="Name" type_name="gh_string" type_code="10">Area</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Area</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4474,7 +4474,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Solid elements.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">31070389-8d99-4ec2-b605-934369f30b22</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">350a4519-35d2-4a44-9e60-81f562e5c366</item>
                         <item name="Name" type_name="gh_string" type_code="10">Solid</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Solid</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4497,7 +4497,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Link elements.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">86b159b9-bb86-4e16-9cd0-084c1e351667</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">15304645-72f7-48d1-a155-d17762b2cf82</item>
                         <item name="Name" type_name="gh_string" type_code="10">Link</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Link</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4520,7 +4520,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Cable elements.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2a133e15-54c9-4cdb-8f09-89e83822b4a5</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f9ec9ed6-3757-4442-8b61-9d182e161313</item>
                         <item name="Name" type_name="gh_string" type_code="10">Cable</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Cable</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4543,7 +4543,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Deferred SDK operations.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">07d94463-1b15-421b-b9b2-6ee669bb6681</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">384e92db-2381-4d37-82b8-b12c343e1e95</item>
                         <item name="Name" type_name="gh_string" type_code="10">Operations</item>
                         <item name="NickName" type_name="gh_string" type_code="10">O</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4565,7 +4565,7 @@ Modificare gli switch nel componente Display.</item>
                     <chunk name="param_output" index="7">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP eUnits.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6d18b759-10b7-4db8-aa0a-f4c9f90b9d8e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b21600d4-879d-47bc-9944-62501e69c556</item>
                         <item name="Name" type_name="gh_string" type_code="10">Units</item>
                         <item name="NickName" type_name="gh_string" type_code="10">U</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4588,7 +4588,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Native result tables.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b86aac3c-a58b-402b-9478-6729f63069ec</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f97b7a7a-a35c-49a8-87bc-fb6588fb5d49</item>
                         <item name="Name" type_name="gh_string" type_code="10">Results</item>
                         <item name="NickName" type_name="gh_string" type_code="10">R</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4623,7 +4623,7 @@ Modificare gli switch nel componente Display.</item>
                     <item name="Description" type_name="gh_string" type_code="10">Decompose element names, kinds, properties and vertices.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5457abf3-88c0-43a9-988c-ac6653d48c67</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">cb93ae65-3a3d-4c6b-af9c-8c6b419986a6</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Element Info</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Nomi delle plate</item>
                   </items>
@@ -4645,11 +4645,11 @@ Modificare gli switch nel componente Display.</item>
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Elements or Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d62e44a6-006f-4516-88c8-cb39483b419c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">71530ec3-4329-4991-b343-e0e8f65bf51e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">69938178-b3fc-40b7-8c4c-ba4ea1f08fe6</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">dfd73ed3-b5a2-4955-b5f1-2cf515cc8187</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -4669,7 +4669,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Names.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3ec31d5a-5b3f-437a-a630-656dec8e70fa</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2cd5a03e-8c41-44dd-99af-a3d8ee36d624</item>
                         <item name="Name" type_name="gh_string" type_code="10">Names</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4692,7 +4692,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Kinds.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7d57abfa-f93e-41c7-907f-15bae8e66965</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">32ad3d69-02c1-414d-b534-c441c8389721</item>
                         <item name="Name" type_name="gh_string" type_code="10">Kinds</item>
                         <item name="NickName" type_name="gh_string" type_code="10">K</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4715,7 +4715,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Property names.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d5fcc15d-7131-4b0e-8d5f-c48f94e48f5f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">728cca81-0dba-4921-b7de-b2981c0e932b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Properties</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4738,7 +4738,7 @@ Modificare gli switch nel componente Display.</item>
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Individual element fragments.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c7854c07-2695-4eb7-a0f3-ffc587c0d781</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e277b173-7319-4987-8007-29260bd36c67</item>
                         <item name="Name" type_name="gh_string" type_code="10">Elements</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4771,12 +4771,12 @@ Modificare gli switch nel componente Display.</item>
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">ec67176c-9458-4ee5-8aad-182865a04fab</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6b2ff884-aefd-46d9-af28-216325a5abc3</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Plate del modello</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">3ec31d5a-5b3f-437a-a630-656dec8e70fa</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">2cd5a03e-8c41-44dd-99af-a3d8ee36d624</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -4833,11 +4833,11 @@ Modificare gli switch nel componente Display.</item>
                       <ARGB>40;95;158;160</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">99b66d11-b27a-40aa-8f27-8f01da9115a9</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">5457abf3-88c0-43a9-988c-ac6653d48c67</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">ec67176c-9458-4ee5-8aad-182865a04fab</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">3735c766-8c5c-4ffc-89ec-439178bd573a</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">cb93ae65-3a3d-4c6b-af9c-8c6b419986a6</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">6b2ff884-aefd-46d9-af28-216325a5abc3</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">3</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5beea4a1-53e5-4247-801e-e8ea0c65451e</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">ab5e1452-4729-4d7e-9c24-2a0afbf6ef7e</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">05  DECOMPOSIZIONE / INTERROGAZIONE</item>
                   </items>

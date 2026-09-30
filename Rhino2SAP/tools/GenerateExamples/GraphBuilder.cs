@@ -54,6 +54,9 @@ internal sealed class GraphBuilder(Assembly assembly,string title)
             case Param_Boolean p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Boolean((bool)v));break;
             case Param_Point p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Point((Point3d)v));break;
             case Param_Line p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Line((Line)v));break;
+            case Param_Curve p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Curve((Curve)v));break;
+            case Param_Vector p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Vector((Vector3d)v));break;
+            case Param_Plane p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Plane((Plane)v));break;
             case Param_Mesh p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(new GH_Mesh((Mesh)v));break;
             case Param_GenericObject p:p.PersistentData.Clear();foreach(var v in values)p.PersistentData.Append(v switch{string s=>new GH_String(s),double d=>new GH_Number(d),_=>new GH_ObjectWrapper(v)});break;
             default:throw new ArgumentException("Unsupported example parameter "+param.GetType().Name);

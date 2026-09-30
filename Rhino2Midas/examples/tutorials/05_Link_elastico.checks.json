@@ -1,0 +1,138 @@
+{
+  "Project": "Rhino2Midas",
+  "File": "05_Link_elastico.gh",
+  "Title": "Link e rigidezze",
+  "Description": "Due nodi distinti collegati da un link elastico. Il primo e vincolato, il secondo e libero. Le prime tre rigidezze sono kN/m, le ultime tre kN m/rad.",
+  "Topics": [
+    "Link e rigidezze"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "66357F150BD36A0673DDC52C0151E0C1F74703298A236B459B6D757698BC4AED"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas Node Support",
+      "ComponentGuid": "44262e17-b337-06f1-5f06-87fdd1e8d8f8"
+    },
+    {
+      "Class": "ElasticLinkComponent",
+      "Name": "Midas Elastic Link",
+      "ComponentGuid": "e4404e6b-4819-d9f9-febf-ac6f20fcbcc3"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas Model",
+      "ComponentGuid": "e50a5053-c65f-9ead-56c0-b590e4180c11"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas Model",
+      "ComponentGuid": "93b33ef7-a831-e8de-c515-ad1b112ffad4"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas Model Summary",
+      "ComponentGuid": "c64a6cc9-799f-bc96-3412-0eff815a14bc"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas Model",
+      "ComponentGuid": "bd713aa6-c112-2638-5b1c-2bf09e6a4c2f"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas Model",
+      "ComponentGuid": "698c14a7-0908-2e23-f900-66cbaf85e602"
+    }
+  ],
+  "Objects": 20,
+  "Wires": 13,
+  "ModelChecks": 1,
+  "PhysicalChecks": 0,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Elastic Link",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Elastic Link",
+      "Input": "Nodes"
+    },
+    {
+      "From": "K: TX TY TZ RX RY RZ",
+      "Output": "Panel",
+      "To": "Midas Elastic Link",
+      "Input": "Stiffness"
+    },
+    {
+      "From": "Elastic Link",
+      "Output": "Link",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    }
+  ]
+}

@@ -264,6 +264,46 @@
     "Guid": "58d75c87-2f45-f036-9d87-4fa5719bb7ef"
   },
   {
+    "Class": "FilePathsComponent",
+    "Name": "SAP File Paths",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/FilePathsComponent.cs",
+    "Guid": "33302df3-52d4-2573-2bd5-40fb57cf8df3"
+  },
+  {
+    "Class": "TimeHistoryFunctionComponent",
+    "Name": "SAP Time History Function",
+    "Category": "23 Time history",
+    "Api": "Func.FuncTH.SetUser",
+    "File": "Rhino2SAP.Grasshopper/FunctionComponents.cs",
+    "Guid": "49d2015e-34f3-356f-552b-dcd027a073a4"
+  },
+  {
+    "Class": "SpectrumFunctionComponent",
+    "Name": "SAP Response Spectrum Function",
+    "Category": "22 Modale e spettri",
+    "Api": "Func.FuncRS.SetUser",
+    "File": "Rhino2SAP.Grasshopper/FunctionComponents.cs",
+    "Guid": "f2599b56-bf63-aa4a-aabe-7ac99239b3c5"
+  },
+  {
+    "Class": "SteadyStateFunctionComponent",
+    "Name": "SAP Steady State Function",
+    "Category": "24 Altri casi dinamici",
+    "Api": "Func.FuncSS.SetUser",
+    "File": "Rhino2SAP.Grasshopper/FunctionComponents.cs",
+    "Guid": "0ce143f1-aa08-229c-3d48-57aee030a2ce"
+  },
+  {
+    "Class": "PowerSpectrumFunctionComponent",
+    "Name": "SAP Power Spectrum Function",
+    "Category": "24 Altri casi dinamici",
+    "Api": "Func.FuncPSD.SetUser",
+    "File": "Rhino2SAP.Grasshopper/FunctionComponents.cs",
+    "Guid": "1edf9d70-86c8-de1c-3be6-bdd13d64841d"
+  },
+  {
     "Class": "AreaObj_SetAutoMeshComponent",
     "Name": "SAP Area Auto Mesh",
     "Category": "10 Mesh e assegnazioni",
@@ -4270,6 +4310,14 @@
     "Api": "TendonObj.SetTendonData",
     "File": "Rhino2SAP.Grasshopper/Generated/TendonObj_SetTendonDataComponent.cs",
     "Guid": "eae6bc2c-25f0-cd50-7a5e-9516a13e98b2"
+  },
+  {
+    "Class": "ImportModelComponent",
+    "Name": "Import SAP Model",
+    "Category": "26 Analisi e file",
+    "Api": "",
+    "File": "Rhino2SAP.Grasshopper/ImportModelComponent.cs",
+    "Guid": "8fb8c2a7-bf0e-eb8e-2e98-274194549376"
   },
   {
     "Class": "BuildModelComponent",

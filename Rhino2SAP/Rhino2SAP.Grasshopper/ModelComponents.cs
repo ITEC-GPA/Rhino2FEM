@@ -32,7 +32,7 @@ public sealed class DecomposeModelComponent:SafeComponent
     public DecomposeModelComponent():base("Decompose SAP Model","Decompose","Expose geometry, deferred assignments, units and stored results.","07-Model"){}
     protected override void RegisterInputParams(GH_InputParamManager p)=>p.AddGenericParameter("Model","M","Model.",GH_ParamAccess.item);
     protected override void RegisterOutputParams(GH_OutputParamManager p){foreach(var k in Enum.GetValues<ElementKind>())p.AddGenericParameter(k.ToString(),k.ToString(),k+" elements.",GH_ParamAccess.list);p.AddGenericParameter("Operations","O","Deferred SDK operations.",GH_ParamAccess.list);p.AddIntegerParameter("Units","U","SAP eUnits.",GH_ParamAccess.item);p.AddGenericParameter("Results","R","Native result tables.",GH_ParamAccess.list);}
-    protected override void Solve(IGH_DataAccess da){var m=Native<SapModel>(da,0);foreach(var k in Enum.GetValues<ElementKind>())da.SetDataList((int)k,m.Definition.Elements.Where(e=>e.Kind==k).Select(e=>new FragmentGoo(new Fragment(m.Definition.Operations,[e]))));da.SetDataList(6,m.Definition.Operations.Select(o=>new FragmentGoo(new Fragment([o]))));da.SetData(7,m.Units);da.SetDataList(8,m.Results?.Tables??[]);}
+    protected override void Solve(IGH_DataAccess da){var m=Native<SapModel>(da,0);foreach(var k in Enum.GetValues<ElementKind>())da.SetDataList((int)k,m.Definition.Elements.Where(e=>e.Kind==k).Select(e=>new FragmentGoo(new Fragment(m.Definition.Operations,[e],m.NativeSource))));da.SetDataList(6,m.Definition.Operations.Select(o=>new FragmentGoo(new Fragment([o],nativeSource:m.NativeSource))));da.SetData(7,m.Units);da.SetDataList(8,m.Results?.Tables??[]);}
 }
 public sealed class PreviewModelComponent:SafeComponent
 {
@@ -102,7 +102,7 @@ public abstract class ExecuteModelComponent:SafeComponent
             var requests=quantities.Count==0?null:quantities.Distinct().Select(q=>ResultRequest.All(q.StartsWith("Results.")?q:"Results."+q)).ToArray();
             cached=WorkerClient.Execute(model,new RunOptions(path,Analyze,overwrite,cases,combos,requests));cacheKey=key;
         }
-        if(cached!=null){Output(da,0,cached);da.SetData(1,Path.GetFullPath(path));da.SetDataList(2,cached.Results?.Issues.Select(i=>i.Method+": "+i.Message)??[]);da.SetDataList(3,cached.Definition.Elements.Where(e=>e.Kind==ElementKind.Frame).Select(e=>new FragmentGoo(new Fragment(cached.Definition.Operations,[e]))));da.SetDataList(4,cached.Definition.Elements.Where(e=>e.Kind==ElementKind.Area).Select(e=>new FragmentGoo(new Fragment(cached.Definition.Operations,[e]))));}else Message="Run to execute";
+        if(cached!=null){Output(da,0,cached);da.SetData(1,Path.GetFullPath(path));da.SetDataList(2,cached.Results?.Issues.Select(i=>i.Method+": "+i.Message)??[]);da.SetDataList(3,cached.Definition.Elements.Where(e=>e.Kind==ElementKind.Frame).Select(e=>new FragmentGoo(new Fragment(cached.Definition.Operations,[e],cached.NativeSource))));da.SetDataList(4,cached.Definition.Elements.Where(e=>e.Kind==ElementKind.Area).Select(e=>new FragmentGoo(new Fragment(cached.Definition.Operations,[e],cached.NativeSource))));}else Message="Run to execute";
     }
 }
 public sealed class ExportModelComponent:ExecuteModelComponent{protected override bool Analyze=>false;public ExportModelComponent():base("Export SAP2000 Model","09-Export"){} }

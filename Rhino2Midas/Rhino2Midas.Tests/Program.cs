@@ -83,6 +83,7 @@ var plateRequest=CivilService.DefaultRequests(plateModel).Single(q=>q.Type=="PLA
 var warped=new MidasModel(Fragment.Combine([material,Definitions.Thickness(1,.2),new Fragment([plate with{Points=new Position[]{new(0,0,0),new(1,0,0),new(1,1,0),new(0,1,.1)}}])]));Check(ModelValidation.Errors(warped).Any(e=>e.Contains("nonplanar")),"Nonplanar plate fails before API calls");
 var inverted=new MidasModel(Fragment.Combine([material,new Fragment([new(1,ElementKind.Solid,[new(0,0,0),new(0,1,0),new(1,0,0),new(0,0,1)],1)])]));Check(ModelValidation.Errors(inverted).Any(e=>e.Contains("inverted")),"Inverted tetrahedron fails before API calls");
 var combined=new MidasModel(Fragment.Combine([example.Definition,Definitions.Combination(1,"ULS",["LC1"],[1.5])]));Check(CivilService.DefaultRequests(combined)[0].Cases.Contains("ULS(CB)"),"Default requests include active additive general combinations");
+await ImportChecks.Run(Check);
 Console.WriteLine($"{count} managed checks passed.");
 if(args.Contains("--native"))
 {

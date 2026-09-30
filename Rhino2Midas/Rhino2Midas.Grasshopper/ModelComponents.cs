@@ -102,9 +102,50 @@ public sealed class ReadResultArchiveComponent:SafeComponent
 }
 public sealed class ReadCivilModelComponent:SafeComponent
 {
-    private bool wasRun;private MidasModel? cached;private string? tableKey;
-    public ReadCivilModelComponent():base("Read Active Midas Model","Read Civil","Read selected database tables from the active Civil document. No modification. Include all required property/load tables for a complete model.","10-Import"){}
-    protected override void RegisterInputParams(GH_InputParamManager p){p.AddTextParameter("Tables","T","Additional /db table names. UNIT/NODE/ELEM always read. Include MATL SECT THIK and all needed assignments.",GH_ParamAccess.list);p[0].Optional=true;p.AddBooleanParameter("Run","R","Read on rising edge.",GH_ParamAccess.item,false);}
-    protected override void RegisterOutputParams(GH_OutputParamManager p){p.AddGenericParameter("Model","M","Imported model subset.",GH_ParamAccess.item);p.AddTextParameter("Issues","I","Missing properties/dependencies.",GH_ParamAccess.list);}
-    protected override void Solve(IGH_DataAccess da){bool run=Item<bool>(da,1);var tables=new List<string>();da.GetDataList(0,tables);string current=string.Join("|",tables);if(current!=tableKey)cached=null;tableKey=current;bool trigger=run&&!wasRun;wasRun=run;if(trigger){cached=null;using var client=ConnectionSettings.Create();cached=CivilService.ReadModelAsync(client,tables.Select(s=>s.ToUpperInvariant()).ToArray()).GetAwaiter().GetResult();}if(cached!=null){Output(da,0,cached);da.SetDataList(1,ModelValidation.Errors(cached).Concat(ModelValidation.Warnings(cached)));}}
+    private bool wasRun;
+    private string? tableKey;
+    private ModelReadResult? cached;
+
+    public ReadCivilModelComponent():base("Read Active Midas Model","Read Civil",
+        "Read the active Civil document into a Grasshopper Model using GET only. Common property, support and load tables are automatic. Add product-specific tables as needed and review Issues before re-exporting.","10-Import"){}
+
+    protected override void RegisterInputParams(GH_InputParamManager p)
+    {
+        p.AddTextParameter("Tables","T","Optional extra /db tables. Geometry, materials, sections, thicknesses, supports, loads, combinations and common assignments are read automatically; see Issues.",GH_ParamAccess.list);
+        p[0].Optional=true;
+        p.AddBooleanParameter("Run","R","Read on rising edge.",GH_ParamAccess.item,false);
+    }
+
+    protected override void RegisterOutputParams(GH_OutputParamManager p)
+    {
+        p.AddGenericParameter("Model","M","Associated Grasshopper Model; see Issues for missing/unsupported native data.",GH_ParamAccess.item);
+        p.AddTextParameter("Issues","I","Unavailable tables, validation and snapshot scope.",GH_ParamAccess.list);
+        p.AddTextParameter("Tables","T","Database tables actually read successfully.",GH_ParamAccess.list);
+    }
+
+    protected override void Solve(IGH_DataAccess da)
+    {
+        if(da.Iteration!=0)throw new ArgumentException("Use one importer for the active document.");
+        bool run=Item<bool>(da,1);
+        var tables=new List<string>();
+        da.GetDataList(0,tables);
+        string current=string.Join("|",tables);
+        if(current!=tableKey)cached=null;
+        tableKey=current;
+        bool trigger=run&&!wasRun;
+        wasRun=run;
+
+        if(trigger)
+        {
+            cached=null; // A failed refresh must never publish the previous model.
+            using var client=ConnectionSettings.Create();
+            cached=CivilService.ReadExistingModelAsync(client,tables).GetAwaiter().GetResult();
+        }
+        if(cached==null){Message="Run to import";return;}
+
+        Output(da,0,cached.Model);
+        da.SetDataList(1,cached.Issues);
+        da.SetDataList(2,cached.Tables);
+        Message="Imported";
+    }
 }

@@ -23169,7 +23169,7 @@
     "Inputs": [
       {
         "Name": "Tables",
-        "Description": "Additional /db table names. UNIT/NODE/ELEM always read. Include MATL SECT THIK and all needed assignments.",
+        "Description": "Optional extra /db tables. Geometry, materials, sections, thicknesses, supports, loads, combinations and common assignments are read automatically; see Issues.",
         "Optional": true,
         "Access": "list"
       },
@@ -23183,12 +23183,17 @@
     "Outputs": [
       {
         "Name": "Model",
-        "Description": "Imported model subset.",
+        "Description": "Associated Grasshopper Model; see Issues for missing/unsupported native data.",
         "Access": "item"
       },
       {
         "Name": "Issues",
-        "Description": "Missing properties/dependencies.",
+        "Description": "Unavailable tables, validation and snapshot scope.",
+        "Access": "list"
+      },
+      {
+        "Name": "Tables",
+        "Description": "Database tables actually read successfully.",
         "Access": "list"
       }
     ]

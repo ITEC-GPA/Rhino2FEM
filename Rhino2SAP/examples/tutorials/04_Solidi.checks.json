@@ -1,0 +1,147 @@
+{
+  "Project": "Rhino2SAP",
+  "File": "04_Solidi.gh",
+  "Title": "Solidi Hexa8",
+  "Description": "Un cubo di lato 1 m, otto vertici ordinati, materiale elastico e base incastrata. Il Brep fisico deve essere chiuso. La connettivita conta: non riordinare casualmente i vertici.",
+  "Topics": [
+    "Solidi Hexa8"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "B97239A5A0DFF0741AD466813C02160C9FC4508A480EDA5DC8421BBF6F8CF0CE"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "SAP Isotropic Material",
+      "ComponentGuid": "b444d20b-0064-3871-78a2-a4a54e789783"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "PointObj_SetRestraintComponent",
+      "Name": "SAP Node Restraint",
+      "ComponentGuid": "867e952f-7139-6350-f087-3fbd1d061bdc"
+    },
+    {
+      "Class": "SolidElementComponent",
+      "Name": "SAP Solid Element",
+      "ComponentGuid": "81ba9ed5-8734-0b0e-f213-8bb748410af9"
+    },
+    {
+      "Class": "PropSolid_SetPropComponent",
+      "Name": "SAP Prop Solid Prop",
+      "ComponentGuid": "a2eb53fd-457a-0f1a-c184-e4dbf770209b"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build SAP Model",
+      "ComponentGuid": "448661f3-127a-0113-e6c8-5495e3279d16"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate SAP Model",
+      "ComponentGuid": "fd2fe5dd-6f47-76c9-aa49-b7609bd6f1fc"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "SAP Model Summary",
+      "ComponentGuid": "4e3b3a4b-c0e1-f86f-1d85-41bac30ffe75"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview SAP Model",
+      "ComponentGuid": "5d900d76-f926-632a-d1d3-fb28a22cf597"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose SAP Model",
+      "ComponentGuid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "SAP Model Physical Geometry",
+      "ComponentGuid": "4b01f40c-1243-f13f-c744-3f33a26dfb61"
+    }
+  ],
+  "Objects": 21,
+  "Wires": 12,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "SAP Node Restraint",
+      "Input": "Name"
+    },
+    {
+      "From": "SAP Prop Solid Prop",
+      "Output": "Definition",
+      "To": "SAP Solid Element",
+      "Input": "Property"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "SAP Prop Solid Prop",
+      "Input": "MatProp"
+    },
+    {
+      "From": "SAP Solid Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Restraint",
+      "Output": "Definition",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "SAP Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "SAP Model Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

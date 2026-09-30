@@ -1,6 +1,6 @@
 # Catalogo componenti Rhino2SAP
 
-**559 componenti in 34 argomenti**, tutti nella scheda **SAP2000** di Grasshopper. I titoli qui sotto corrispondono ai pannelli del plugin; i numeri mantengono l'ordine dei gruppi. GUID, nomi e icone sono verificati dal caricamento reale in Rhino.
+**565 componenti in 34 argomenti**, tutti nella scheda **SAP2000** di Grasshopper. I titoli qui sotto corrispondono ai pannelli del plugin; i numeri mantengono l'ordine dei gruppi. GUID, nomi e icone sono verificati dal caricamento reale in Rhino.
 
 | Argomento / pannello | Numero |
 |---|---:|
@@ -25,11 +25,11 @@
 | [19 Casi statici](#19-casi-statici) | 15 |
 | [20 Casi non lineari](#20-casi-non-lineari) | 15 |
 | [21 Fasi costruttive](#21-fasi-costruttive) | 15 |
-| [22 Modale e spettri](#22-modale-e-spettri) | 21 |
-| [23 Time history](#23-time-history) | 34 |
-| [24 Altri casi dinamici](#24-altri-casi-dinamici) | 20 |
+| [22 Modale e spettri](#22-modale-e-spettri) | 22 |
+| [23 Time history](#23-time-history) | 35 |
+| [24 Altri casi dinamici](#24-altri-casi-dinamici) | 22 |
 | [25 Combinazioni](#25-combinazioni) | 7 |
-| [26 Analisi e file](#26-analisi-e-file) | 6 |
+| [26 Analisi e file](#26-analisi-e-file) | 8 |
 | [27 Risultati nodali](#27-risultati-nodali) | 10 |
 | [28 Risultati beam](#28-risultati-beam) | 5 |
 | [29 Risultati plate](#29-risultati-plate) | 12 |
@@ -577,6 +577,7 @@
 | [SAP Load Cases Response Spectrum Modal Case](../Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetModalCaseComponent.cs) | `LoadCases.ResponseSpectrum.SetModalCase` |
 | [SAP Load Cases Response Spectrum Modal Comb](../Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetModalCombComponent.cs) | `LoadCases.ResponseSpectrum.SetModalComb` |
 | [SAP Load Cases Response Spectrum Modal Comb 1](../Rhino2SAP.Grasshopper/Generated/LoadCases_ResponseSpectrum_SetModalComb_1Component.cs) | `LoadCases.ResponseSpectrum.SetModalComb_1` |
+| [SAP Response Spectrum Function](../Rhino2SAP.Grasshopper/FunctionComponents.cs) | `Func.FuncRS.SetUser` |
 
 ## 23 Time history
 
@@ -616,6 +617,7 @@
 | [SAP Load Cases Mod Hist Nonlinear Modal Case](../Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetModalCaseComponent.cs) | `LoadCases.ModHistNonlinear.SetModalCase` |
 | [SAP Load Cases Mod Hist Nonlinear Sol Control Parameters](../Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetSolControlParametersComponent.cs) | `LoadCases.ModHistNonlinear.SetSolControlParameters` |
 | [SAP Load Cases Mod Hist Nonlinear Time Step](../Rhino2SAP.Grasshopper/Generated/LoadCases_ModHistNonlinear_SetTimeStepComponent.cs) | `LoadCases.ModHistNonlinear.SetTimeStep` |
+| [SAP Time History Function](../Rhino2SAP.Grasshopper/FunctionComponents.cs) | `Func.FuncTH.SetUser` |
 
 ## 24 Altri casi dinamici
 
@@ -641,6 +643,8 @@
 | [SAP Load Cases Steady State Freq Data](../Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetFreqDataComponent.cs) | `LoadCases.SteadyState.SetFreqData` |
 | [SAP Load Cases Steady State Initial Case](../Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetInitialCaseComponent.cs) | `LoadCases.SteadyState.SetInitialCase` |
 | [SAP Load Cases Steady State Loads](../Rhino2SAP.Grasshopper/Generated/LoadCases_SteadyState_SetLoadsComponent.cs) | `LoadCases.SteadyState.SetLoads` |
+| [SAP Power Spectrum Function](../Rhino2SAP.Grasshopper/FunctionComponents.cs) | `Func.FuncPSD.SetUser` |
+| [SAP Steady State Function](../Rhino2SAP.Grasshopper/FunctionComponents.cs) | `Func.FuncSS.SetUser` |
 
 ## 25 Combinazioni
 
@@ -659,11 +663,13 @@
 | Componente | Metodo API |
 |---|---|
 | [Export SAP2000 Model](../Rhino2SAP.Grasshopper/ModelComponents.cs) | — |
+| [Import SAP Model](../Rhino2SAP.Grasshopper/ImportModelComponent.cs) | — |
 | [Read SAP API Table](../Rhino2SAP.Grasshopper/ReadComponents.cs) | — |
 | [Read SAP Geometry](../Rhino2SAP.Grasshopper/ReadComponents.cs) | — |
 | [Read SAP Results Into Model](../Rhino2SAP.Grasshopper/ModelComponents.cs) | — |
 | [Run SAP Model Cases and Combinations](../Rhino2SAP.Grasshopper/ModelComponents.cs) | — |
 | [SAP Analyze and Embed Results](../Rhino2SAP.Grasshopper/ModelComponents.cs) | — |
+| [SAP File Paths](../Rhino2SAP.Grasshopper/FilePathsComponent.cs) | — |
 
 ## 27 Risultati nodali
 

@@ -1,0 +1,138 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "05_Link_elastico.gh",
+  "Title": "Link e rigidezze",
+  "Description": "Due nodi distinti collegati da un link elastico. Il primo e vincolato, il secondo e libero. Le prime tre rigidezze sono kN/m, le ultime tre kN m/rad.",
+  "Topics": [
+    "Link e rigidezze"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "671948774AE68EB99F32090DC0FE8AFA64857E605C0E2B88C622EFD559AE2BF1"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas GEN Node Support",
+      "ComponentGuid": "7e5f8ac6-b492-240b-277d-196a3af531a4"
+    },
+    {
+      "Class": "ElasticLinkComponent",
+      "Name": "Midas GEN Elastic Link",
+      "ComponentGuid": "fec8dfcc-4179-2a4d-a0d3-d99a051fd168"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas GEN Model",
+      "ComponentGuid": "b4c1e2fc-5594-56d0-ad95-eb3aed6067a0"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    }
+  ],
+  "Objects": 20,
+  "Wires": 13,
+  "ModelChecks": 1,
+  "PhysicalChecks": 0,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Elastic Link",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Elastic Link",
+      "Input": "Nodes"
+    },
+    {
+      "From": "K: TX TY TZ RX RY RZ",
+      "Output": "Panel",
+      "To": "Midas GEN Elastic Link",
+      "Input": "Stiffness"
+    },
+    {
+      "From": "Elastic Link",
+      "Output": "Link",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    }
+  ]
+}

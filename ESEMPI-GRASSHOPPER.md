@@ -2,6 +2,8 @@
 
 Quattro definizioni **.gh** con componenti reali collegati, slider, gruppi colorati e note sul canvas. Le geometrie sono generate nella definizione: non occorrono file Rhino esterni. Accanto a ogni .gh trovi lo stesso documento in **.ghx**, leggibile come XML, e un inventario dei collegamenti in .connections.json.
 
+Vedere anche la [raccolta tematica](TUTORIAL-GRASSHOPPER.md) e la [guida importazione](IMPORTAZIONE-MODELLI.md) dei quattro plugin.
+
 ## Aprire e provare
 
 1. Installa il pacchetto completo del plugin corrispondente in Rhino 8 / Grasshopper, comprese le DLL distribuite con il .gha; riavvia Rhino dopo l'installazione.

@@ -59,6 +59,7 @@ public static class ComponentTopics
             if(method.StartsWith("Joint")||method.StartsWith("AssembledJointMass"))return NodeResults;
             return ResultTools;
         }
+        if(path.StartsWith("Func."))return path=="Func.FuncTH"?TimeHistory:path=="Func.FuncRS"?ModalCases:DynamicCases;
         if(path=="SourceMass"||key=="PropMaterial.SetMassSource")return Mass;
         if(path.StartsWith("PropMaterial"))return Materials;
         if(path=="PropFrame.SDShape"||key=="PropFrame.SetSDSection")return SectionDesigner;

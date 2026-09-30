@@ -1,0 +1,176 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "17_Pareti_piani.gh",
+  "Title": "Pareti, piani e diaframmi",
+  "Description": "Modello GEN con parete, piani e diaframma. Il gruppo parete ha identita distinta dall\u0027elemento. Aggiunta di un piano dimostrativo.",
+  "Topics": [
+    "Pareti, piani e diaframmi"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "F27EB3006F60A3E836C6CD57C9D39DE90ABFCF39505D3CB9733F34302EFE37F8",
+    "91B7C5D8FDD69A04045D7BD6F54DCB99B234FE18BEE3A896040DB614B6E25056"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "WallExampleComponent",
+      "Name": "Midas GEN Wall and Story Example",
+      "ComponentGuid": "67790ff4-3e3d-37e8-9f52-2f29058e5c47"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    },
+    {
+      "Class": "DecomposeWallComponent",
+      "Name": "Decompose Midas GEN Wall",
+      "ComponentGuid": "934183e2-4bbd-28e6-8484-a6763c8a9acc"
+    },
+    {
+      "Class": "StoryComponent",
+      "Name": "Midas GEN Story",
+      "ComponentGuid": "b88b5606-18f2-d102-0c8f-b6634968bc84"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas GEN Model",
+      "ComponentGuid": "b4c1e2fc-5594-56d0-ad95-eb3aed6067a0"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    }
+  ],
+  "Objects": 28,
+  "Wires": 18,
+  "ModelChecks": 2,
+  "PhysicalChecks": 0,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": false,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "Wall Example",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Wall Example",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Wall Example",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Wall Example",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Wall Example",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Decompose",
+      "Output": "Wall",
+      "To": "Decompose Midas GEN Wall",
+      "Input": "Element"
+    },
+    {
+      "From": "Wall Example",
+      "Output": "Model",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Story",
+      "Output": "Story",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

@@ -52,12 +52,12 @@ public sealed class ElementInfoComponent:SafeComponent
     public ElementInfoComponent():base("SAP Element Info","Element Info","Decompose element names, kinds, properties and vertices.","08-Tools"){}
     protected override void RegisterInputParams(GH_InputParamManager p)=>p.AddGenericParameter("Definition","D","Elements or Model.",GH_ParamAccess.item);
     protected override void RegisterOutputParams(GH_OutputParamManager p){p.AddTextParameter("Names","N","Names.",GH_ParamAccess.list);p.AddTextParameter("Kinds","K","Kinds.",GH_ParamAccess.list);p.AddTextParameter("Properties","P","Property names.",GH_ParamAccess.list);p.AddGenericParameter("Elements","E","Individual element fragments.",GH_ParamAccess.list);}
-    protected override void Solve(IGH_DataAccess da){var f=FragmentOf(Item<object>(da,0));da.SetDataList(0,f.Elements.Select(e=>e.Name));da.SetDataList(1,f.Elements.Select(e=>e.Kind.ToString()));da.SetDataList(2,f.Elements.Select(e=>e.Property));da.SetDataList(3,f.Elements.Select(e=>new FragmentGoo(new Fragment(f.Operations,[e]))));}
+    protected override void Solve(IGH_DataAccess da){var f=FragmentOf(Item<object>(da,0));da.SetDataList(0,f.Elements.Select(e=>e.Name));da.SetDataList(1,f.Elements.Select(e=>e.Kind.ToString()));da.SetDataList(2,f.Elements.Select(e=>e.Property));da.SetDataList(3,f.Elements.Select(e=>new FragmentGoo(new Fragment(f.Operations,[e],f.NativeSource))));}
 }
 public sealed class ElementFilterComponent:SafeComponent
 {
     public ElementFilterComponent():base("Filter SAP Elements","Filter","Filter by kind and name; preserve property dependencies. Assignment operations should be added after filtering.","08-Tools"){}
     protected override void RegisterInputParams(GH_InputParamManager p){p.AddGenericParameter("Definition","D","Elements/Model.",GH_ParamAccess.item);p.AddIntegerParameter("Kind","K","-1 all; 0 Node, 1 Frame, 2 Area, 3 Solid, 4 Link, 5 Cable.",GH_ParamAccess.item,-1);p.AddTextParameter("Names","N","Names; empty = all.",GH_ParamAccess.list);p[2].Optional=true;}
     protected override void RegisterOutputParams(GH_OutputParamManager p)=>p.AddGenericParameter("Definition","D","Filtered elements and property definitions.",GH_ParamAccess.item);
-    protected override void Solve(IGH_DataAccess da){var f=FragmentOf(Item<object>(da,0));int kind=Item<int>(da,1);var names=new List<string>();da.GetDataList(2,names);Output(da,0,new Fragment(f.Operations.Where(o=>o.Stage<40),f.Elements.Where(e=>(kind<0||(int)e.Kind==kind)&&(names.Count==0||names.Contains(e.Name)))));}
+    protected override void Solve(IGH_DataAccess da){var f=FragmentOf(Item<object>(da,0));int kind=Item<int>(da,1);var names=new List<string>();da.GetDataList(2,names);Output(da,0,new Fragment(f.Operations.Where(o=>o.Stage<40),f.Elements.Where(e=>(kind<0||(int)e.Kind==kind)&&(names.Count==0||names.Contains(e.Name))),f.NativeSource));}
 }

@@ -22,7 +22,7 @@
       <chunks count="5">
         <chunk name="DocumentHeader">
           <items count="5">
-            <item name="DocumentID" type_name="gh_guid" type_code="9">ab2ba04c-fc61-427f-a6f4-faf36d56304e</item>
+            <item name="DocumentID" type_name="gh_guid" type_code="9">742d24c1-6f25-4502-9393-07678e5d88a9</item>
             <item name="Preview" type_name="gh_string" type_code="10">Shaded</item>
             <item name="PreviewMeshType" type_name="gh_int32" type_code="3">1</item>
             <item name="PreviewNormal" type_name="gh_drawing_color" type_code="36">
@@ -35,7 +35,7 @@
         </chunk>
         <chunk name="DefinitionProperties">
           <items count="4">
-            <item name="Date" type_name="gh_date" type_code="8">639261780480638722</item>
+            <item name="Date" type_name="gh_date" type_code="8">639263964422358886</item>
             <item name="Description" type_name="gh_string" type_code="10"></item>
             <item name="KeepOpen" type_name="gh_bool" type_code="1">false</item>
             <item name="Name" type_name="gh_string" type_code="10"></item>
@@ -109,7 +109,7 @@
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">7f5ee28a-8061-4fd3-a983-4cbe6725d3bb</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">891d02ba-f4a8-4182-a878-22f6601826ed</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">RHINO2SAP / 01  TRAVE / PREVIEW / BREP</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -171,7 +171,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Define material type, elasticity and weight density in Model force/length/temperature units.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a53fb643-11b8-4602-a4ec-d64d77d16a7b</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a099ad94-0dc8-48d5-b208-8b5c9bfa0230</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Isotropic Material</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Acciaio</item>
                   </items>
@@ -193,7 +193,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Material name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">02938a54-6c64-4126-a02b-f57cca91d236</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ea9a115f-e85e-4374-b9d4-c07d08802164</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -236,7 +236,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">1 Steel, 2 Concrete, 3 NoDesign, 4 Aluminum, 5 ColdFormed, 6 Rebar, 7 Tendon.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5466016f-0909-4325-9620-af702b1e53a1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">11bce890-6908-4880-b1df-07e995ec7ede</item>
                         <item name="Name" type_name="gh_string" type_code="10">Type</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -278,7 +278,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Elastic modulus [F/L²].</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e365e343-7b00-4749-89c4-03a8e0f3d59c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">95b79b63-f41f-4c84-8d03-2ec8904b12e7</item>
                         <item name="Name" type_name="gh_string" type_code="10">E</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -320,7 +320,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Poisson ratio.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ee7bb3c7-08c4-428e-bcc1-cd1c9f169e0f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3c654a6b-a2fa-4901-b336-d6e2e9b17323</item>
                         <item name="Name" type_name="gh_string" type_code="10">Poisson</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ν</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -362,7 +362,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="4">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Thermal coefficient [1/T].</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3d46f805-3b5b-46ab-98bd-000526e95e0b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7a56f107-47e6-44af-bbda-90bfb3c518dd</item>
                         <item name="Name" type_name="gh_string" type_code="10">Alpha</item>
                         <item name="NickName" type_name="gh_string" type_code="10">α</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -404,7 +404,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Weight per volume [F/L³], not mass density.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">136c7cd9-a639-42f4-b42d-343d8be7a36a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">08f48bd7-0bff-4f9b-a367-982fc42c8518</item>
                         <item name="Name" type_name="gh_string" type_code="10">Weight density</item>
                         <item name="NickName" type_name="gh_string" type_code="10">γ</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -446,7 +446,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Material definition.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">23f481e6-4e18-4a40-9c42-963ae10d7b72</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">29a3a9a5-796d-4564-92a1-ed430fc3edd5</item>
                         <item name="Name" type_name="gh_string" type_code="10">Material</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -479,7 +479,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="6">
                     <item name="Description" type_name="gh_string" type_code="10">Numeric slider for single values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">9389d9cd-3135-40cc-b13f-67dac943d7c8</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b96b0c75-b870-4560-ada4-75647e6fda5d</item>
                     <item name="Name" type_name="gh_string" type_code="10">Number Slider</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Altezza h [m]</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -521,7 +521,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="6">
                     <item name="Description" type_name="gh_string" type_code="10">Numeric slider for single values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">1cd81201-b321-41a3-9147-d8dc6449a3c8</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">c7995c96-9f0d-4133-97fb-290bf97250f2</item>
                     <item name="Name" type_name="gh_string" type_code="10">Number Slider</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Larghezza b [m]</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -565,7 +565,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Deferred SAP2000 command: PropFrame.SetRectangle. All dimensional values use Model units. Connect named definitions to name/reference sockets to collect their dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8f26ef3b-f957-4a74-89e0-2592a20171b2</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">027b3985-1fff-47e2-8894-5679d7a8da1f</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Frame Section Rectangle</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Rettangolo</item>
                   </items>
@@ -588,7 +588,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Prior definitions/elements. Connected fragments are carried into the output.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5f9d742a-3aaa-4fe7-bb62-557973df4787</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">085a504f-a1c0-4fc7-8059-8946930818e7</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -610,7 +610,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Name. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3eae49a8-78a2-499d-938b-daff54a713fd</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0d453314-776a-4170-b038-14581a67d428</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Name</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -654,11 +654,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">MatProp. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f45f13df-86ba-4edd-bcdd-290761f237d8</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9c62c740-68e7-4edf-8082-34000454f005</item>
                         <item name="Name" type_name="gh_string" type_code="10">MatProp</item>
                         <item name="NickName" type_name="gh_string" type_code="10">MatProp</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">23f481e6-4e18-4a40-9c42-963ae10d7b72</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">29a3a9a5-796d-4564-92a1-ed430fc3edd5</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -677,11 +677,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="3">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">T3</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e5c2be24-712e-41a9-b473-ef7095bbfb59</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">faf745cd-edfd-4033-a93b-43eb409fc1ae</item>
                         <item name="Name" type_name="gh_string" type_code="10">T3</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T3</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">9389d9cd-3135-40cc-b13f-67dac943d7c8</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">b96b0c75-b870-4560-ada4-75647e6fda5d</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -700,11 +700,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="4">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">T2</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">72f2f117-7b4b-4765-987e-66ebcee2d99e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0888cb2c-0e12-421b-a6f2-46bb5b6f5957</item>
                         <item name="Name" type_name="gh_string" type_code="10">T2</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T2</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">1cd81201-b321-41a3-9147-d8dc6449a3c8</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">c7995c96-9f0d-4133-97fb-290bf97250f2</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -723,7 +723,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Color</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2cfe02df-3abc-4df4-af66-73fcfb5b9840</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">85ddcdb1-0fe6-41c1-9940-17a84d362c1d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Color</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Color</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -765,7 +765,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="6">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Notes. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6d37c867-a858-4e4c-82bb-e8790fd96b15</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">43203723-e77d-4756-831c-91325cbccfab</item>
                         <item name="Name" type_name="gh_string" type_code="10">Notes</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Notes</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -809,7 +809,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="7">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">GUID. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">af4fccf7-473b-4cd0-ae89-0291e00b8067</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">31f10901-5eec-4d1c-a4a8-02cbfd606c97</item>
                         <item name="Name" type_name="gh_string" type_code="10">GUID</item>
                         <item name="NickName" type_name="gh_string" type_code="10">GUID</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -853,7 +853,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragment including dependencies and this operation.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ac93de54-8a83-4527-ae79-01da66c3cbaf</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ea37c452-4c5f-47be-a42a-ba3c2f21addb</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -875,7 +875,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Primary SAP name, where applicable.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0c1458e6-f187-47d2-b0e9-3a4141859585</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bee76787-1bf0-4cbf-ba14-fbbe626a515b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -912,12 +912,12 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <ARGB>40;70;130;180</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">a53fb643-11b8-4602-a4ec-d64d77d16a7b</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">9389d9cd-3135-40cc-b13f-67dac943d7c8</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">1cd81201-b321-41a3-9147-d8dc6449a3c8</item>
-                    <item name="ID" index="3" type_name="gh_guid" type_code="9">8f26ef3b-f957-4a74-89e0-2592a20171b2</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">a099ad94-0dc8-48d5-b208-8b5c9bfa0230</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">b96b0c75-b870-4560-ada4-75647e6fda5d</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">c7995c96-9f0d-4133-97fb-290bf97250f2</item>
+                    <item name="ID" index="3" type_name="gh_guid" type_code="9">027b3985-1fff-47e2-8894-5679d7a8da1f</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">4</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">cfe8cab6-5433-4c08-bdf2-adf34d62e559</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">554d86de-f209-4121-a746-a098cbec57f8</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">01  MATERIALE / SEZIONE</item>
                   </items>
@@ -939,7 +939,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Create a SAP element from Rhino geometry. Connect its named property definition to collect dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">28b41cfc-3961-4445-85bb-b0e8e8452f57</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a67f2051-e2f7-4e98-887c-cb88d0775192</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Frame Element</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Beam F1</item>
                   </items>
@@ -961,7 +961,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Unique SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c6a78b69-3f18-461e-b9a1-f632909620ae</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">249e60d9-de79-4dc5-a0c4-8506a06c52ea</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1004,7 +1004,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Object axis (I to J).</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b9047301-40ce-4f2d-9a3a-b54eedad5e78</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">036772cf-7e32-440e-b8a6-2b325da73623</item>
                         <item name="Name" type_name="gh_string" type_code="10">Line</item>
                         <item name="NickName" type_name="gh_string" type_code="10">L</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1053,11 +1053,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Named SAP property fragment or property name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">89f0a27d-1879-4882-90ad-6e86794c257c</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e05ca3f4-0912-4843-ab1f-922bf90a4d74</item>
                         <item name="Name" type_name="gh_string" type_code="10">Property</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">ac93de54-8a83-4527-ae79-01da66c3cbaf</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">ea37c452-4c5f-47be-a42a-ba3c2f21addb</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -1076,7 +1076,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Element and dependencies.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ba88ddc6-67b7-4811-a828-8e8ddbfb834f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b71cea17-925e-42c3-80e7-81065aa39638</item>
                         <item name="Name" type_name="gh_string" type_code="10">Element</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1098,7 +1098,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">fcb643ab-c3ff-478e-a91d-6f8a405e5996</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">dd30e361-0730-4d1c-8128-a60205c65302</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1133,7 +1133,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Create a SAP element from Rhino geometry. Connect its named property definition to collect dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">73df0b37-a683-4858-a2e6-00a3abfba181</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">05936035-3bfd-4223-abf5-2f899cee34f4</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Node Element</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Nodo BASE</item>
                   </items>
@@ -1155,7 +1155,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Unique SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">523baec6-9a53-4731-b234-ef2438fd5e02</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8831fe0d-403a-41fb-a315-85c6c4d379b6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1198,7 +1198,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Node point.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4dee9fbb-3db0-4940-bd33-74e7f9a96b97</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9963fc16-592a-485f-8dfd-53266b7fbdbb</item>
                         <item name="Name" type_name="gh_string" type_code="10">Point</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1245,7 +1245,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Element and dependencies.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d1f6806f-b761-4f97-9b05-4ac5fd085df5</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">85f83355-f308-44f5-890c-c777838bb961</item>
                         <item name="Name" type_name="gh_string" type_code="10">Element</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1267,7 +1267,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d52ebe76-c2e6-4882-b198-f1363031d3f6</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3c223daf-9012-492c-8580-dc8459a77bd2</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1302,7 +1302,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Create a SAP element from Rhino geometry. Connect its named property definition to collect dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">858db0f8-7a7b-47e5-a9f2-5eea4fec275c</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">263857da-bccb-47dc-bcb5-8873c9059bb2</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Node Element</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Nodo TIP</item>
                   </items>
@@ -1324,7 +1324,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Unique SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e6612e7a-ac44-4369-b34e-c9cc1a2398c6</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e5496b2d-15b4-4e9d-9191-f18fbec194e7</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1367,7 +1367,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Node point.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2c26fad0-03a4-44b2-9ac1-dccf9ecd9506</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">baa3936e-f2da-40fd-925b-5f6afcc6b55f</item>
                         <item name="Name" type_name="gh_string" type_code="10">Point</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1414,7 +1414,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Element and dependencies.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e9367eb7-a626-469f-889d-11103276c1e8</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">06e470b6-026f-4427-8745-548c73688244</item>
                         <item name="Name" type_name="gh_string" type_code="10">Element</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1436,7 +1436,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP object name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d677f210-0afb-4e91-8c2f-ffab3f99b477</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3c18db1e-3ec9-4841-8805-0090b929f262</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1471,7 +1471,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Deferred SAP2000 command: PointObj.SetRestraint. All dimensional values use Model units. Connect named definitions to name/reference sockets to collect their dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">641ccf9f-f112-418b-ab22-b8c66750026a</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">876fc978-9dfa-4cf2-b020-c3e894353f1f</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Node Restraint</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Incastro</item>
                   </items>
@@ -1494,7 +1494,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Prior definitions/elements. Connected fragments are carried into the output.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">792b428e-0c34-4289-8e4c-751bc941995d</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">881ac63d-0bdb-4b2d-bdb4-4837ead1541c</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -1516,11 +1516,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Name. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2b415f57-494a-4a08-b582-01177caadea8</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5cbebab0-6a5a-48a3-9689-345770f867c1</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Name</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">d1f6806f-b761-4f97-9b05-4ac5fd085df5</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">85f83355-f308-44f5-890c-c777838bb961</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -1540,7 +1540,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Value</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a0827a6a-53a6-449d-bb95-87a5da892236</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a109e2be-fd30-4475-9a56-f964f2cd56bd</item>
                         <item name="Name" type_name="gh_string" type_code="10">Value</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Value</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1607,7 +1607,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">ItemType: 0=Objects, 1=Group, 2=SelectedObjects</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">79b2e33c-9b92-4edf-80be-eb4fa36cd212</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">35765658-b816-4c50-9fd8-27598d0537f0</item>
                         <item name="Name" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -1649,7 +1649,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragment including dependencies and this operation.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">59d064ba-de7d-4710-a2b3-d1892be76edc</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5f5df88f-7f10-41d0-8573-6c1dc00de9be</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1671,7 +1671,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Primary SAP name, where applicable.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c0d84eeb-6e2a-4391-b97c-66662e58ec57</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cfd3d109-4071-4c8b-bc5e-69492ded9873</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1708,12 +1708,12 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <ARGB>40;147;112;219</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">28b41cfc-3961-4445-85bb-b0e8e8452f57</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">73df0b37-a683-4858-a2e6-00a3abfba181</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">858db0f8-7a7b-47e5-a9f2-5eea4fec275c</item>
-                    <item name="ID" index="3" type_name="gh_guid" type_code="9">641ccf9f-f112-418b-ab22-b8c66750026a</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">a67f2051-e2f7-4e98-887c-cb88d0775192</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">05936035-3bfd-4223-abf5-2f899cee34f4</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">263857da-bccb-47dc-bcb5-8873c9059bb2</item>
+                    <item name="ID" index="3" type_name="gh_guid" type_code="9">876fc978-9dfa-4cf2-b020-c3e894353f1f</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">4</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5e42f77f-47d3-4955-951c-c4268a13c5b0</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f6d07eb0-6339-4844-bab3-ec9e7e540b74</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">02  ELEMENTO / NODI / VINCOLO</item>
                   </items>
@@ -1735,7 +1735,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Define a load pattern and matching linear static analysis case.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">bb8155ee-48cf-46a2-8c83-562f21cdd6b7</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">589ff841-6333-4fef-9b00-7688a2882e95</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Load Pattern</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Pattern Q</item>
                   </items>
@@ -1757,7 +1757,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Load pattern name.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5b2fd2c5-ecdf-4c77-961f-3b21c4c81904</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f24737f3-9207-492a-94a6-abcc9d4931f8</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1800,7 +1800,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">1 Dead, 2 SuperDead, 3 Live, 4 ReduceLive, 5 Quake, 6 Wind, 7 Snow, 8 Other.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">83aebc68-94ff-4bb9-a527-3bcc2ab7f7ae</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">518e102f-1836-4c90-9b7c-6528fbe0c363</item>
                         <item name="Name" type_name="gh_string" type_code="10">Type</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1842,7 +1842,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Gravity self-weight multiplier, usually 1 only in DEAD.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1e5aa51e-dd32-4014-be4f-70f5bc7cc859</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4b2b389d-59b3-4ae9-ba45-653e01094242</item>
                         <item name="Name" type_name="gh_string" type_code="10">Self weight</item>
                         <item name="NickName" type_name="gh_string" type_code="10">W</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1884,7 +1884,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Pattern and linear case.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bc763f9b-c36d-44de-bc89-554a5d3c62bb</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e4e48a54-f692-4320-b03e-491fe27cd850</item>
                         <item name="Name" type_name="gh_string" type_code="10">Pattern</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1917,7 +1917,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">50d8c4e0-d48f-47b7-a6ab-557151f9f9e7</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">03526fce-d9eb-44ab-8499-b945aa810709</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Carico: FX FY FZ MX MY MZ</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -1981,7 +1981,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Deferred SAP2000 command: PointObj.SetLoadForce. All dimensional values use Model units. Connect named definitions to name/reference sockets to collect their dependencies.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">eaed1fbd-4e62-4562-867d-071d18fdf700</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6175d338-7c1a-4114-add9-99b5bcd94b43</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Node Load Force</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Forza al TIP</item>
                   </items>
@@ -2004,7 +2004,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Prior definitions/elements. Connected fragments are carried into the output.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">df60226f-a2e0-4bea-a583-971411feb3f1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a4bcd830-f70e-4dae-96ca-fabc4be7f2e0</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2026,11 +2026,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Name. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">55179594-e058-4463-ab23-9b9413de9d4a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c84843a1-5f97-44a6-866b-7c9ef9239bf6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Name</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">e9367eb7-a626-469f-889d-11103276c1e8</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">06e470b6-026f-4427-8745-548c73688244</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -2049,11 +2049,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">LoadPat. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a3b0e2bf-f738-4e12-97b2-47d9c3afe167</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0c9618a2-fc0c-4780-bff7-c03e041fd522</item>
                         <item name="Name" type_name="gh_string" type_code="10">LoadPat</item>
                         <item name="NickName" type_name="gh_string" type_code="10">LoadPat</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">bc763f9b-c36d-44de-bc89-554a5d3c62bb</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">e4e48a54-f692-4320-b03e-491fe27cd850</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -2073,11 +2073,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="8">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Value</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">123b7e1c-0d3a-4dcc-8976-983c1b65e076</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a08bdb35-d467-476c-ac68-2add684e161e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Value</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Value</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">50d8c4e0-d48f-47b7-a6ab-557151f9f9e7</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">03526fce-d9eb-44ab-8499-b945aa810709</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -2096,7 +2096,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="4">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Replace</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b680924b-49c0-4f3d-98ee-9bca0b352436</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">892300d9-a41c-49be-bb60-70f9cc2a679d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Replace</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Replace</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2138,7 +2138,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">CSys. Text or one named SAP definition/element.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d5f015f8-1ef2-4a44-9169-79b51db925f9</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b8c5af65-eff6-4b76-838a-220f930d986c</item>
                         <item name="Name" type_name="gh_string" type_code="10">CSys</item>
                         <item name="NickName" type_name="gh_string" type_code="10">CSys</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2182,7 +2182,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="6">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">ItemType: 0=Objects, 1=Group, 2=SelectedObjects</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c166352a-8a4a-41c4-bfa1-6e934eea1aa4</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8e451796-ad25-4f42-bf09-7212bfa60519</item>
                         <item name="Name" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="NickName" type_name="gh_string" type_code="10">ItemType</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -2224,7 +2224,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragment including dependencies and this operation.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">14bbf536-ed5a-46e3-8814-88eeec10828b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f3e41a3f-f4ab-4fd5-b327-b18e79f96244</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definition</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2246,7 +2246,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Primary SAP name, where applicable.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2811bb1f-02dd-43ee-b47c-f801871070ce</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">7863c877-7f13-45f6-8749-c75d4e866785</item>
                         <item name="Name" type_name="gh_string" type_code="10">Name</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2283,11 +2283,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <ARGB>40;255;140;0</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">bb8155ee-48cf-46a2-8c83-562f21cdd6b7</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">50d8c4e0-d48f-47b7-a6ab-557151f9f9e7</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">eaed1fbd-4e62-4562-867d-071d18fdf700</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">589ff841-6333-4fef-9b00-7688a2882e95</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">03526fce-d9eb-44ab-8499-b945aa810709</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">6175d338-7c1a-4114-add9-99b5bcd94b43</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">3</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">e0029309-e822-4d28-a06f-5ac50c23e0b6</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">09f3ad43-b8f0-41ba-9085-c3fa7a41a1ee</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">03  PATTERN / CARICO NODALE</item>
                   </items>
@@ -2309,7 +2309,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Collect geometry, properties, loads and cases into one SAP Model.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">ff6698e4-11c5-4b43-93aa-7516364ef9d7</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8bc36d2e-e650-4686-85cf-31a7dfa8f9c5</item>
                     <item name="Name" type_name="gh_string" type_code="10">Build SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Build Model</item>
                   </items>
@@ -2332,13 +2332,13 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="10">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">SAP fragments or Models. Shared dependencies are collected once.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">268a8f23-b39d-4aa4-8ba2-4b3daa2bd346</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b8623e1e-be22-437d-ab67-ec5a39582cb3</item>
                         <item name="Name" type_name="gh_string" type_code="10">Definitions</item>
                         <item name="NickName" type_name="gh_string" type_code="10">D</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">ba88ddc6-67b7-4811-a828-8e8ddbfb834f</item>
-                        <item name="Source" index="1" type_name="gh_guid" type_code="9">59d064ba-de7d-4710-a2b3-d1892be76edc</item>
-                        <item name="Source" index="2" type_name="gh_guid" type_code="9">14bbf536-ed5a-46e3-8814-88eeec10828b</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">b71cea17-925e-42c3-80e7-81065aa39638</item>
+                        <item name="Source" index="1" type_name="gh_guid" type_code="9">5f5df88f-7f10-41d0-8573-6c1dc00de9be</item>
+                        <item name="Source" index="2" type_name="gh_guid" type_code="9">f3e41a3f-f4ab-4fd5-b327-b18e79f96244</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">3</item>
                       </items>
                       <chunks count="1">
@@ -2357,7 +2357,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SAP eUnits (6=kN_m_C, 9=N_mm_C). Coordinates are not converted.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b2c2c5c2-3fce-4b3f-ac85-d18b7258a8a6</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">1d85fdd8-6a06-4d16-b6f3-a68b08bcf491</item>
                         <item name="Name" type_name="gh_string" type_code="10">Units</item>
                         <item name="NickName" type_name="gh_string" type_code="10">U</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2399,7 +2399,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Node welding distance in Model length units.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4449a09b-4f56-4b59-81a4-880ec979925b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9cd2b438-a249-4bde-9103-01df4f306402</item>
                         <item name="Name" type_name="gh_string" type_code="10">Tolerance</item>
                         <item name="NickName" type_name="gh_string" type_code="10">T</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2441,7 +2441,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Unified SAP Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">de870f6d-d2a2-4e8a-9151-27ccadadcf6b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6e44a752-7bb2-4b9b-8d3e-de2eaac498c6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2464,7 +2464,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Validation errors.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bb5fc902-97c0-47cd-9bf6-00d57e9c7707</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">75a02f92-8995-4894-bb27-766d4a2f7915</item>
                         <item name="Name" type_name="gh_string" type_code="10">Issues</item>
                         <item name="NickName" type_name="gh_string" type_code="10">I</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2499,7 +2499,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Per-model preview switches. Connect to Preview SAP Model. Global preferences remain unchanged.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a3feff9d-a938-41a5-a414-29da2c541f78</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">dcb0e327-ef70-4fee-8216-fa0b8ec48e37</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Display Settings</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Display</item>
                   </items>
@@ -2521,7 +2521,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Enabled.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">36dc9cc0-6632-4ceb-b695-f33d23150c91</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f1bd8258-31dd-4974-aad2-d1123b9c70ae</item>
                         <item name="Name" type_name="gh_string" type_code="10">Enabled</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Enabled</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2563,7 +2563,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Geometry.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0d2ebaca-8b75-4449-88b3-05be3634f556</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2bf7effa-ed32-4fc3-b1ee-fa162304c2af</item>
                         <item name="Name" type_name="gh_string" type_code="10">Geometry</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Geometry</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2605,7 +2605,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Sections.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">76f269ee-30f6-47a0-be5b-ef72a2f47314</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c736db69-dcb8-434e-8223-f7865c858132</item>
                         <item name="Name" type_name="gh_string" type_code="10">Sections</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Sections</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2647,11 +2647,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="3">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Show Loads.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">8d8c2707-90a6-468c-89a8-b3577bf59d42</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">abd28c29-85db-4915-b642-ae60993c9872</item>
                         <item name="Name" type_name="gh_string" type_code="10">Loads</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Loads</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">72c745ab-d6d2-4c0c-83b2-e9527c52e690</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">52ed004c-9962-409e-a3cc-d27e22f19538</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="2">
@@ -2690,7 +2690,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="4">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Supports.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">11f82ca9-d99d-472d-aad1-a813e5dda73a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2e35a02f-5c56-43c2-a247-78d15d537421</item>
                         <item name="Name" type_name="gh_string" type_code="10">Supports</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Supports</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2732,7 +2732,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="5">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Springs.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">883c76ca-748c-4e3c-a4f9-4e18504d9355</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e3940542-13de-4403-a987-1ab28ad481c6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Springs</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Springs</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2774,7 +2774,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="6">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Masses.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0672a015-df29-4d1c-a73a-af9587544294</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b82e1192-914a-4da3-80b7-04c931ef0afe</item>
                         <item name="Name" type_name="gh_string" type_code="10">Masses</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Masses</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2816,7 +2816,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="7">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Releases.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c01c35c4-1b37-4235-b8c5-54f66b70ba82</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">e9800761-959c-44f0-83a3-21eeb56e38e0</item>
                         <item name="Name" type_name="gh_string" type_code="10">Releases</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Releases</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2858,7 +2858,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="8">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Offsets.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bb13a290-0074-4ff9-80c5-b852dc66c30e</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">57328bbb-39a2-42f9-ab15-c93c5f4df982</item>
                         <item name="Name" type_name="gh_string" type_code="10">Offsets</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Offsets</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2900,7 +2900,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="9">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show OtherAttributes.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">316e00ad-65ef-4a19-8ddf-2a123be70d89</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4ec287c1-6f8e-4e07-a38a-204241e86798</item>
                         <item name="Name" type_name="gh_string" type_code="10">OtherAttributes</item>
                         <item name="NickName" type_name="gh_string" type_code="10">OtherAttributes</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2942,7 +2942,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="10">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Axes.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">18361698-98da-41fb-8282-a37ed36f991a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ac116d12-c6c4-40b0-8b87-006980294cdc</item>
                         <item name="Name" type_name="gh_string" type_code="10">Axes</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Axes</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -2984,7 +2984,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="11">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Labels.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5fa2a0ce-1d59-4c97-a992-7cb944805f59</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b310388c-06af-40f9-aae7-73ccc8f164ec</item>
                         <item name="Name" type_name="gh_string" type_code="10">Labels</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Labels</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3026,7 +3026,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="12">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Show Values.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6bb0fefb-36b7-4802-af04-b9b86b73b727</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">96b58e88-49f6-4b40-9ced-5d9f33cbc08d</item>
                         <item name="Name" type_name="gh_string" type_code="10">Values</item>
                         <item name="NickName" type_name="gh_string" type_code="10">Values</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3068,7 +3068,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="13">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Symbol and axis length.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9d82c0d9-5891-4558-9772-52cac1ab6aeb</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ae3b017e-4c52-4808-8ca8-6331c780ce20</item>
                         <item name="Name" type_name="gh_string" type_code="10">Symbol scale</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3110,7 +3110,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="14">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Arrow length per load value.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3e03efcd-9bdc-43f2-871e-221416b07499</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c478b814-b5f2-4dde-924c-b9f988a0e13a</item>
                         <item name="Name" type_name="gh_string" type_code="10">Load scale</item>
                         <item name="NickName" type_name="gh_string" type_code="10">L</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3152,7 +3152,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="15">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Empty = all patterns.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a7df98cb-c358-4449-a156-5c889011f202</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a5fbfdd5-1709-4522-9b08-581a4240afbb</item>
                         <item name="Name" type_name="gh_string" type_code="10">Load pattern</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3195,7 +3195,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Local preview options.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">506048b3-d03e-4987-8c76-b90923e66a87</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4ef47b7e-78cd-4fa3-8552-b83c25cf52c3</item>
                         <item name="Name" type_name="gh_string" type_code="10">Settings</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3228,7 +3228,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="7">
                     <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">72c745ab-d6d2-4c0c-83b2-e9527c52e690</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">52ed004c-9962-409e-a3cc-d27e22f19538</item>
                     <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Mostra carichi</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3265,7 +3265,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                   <items count="5">
                     <item name="Description" type_name="gh_string" type_code="10">Preview geometry, sections, loads and attributes; output closed physical Breps for downstream geometry operations and solid bake. Display switches do not change Brep output.</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6c80bfa9-b26e-4eab-b00c-db4cedff4ff6</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">aed91c6c-f615-4755-a950-ede1553440e0</item>
                     <item name="Name" type_name="gh_string" type_code="10">Preview SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview / Brep</item>
                   </items>
@@ -3287,11 +3287,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model, elements or section definition to preview.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">fb9e5245-47fd-424c-aa52-2f48c1953bd7</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">77b8435d-4ac1-4bbe-a432-2f09f7332adf</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">de870f6d-d2a2-4e8a-9151-27ccadadcf6b</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">6e44a752-7bb2-4b9b-8d3e-de2eaac498c6</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3310,11 +3310,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Optional SAP Display Settings. Empty = global Rhino2SAP preferences.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">34bba92c-64f1-41c8-8e70-76df290f26ea</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a5691e98-dd0f-4100-9a4a-a39ada1687ac</item>
                         <item name="Name" type_name="gh_string" type_code="10">Settings</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">506048b3-d03e-4987-8c76-b90923e66a87</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">4ef47b7e-78cd-4fa3-8552-b83c25cf52c3</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3333,7 +3333,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Preview summary.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">37a62521-b0d6-46e4-b164-02c5a484107f</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">bb36fe16-66e6-4560-843a-220cfc19cd8e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Status</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3356,7 +3356,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Assignments shown symbolically and elements omitted from solid Breps.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">762f3e97-506a-4f28-9ecd-9a8a8825f072</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3416731c-1f7a-48f8-8b7b-2c7ddf847dd6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Issues</item>
                         <item name="NickName" type_name="gh_string" type_code="10">I</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3379,7 +3379,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Valid closed physical Breps: beam profiles, shell thicknesses and solid elements. Nodes and symbols are excluded. Independent of preview visibility.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">75344685-3991-480e-a8c4-b03a7060a3aa</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ebe4cc3b-6158-4697-a64f-0691c38180be</item>
                         <item name="Name" type_name="gh_string" type_code="10">Breps</item>
                         <item name="NickName" type_name="gh_string" type_code="10">B</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3402,7 +3402,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">SAP object names matching the Breps output, in the same order.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">2087008b-6dc1-492c-bfd6-f44139656306</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ffa4a932-5f29-4d42-adbc-5ac96df5ac4a</item>
                         <item name="Name" type_name="gh_string" type_code="10">Brep Names</item>
                         <item name="NickName" type_name="gh_string" type_code="10">N</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3436,11 +3436,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">Contains a collection of Breps (Boundary REPresentations)</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2e26ca8f-96cd-4423-873f-a9b317436716</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6fd81b37-264b-4662-aa52-147c46fc65b6</item>
                     <item name="Name" type_name="gh_string" type_code="10">Brep</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Solidi Brep</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">75344685-3991-480e-a8c4-b03a7060a3aa</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">ebe4cc3b-6158-4697-a64f-0691c38180be</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                   </items>
                   <chunks count="1">
@@ -3474,7 +3474,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Check geometry, duplicate definitions and SDK arguments before export.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a11e3bd1-ff1f-46f5-b895-da38c33e074e</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b7bc5ec2-071d-4ca5-9108-2fdfc2427779</item>
                     <item name="Name" type_name="gh_string" type_code="10">Validate SAP Model</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Controllo modello</item>
                   </items>
@@ -3496,11 +3496,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ad96ecb7-b9e9-456a-b755-20c2af6e107b</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b051f915-6483-4961-aa68-a0c0bdd09378</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">de870f6d-d2a2-4e8a-9151-27ccadadcf6b</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">6e44a752-7bb2-4b9b-8d3e-de2eaac498c6</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3519,7 +3519,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="0">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Managed validation passed; does not certify structural stability.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3656ec93-c889-437b-81f4-8fcbcd38f5bc</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">01a7ed57-e70f-42ef-8623-460e4d95e09a</item>
                         <item name="Name" type_name="gh_string" type_code="10">Valid</item>
                         <item name="NickName" type_name="gh_string" type_code="10">V</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3542,7 +3542,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Errors.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9a3eb1a5-9076-4064-845c-a9edb2a54b88</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">4f2364f9-5d02-4fca-88a0-cc3640919e69</item>
                         <item name="Name" type_name="gh_string" type_code="10">Errors</item>
                         <item name="NickName" type_name="gh_string" type_code="10">E</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3564,7 +3564,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_output" index="2">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">SHA256 model fingerprint.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">b95c6b95-f352-40c9-85ef-7715e3325117</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a7501f04-4f2a-4012-a997-7f9bfd5edeb2</item>
                         <item name="Name" type_name="gh_string" type_code="10">Fingerprint</item>
                         <item name="NickName" type_name="gh_string" type_code="10">H</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3597,12 +3597,12 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">42136b1f-84f2-4529-bdaf-3da574d85bf3</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">fa8dfccd-f0b0-4a84-b4c9-ff26a815f99b</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Modello valido</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">3656ec93-c889-437b-81f4-8fcbcd38f5bc</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">01a7ed57-e70f-42ef-8623-460e4d95e09a</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -3655,12 +3655,12 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d4db638e-f62e-497a-9492-f54f8e8d9a61</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">de6a414b-0c11-4f18-98d3-bc845734783a</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview: limiti / Issues</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">762f3e97-506a-4f28-9ecd-9a8a8825f072</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">3416731c-1f7a-48f8-8b7b-2c7ddf847dd6</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -3715,7 +3715,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Count objects, properties, cases and results.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">30421ab9-170c-4706-8199-23d36b90ba0e</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">02b05313-d084-497d-b3c4-88841a79caa2</item>
                     <item name="Name" type_name="gh_string" type_code="10">SAP Model Summary</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Riepilogo</item>
                   </items>
@@ -3737,11 +3737,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6f78aea2-e577-4034-b009-6d87ca154239</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">5cb066a9-098b-407e-8165-ff3bdd09fd45</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">de870f6d-d2a2-4e8a-9151-27ccadadcf6b</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">6e44a752-7bb2-4b9b-8d3e-de2eaac498c6</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3761,7 +3761,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Summary.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">da541706-7a12-4b81-a9aa-875da92e67a1</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cc283bd1-f3d6-4f52-b9e8-d9ccacae432e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Summary</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3794,12 +3794,12 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="9">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f0f3fe33-a702-4a68-9141-59f86e175704</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">7e07230d-75ae-4e56-8445-615c235702cf</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Riepilogo modello</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">da541706-7a12-4b81-a9aa-875da92e67a1</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">cc283bd1-f3d6-4f52-b9e8-d9ccacae432e</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10"></item>
                   </items>
@@ -3854,7 +3854,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <item name="Description" type_name="gh_string" type_code="10">Bake analytical or physical geometry into Rhino as one undoable operation. Physical mode defaults to valid closed Breps only, with skipped elements listed in Issues.</item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">1</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a602dae9-03d4-4c3d-a54b-2a91e3e5a9b0</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d9a21c7e-9c2b-45e5-9ca8-20236b6aab08</item>
                     <item name="Name" type_name="gh_string" type_code="10">Bake SAP Geometry</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Bake solidi</item>
                   </items>
@@ -3876,11 +3876,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="0">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">SAP Model.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">cd1c18e7-c888-4893-b376-0cbfaa795668</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ae052657-2be3-4ab4-823c-c3150af98c5e</item>
                         <item name="Name" type_name="gh_string" type_code="10">Model</item>
                         <item name="NickName" type_name="gh_string" type_code="10">M</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">de870f6d-d2a2-4e8a-9151-27ccadadcf6b</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">6e44a752-7bb2-4b9b-8d3e-de2eaac498c6</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -3899,7 +3899,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="1">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">Use physical section and thickness geometry.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">52d487e2-b388-49d9-9577-4254c00dde9a</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">c44c32d6-415e-4a69-8697-2203228e5a1b</item>
                         <item name="Name" type_name="gh_string" type_code="10">Physical</item>
                         <item name="NickName" type_name="gh_string" type_code="10">P</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -3941,11 +3941,11 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="2">
                       <items count="7">
                         <item name="Description" type_name="gh_string" type_code="10">Rising edge bakes to Rhino.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">099129b7-ec03-4d41-900e-53404b94de69</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">6d471ece-326a-47d0-b34b-8f9883fd0ccb</item>
                         <item name="Name" type_name="gh_string" type_code="10">Bake</item>
                         <item name="NickName" type_name="gh_string" type_code="10">B</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">6cd3eb0f-14b2-4deb-bba4-1d96203ed802</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">a8ad4ed5-58ec-48d6-a549-d1371955db41</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="2">
@@ -3984,7 +3984,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                     <chunk name="param_input" index="3">
                       <items count="6">
                         <item name="Description" type_name="gh_string" type_code="10">In Physical mode, bake only valid closed Breps; omit nodes, symbols and analytical fallbacks. Ignored in analytical mode.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">ca759c38-3e3c-400e-a76d-f9c946d65b63</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">64fb3fb1-009a-4535-bb24-1ab7ccbdb5f6</item>
                         <item name="Name" type_name="gh_string" type_code="10">Solid only</item>
                         <item name="NickName" type_name="gh_string" type_code="10">S</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4027,7 +4027,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Baked Rhino object GUIDs.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">df44b4b2-4a80-4019-bbe5-7ccdf875e083</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">9aabe3b9-a2af-4850-ae44-f562aefe32cd</item>
                         <item name="Name" type_name="gh_string" type_code="10">Object IDs</item>
                         <item name="NickName" type_name="gh_string" type_code="10">I</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4050,7 +4050,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                       <items count="7">
                         <item name="Access" type_name="gh_int32" type_code="3">1</item>
                         <item name="Description" type_name="gh_string" type_code="10">Skipped elements, physical-geometry limitations and bake failures from the last bake.</item>
-                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">a7d67ecb-973d-411c-981f-b8a3d5cf76fb</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">615a5d92-3cd5-445c-800b-13b5ddd69aa9</item>
                         <item name="Name" type_name="gh_string" type_code="10">Issues</item>
                         <item name="NickName" type_name="gh_string" type_code="10">W</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4083,7 +4083,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="7">
                     <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6cd3eb0f-14b2-4deb-bba4-1d96203ed802</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a8ad4ed5-58ec-48d6-a549-d1371955db41</item>
                     <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
                     <item name="NickName" type_name="gh_string" type_code="10">BAKE SOLIDI</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4119,7 +4119,7 @@ Le coordinate di asse e nodi sono incorporate; se le cambi, mantienile coerenti.
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0687eecd-084e-4bdd-9966-edfa4b76cdab</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f768ee5e-de6d-48b0-a6a1-679becebad1b</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview e bake</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
@@ -4184,20 +4184,20 @@ Modificare gli switch nel componente Display.</item>
                       <ARGB>40;60;179;113</ARGB>
                     </item>
                     <item name="Description" type_name="gh_string" type_code="10">A group of Grasshopper objects</item>
-                    <item name="ID" index="0" type_name="gh_guid" type_code="9">a3feff9d-a938-41a5-a414-29da2c541f78</item>
-                    <item name="ID" index="1" type_name="gh_guid" type_code="9">72c745ab-d6d2-4c0c-83b2-e9527c52e690</item>
-                    <item name="ID" index="2" type_name="gh_guid" type_code="9">6c80bfa9-b26e-4eab-b00c-db4cedff4ff6</item>
-                    <item name="ID" index="3" type_name="gh_guid" type_code="9">2e26ca8f-96cd-4423-873f-a9b317436716</item>
-                    <item name="ID" index="4" type_name="gh_guid" type_code="9">a11e3bd1-ff1f-46f5-b895-da38c33e074e</item>
-                    <item name="ID" index="5" type_name="gh_guid" type_code="9">42136b1f-84f2-4529-bdaf-3da574d85bf3</item>
-                    <item name="ID" index="6" type_name="gh_guid" type_code="9">d4db638e-f62e-497a-9492-f54f8e8d9a61</item>
-                    <item name="ID" index="7" type_name="gh_guid" type_code="9">30421ab9-170c-4706-8199-23d36b90ba0e</item>
-                    <item name="ID" index="8" type_name="gh_guid" type_code="9">f0f3fe33-a702-4a68-9141-59f86e175704</item>
-                    <item name="ID" index="9" type_name="gh_guid" type_code="9">a602dae9-03d4-4c3d-a54b-2a91e3e5a9b0</item>
-                    <item name="ID" index="10" type_name="gh_guid" type_code="9">6cd3eb0f-14b2-4deb-bba4-1d96203ed802</item>
-                    <item name="ID" index="11" type_name="gh_guid" type_code="9">0687eecd-084e-4bdd-9966-edfa4b76cdab</item>
+                    <item name="ID" index="0" type_name="gh_guid" type_code="9">dcb0e327-ef70-4fee-8216-fa0b8ec48e37</item>
+                    <item name="ID" index="1" type_name="gh_guid" type_code="9">52ed004c-9962-409e-a3cc-d27e22f19538</item>
+                    <item name="ID" index="2" type_name="gh_guid" type_code="9">aed91c6c-f615-4755-a950-ede1553440e0</item>
+                    <item name="ID" index="3" type_name="gh_guid" type_code="9">6fd81b37-264b-4662-aa52-147c46fc65b6</item>
+                    <item name="ID" index="4" type_name="gh_guid" type_code="9">b7bc5ec2-071d-4ca5-9108-2fdfc2427779</item>
+                    <item name="ID" index="5" type_name="gh_guid" type_code="9">fa8dfccd-f0b0-4a84-b4c9-ff26a815f99b</item>
+                    <item name="ID" index="6" type_name="gh_guid" type_code="9">de6a414b-0c11-4f18-98d3-bc845734783a</item>
+                    <item name="ID" index="7" type_name="gh_guid" type_code="9">02b05313-d084-497d-b3c4-88841a79caa2</item>
+                    <item name="ID" index="8" type_name="gh_guid" type_code="9">7e07230d-75ae-4e56-8445-615c235702cf</item>
+                    <item name="ID" index="9" type_name="gh_guid" type_code="9">d9a21c7e-9c2b-45e5-9ca8-20236b6aab08</item>
+                    <item name="ID" index="10" type_name="gh_guid" type_code="9">a8ad4ed5-58ec-48d6-a549-d1371955db41</item>
+                    <item name="ID" index="11" type_name="gh_guid" type_code="9">f768ee5e-de6d-48b0-a6a1-679becebad1b</item>
                     <item name="ID_Count" type_name="gh_int32" type_code="3">12</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5bcba5fe-9d0c-46e1-84ab-0af00baeb05e</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">04c09b54-2b00-49ee-b93e-f36a24cd24e6</item>
                     <item name="Name" type_name="gh_string" type_code="10">Group</item>
                     <item name="NickName" type_name="gh_string" type_code="10">04  CONTROLLO / PREVIEW / BREP / BAKE</item>
                   </items>

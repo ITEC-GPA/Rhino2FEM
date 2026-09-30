@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><UseWindowsForms>true</UseWindowsForms><CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Rhino.Inside" Version="8.0.7-beta" />
+    <PackageReference Include="RhinoCommon" Version="$(RhinoVersion)" ExcludeAssets="runtime" />
+    <PackageReference Include="Grasshopper" Version="$(RhinoVersion)" ExcludeAssets="runtime" />
+  </ItemGroup>
+</Project>

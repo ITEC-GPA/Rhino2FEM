@@ -32,7 +32,8 @@ public sealed class PreviewScene
         var section=definition.Operations.LastOrDefault(o=>o.Key.StartsWith("PropFrame.")&&o.Arguments.ContainsKey("MatProp")&&o.Arguments.ContainsKey("Name"));
         sectionOnly=definition.Elements.Count==0&&section!=null;
         if(sectionOnly)definition=new Fragment(definition.Operations,[new Element("Section preview",ElementKind.Frame,[new(0,0,0),new(0,0,.1)],section!.Arguments["Name"].GetString()!)]);
-        model=new SapModel(definition);Bounds=Preview.Bounds(model.Definition.Elements);
+        // A decomposed native fragment is a visual subset, not a replacement solver Model.
+        model=new SapModel(new Fragment(definition.Operations,definition.Elements));Bounds=Preview.Bounds(model.Definition.Elements);
     }
     public IReadOnlyList<PhysicalGeometry.Solid> CopySolids(out IReadOnlyList<string> issues)
     {

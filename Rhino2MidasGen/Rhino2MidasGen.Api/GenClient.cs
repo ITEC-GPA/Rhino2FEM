@@ -31,7 +31,7 @@ public sealed class GenClient:IDisposable
         {
             string text=await response.Content.ReadAsStringAsync(cancel).ConfigureAwait(false);
             string Clean(string s)=>s.Replace(key,"[redacted]");
-            if(!response.IsSuccessStatusCode)throw new HttpRequestException(Clean($"Midas GEN {path}: HTTP {(int)response.StatusCode}. {text[..Math.Min(text.Length,500)]}"));
+            if(!response.IsSuccessStatusCode)throw new HttpRequestException(Clean($"Midas GEN {path}: HTTP {(int)response.StatusCode}. {text[..Math.Min(text.Length,500)]}"),null,response.StatusCode);
             JsonElement json;try{using var doc=JsonDocument.Parse(text);json=doc.RootElement.Clone();}catch(JsonException){throw new InvalidOperationException("Midas GEN returned non-JSON data for "+path);}
             if(json.ValueKind!=JsonValueKind.Object)throw new InvalidOperationException("Expected a GEN JSON object for "+path);
             if(json.EnumerateObject().Any(p=>p.Name.Equals("error",StringComparison.OrdinalIgnoreCase)))throw new InvalidOperationException(Clean($"Midas GEN {path}: {text[..Math.Min(text.Length,800)]}"));
@@ -98,9 +98,32 @@ public static class GenService
         }
         return requests.ToArray();
     }
+    /// <summary>Read a useful model snapshot using GET only; report optional tables that are unavailable.</summary>
+    public static async Task<ModelReadResult> ReadExistingModelAsync(GenClient client,IReadOnlyList<string> additional,CancellationToken cancel=default)
+    {
+        var tables=new Dictionary<string,JsonElement>(StringComparer.OrdinalIgnoreCase);
+        var issues=new List<string>();
+        foreach(string name in new[]{"UNIT","NODE","ELEM"})
+            tables[name]=await client.ReadDatabaseAsync(name,cancel).ConfigureAwait(false);
+        string[] standard=["STYP","MATL","SECT","THIK","STLD","CONS","NSPR","NMAS","CNLD","BMLD","PRES","SELF","LCOM-GEN","FRLS","OFFS","ELNK","GRUP","BNGR","LDGR","STOR"];
+        foreach(string name in standard.Concat(additional.Select(s=>s.Trim().ToUpperInvariant())).Where(s=>s.Length>0).Distinct(StringComparer.OrdinalIgnoreCase))
+        {
+            if(tables.ContainsKey(name))continue;
+            try { tables[name]=await client.ReadDatabaseAsync(name,cancel).ConfigureAwait(false); }
+            catch(HttpRequestException ex) when(ex.StatusCode is not (System.Net.HttpStatusCode.Unauthorized or System.Net.HttpStatusCode.Forbidden) && ex.StatusCode.HasValue)
+            { issues.Add(name+": table not imported: "+ex.Message); }
+            catch(InvalidOperationException ex) { issues.Add(name+": table not imported: "+ex.Message); }
+        }
+        var model=ApiModel.FromDatabase(tables);
+        issues.AddRange(ModelValidation.Errors(model).Concat(ModelValidation.Warnings(model)));
+        issues.Add("Snapshot of geometry and the listed database tables; add product-specific tables through Tables. Native result tables are read separately. Review Issues before re-exporting.");
+        return new(model,issues.ToArray(),tables.Keys.ToArray());
+    }
     public static async Task<MidasModel> ReadModelAsync(GenClient client,IReadOnlyList<string> endpoints,CancellationToken cancel=default)
     {
         var data=new Dictionary<string,JsonElement>();foreach(var endpoint in new[]{"UNIT","NODE","ELEM"}.Concat(endpoints).Distinct())data[endpoint]=await client.ReadDatabaseAsync(endpoint,cancel).ConfigureAwait(false);
         return ApiModel.FromDatabase(data);
     }
 }
+
+public sealed record ModelReadResult(MidasModel Model,string[] Issues,string[] Tables);

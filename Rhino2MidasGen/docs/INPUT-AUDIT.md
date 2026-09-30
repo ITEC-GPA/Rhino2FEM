@@ -1,4 +1,4 @@
-# Controllo ingressi — 27 settembre 2026
+# Controllo ingressi — 2026-09-30
 
 478 componenti e 2972 ingressi ispezionati in Rhino/Grasshopper reali, con tutti e quattro i plugin caricati insieme e nessuna collisione GUID.
 

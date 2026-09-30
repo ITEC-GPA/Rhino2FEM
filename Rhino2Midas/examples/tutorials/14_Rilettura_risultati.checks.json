@@ -1,0 +1,358 @@
+{
+  "Project": "Rhino2Midas",
+  "File": "14_Rilettura_risultati.gh",
+  "Title": "Risultati gia calcolati",
+  "Description": "Seleziona il risultato/archivio dell\u0027esempio 12. Il Model deve essere identico a quello dell\u0027analisi; READ legge senza rilanciare il solver.",
+  "Topics": [
+    "Risultati gia calcolati"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "7B5FCC732AE1A36744D10DE222E5ABA2274FBB6998A79970D959B43EABA80F16"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas Isotropic Material",
+      "ComponentGuid": "ff670ff2-427d-96a3-f9fd-908307ef3c1b"
+    },
+    {
+      "Class": "RectangleSectionComponent",
+      "Name": "Midas Rectangle Section",
+      "ComponentGuid": "408cb7a3-3be5-67ad-eb69-5c65013f62f6"
+    },
+    {
+      "Class": "BeamElementComponent",
+      "Name": "Midas Beam",
+      "ComponentGuid": "568fca52-13ab-e93e-d27c-ff4f2d62c9a8"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas Node Support",
+      "ComponentGuid": "44262e17-b337-06f1-5f06-87fdd1e8d8f8"
+    },
+    {
+      "Class": "LoadCaseComponent",
+      "Name": "Midas Static Load Case",
+      "ComponentGuid": "aa495bae-df6f-cb01-1d6a-19f0b5eb8d73"
+    },
+    {
+      "Class": "NodalLoadComponent",
+      "Name": "Midas Nodal Load",
+      "ComponentGuid": "fb4b7677-2276-69df-f1c7-db3833f82208"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas Model",
+      "ComponentGuid": "e50a5053-c65f-9ead-56c0-b590e4180c11"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas Model",
+      "ComponentGuid": "93b33ef7-a831-e8de-c515-ad1b112ffad4"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas Model Summary",
+      "ComponentGuid": "c64a6cc9-799f-bc96-3412-0eff815a14bc"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas Model",
+      "ComponentGuid": "bd713aa6-c112-2638-5b1c-2bf09e6a4c2f"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas Model",
+      "ComponentGuid": "698c14a7-0908-2e23-f900-66cbaf85e602"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas Physical Geometry",
+      "ComponentGuid": "07af8b1b-d006-eb02-9b49-9eea39bf7ba0"
+    },
+    {
+      "Class": "ReadResultArchiveComponent",
+      "Name": "Read Midas Results into Model",
+      "ComponentGuid": "fbc8cb72-42fc-a7b8-6388-a90d514641a9"
+    },
+    {
+      "Class": "ResultCasesComponent",
+      "Name": "Midas Model Result Cases",
+      "ComponentGuid": "f52e3344-e526-6dc5-62e5-14cace087bd5"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas Model",
+      "ComponentGuid": "698c14a7-0908-2e23-f900-66cbaf85e602"
+    },
+    {
+      "Class": "BeamActionsComponent",
+      "Name": "Midas Beam Actions",
+      "ComponentGuid": "4fdf4a36-fe87-40de-c0df-35be963ceba8"
+    },
+    {
+      "Class": "DeformedGeometryComponent",
+      "Name": "Midas Deformed Geometry",
+      "ComponentGuid": "bb0ba0cd-7fdf-3bde-b9b1-544f89da4c0c"
+    },
+    {
+      "Class": "NodeReactionsComponent",
+      "Name": "Midas Node Reactions",
+      "ComponentGuid": "098b6654-482b-3e37-d5da-2c9e61d35cc4"
+    },
+    {
+      "Class": "ResultExtremaComponent",
+      "Name": "Midas Result Extrema",
+      "ComponentGuid": "4791e665-d60e-3bdd-be47-bffc8aa47c46"
+    },
+    {
+      "Class": "BeamDiagramComponent",
+      "Name": "Midas Beam Force Diagram",
+      "ComponentGuid": "b974b12a-e0d0-b529-3c5d-4be3d974a4ee"
+    }
+  ],
+  "Objects": 46,
+  "Wires": 36,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [
+    {
+      "Component": "Read Midas Results into Model",
+      "Warning": "Input parameter A failed to collect data"
+    },
+    {
+      "Component": "Stream Gate",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas Model Result Cases",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Decompose Midas Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas Beam Actions",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas Deformed Geometry",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas Node Reactions",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas Result Extrema",
+      "Warning": "Input parameter T failed to collect data"
+    },
+    {
+      "Component": "Midas Beam Force Diagram",
+      "Warning": "Input parameter B failed to collect data"
+    },
+    {
+      "Component": "Midas Beam Force Diagram",
+      "Warning": "Input parameter T failed to collect data"
+    }
+  ],
+  "Connections": [
+    {
+      "From": "h [m]",
+      "Output": "Number Slider",
+      "To": "Midas Rectangle Section",
+      "Input": "Height"
+    },
+    {
+      "From": "b [m]",
+      "Output": "Number Slider",
+      "To": "Midas Rectangle Section",
+      "Input": "Width"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas Beam",
+      "Input": "Material"
+    },
+    {
+      "From": "Rectangle",
+      "Output": "Section",
+      "To": "Midas Beam",
+      "Input": "Property"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Nodal Load",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Name",
+      "To": "Midas Nodal Load",
+      "Input": "Case"
+    },
+    {
+      "From": "Beam",
+      "Output": "Element",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Nodal Load",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Case",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Read Midas Results into Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Read Midas Results into Model",
+      "Input": "Archive"
+    },
+    {
+      "From": "PATH: percorso locale modificabile",
+      "Output": "Panel",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "READ RISULTATI",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Read Results",
+      "Output": "Model",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "READ RISULTATI",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas Model Result Cases",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas Beam Actions",
+      "Input": "Source"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas Deformed Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas Node Reactions",
+      "Input": "Source"
+    },
+    {
+      "From": "Actions",
+      "Output": "Table",
+      "To": "Midas Result Extrema",
+      "Input": "Table"
+    },
+    {
+      "From": "Decompose",
+      "Output": "Beam",
+      "To": "Midas Beam Force Diagram",
+      "Input": "Beam"
+    },
+    {
+      "From": "Actions",
+      "Output": "Table",
+      "To": "Midas Beam Force Diagram",
+      "Input": "Table"
+    }
+  ]
+}

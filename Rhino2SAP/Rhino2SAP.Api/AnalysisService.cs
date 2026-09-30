@@ -14,6 +14,13 @@ public sealed class AnalysisService
     {
         ModelValidation.RequireValid(model);
         string path=System.IO.Path.GetFullPath(options.Path);
+        if(model.NativeSource is { } source)
+        {
+            if(string.Equals(path,System.IO.Path.GetFullPath(source.FilePath),StringComparison.OrdinalIgnoreCase))
+                throw new IOException("Choose a new destination: the associated SAP source is read-only, even when Overwrite is enabled.");
+            if(!File.Exists(source.FilePath)||Hash(source.FilePath)!=source.FileHash)
+                throw new InvalidDataException("The associated SAP source changed or is missing. Import it again before export/analysis.");
+        }
         if(!path.EndsWith(".sdb",StringComparison.OrdinalIgnoreCase))throw new ArgumentException("Choose a .sdb path.");
         if(File.Exists(path)&&!options.Overwrite)throw new IOException("The destination exists. Enable Overwrite or choose a new path.");
         Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path)!);
@@ -21,19 +28,28 @@ public sealed class AnalysisService
         Directory.CreateDirectory(stage);string stagedPath=System.IO.Path.Combine(stage,System.IO.Path.GetFileName(path));
         var tables=new List<ResultTable>();var issues=new List<ResultIssue>();
         var cases=(options.Cases??[]).ToArray();var combos=(options.Combinations??[]).ToArray();
-        if(combos.Length==0)combos=model.Definition.Operations.Where(o=>o.Key=="RespCombo.Add").Select(o=>o.Arguments["Name"].GetString()!).Distinct().ToArray();
+        if(combos.Length==0)combos=model.NativeSource?.Combinations??model.Definition.Operations.Where(o=>o.Key=="RespCombo.Add").Select(o=>o.Arguments["Name"].GetString()!).Distinct().ToArray();
         try
         {
             using(var client=factory())
             {
-                var nodes=ModelWriter.Write(client,model);
+                IReadOnlyDictionary<string,Position> nodes;
+                if(model.NativeSource is { } native)
+                {
+                    File.Copy(native.FilePath,stagedPath);
+                    if(Hash(stagedPath)!=native.FileHash)throw new IOException("Associated source changed while copying. Import it again.");
+                    client.Call("File.OpenFile",ApiSchema.Args(("FileName",stagedPath)));
+                    client.Call("SetPresentUnits",ApiSchema.Args(("Units",model.Units)));
+                    nodes=model.Definition.Elements.Where(e=>e.Kind==ElementKind.Node).ToDictionary(e=>e.Name,e=>e.Points[0]);
+                }
+                else nodes=ModelWriter.Write(client,model);
                 tables.Add(new ResultTable("Rhino2SAP.NodeCoordinates",ApiSchema.Args(("Name",nodes.Keys.ToArray()),("X",nodes.Values.Select(p=>p.X).ToArray()),("Y",nodes.Values.Select(p=>p.Y).ToArray()),("Z",nodes.Values.Select(p=>p.Z).ToArray()))));
                 client.Call("File.Save",ApiSchema.Args(("FileName",stagedPath)));
                 if(options.Analyze)
                 {
                     if(cases.Length==0)
                     {
-                        cases=model.Definition.Operations.Where(o=>o.Key.StartsWith("LoadCases.")&&o.Key.EndsWith(".SetCase")||o.Key=="LoadPatterns.Add"&&(!o.Arguments.TryGetValue("AddAnalysisCase",out var add)||add.GetBoolean())).Select(o=>o.Arguments["Name"].GetString()!).Distinct().ToArray();
+                        cases=model.NativeSource?.Cases??model.Definition.Operations.Where(o=>o.Key.StartsWith("LoadCases.")&&o.Key.EndsWith(".SetCase")||o.Key=="LoadPatterns.Add"&&(!o.Arguments.TryGetValue("AddAnalysisCase",out var add)||add.GetBoolean())).Select(o=>o.Arguments["Name"].GetString()!).Distinct().ToArray();
                         if(cases.Length==0)throw new ArgumentException("Define at least one analysis case before running SAP.");
                     }
                     client.Call("Analyze.SetRunCaseFlag",ApiSchema.Args(("Name",""),("Run",false),("All",true)));
@@ -82,8 +98,8 @@ public sealed class AnalysisService
         if(kinds.Contains(ElementKind.Area)){methods.Add("Results.AreaForceShell");methods.Add("Results.AreaStressShell");methods.Add("Results.AreaStrainShell");methods.Add("Results.AreaJointForceShell");}
         if(kinds.Contains(ElementKind.Solid))methods.Add("Results.SolidStress");
         if(kinds.Contains(ElementKind.Link))methods.Add("Results.LinkForce");
-        if(model.Definition.Operations.Any(o=>o.Key.StartsWith("LoadCases.Modal"))){methods.Add("Results.ModalPeriod");methods.Add("Results.ModalParticipatingMassRatios");methods.Add("Results.ModeShape");}
-        if(model.Definition.Operations.Any(o=>o.Key.StartsWith("LoadCases.Buckling")))methods.Add("Results.BucklingFactor");
+        if(model.NativeSource?.HasModal==true||model.Definition.Operations.Any(o=>o.Key.StartsWith("LoadCases.Modal"))){methods.Add("Results.ModalPeriod");methods.Add("Results.ModalParticipatingMassRatios");methods.Add("Results.ModeShape");}
+        if(model.NativeSource?.HasBuckling==true||model.Definition.Operations.Any(o=>o.Key.StartsWith("LoadCases.Buckling")))methods.Add("Results.BucklingFactor");
         return methods.Select(ResultRequest.All).ToArray();
     }
     public static string Hash(string path){using var file=File.OpenRead(path);return Convert.ToHexString(SHA256.HashData(file));}

@@ -34,3 +34,7 @@ L'esempio usa E=210 GPa, sezione rettangolare 200×300 mm, L=3 m e forza vertica
 Il preflight controlla dati e riferimenti principali, non la stabilità della struttura né tutte le dipendenze possibili dei JSON avanzati. Le definizioni native rimangono fedeli ai nomi e alle unità Civil. Un errore nativo interrompe la scrittura e viene mostrato, senza tentativi automatici o risultati sintetici. L'import delle tabelle selezionate non equivale a una copia universale di qualunque file Civil.
 
 Fonti: [indice ufficiale API MIDAS](https://support.midasuser.com/hc/en-us/articles/33016922742937-MIDAS-API-Online-Manual), esempi/schema collegati dal catalogo, manuale Civil NX `CVLw.chm` dell'installazione locale per geometria e convenzioni. Ogni componente API espone il proprio riferimento specifico.
+
+## Aggiornamento del 30 settembre 2026
+
+61 controlli gestiti superati. I nuovi test verificano tabelle predefinite, proprietà/carichi/vincoli/unità, gravità nativa, tabelle aggiuntive, GET esclusivi, deduplicazione, tabelle facoltative assenti e arresto su errori di autenticazione, geometria indispensabile o connessione. Il trasporto è simulato: non sono prove numeriche del solver.

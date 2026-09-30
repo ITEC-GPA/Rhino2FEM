@@ -1,0 +1,327 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "13_Analisi_mesh.gh",
+  "Title": "Analisi e risultati delle piastre",
+  "Description": "Piastra Quad4 con pressione: Model -\u003E solver -\u003E azioni di piastra, spostamenti e reazioni. Nessun risultato e simulato.",
+  "Topics": [
+    "Analisi e risultati delle piastre"
+  ],
+  "Instructions": [
+    "Controllare Validate, scegliere Path e usare false -\u003E true per avviare l\u0027operazione."
+  ],
+  "Fingerprints": [
+    "2DE0AF24F329D8625DCA987503D03F26381F825D2AC59D3EBA65D9C91A0AA50C"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas GEN Isotropic Material",
+      "ComponentGuid": "29b38b77-f28d-fba9-a9fe-664fec0d4e14"
+    },
+    {
+      "Class": "ThicknessComponent",
+      "Name": "Midas GEN Plate Thickness",
+      "ComponentGuid": "6759e8a5-17fe-f988-4de5-a846b0d715af"
+    },
+    {
+      "Class": "MeshToPlatesComponent",
+      "Name": "Midas GEN Mesh to Plates",
+      "ComponentGuid": "738fa730-b79a-2ea6-a6d6-bcebaa3d7eb8"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas GEN Node Support",
+      "ComponentGuid": "7e5f8ac6-b492-240b-277d-196a3af531a4"
+    },
+    {
+      "Class": "LoadCaseComponent",
+      "Name": "Midas GEN Static Load Case",
+      "ComponentGuid": "075959ea-2414-aa86-44d3-c23d998a9232"
+    },
+    {
+      "Class": "PlatePressureComponent",
+      "Name": "Midas GEN Plate Pressure",
+      "ComponentGuid": "bba32960-600a-a155-493a-b4454db06539"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas GEN Model",
+      "ComponentGuid": "b4c1e2fc-5594-56d0-ad95-eb3aed6067a0"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    },
+    {
+      "Class": "AnalyzeModelComponent",
+      "Name": "Midas GEN Analyze and Embed Results",
+      "ComponentGuid": "d2396290-ff34-6a71-7f12-c3ce094a812f"
+    },
+    {
+      "Class": "ApiConnectionComponent",
+      "Name": "Midas GEN API Connection",
+      "ComponentGuid": "d3c9582f-d0a6-f5d1-5c95-0e802898c3af"
+    },
+    {
+      "Class": "ResultCasesComponent",
+      "Name": "Midas GEN Model Result Cases",
+      "ComponentGuid": "07257489-5de7-b6a6-837d-91b0d2e2754b"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PlateActionsComponent",
+      "Name": "Midas GEN Plate Actions",
+      "ComponentGuid": "0a741278-226e-3c53-50e0-52db4914c190"
+    },
+    {
+      "Class": "DeformedGeometryComponent",
+      "Name": "Midas GEN Deformed Geometry",
+      "ComponentGuid": "38b2394d-8e0a-e010-b00d-453fec15f897"
+    },
+    {
+      "Class": "NodeReactionsComponent",
+      "Name": "Midas GEN Node Reactions",
+      "ComponentGuid": "eb1fcf3e-bc48-f596-f290-480c4e5447cf"
+    },
+    {
+      "Class": "ResultExtremaComponent",
+      "Name": "Midas GEN Result Extrema",
+      "ComponentGuid": "437cdb41-e926-90bb-4957-66df7bdea35f"
+    }
+  ],
+  "Objects": 46,
+  "Wires": 36,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [
+    {
+      "Component": "Midas GEN Model Result Cases",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Decompose Midas GEN Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Plate Actions",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Deformed Geometry",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Node Reactions",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Result Extrema",
+      "Warning": "Input parameter T failed to collect data"
+    }
+  ],
+  "Connections": [
+    {
+      "From": "Spessore t [m]",
+      "Output": "Number Slider",
+      "To": "Midas GEN Plate Thickness",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Mesh incorporata",
+      "Output": "Mesh",
+      "To": "Midas GEN Mesh to Plates",
+      "Input": "Mesh"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas GEN Mesh to Plates",
+      "Input": "Material"
+    },
+    {
+      "From": "Thickness",
+      "Output": "Thickness",
+      "To": "Midas GEN Mesh to Plates",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Mesh Plates",
+      "Output": "Plates",
+      "To": "Midas GEN Plate Pressure",
+      "Input": "Plate"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Name",
+      "To": "Midas GEN Plate Pressure",
+      "Input": "Case"
+    },
+    {
+      "From": "Pressure",
+      "Output": "Plate",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Case",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Analyze and Embed Results",
+      "Input": "Model"
+    },
+    {
+      "From": "PATH: percorso locale modificabile",
+      "Output": "Panel",
+      "To": "Midas GEN Analyze and Embed Results",
+      "Input": "Path"
+    },
+    {
+      "From": "RUN ANALISI",
+      "Output": "Boolean Toggle",
+      "To": "Midas GEN Analyze and Embed Results",
+      "Input": "Run"
+    },
+    {
+      "From": "REPLACE: documento attivo salvato",
+      "Output": "Boolean Toggle",
+      "To": "Midas GEN Analyze and Embed Results",
+      "Input": "Replace active document"
+    },
+    {
+      "From": "OVERWRITE: sostituisci file",
+      "Output": "Boolean Toggle",
+      "To": "Midas GEN Analyze and Embed Results",
+      "Input": "Overwrite"
+    },
+    {
+      "From": "Midas GEN Analyze and Embed Results",
+      "Output": "Model",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "RUN ANALISI",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Model Result Cases",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Plate Actions",
+      "Input": "Source"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Deformed Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Node Reactions",
+      "Input": "Source"
+    },
+    {
+      "From": "Actions",
+      "Output": "Table",
+      "To": "Midas GEN Result Extrema",
+      "Input": "Table"
+    }
+  ]
+}

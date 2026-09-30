@@ -1,0 +1,358 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "14_Rilettura_risultati.gh",
+  "Title": "Risultati gia calcolati",
+  "Description": "Seleziona il risultato/archivio dell\u0027esempio 12. Il Model deve essere identico a quello dell\u0027analisi; READ legge senza rilanciare il solver.",
+  "Topics": [
+    "Risultati gia calcolati"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "4047CB936B52B8592A81DBD2B987A82BA28511BC4B46AD653D38271B9F05BB38"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas GEN Isotropic Material",
+      "ComponentGuid": "29b38b77-f28d-fba9-a9fe-664fec0d4e14"
+    },
+    {
+      "Class": "RectangleSectionComponent",
+      "Name": "Midas GEN Rectangle Section",
+      "ComponentGuid": "f4c20cfd-e224-2101-875a-eb7fc92c2acb"
+    },
+    {
+      "Class": "BeamElementComponent",
+      "Name": "Midas GEN Beam",
+      "ComponentGuid": "aa534073-bd3a-6ccb-2904-cb1fe08870ad"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas GEN Node Support",
+      "ComponentGuid": "7e5f8ac6-b492-240b-277d-196a3af531a4"
+    },
+    {
+      "Class": "LoadCaseComponent",
+      "Name": "Midas GEN Static Load Case",
+      "ComponentGuid": "075959ea-2414-aa86-44d3-c23d998a9232"
+    },
+    {
+      "Class": "NodalLoadComponent",
+      "Name": "Midas GEN Nodal Load",
+      "ComponentGuid": "facb9788-f835-1825-b460-1854b866fccc"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas GEN Model",
+      "ComponentGuid": "b4c1e2fc-5594-56d0-ad95-eb3aed6067a0"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    },
+    {
+      "Class": "ReadResultArchiveComponent",
+      "Name": "Read Midas GEN Results into Model",
+      "ComponentGuid": "a81845a8-d749-c997-bd52-63dba203f287"
+    },
+    {
+      "Class": "ResultCasesComponent",
+      "Name": "Midas GEN Model Result Cases",
+      "ComponentGuid": "07257489-5de7-b6a6-837d-91b0d2e2754b"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "BeamActionsComponent",
+      "Name": "Midas GEN Beam Actions",
+      "ComponentGuid": "78ef7028-af3d-ab30-cf82-b19458f32cd6"
+    },
+    {
+      "Class": "DeformedGeometryComponent",
+      "Name": "Midas GEN Deformed Geometry",
+      "ComponentGuid": "38b2394d-8e0a-e010-b00d-453fec15f897"
+    },
+    {
+      "Class": "NodeReactionsComponent",
+      "Name": "Midas GEN Node Reactions",
+      "ComponentGuid": "eb1fcf3e-bc48-f596-f290-480c4e5447cf"
+    },
+    {
+      "Class": "ResultExtremaComponent",
+      "Name": "Midas GEN Result Extrema",
+      "ComponentGuid": "437cdb41-e926-90bb-4957-66df7bdea35f"
+    },
+    {
+      "Class": "BeamDiagramComponent",
+      "Name": "Midas GEN Beam Force Diagram",
+      "ComponentGuid": "f54e7f92-22c2-a06f-ed12-12bdbc319d48"
+    }
+  ],
+  "Objects": 46,
+  "Wires": 36,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [
+    {
+      "Component": "Read Midas GEN Results into Model",
+      "Warning": "Input parameter A failed to collect data"
+    },
+    {
+      "Component": "Stream Gate",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Model Result Cases",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Decompose Midas GEN Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Beam Actions",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Deformed Geometry",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Node Reactions",
+      "Warning": "Input parameter S failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Result Extrema",
+      "Warning": "Input parameter T failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Beam Force Diagram",
+      "Warning": "Input parameter B failed to collect data"
+    },
+    {
+      "Component": "Midas GEN Beam Force Diagram",
+      "Warning": "Input parameter T failed to collect data"
+    }
+  ],
+  "Connections": [
+    {
+      "From": "h [m]",
+      "Output": "Number Slider",
+      "To": "Midas GEN Rectangle Section",
+      "Input": "Height"
+    },
+    {
+      "From": "b [m]",
+      "Output": "Number Slider",
+      "To": "Midas GEN Rectangle Section",
+      "Input": "Width"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas GEN Beam",
+      "Input": "Material"
+    },
+    {
+      "From": "Rectangle",
+      "Output": "Section",
+      "To": "Midas GEN Beam",
+      "Input": "Property"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Nodal Load",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Name",
+      "To": "Midas GEN Nodal Load",
+      "Input": "Case"
+    },
+    {
+      "From": "Beam",
+      "Output": "Element",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Nodal Load",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Case",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Read Midas GEN Results into Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Read Midas GEN Results into Model",
+      "Input": "Archive"
+    },
+    {
+      "From": "PATH: percorso locale modificabile",
+      "Output": "Panel",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "READ RISULTATI",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Read Results",
+      "Output": "Model",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "READ RISULTATI",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Model Result Cases",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Beam Actions",
+      "Input": "Source"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Deformed Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Midas GEN Node Reactions",
+      "Input": "Source"
+    },
+    {
+      "From": "Actions",
+      "Output": "Table",
+      "To": "Midas GEN Result Extrema",
+      "Input": "Table"
+    },
+    {
+      "From": "Decompose",
+      "Output": "Beam",
+      "To": "Midas GEN Beam Force Diagram",
+      "Input": "Beam"
+    },
+    {
+      "From": "Actions",
+      "Output": "Table",
+      "To": "Midas GEN Beam Force Diagram",
+      "Input": "Table"
+    }
+  ]
+}

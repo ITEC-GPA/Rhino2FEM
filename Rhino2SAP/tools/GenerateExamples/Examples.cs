@@ -4,14 +4,16 @@ using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 
-internal sealed record Example(string Name,GraphBuilder Graph,int ExpectedBreps);
+internal sealed record Example(string Name,GraphBuilder Graph,int ExpectedBreps,
+    string Description = "", bool RequiresModel = true, string Mode = "Modellazione locale");
 internal static class Examples
 {
     public static IEnumerable<Example> Create(Assembly assembly)
     {
-        var beam=Beam(assembly,false);yield return new("01_Trave_carico_preview_bake",beam.Graph,1);
+        var beam=Beam(assembly,false);yield return new("01_Trave_carico_preview_bake",beam.Graph,1,"Trave a mensola con carico nodale, slider di sezione, preview e bake solido.");
         yield return Plate(assembly);
-        var analysis=Beam(assembly,true);AddAnalysis(analysis.Graph,analysis.Model,analysis.Pattern);yield return new("03_Analisi_assiale_risultati",analysis.Graph,1);
+        var analysis=Beam(assembly,true);AddAnalysis(analysis.Graph,analysis.Model,analysis.Pattern);yield return new("03_Analisi_assiale_risultati",analysis.Graph,1,"Analisi assiale, combinazione e confronto con lo spostamento teorico FL/EA.",Mode:"Analisi SAP su richiesta");
+        foreach(var example in TopicExamples.Create(assembly))yield return example;
     }
     static (GraphBuilder Graph,GH_Component Model,GH_Component Pattern) Beam(Assembly assembly,bool axial)
     {
@@ -61,7 +63,7 @@ internal static class Examples
         var decompose=g.Component("DecomposeModelComponent",1760,1260,"Decomponi modello");g.Wire(model,0,decompose,"Model");
         var info=g.Component("ElementInfoComponent",2200,1300,"Nomi delle plate");g.Wire(decompose,2,info,"Definition");
         var names=g.Note("Plate del modello",string.Empty,2530,1220,350,180);names.AddSource(info.Params.Output[0]);g.Group("05  DECOMPOSIZIONE / INTERROGAZIONE",Color.CadetBlue,decompose,info,names);
-        return new("02_Piastra_mesh_pressione",g,4);
+        return new("02_Piastra_mesh_pressione",g,4,"Piastra 2 x 2 shell, pressione uniforme e vincoli di bordo.");
     }
     static void AddAnalysis(GraphBuilder g,GH_Component model,GH_Component pattern)
     {

@@ -83,6 +83,7 @@ if(args.Contains("--worker-native"))
     int row=Enumerable.Range(0,displ.RowCount).Single(i=>displ.Columns["Obj"][i].GetString()=="TIP");
     Check(Math.Abs(displ.Columns["U1"][row].GetDouble()-3/(210e6*.02))<1e-11,"Isolated worker native analysis matches PL/EA");
 }
+ImportChecks.Run(Check,Reject,scratch);
 Console.WriteLine($"{passed} checks passed.");
 
 sealed class RecordingClient:ISapClient

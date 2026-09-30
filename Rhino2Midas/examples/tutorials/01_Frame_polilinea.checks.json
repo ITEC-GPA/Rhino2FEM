@@ -1,0 +1,188 @@
+{
+  "Project": "Rhino2Midas",
+  "File": "01_Frame_polilinea.gh",
+  "Title": "Frame, materiali e sezioni",
+  "Description": "Una polilinea genera tre elementi di un portale 4 x 3 m. Materiale e sezione si propagano agli elementi. Cambia b e h e controlla nodi, elementi e solidi.",
+  "Topics": [
+    "Frame, materiali e sezioni"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "032258585FEA278F5C72632CCCDBBC7ECFA0D032B38491B61BA8BD053169F694"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas Isotropic Material",
+      "ComponentGuid": "ff670ff2-427d-96a3-f9fd-908307ef3c1b"
+    },
+    {
+      "Class": "RectangleSectionComponent",
+      "Name": "Midas Rectangle Section",
+      "ComponentGuid": "408cb7a3-3be5-67ad-eb69-5c65013f62f6"
+    },
+    {
+      "Class": "PolylineToBeamsComponent",
+      "Name": "Midas Polyline to Beams",
+      "ComponentGuid": "68376b96-b3fb-f13b-8f6b-f82308f4e79d"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas Node",
+      "ComponentGuid": "a380cd1e-5cfe-8bee-4c5d-2a227396b928"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas Node Support",
+      "ComponentGuid": "44262e17-b337-06f1-5f06-87fdd1e8d8f8"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas Node Support",
+      "ComponentGuid": "44262e17-b337-06f1-5f06-87fdd1e8d8f8"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas Model",
+      "ComponentGuid": "e50a5053-c65f-9ead-56c0-b590e4180c11"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas Model",
+      "ComponentGuid": "93b33ef7-a831-e8de-c515-ad1b112ffad4"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas Model Summary",
+      "ComponentGuid": "c64a6cc9-799f-bc96-3412-0eff815a14bc"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas Model",
+      "ComponentGuid": "bd713aa6-c112-2638-5b1c-2bf09e6a4c2f"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas Model",
+      "ComponentGuid": "698c14a7-0908-2e23-f900-66cbaf85e602"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas Physical Geometry",
+      "ComponentGuid": "07af8b1b-d006-eb02-9b49-9eea39bf7ba0"
+    }
+  ],
+  "Objects": 25,
+  "Wires": 18,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "h [m]",
+      "Output": "Number Slider",
+      "To": "Midas Rectangle Section",
+      "Input": "Height"
+    },
+    {
+      "From": "b [m]",
+      "Output": "Number Slider",
+      "To": "Midas Rectangle Section",
+      "Input": "Width"
+    },
+    {
+      "From": "Polilinea portale",
+      "Output": "Curve",
+      "To": "Midas Polyline to Beams",
+      "Input": "Polyline"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas Polyline to Beams",
+      "Input": "Material"
+    },
+    {
+      "From": "Rectangle",
+      "Output": "Section",
+      "To": "Midas Polyline to Beams",
+      "Input": "Section"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Polyline Beams",
+      "Output": "Beams",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

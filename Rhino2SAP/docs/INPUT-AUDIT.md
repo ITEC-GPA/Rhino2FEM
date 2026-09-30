@@ -1,10 +1,10 @@
-# Controllo ingressi — 27 settembre 2026
+# Controllo ingressi — 2026-09-30
 
-559 componenti e 4289 ingressi ispezionati in Rhino/Grasshopper reali, con tutti e quattro i plugin caricati insieme e nessuna collisione GUID.
+565 componenti e 4313 ingressi ispezionati in Rhino/Grasshopper reali, con tutti e quattro i plugin caricati insieme e nessuna collisione GUID.
 
-- Ingressi con dati predefiniti: 775.
-- Ingressi marcati opzionali: 1094; possono avere anche un default.
-- Ingressi che richiedono dati del modello o parametri espliciti: 3036.
+- Ingressi con dati predefiniti: 776.
+- Ingressi marcati opzionali: 1098; possono avere anche un default.
+- Ingressi che richiedono dati del modello o parametri espliciti: 3055.
 - Componenti eseguiti con soli default/opzioni scollegate: 6.
 - Sezioni native Straus escluse dal calcolo per dipendenza dalla licenza API: 0; tutti i loro ingressi sono stati ispezionati.
 

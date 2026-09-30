@@ -13,6 +13,7 @@ public static class WorkerClient
     private static readonly object Gate=new();
     public static SapModel Execute(SapModel model,RunOptions options)=>ModelArchive.Deserialize(Invoke(new("Run",ModelArchive.Serialize(model),options)));
     public static Fragment Geometry(string file)=>ModelArchive.Deserialize(Invoke(new("Geometry",File:file))).Definition;
+    public static SapModel ImportModel(string file)=>ModelArchive.Deserialize(Invoke(new("ImportModel",File:file)));
     public static ResultTable Query(string file,string method,Dictionary<string,JsonElement> arguments,string[] cases,string[] combinations)=>JsonSerializer.Deserialize<ResultTable>(Invoke(new("Query",File:file,Method:method,Arguments:arguments,Cases:cases,Combinations:combinations)))!;
     public static string Invoke(WorkerRequest request,int startupTimeoutSeconds=120,int analysisTimeoutSeconds=1800)
     {

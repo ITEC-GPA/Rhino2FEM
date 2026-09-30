@@ -1,0 +1,249 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "15_Preview_bake.gh",
+  "Title": "Preview, impostazioni e bake",
+  "Description": "Confronta assi e solidi fisici. La preview e temporanea; il bake crea oggetti nel documento Rhino. BAKE parte spento.",
+  "Topics": [
+    "Preview, impostazioni e bake"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "4047CB936B52B8592A81DBD2B987A82BA28511BC4B46AD653D38271B9F05BB38"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas GEN Isotropic Material",
+      "ComponentGuid": "29b38b77-f28d-fba9-a9fe-664fec0d4e14"
+    },
+    {
+      "Class": "RectangleSectionComponent",
+      "Name": "Midas GEN Rectangle Section",
+      "ComponentGuid": "f4c20cfd-e224-2101-875a-eb7fc92c2acb"
+    },
+    {
+      "Class": "BeamElementComponent",
+      "Name": "Midas GEN Beam",
+      "ComponentGuid": "aa534073-bd3a-6ccb-2904-cb1fe08870ad"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas GEN Node Support",
+      "ComponentGuid": "7e5f8ac6-b492-240b-277d-196a3af531a4"
+    },
+    {
+      "Class": "LoadCaseComponent",
+      "Name": "Midas GEN Static Load Case",
+      "ComponentGuid": "075959ea-2414-aa86-44d3-c23d998a9232"
+    },
+    {
+      "Class": "NodalLoadComponent",
+      "Name": "Midas GEN Nodal Load",
+      "ComponentGuid": "facb9788-f835-1825-b460-1854b866fccc"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas GEN Model",
+      "ComponentGuid": "b4c1e2fc-5594-56d0-ad95-eb3aed6067a0"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    },
+    {
+      "Class": "DisplaySettingsComponent",
+      "Name": "Midas GEN Display Settings",
+      "ComponentGuid": "23e05247-dde3-be1b-7121-fbd6e69d16a7"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    },
+    {
+      "Class": "BakeGeometryComponent",
+      "Name": "Bake Midas GEN Geometry",
+      "ComponentGuid": "af35ce75-14d0-15f6-374f-831b1a7d2733"
+    }
+  ],
+  "Objects": 33,
+  "Wires": 24,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "h [m]",
+      "Output": "Number Slider",
+      "To": "Midas GEN Rectangle Section",
+      "Input": "Height"
+    },
+    {
+      "From": "b [m]",
+      "Output": "Number Slider",
+      "To": "Midas GEN Rectangle Section",
+      "Input": "Width"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas GEN Beam",
+      "Input": "Material"
+    },
+    {
+      "From": "Rectangle",
+      "Output": "Section",
+      "To": "Midas GEN Beam",
+      "Input": "Property"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Nodal Load",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Name",
+      "To": "Midas GEN Nodal Load",
+      "Input": "Case"
+    },
+    {
+      "From": "Beam",
+      "Output": "Element",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Nodal Load",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Case",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Etichette",
+      "Output": "Boolean Toggle",
+      "To": "Midas GEN Display Settings",
+      "Input": "Labels"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Display Settings",
+      "Output": "Settings",
+      "To": "Preview Midas GEN Model",
+      "Input": "Settings"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Bake Midas GEN Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "BAKE SOLIDI",
+      "Output": "Boolean Toggle",
+      "To": "Bake Midas GEN Geometry",
+      "Input": "Bake"
+    }
+  ]
+}

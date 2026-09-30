@@ -1,0 +1,292 @@
+{
+  "Project": "Rhino2SAP",
+  "File": "13_Analisi_mesh.gh",
+  "Title": "Analisi e risultati delle piastre",
+  "Description": "Piastra Quad4 con pressione: Model -\u003E solver -\u003E azioni di piastra, spostamenti e reazioni. Nessun risultato e simulato.",
+  "Topics": [
+    "Analisi e risultati delle piastre"
+  ],
+  "Instructions": [
+    "Controllare Validate, scegliere Path e usare false -\u003E true per avviare l\u0027operazione."
+  ],
+  "Fingerprints": [
+    "CFB72C2AF5A31A8BFB4F3C85C27A6B6E31AF703FDB133EECF6205D727A8222C3"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "SAP Isotropic Material",
+      "ComponentGuid": "b444d20b-0064-3871-78a2-a4a54e789783"
+    },
+    {
+      "Class": "PropArea_SetShell_1Component",
+      "Name": "SAP Area Property Shell 1",
+      "ComponentGuid": "24db1a4d-abdb-0b65-06be-e528e442c275"
+    },
+    {
+      "Class": "MeshAreasComponent",
+      "Name": "Mesh to SAP Areas",
+      "ComponentGuid": "4f5f133c-2818-8359-aff3-eccaf49e23fc"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "PointObj_SetRestraintComponent",
+      "Name": "SAP Node Restraint",
+      "ComponentGuid": "867e952f-7139-6350-f087-3fbd1d061bdc"
+    },
+    {
+      "Class": "LoadPatternComponent",
+      "Name": "SAP Load Pattern",
+      "ComponentGuid": "e7606c2a-32f8-b972-1018-b219eec16d74"
+    },
+    {
+      "Class": "AreaObj_SetLoadUniformComponent",
+      "Name": "SAP Area Load Uniform",
+      "ComponentGuid": "99318b91-de2c-4a87-75fb-c0a8003db638"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build SAP Model",
+      "ComponentGuid": "448661f3-127a-0113-e6c8-5495e3279d16"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate SAP Model",
+      "ComponentGuid": "fd2fe5dd-6f47-76c9-aa49-b7609bd6f1fc"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "SAP Model Summary",
+      "ComponentGuid": "4e3b3a4b-c0e1-f86f-1d85-41bac30ffe75"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview SAP Model",
+      "ComponentGuid": "5d900d76-f926-632a-d1d3-fb28a22cf597"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose SAP Model",
+      "ComponentGuid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "SAP Model Physical Geometry",
+      "ComponentGuid": "4b01f40c-1243-f13f-c744-3f33a26dfb61"
+    },
+    {
+      "Class": "AnalyzeAndEmbedComponent",
+      "Name": "SAP Analyze and Embed Results",
+      "ComponentGuid": "ff2f9822-13a5-1543-0de2-ed0b7161a0c9"
+    },
+    {
+      "Class": "ResultCasesComponent",
+      "Name": "SAP Model Result Cases",
+      "ComponentGuid": "81dfa489-7de1-6ec6-370b-77a34f278483"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose SAP Model",
+      "ComponentGuid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+    },
+    {
+      "Class": "PlateActionsComponent",
+      "Name": "SAP Plate Results Forces and Moments",
+      "ComponentGuid": "e841c314-d42a-3747-7297-a240c0622357"
+    },
+    {
+      "Class": "DeformedGeometryComponent",
+      "Name": "SAP Model Deformed Geometry",
+      "ComponentGuid": "c24b84ec-d4bd-cd1d-0da2-a48272cb6851"
+    }
+  ],
+  "Objects": 39,
+  "Wires": 31,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [
+    {
+      "Component": "SAP Model Result Cases",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "Decompose SAP Model",
+      "Warning": "Input parameter M failed to collect data"
+    },
+    {
+      "Component": "SAP Plate Results Forces and Moments",
+      "Warning": "Input parameter E failed to collect data"
+    },
+    {
+      "Component": "SAP Model Deformed Geometry",
+      "Warning": "Input parameter M failed to collect data"
+    }
+  ],
+  "Connections": [
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "SAP Area Property Shell 1",
+      "Input": "MatProp"
+    },
+    {
+      "From": "Spessore t [m]",
+      "Output": "Number Slider",
+      "To": "SAP Area Property Shell 1",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Spessore t [m]",
+      "Output": "Number Slider",
+      "To": "SAP Area Property Shell 1",
+      "Input": "Bending"
+    },
+    {
+      "From": "Mesh incorporata",
+      "Output": "Mesh",
+      "To": "Mesh to SAP Areas",
+      "Input": "Mesh"
+    },
+    {
+      "From": "SAP Area Property Shell 1",
+      "Output": "Definition",
+      "To": "Mesh to SAP Areas",
+      "Input": "Property"
+    },
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "SAP Node Restraint",
+      "Input": "Name"
+    },
+    {
+      "From": "Mesh Areas",
+      "Output": "Elements",
+      "To": "SAP Area Load Uniform",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Pattern",
+      "Output": "Pattern",
+      "To": "SAP Area Load Uniform",
+      "Input": "LoadPat"
+    },
+    {
+      "From": "SAP Area Load Uniform",
+      "Output": "Definition",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Restraint",
+      "Output": "Definition",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Pattern",
+      "Output": "Pattern",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "SAP Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "SAP Model Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "SAP Analyze and Embed Results",
+      "Input": "Model"
+    },
+    {
+      "From": "PATH: percorso locale modificabile",
+      "Output": "Panel",
+      "To": "SAP Analyze and Embed Results",
+      "Input": "Path"
+    },
+    {
+      "From": "RUN ANALISI",
+      "Output": "Boolean Toggle",
+      "To": "SAP Analyze and Embed Results",
+      "Input": "Run"
+    },
+    {
+      "From": "OVERWRITE: sostituisci file",
+      "Output": "Boolean Toggle",
+      "To": "SAP Analyze and Embed Results",
+      "Input": "Overwrite"
+    },
+    {
+      "From": "SAP Analyze and Embed Results",
+      "Output": "Model",
+      "To": "Stream Gate",
+      "Input": "Stream"
+    },
+    {
+      "From": "RUN ANALISI",
+      "Output": "Boolean Toggle",
+      "To": "Stream Gate",
+      "Input": "Gate"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "SAP Model Result Cases",
+      "Input": "Model"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Decompose",
+      "Output": "Area",
+      "To": "SAP Plate Results Forces and Moments",
+      "Input": "Element"
+    },
+    {
+      "From": "Gate",
+      "Output": "Target 1",
+      "To": "SAP Model Deformed Geometry",
+      "Input": "Model"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "Project": "Rhino2SAP",
+  "File": "09_Unione_filtri.gh",
+  "Title": "Unione, decomposizione e filtri",
+  "Description": "Due mensole indipendenti, con ID coordinati, confluiscono in un Model. Decomposizione e filtro recuperano un sottoinsieme.",
+  "Topics": [
+    "Unione, decomposizione e filtri"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "A522E0C8CC376DF9415B5B976ECAA46E9C5B7903F4D747BBA83D109F08F14B39"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "SAP Isotropic Material",
+      "ComponentGuid": "b444d20b-0064-3871-78a2-a4a54e789783"
+    },
+    {
+      "Class": "PropFrame_SetRectangleComponent",
+      "Name": "SAP Frame Section Rectangle",
+      "ComponentGuid": "9298dcc1-6610-0328-ca87-96c9be0a4bc0"
+    },
+    {
+      "Class": "FrameElementComponent",
+      "Name": "SAP Frame Element",
+      "ComponentGuid": "c78dc482-03ca-fb8c-596f-894219f00e86"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "PointObj_SetRestraintComponent",
+      "Name": "SAP Node Restraint",
+      "ComponentGuid": "867e952f-7139-6350-f087-3fbd1d061bdc"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build SAP Model",
+      "ComponentGuid": "448661f3-127a-0113-e6c8-5495e3279d16"
+    },
+    {
+      "Class": "FrameElementComponent",
+      "Name": "SAP Frame Element",
+      "ComponentGuid": "c78dc482-03ca-fb8c-596f-894219f00e86"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "SAP Node Element",
+      "ComponentGuid": "5567d25d-a88e-5d08-81f8-bdaff544709b"
+    },
+    {
+      "Class": "PointObj_SetRestraintComponent",
+      "Name": "SAP Node Restraint",
+      "ComponentGuid": "867e952f-7139-6350-f087-3fbd1d061bdc"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build SAP Model",
+      "ComponentGuid": "448661f3-127a-0113-e6c8-5495e3279d16"
+    },
+    {
+      "Class": "MergeModelsComponent",
+      "Name": "Merge SAP Models",
+      "ComponentGuid": "824422e5-1a40-bbe1-b6f8-116335f38cd5"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate SAP Model",
+      "ComponentGuid": "fd2fe5dd-6f47-76c9-aa49-b7609bd6f1fc"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "SAP Model Summary",
+      "ComponentGuid": "4e3b3a4b-c0e1-f86f-1d85-41bac30ffe75"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview SAP Model",
+      "ComponentGuid": "5d900d76-f926-632a-d1d3-fb28a22cf597"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose SAP Model",
+      "ComponentGuid": "11684a49-6d52-da25-9e21-fc06c15fcc4a"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "SAP Model Physical Geometry",
+      "ComponentGuid": "4b01f40c-1243-f13f-c744-3f33a26dfb61"
+    },
+    {
+      "Class": "ElementFilterComponent",
+      "Name": "Filter SAP Elements",
+      "ComponentGuid": "de394c36-b234-87c6-8e18-1617a86e0ec1"
+    }
+  ],
+  "Objects": 35,
+  "Wires": 24,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "SAP Frame Section Rectangle",
+      "Input": "MatProp"
+    },
+    {
+      "From": "h [m]",
+      "Output": "Number Slider",
+      "To": "SAP Frame Section Rectangle",
+      "Input": "T3"
+    },
+    {
+      "From": "b [m]",
+      "Output": "Number Slider",
+      "To": "SAP Frame Section Rectangle",
+      "Input": "T2"
+    },
+    {
+      "From": "SAP Frame Section Rectangle",
+      "Output": "Definition",
+      "To": "SAP Frame Element",
+      "Input": "Property"
+    },
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "SAP Node Restraint",
+      "Input": "Name"
+    },
+    {
+      "From": "SAP Frame Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Restraint",
+      "Output": "Definition",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Frame Section Rectangle",
+      "Output": "Definition",
+      "To": "SAP Frame Element",
+      "Input": "Property"
+    },
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "SAP Node Restraint",
+      "Input": "Name"
+    },
+    {
+      "From": "SAP Frame Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Restraint",
+      "Output": "Definition",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "SAP Node Element",
+      "Output": "Element",
+      "To": "Build SAP Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Merge SAP Models",
+      "Input": "Models"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Merge SAP Models",
+      "Input": "Models"
+    },
+    {
+      "From": "Merge",
+      "Output": "Model",
+      "To": "Validate SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Merge",
+      "Output": "Model",
+      "To": "SAP Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Merge",
+      "Output": "Model",
+      "To": "Preview SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Merge",
+      "Output": "Model",
+      "To": "Decompose SAP Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Merge",
+      "Output": "Model",
+      "To": "SAP Model Physical Geometry",
+      "Input": "Model"
+    },
+    {
+      "From": "Merge",
+      "Output": "Model",
+      "To": "Filter SAP Elements",
+      "Input": "Definition"
+    }
+  ]
+}

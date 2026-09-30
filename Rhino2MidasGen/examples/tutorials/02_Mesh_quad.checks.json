@@ -1,0 +1,182 @@
+{
+  "Project": "Rhino2MidasGen",
+  "File": "02_Mesh_quad.gh",
+  "Title": "Mesh quadrangolare e pressione",
+  "Description": "Piastra 4 x 3 m: 9 nodi, 4 facce Quad4, spessore 0.20 m. Pressione -5 kN/m2 in Z globale e bordo incastrato. La discretizzazione serve a illustrare il flusso.",
+  "Topics": [
+    "Mesh quadrangolare e pressione"
+  ],
+  "Instructions": [],
+  "Fingerprints": [
+    "2DE0AF24F329D8625DCA987503D03F26381F825D2AC59D3EBA65D9C91A0AA50C"
+  ],
+  "PluginComponents": [
+    {
+      "Class": "MaterialComponent",
+      "Name": "Midas GEN Isotropic Material",
+      "ComponentGuid": "29b38b77-f28d-fba9-a9fe-664fec0d4e14"
+    },
+    {
+      "Class": "ThicknessComponent",
+      "Name": "Midas GEN Plate Thickness",
+      "ComponentGuid": "6759e8a5-17fe-f988-4de5-a846b0d715af"
+    },
+    {
+      "Class": "MeshToPlatesComponent",
+      "Name": "Midas GEN Mesh to Plates",
+      "ComponentGuid": "738fa730-b79a-2ea6-a6d6-bcebaa3d7eb8"
+    },
+    {
+      "Class": "NodeElementComponent",
+      "Name": "Midas GEN Node",
+      "ComponentGuid": "219f2f1f-c065-8c0f-cf93-5a90206cc012"
+    },
+    {
+      "Class": "SupportComponent",
+      "Name": "Midas GEN Node Support",
+      "ComponentGuid": "7e5f8ac6-b492-240b-277d-196a3af531a4"
+    },
+    {
+      "Class": "LoadCaseComponent",
+      "Name": "Midas GEN Static Load Case",
+      "ComponentGuid": "075959ea-2414-aa86-44d3-c23d998a9232"
+    },
+    {
+      "Class": "PlatePressureComponent",
+      "Name": "Midas GEN Plate Pressure",
+      "ComponentGuid": "bba32960-600a-a155-493a-b4454db06539"
+    },
+    {
+      "Class": "BuildModelComponent",
+      "Name": "Build Midas GEN Model",
+      "ComponentGuid": "b4c1e2fc-5594-56d0-ad95-eb3aed6067a0"
+    },
+    {
+      "Class": "ValidateModelComponent",
+      "Name": "Validate Midas GEN Model",
+      "ComponentGuid": "7c0ff26e-0b0a-ce03-a9c1-a551d18e2f82"
+    },
+    {
+      "Class": "ModelSummaryComponent",
+      "Name": "Midas GEN Model Summary",
+      "ComponentGuid": "0ef64bbf-d112-5c50-8ce5-60d9b671b96f"
+    },
+    {
+      "Class": "PreviewModelComponent",
+      "Name": "Preview Midas GEN Model",
+      "ComponentGuid": "29909efd-fad0-81d3-813f-97e5de9dcbfa"
+    },
+    {
+      "Class": "DecomposeModelComponent",
+      "Name": "Decompose Midas GEN Model",
+      "ComponentGuid": "bea48586-34ae-1402-a63e-683d38670a10"
+    },
+    {
+      "Class": "PhysicalGeometryComponent",
+      "Name": "Midas GEN Physical Geometry",
+      "ComponentGuid": "c90021a8-688b-4fac-f78b-9c8dd55c37d1"
+    }
+  ],
+  "Objects": 24,
+  "Wires": 17,
+  "ModelChecks": 1,
+  "PhysicalChecks": 1,
+  "ReopenedGh": true,
+  "ReopenedGhx": true,
+  "SliderVolumeChangeChecked": true,
+  "SolverExecuted": false,
+  "ExternalFilesWritten": false,
+  "Messages": [],
+  "Connections": [
+    {
+      "From": "Spessore t [m]",
+      "Output": "Number Slider",
+      "To": "Midas GEN Plate Thickness",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Mesh incorporata",
+      "Output": "Mesh",
+      "To": "Midas GEN Mesh to Plates",
+      "Input": "Mesh"
+    },
+    {
+      "From": "Material",
+      "Output": "Material",
+      "To": "Midas GEN Mesh to Plates",
+      "Input": "Material"
+    },
+    {
+      "From": "Thickness",
+      "Output": "Thickness",
+      "To": "Midas GEN Mesh to Plates",
+      "Input": "Thickness"
+    },
+    {
+      "From": "Node",
+      "Output": "Node",
+      "To": "Midas GEN Node Support",
+      "Input": "Nodes"
+    },
+    {
+      "From": "Mesh Plates",
+      "Output": "Plates",
+      "To": "Midas GEN Plate Pressure",
+      "Input": "Plate"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Name",
+      "To": "Midas GEN Plate Pressure",
+      "Input": "Case"
+    },
+    {
+      "From": "Pressure",
+      "Output": "Plate",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Support",
+      "Output": "Nodes",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Load Case",
+      "Output": "Case",
+      "To": "Build Midas GEN Model",
+      "Input": "Definitions"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Validate Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Model Summary",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Preview Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Decompose Midas GEN Model",
+      "Input": "Model"
+    },
+    {
+      "From": "Model",
+      "Output": "Model",
+      "To": "Midas GEN Physical Geometry",
+      "Input": "Model"
+    }
+  ]
+}

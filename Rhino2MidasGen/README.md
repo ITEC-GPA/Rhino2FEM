@@ -82,3 +82,7 @@ La build elimina i vecchi `bin/obj` intermedi, ricrea il contenuto di `bin`, ese
 Caricare **solo questa cartella `bin`** tramite GrasshopperDeveloperSettings, oppure copiarne l'intero contenuto in un'unica cartella delle Libraries di Grasshopper. Usare una sola delle due modalità e sostituire l'installazione precedente: caricare contemporaneamente copie installate, `bin` e vecchi pacchetti genera duplicati. Le DLL accanto al `.gha` sono necessarie. Chiudere Rhino prima di ricompilare se i file sono in uso.
 
 Gli strumenti Rhino.Inside di verifica/generazione esempi leggono il plugin da `bin`: eseguire prima `./build.ps1`. Dopo l'uso dei tool, `./clean.ps1` rimuove anche i loro intermedi.
+
+## Tutorial e importazione
+
+La [raccolta tematica](examples/tutorials/README.md) contiene file .gh/.ghx con geometrie, collegamenti e istruzioni. Il tutorial 11 legge il documento MIDAS attivo e restituisce il Model: Tables in ingresso è opzionale; Tables in uscita elenca le tabelle ricevute e Issues espone i limiti. [Guida importazione](docs/IMPORT.md).

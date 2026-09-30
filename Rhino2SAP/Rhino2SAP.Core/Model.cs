@@ -11,6 +11,10 @@ public readonly record struct Position(double X, double Y, double Z)
     public bool IsFinite => double.IsFinite(X) && double.IsFinite(Y) && double.IsFinite(Z);
 }
 public enum ElementKind { Node, Frame, Area, Solid, Link, Cable }
+
+/// <summary>A read-only association with a native SDB, preserving definitions not represented by GH.</summary>
+public sealed record NativeModelSource(string FilePath, string FileHash, string DefinitionFingerprint,
+    string[] Cases, string[] Combinations, string[] Issues, bool HasModal = false, bool HasBuckling = false);
 public sealed record Element
 {
     public string Name { get; init; }
@@ -38,12 +42,33 @@ public sealed record Operation
 
 public sealed class Fragment
 {
+    public NativeModelSource? NativeSource { get; }
     public IReadOnlyList<Operation> Operations { get; }
     public IReadOnlyList<Element> Elements { get; }
-    public Fragment(IEnumerable<Operation>? operations = null, IEnumerable<Element>? elements = null)
-    { Operations = Array.AsReadOnly((operations ?? []).ToArray()); Elements = Array.AsReadOnly((elements ?? []).ToArray()); }
-    public Fragment Append(Operation op) => new(Operations.Append(op), Elements.Select(e=>e with { Results=null }));
-    public static Fragment Combine(IEnumerable<Fragment> fragments) => new(fragments.SelectMany(f=>f.Operations), fragments.SelectMany(f=>f.Elements));
+    public Fragment(IEnumerable<Operation>? operations = null, IEnumerable<Element>? elements = null, NativeModelSource? nativeSource = null)
+    {
+        Operations = Array.AsReadOnly((operations ?? []).ToArray());
+        Elements = Array.AsReadOnly((elements ?? []).ToArray());
+        NativeSource = nativeSource;
+    }
+    public void RequireEditable()
+    {
+        if (NativeSource != null)
+            throw new InvalidOperationException("This Model is associated with a native SAP file. Edit that file and import it again; export and analysis preserve its complete native definition.");
+    }
+    public Fragment Append(Operation op)
+    {
+        RequireEditable();
+        return new(Operations.Append(op), Elements.Select(e=>e with { Results=null }));
+    }
+    public static Fragment Combine(IEnumerable<Fragment> fragments)
+    {
+        var items = fragments.ToArray();
+        var sources = items.Select(f => f.NativeSource).OfType<NativeModelSource>().ToArray();
+        if (sources.Any(s => s.FileHash != sources[0].FileHash || s.DefinitionFingerprint != sources[0].DefinitionFingerprint))
+            throw new ArgumentException("Cannot merge different native SAP model associations.");
+        return new(items.SelectMany(f=>f.Operations), items.SelectMany(f=>f.Elements), sources.FirstOrDefault());
+    }
     public override string ToString() => $"SAP fragment: {Elements.Count} elements, {Operations.Count} operations";
 }
 
@@ -53,16 +78,23 @@ public sealed class SapModel
     public int Units { get; }
     public double Tolerance { get; }
     public ResultSet? Results { get; }
+    public NativeModelSource? NativeSource => Definition.NativeSource;
     public string Fingerprint { get; }
     public SapModel(Fragment definition, int units = 6, double tolerance = 1e-6, ResultSet? results = null)
     {
         if (units < 1 || units > 16) throw new ArgumentOutOfRangeException(nameof(units), "Use SAP eUnits values 1..16; 6 = kN_m_C.");
         if (!double.IsFinite(tolerance) || tolerance <= 0) throw new ArgumentOutOfRangeException(nameof(tolerance));
-        Definition = Normalize(new Fragment(definition.Operations,definition.Elements.Select(e=>e with { Results=null })),tolerance); Units = units; Tolerance = tolerance;
+        Definition = Normalize(new Fragment(definition.Operations,definition.Elements.Select(e=>e with { Results=null }),definition.NativeSource),tolerance); Units = units; Tolerance = tolerance;
         Fingerprint = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(new { Units, Tolerance, Elements=Definition.Elements.OrderBy(e=>e.Kind).ThenBy(e=>e.Name).Select(e=>new{e.Name,e.Kind,e.Points,e.Property}), Operations=Definition.Operations.Select(o=>o.Identity) }))));
+        if (NativeSource is { } source)
+        {
+            if (Fingerprint != source.DefinitionFingerprint)
+                throw new InvalidOperationException("An imported native Model must retain its complete definition, units and tolerance. Reimport after editing in SAP.");
+            Fingerprint = Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(Fingerprint + "|SAP:" + source.FileHash)));
+        }
         if (results != null && results.Fingerprint != Fingerprint) throw new InvalidOperationException("The results belong to a different model definition.");
         Results = results;
-        if(results!=null)Definition=new Fragment(Definition.Operations,Definition.Elements.Select(e=>e with { Results=ElementResults.Attach(e,results,tolerance) }));
+        if(results!=null)Definition=new Fragment(Definition.Operations,Definition.Elements.Select(e=>e with { Results=ElementResults.Attach(e,results,tolerance) }),Definition.NativeSource);
     }
     private static Fragment Normalize(Fragment definition,double tolerance)
     {
@@ -89,7 +121,7 @@ public sealed class SapModel
         var conflicts = ops.Where(o=>o.Stage<=30 && o.Arguments.ContainsKey("Name"))
             .GroupBy(o=>(o.Key,o.Arguments["Name"].GetString())).FirstOrDefault(g=>g.Select(o=>o.Identity).Distinct().Count()>1);
         if(conflicts!=null) throw new ArgumentException($"Conflicting definition: {conflicts.Key}.");
-        return new Fragment(ops,elements.Values);
+        return new Fragment(ops,elements.Values,definition.NativeSource);
     }
     public SapModel WithResults(ResultSet results) => new(Definition,Units,Tolerance,results);
     public SapModel WithoutResults() => new(Definition,Units,Tolerance);
@@ -111,6 +143,8 @@ public static class ModelValidation
         {
             if(string.IsNullOrWhiteSpace(e.Name)) errors.Add("Element names cannot be empty.");
             if(e.Points.Any(p=>!p.IsFinite)) errors.Add($"{e.Name}: non-finite coordinates.");
+            // Native topology (including zero-length links and polygonal areas) is kept in the SDB.
+            if(model.NativeSource != null) continue;
             int count=e.Points.Count;
             if(e.Kind==ElementKind.Node && count!=1 || e.Kind is ElementKind.Frame or ElementKind.Link or ElementKind.Cable && count!=2 || e.Kind==ElementKind.Area && count is not (3 or 4) || e.Kind==ElementKind.Solid && count!=8)
                 errors.Add($"{e.Name}: invalid vertex count for {e.Kind}.");

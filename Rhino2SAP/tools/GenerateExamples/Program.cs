@@ -33,19 +33,21 @@ internal static class Program
             var load=server.GetType().GetMethod("LoadGHA",BindingFlags.Instance|BindingFlags.NonPublic)??throw new MissingMethodException("Grasshopper LoadGHA");
             var coreInfo=new GH_AssemblyInfoStub(typeof(GH_Component).Assembly);server.AddProxyLibraryInfo(coreInfo);
             var proxyType=typeof(GH_Component).Assembly.GetType("Grasshopper.Kernel.GH_CompiledObjectProxy",true)!;
-            foreach(var item in new IGH_DocumentObject[]{new GH_Panel(),new GH_Group(),new GH_NumberSlider(),new GH_BooleanToggle(),new Param_Brep(),new Param_Mesh()})
+            foreach(var item in new IGH_DocumentObject[]{new GH_Panel(),new GH_Group(),new GH_NumberSlider(),new GH_BooleanToggle(),new Param_Brep(),new Param_Mesh(),new Param_Curve(),new Param_Point(),new Param_Line(),new Param_Vector(),new Param_Plane()})
                 server.AddProxy((IGH_ObjectProxy)Activator.CreateInstance(proxyType,BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance,null,[item,coreInfo],null)!);
             if(!(bool)load.Invoke(server,[new GH_ExternalFile(plugin),false])!)throw new Exception("Grasshopper could not register the plugin.");
             Console.WriteLine("Registered Grasshopper built-ins and Rhino2SAP only.");
             string directory=output??Path.Combine(root,".local","examples-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
-            var report=new List<object>();
+            var report=new List<ExampleReport>();
             foreach(var example in Examples.Create(assembly))
             {
+                Console.WriteLine("Generating "+example.Name);
                 using var doc=example.Graph.Document;
                 foreach(var obj in doc.Objects)
                     if(global::Grasshopper.Instances.ComponentServer.EmitObject(obj.ComponentGuid)==null)throw new Exception("Unregistered component: "+obj.Name);
                 doc.Enabled=true;doc.NewSolution(false,GH_SolutionMode.Silent);
-                Verify(doc,example.ExpectedBreps);
+                Verify(doc,example);
+                var fingerprints=Fingerprints(doc);
                 int objectCount=doc.Objects.Count,wireCount=WireCount(doc);
                 foreach(string extension in new[]{"gh","ghx"})
                 {
@@ -54,32 +56,52 @@ internal static class Program
                     var opened=new GH_DocumentIO();if(!opened.Open(file))throw new Exception("Could not reopen "+file);
                     using var restored=opened.Document;
                     if(restored.Objects.Count!=objectCount||WireCount(restored)!=wireCount)throw new Exception("Round trip lost objects/wires in "+file);
-                    restored.Enabled=true;restored.NewSolution(false,GH_SolutionMode.Silent);Verify(restored,example.ExpectedBreps);
+                    restored.Enabled=true;restored.NewSolution(false,GH_SolutionMode.Silent);Verify(restored,example);
+                    if(!fingerprints.SequenceEqual(Fingerprints(restored)))throw new Exception("Round trip changed the Model definitions in "+file);
                     Console.WriteLine($"PASS {Path.GetFileName(file)}: reopened, {objectCount} objects, {wireCount} wires, {example.ExpectedBreps} closed Breps, Run/Bake=false.");
                 }
-                Render(doc,Path.Combine(directory,example.Name+".png"));
-                report.Add(new{File=example.Name+".gh",Objects=objectCount,Wires=wireCount,SapComponents=doc.Objects.OfType<GH_Component>().Count(c=>c.Category=="SAP2000"),ClosedBreps=example.ExpectedBreps,RoundTripGh=true,RoundTripGhx=true,AnalysisExecuted=false});
+                Render(doc,Path.Combine(directory,example.Name.ToLowerInvariant()+".png"));
+                var components=doc.Objects.OfType<GH_Component>().Where(c=>c.Category=="SAP2000").ToArray();
+                report.Add(new(example.Name+".gh",example.Description,example.Mode,objectCount,wireCount,components.Length,
+                    example.ExpectedBreps,components.Select(c=>c.SubCategory).Distinct().Order().ToArray(),
+                    components.Select(c=>c.GetType().Name).Distinct().Order().ToArray(),fingerprints));
+                ExampleDocumentation.WriteGuide(directory,example,components);
             }
-            File.WriteAllText(Path.Combine(directory,"validation.json"),JsonSerializer.Serialize(new{GeneratedUtc=DateTimeOffset.UtcNow,Examples=report},new JsonSerializerOptions{WriteIndented=true}));
+            var topics=(IReadOnlyList<string>)assembly.GetType("Rhino2SAP.Grasshopper.ComponentTopics")!.GetProperty("All")!.GetValue(null)!;
+            var covered=report.SelectMany(r=>r.Topics).ToHashSet();
+            var missing=topics.Where(t=>!covered.Contains(t)).ToArray();
+            if(missing.Length!=0)throw new Exception("Topics without examples: "+string.Join(", ",missing));
+            File.WriteAllText(Path.Combine(directory,"validation.json"),JsonSerializer.Serialize(new{GeneratedUtc=DateTimeOffset.UtcNow,Topics=topics.Count,CoveredTopics=covered.Count,Examples=report},new JsonSerializerOptions{WriteIndented=true}));
+            ExampleDocumentation.WriteIndex(directory,report,topics);
             Console.WriteLine("Completed examples and canvas previews: "+directory);
             return 0;
         }
         catch(Exception ex){Console.WriteLine(ex);return 1;}
     }
     static int WireCount(GH_Document doc)=>doc.Objects.OfType<IGH_Param>().Sum(p=>p.SourceCount)+doc.Objects.OfType<GH_Component>().Sum(c=>c.Params.Input.Sum(p=>p.SourceCount));
-    static void Verify(GH_Document doc,int expectedBreps)
+    static string[] Fingerprints(GH_Document doc)=>doc.Objects.OfType<GH_Component>().SelectMany(c=>c.Params.Output)
+        .SelectMany(p=>p.VolatileData.AllData(true)).Select(v=>v?.ScriptVariable()).OfType<SapModel>()
+        .Select(m=>m.Fingerprint).Distinct().Order().ToArray();
+    static void Verify(GH_Document doc,Example example)
     {
         foreach(var toggle in doc.Objects.OfType<GH_BooleanToggle>())if(toggle.NickName is "RUN SAP" or "BAKE SOLIDI"&&toggle.Value)throw new Exception("Action trigger unexpectedly true.");
         var components=doc.Objects.OfType<GH_Component>().ToArray();
         var errors=components.SelectMany(c=>c.RuntimeMessages(GH_RuntimeMessageLevel.Error).Select(e=>c.Name+": "+e)).ToArray();
         if(errors.Length>0)throw new Exception(string.Join("\n",errors));
-        var model=components.Single(c=>c.GetType().Name=="BuildModelComponent").Params.Output[0].VolatileData.AllData(true).Single().ScriptVariable() as SapModel??throw new Exception("No Model output.");
-        ModelValidation.RequireValid(model);
-        var preview=components.Single(c=>c.GetType().Name=="PreviewModelComponent");
-        var breps=preview.Params.Output[2].VolatileData.AllData(true).OfType<GH_Brep>().Select(b=>b.Value).ToArray();
-        if(breps.Length!=expectedBreps||breps.Any(b=>!b.IsValid||!b.IsSolid))throw new Exception("Invalid or missing physical Breps.");
-        if(components.Any(c=>c.GetType().Name=="AnalyzeAndEmbedComponent"&&c.Params.Output[0].VolatileData.AllData(true).Any(v=>v?.ScriptVariable()!=null)))throw new Exception("Unexpected analysis results.");
-        foreach(var component in components.Where(c=>c.GetType().Name=="BakeGeometryComponent"))if(component.Params.Output[0].VolatileData.AllData(true).Any(v=>v?.ScriptVariable()!=null))throw new Exception("Unexpected baked objects.");
+        foreach(var component in components)
+        {
+            foreach(var input in component.Params.Input.Where(p=>!p.Optional&&p.SourceCount==0&&p.VolatileDataCount==0))
+                throw new Exception(component.Name+": required input has no data or wire: "+input.Name);
+            foreach(var input in component.Params.Input.Where(p=>p.Name is "Run" or "Bake"))
+                if(input.VolatileData.AllData(true).OfType<GH_Boolean>().Any(v=>v.Value))throw new Exception(component.Name+": action enabled.");
+            if(component.Params.Input.Any(p=>p.Name is "Run" or "Bake")&&component.Params.Output.SelectMany(p=>p.VolatileData.AllData(true)).Any(v=>v?.ScriptVariable()!=null))
+                throw new Exception("An action published data before a trigger: "+component.Name);
+        }
+        var models=components.SelectMany(c=>c.Params.Output).SelectMany(p=>p.VolatileData.AllData(true)).Select(v=>v?.ScriptVariable()).OfType<SapModel>().ToArray();
+        if(example.RequiresModel&&models.Length==0)throw new Exception("No Model output.");
+        foreach(var model in models)ModelValidation.RequireValid(model);
+        var breps=components.Where(c=>c.GetType().Name=="PreviewModelComponent").SelectMany(c=>c.Params.Output[2].VolatileData.AllData(true)).OfType<GH_Brep>().Select(b=>b.Value).ToArray();
+        if(breps.Length!=example.ExpectedBreps||breps.Any(b=>!b.IsValid||!b.IsSolid))throw new Exception($"Invalid physical Breps: expected {example.ExpectedBreps}, got {breps.Length}.");
     }
     static void Render(GH_Document doc,string path)
     {
