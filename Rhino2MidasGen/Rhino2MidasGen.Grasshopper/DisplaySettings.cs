@@ -39,7 +39,7 @@ public static class DisplayPreferences
 }
 public sealed class DisplayMenu:GH_AssemblyPriority
 {
-    public override GH_LoadingInstruction PriorityLoad(){DisplayPreferences.Load();Rhino.RhinoApp.Idle+=Install;return GH_LoadingInstruction.Proceed;}
+    public override GH_LoadingInstruction PriorityLoad(){DisplayPreferences.Load();Rhino.RhinoApp.Idle+=Install;Gpc.PluginChecks.PluginBuildCheck.Start(typeof(DisplayMenu).Assembly,"Rhino2MidasGen");return GH_LoadingInstruction.Proceed;}
     private static void Install(object? sender,EventArgs args)
     {
         var editor=global::Grasshopper.Instances.DocumentEditor;if(editor?.MainMenuStrip==null)return;
